@@ -1,5 +1,7 @@
+import MainSection from "./components/MainSection/MainSection";
+
 function App() {
-  return <>crypto-trail</>;
+  return <MainSection />;
 }
 
 export default App;
