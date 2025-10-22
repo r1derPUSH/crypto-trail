@@ -1,7 +1,7 @@
 import "../MainSection/mainSection.css";
 
 function MainSection() {
-  return <div></div>;
+  return <></>;
 }
 
 export default MainSection;
