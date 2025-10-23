@@ -1,0 +1,10 @@
+.invest-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invest-img img {
+  width: 30%;
+  height: 30%;
+}
