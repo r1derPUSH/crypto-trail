@@ -1,5 +1,4 @@
 import React from "react";
-import "./invest.png";
 
 function InvestButtonFooter() {
   return (
