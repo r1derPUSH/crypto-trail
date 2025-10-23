@@ -1,0 +1,9 @@
+/* styles for footer */
+
+.footer {
+  background-color: #1e2b4c;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+}
