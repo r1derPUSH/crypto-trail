@@ -1,0 +1,12 @@
+.home-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-button-active {
+  background-color: #1e2b4c;
+}
+
+span {
+}

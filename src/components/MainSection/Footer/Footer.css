@@ -1,6 +1,9 @@
 /* styles for footer */
 
 .footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   background-color: #1e2b4c;
   position: fixed;
   bottom: 0;
