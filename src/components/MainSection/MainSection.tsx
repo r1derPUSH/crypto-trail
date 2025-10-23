@@ -6,13 +6,11 @@ import Footer from "./Footer/Footer";
 
 function MainSection() {
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/overview" element={<Overview />} />
-        <Route path="/footer" element={<Footer />} />
-      </Routes>
-    </HashRouter>
+    <>
+      <Home />
+      <Overview />
+      <Footer />
+    </>
   );
 }
 
