@@ -1,12 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import "./InvestButton.css";
 import investImg from "./imgInvest.png";
 
 function InvestButtonFooter() {
+  const [homeSection, setHomeSection] = useState(false);
+
   return (
-    <div className="invest-img">
+    <button className="invest-img">
       <img src={investImg} alt="Invest" />
-    </div>
+    </button>
   );
 }
 

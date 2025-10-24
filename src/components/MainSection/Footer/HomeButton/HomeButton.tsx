@@ -1,11 +1,12 @@
 import React from "react";
 import "./HomeButton.css";
+// import type { fnProps } from "../../../MainSection/MainSection";
 
 function HomeButton() {
   return (
-    <div className="home-button">
+    <button className="home-button">
       <span>Home</span>
-    </div>
+    </button>
   );
 }
 
