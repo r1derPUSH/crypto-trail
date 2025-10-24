@@ -16,7 +16,6 @@
   border: none;
 }
 
-/* ефект підсвічування при наведенні */
 .home-button::before {
   content: "";
   position: absolute;
@@ -39,9 +38,6 @@
   z-index: 1;
 }
 
-/* активна кнопка (якщо сторінка Home активна) */
-
-/* активна кнопка (якщо сторінка Home активна) */
 .home-button:active {
   background: linear-gradient(180deg, #00b4d8, #0096c7);
   color: #032c53;
