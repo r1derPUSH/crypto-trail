@@ -2,9 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: linear-gradient(135deg, #032c53, #004e92); */
+  background: linear-gradient(
+    180deg,
+    #00b4d8 0%,
+    #90e0ef 40%,
+    #caf0f8 70%,
+    #032c53 100%
+  );
+  height: 100%;
+  width: 20vw;
+  border-radius: 50px 50px 5px 5px;
 }
 
 .invest-img img {
-  width: 5vw;
-  height: 5vw;
+  width: 5vh;
+  height: 5vh;
 }
