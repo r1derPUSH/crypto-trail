@@ -1,14 +1,15 @@
+/* Invest Button css */
+
 .invest-img {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: linear-gradient(135deg, #032c53, #004e92); */
   background: linear-gradient(
     180deg,
     #00b4d8 0%,
     #90e0ef 40%,
     #caf0f8 70%,
-    #032c53 100%
+    #86b2dc 100%
   );
   height: 100%;
   width: 20vw;
@@ -16,6 +17,11 @@
 }
 
 .invest-img img {
-  width: 5vh;
-  height: 5vh;
+  width: 8vh;
+  height: 8vh;
 }
+
+/* 
+@media (max-width: ) {
+  
+} */
