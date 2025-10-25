@@ -14,3 +14,9 @@
   height: 10vh;
   border-radius: 15px 15px 0 0;
 }
+
+@media (max-height: 500px) {
+  .footer {
+    height: 20vh;
+  }
+}
