@@ -5,7 +5,6 @@ body {
       transparent 70%
     ),
     linear-gradient(180deg, #3b4cca 0%, #2a3e91 40%, #1f2e66 80%, #0e1329 100%);
-  background-size: cover;
   padding: 0;
   margin: 0;
   width: 100vw;
