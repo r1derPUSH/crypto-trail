@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 import MainSection from "./components/MainSection/MainSection";
+import "./components/MainSection/mainSection.css";
 
 function App() {
   return (
