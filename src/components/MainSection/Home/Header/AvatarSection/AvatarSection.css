@@ -1,3 +1,4 @@
+/* section for > arrow */
 .arrow-btn {
   background: linear-gradient(180deg, #253a66 0%, #1a2b4c 100%);
   border-radius: 12px;
@@ -22,4 +23,13 @@
 .avatar-container {
   width: 20vw;
   background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* section for user-img */
+
+.user-img {
+  width: 5vh;
+  height: 5vh;
+  border: 1px solid rgb(68, 179, 249);
+  border-radius: 15px;
 }
