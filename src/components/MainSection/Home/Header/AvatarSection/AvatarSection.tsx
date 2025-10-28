@@ -1,11 +1,12 @@
 import { FiChevronRight } from "react-icons/fi";
 import "./AvatarSection.css";
+import manExampleAvatar from "../img/manExaple.jpg";
 
 function AvatarSection() {
   return (
     <div className="avatar-container">
-      <img src="" alt="Avatar" />
-      <span className="username">username</span>
+      <img className="user-img" src={manExampleAvatar} alt="Avatar" />
+      <span className="username">Serhii Donkov</span>
       <FiChevronRight className="arrow-right-icon" />
     </div>
   );
