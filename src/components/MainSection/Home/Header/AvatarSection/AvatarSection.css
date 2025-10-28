@@ -15,6 +15,12 @@
   transition: all 0.25s ease;
 }
 
+.button-arrow-right {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
 .arrow-btn:hover .arrow-right-icon {
   transform: translateX(3px);
   filter: drop-shadow(0 0 6px #00e5b0);

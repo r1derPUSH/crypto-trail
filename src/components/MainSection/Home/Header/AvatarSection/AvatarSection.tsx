@@ -7,7 +7,9 @@ function AvatarSection() {
     <div className="avatar-container">
       <img className="user-img" src={manExampleAvatar} alt="Avatar" />
       <span className="username">Serhii Donkov</span>
-      <FiChevronRight className="arrow-right-icon" />
+      <button className="button-arrow-right">
+        <FiChevronRight className="arrow-right-icon" />
+      </button>
     </div>
   );
 }
