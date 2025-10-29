@@ -1,0 +1,50 @@
+.income-parent-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.income-section-container {
+  border-radius: 15px;
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(240, 248, 255, 0.136);
+}
+
+.income-section-bottom {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: rgba(240, 248, 255, 0.236);
+}
+
+/* styles for top of component */
+
+.income-section-top {
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  font-size: 3rem;
+  padding: 50px;
+}
+
+.total-balance-text {
+  color: #ffffff90;
+  font-size: 3rem;
+}
+
+.total-balance-quantity {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 500px) {
+  .total-balance-text {
+    font-size: 0.7rem;
+  }
+  .income-section-top {
+    padding: 20px;
+  }
+}
