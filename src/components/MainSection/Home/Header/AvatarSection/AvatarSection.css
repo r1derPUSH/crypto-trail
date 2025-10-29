@@ -1,0 +1,103 @@
+/* section for > arrow */
+.arrow-btn {
+  background: linear-gradient(180deg, #253a66 0%, #1a2b4c 100%);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.arrow-right-icon {
+  color: #00e5b0;
+  font-size: 2rem;
+  transition: all 0.25s ease;
+}
+
+.button-arrow-right {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.arrow-btn:hover .arrow-right-icon {
+  transform: translateX(3px);
+  filter: drop-shadow(0 0 6px #00e5b0);
+}
+
+.avatar-container {
+  font-family: "Ubuntu", sans-serif;
+  color: #fff;
+  font-weight: 200;
+  font-size: 0.9rem;
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20vw;
+  height: 5.5vh;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* .avatar-content-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+/* section for user-img */
+
+.user-img {
+  height: 100%;
+  width: 6vh;
+  border: 1px solid rgb(67, 179, 249);
+  border-radius: 10px;
+}
+
+/* section for username */
+
+@media (max-width: 970px) {
+  .avatar-container {
+    width: 30vw;
+  }
+}
+
+@media (max-height: 450px) {
+  .arrow-right-icon {
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .avatar-container {
+    /* margin-left: 1rem; */
+    width: 40vw;
+    height: 3.5vh;
+    font-size: 0.6rem;
+  }
+
+  .arrow-right-icon {
+    font-size: 1rem;
+  }
+
+  .username {
+    margin-left: 0.2rem;
+  }
+
+  .user-img {
+    height: 100%;
+    width: 4vh;
+  }
+}
+
+@media (max-width: 310px) {
+  .username {
+    margin-left: 1rem;
+    /* font-size: 0.4rem; */
+  }
+}

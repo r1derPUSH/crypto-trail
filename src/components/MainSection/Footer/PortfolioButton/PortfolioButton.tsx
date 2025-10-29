@@ -4,7 +4,7 @@ import "./PortfolioButton.css";
 function PortfolioButton() {
   return (
     <button className="portfolio-section">
-      <span>Portfolio</span>
+      <span>Wallet</span>
     </button>
   );
 }

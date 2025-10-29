@@ -1,7 +1,13 @@
-import React from "react";
+import Header from "./Header/Header";
+import IncomeSection from "./IncomeSection/IncomeSection";
 
 function Home() {
-  return <div></div>;
+  return (
+    <>
+      <Header />
+      <IncomeSection />
+    </>
+  );
 }
 
 export default Home;
