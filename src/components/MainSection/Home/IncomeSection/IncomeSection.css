@@ -13,7 +13,8 @@
 }
 
 .income-section-bottom {
-  border-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   background-color: rgba(240, 248, 255, 0.236);
 }
 
@@ -33,6 +34,10 @@
 .total-balance-text {
   color: #ffffff90;
   font-size: 3rem;
+}
+
+.total-balance-quantity {
+  font-size: 2.5rem;
 }
 
 @media (max-width: 500px) {
