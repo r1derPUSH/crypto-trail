@@ -62,6 +62,15 @@
   animation: neonPulse 0.4s ease;
 }
 
+/* 
+@media (max-width: ) {
+  
+} */
+
+@media (max-height: 400px) {
+  .invest-img img {
+    width: 15vh;
+    height: 15vh;
 /* Ключова анімація "спалаху" */
 @keyframes neonPulse {
   0% {
