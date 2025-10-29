@@ -1,0 +1,20 @@
+.income-parent-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.income-section-container {
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(240, 248, 255, 0.136);
+}
+
+.income-section-bottom {
+  background-color: rgba(240, 248, 255, 0.236);
+}
+
+/* styles for top of component */
+ {
+}
