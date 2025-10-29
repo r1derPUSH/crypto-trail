@@ -5,7 +5,7 @@ function IncomeSection() {
     <div className="income-parent-box">
       <div className="income-section-container">
         <div className="income-section-top">
-          <span>Total Balance</span>
+          <span className="total-balance-text">Total Balance</span>
           <span>$17,894.02</span>
         </div>
         <div className="income-section-bottom">

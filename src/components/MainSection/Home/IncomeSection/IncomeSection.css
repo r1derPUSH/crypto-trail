@@ -16,5 +16,18 @@
 }
 
 /* styles for top of component */
- {
+
+.income-section-top {
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.total-balance-text {
+  color: #ffffff90;
+  font-size: 3rem;
 }
