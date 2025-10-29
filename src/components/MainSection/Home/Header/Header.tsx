@@ -1,12 +1,17 @@
 import React from "react";
 import AvatarSection from "./AvatarSection/AvatarSection";
-import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar/SearchBar";
+import ChangeTheme from "./ChangeTheme/ChangeTheme";
+import "./Header.css";
 
 function Header() {
   return (
-    <div>
+    <div className="header-container">
       <AvatarSection />
-      <SearchBar />
+      <div className="icons-container">
+        <SearchBar />
+        <ChangeTheme />
+      </div>
     </div>
   );
 }
