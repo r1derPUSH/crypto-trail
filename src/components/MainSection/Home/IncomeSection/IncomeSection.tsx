@@ -6,7 +6,7 @@ function IncomeSection() {
       <div className="income-section-container">
         <div className="income-section-top">
           <span className="total-balance-text">Total Balance</span>
-          <span>$17,894.02</span>
+          <span className="total-balace-quantity">$17,894.02</span>
         </div>
         <div className="income-section-bottom">
           <div className="income-bottom-left-section">Income</div>
