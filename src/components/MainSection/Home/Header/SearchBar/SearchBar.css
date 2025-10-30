@@ -1,12 +1,26 @@
 .searchBar-button {
-  cursor: pointer;
+  /* cursor: pointer; */
   background-color: transparent;
   border: none;
 }
 
-@media (max-width: 600px) {
+.searchBar-img {
+  cursor: pointer;
+  width: 5vw;
+  height: 5vw;
+  /* margin-right: ; */
+}
+
+@media (min-width: 900px) {
   .searchBar-img {
-    width: 7vw;
-    height: 7vw;
+    width: 3vw;
+    height: 3vw;
+  }
+}
+
+@media (max-width: 370px) {
+  .searchBar-img {
+    width: 10vw;
+    height: 10vw;
   }
 }
