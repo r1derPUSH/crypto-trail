@@ -33,18 +33,28 @@
 
 .total-balance-text {
   color: #ffffff90;
-  font-size: 3rem;
+  font-size: 2.2rem;
 }
 
 .total-balance-quantity {
-  font-size: 2.5rem;
+  font-size: 5rem;
 }
-
+/* 
 @media (max-width: 500px) {
   .total-balance-text {
     font-size: 0.7rem;
   }
   .income-section-top {
     padding: 20px;
+  }
+} */
+
+@media (max-width: 650px) {
+  .total-balance-text {
+    font-size: 0.8rem;
+  }
+
+  .total-balance-quantity {
+    font-size: 1.7rem;
   }
 }

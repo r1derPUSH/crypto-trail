@@ -8,16 +8,6 @@ body {
     #1c1f4a 40%,
     #0f1530 100%
   );
-<<<<<<< HEAD
-  background: radial-gradient(
-      circle at 30% 10%,
-      rgba(0, 229, 176, 0.15),
-      transparent 70%
-    ),
-    linear-gradient(180deg, #3b4cca 0%, #2a3e91 40%, #1f2e66 80%, #0e1329 100%);
-  background-size: cover;
-=======
->>>>>>> 8cc618d (Restore lost sections and styles (IncomeSection + mainSection.css))
   padding: 0;
   margin: 0;
   width: 100vw;
