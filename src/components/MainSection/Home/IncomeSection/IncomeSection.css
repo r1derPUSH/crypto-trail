@@ -48,3 +48,11 @@
     padding: 20px;
   }
 }
+
+/* income-section bottom */
+
+.income-section-bottom {
+  height: 7vh;
+  display: flex;
+  justify-content: space-around;
+}
