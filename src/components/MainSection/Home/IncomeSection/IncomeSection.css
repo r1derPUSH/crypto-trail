@@ -58,6 +58,10 @@
 }
 
 .income-bottom-span-container {
+  color: #fff;
+  font-family: "Ubuntu";
+  font-weight: 300;
+  margin-top: 1vh;
   display: flex;
   flex-direction: column;
 }
