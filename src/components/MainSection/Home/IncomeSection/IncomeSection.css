@@ -56,3 +56,8 @@
   display: flex;
   justify-content: space-around;
 }
+
+.income-bottom-span-container {
+  display: flex;
+  flex-direction: column;
+}
