@@ -40,15 +40,6 @@
   font-size: 2.5rem;
 }
 
-@media (max-width: 500px) {
-  .total-balance-text {
-    font-size: 0.7rem;
-  }
-  .income-section-top {
-    padding: 20px;
-  }
-}
-
 /* income-section bottom */
 
 .income-section-bottom {
@@ -64,4 +55,19 @@
   margin-top: 1vh;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 1000px) {
+  .income-section-container {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .total-balance-text {
+    font-size: 0.7rem;
+  }
+  .income-section-top {
+    padding: 20px;
+  }
 }
