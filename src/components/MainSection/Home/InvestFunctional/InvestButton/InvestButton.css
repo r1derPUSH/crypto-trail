@@ -3,26 +3,32 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #3c6efa;
+  background: #4368cc;
   border: none;
   border-radius: 15px;
-  height: 15vw;
-  width: 15vw;
+  height: 12vw;
+  width: 12vw;
 }
 
 .img-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #5d7fd2;
   border-radius: 15px;
+  width: 4vw;
+  height: 4vw;
+}
+
+img {
   width: 50%;
   height: auto;
 }
 
-img {
-  width: 70%;
-  height: auto;
-}
-
 span {
+  margin-top: 0.5rem;
   color: white;
   font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
 }
