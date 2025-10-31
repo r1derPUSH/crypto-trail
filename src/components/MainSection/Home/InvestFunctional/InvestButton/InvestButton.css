@@ -1,0 +1,28 @@
+.send-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #3c6efa;
+  border: none;
+  border-radius: 15px;
+  height: 15vw;
+  width: 15vw;
+}
+
+.img-holder {
+  background: #5d7fd2;
+  border-radius: 15px;
+  width: 50%;
+  height: auto;
+}
+
+img {
+  width: 70%;
+  height: auto;
+}
+
+span {
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+}
