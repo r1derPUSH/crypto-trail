@@ -5,10 +5,19 @@
 }
 
 .searchBar-img {
-  cursor: pointer;
   width: 5vw;
   height: 5vw;
   /* margin-right: ; */
+}
+
+.searchBar-button {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.searchBar-button:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px rgba(62, 92, 227, 0.7));
 }
 
 @media (min-width: 900px) {
