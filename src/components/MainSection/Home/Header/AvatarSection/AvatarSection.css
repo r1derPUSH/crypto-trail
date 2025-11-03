@@ -61,6 +61,10 @@
 /* section for username */
 
 @media (max-width: 970px) {
+  .username {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
   .avatar-container {
     width: 30vw;
   }
