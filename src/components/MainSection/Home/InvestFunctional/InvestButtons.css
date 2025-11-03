@@ -4,3 +4,14 @@
   justify-content: space-around;
   align-items: center;
 }
+
+@media (max-width: 500px) {
+  .invest-functional-container button {
+    width: 25vw;
+    height: 25vw;
+  }
+  .invest-functional-container button div {
+    width: 10vw;
+    height: 10vw;
+  }
+}
