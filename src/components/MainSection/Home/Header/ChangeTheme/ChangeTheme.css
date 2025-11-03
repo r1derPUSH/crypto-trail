@@ -12,6 +12,16 @@
   height: 5vw;
 }
 
+.changeTheme-button {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.changeTheme-button:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px rgba(62, 92, 227, 0.7));
+}
+
 @media (min-width: 900px) {
   .change-theme-img {
     width: 3vw;
