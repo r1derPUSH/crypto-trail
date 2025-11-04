@@ -7,7 +7,7 @@ function HelpButton() {
       <div className="img-holder-help">
         <img className="img" src={helpImg} alt="invest" />
       </div>
-      <span>Convert</span>
+      <span>Help</span>
     </button>
   );
 }
