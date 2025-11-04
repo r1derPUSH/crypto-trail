@@ -1,0 +1,12 @@
+.recent-invests-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recent-invests-box-child {
+  width: 90vw;
+  background-color: #37466d;
+  height: auto;
+  border-radius: 15px;
+}

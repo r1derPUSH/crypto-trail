@@ -1,7 +1,12 @@
 import React from "react";
+import "./RecentInvests.css";
 
 function RecentInvests() {
-  return <div>Recent-Invests</div>;
+  return (
+    <div className="recent-invests-container">
+      <div className="recent-invests-box-child">Recent-Invests</div>
+    </div>
+  );
 }
 
 export default RecentInvests;
