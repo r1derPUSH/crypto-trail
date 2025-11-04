@@ -7,6 +7,7 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<MainSection />}></Route>
+        <Route path="/invest-page-section" />
       </Routes>
     </HashRouter>
   );
