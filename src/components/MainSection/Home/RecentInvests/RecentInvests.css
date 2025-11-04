@@ -1,0 +1,23 @@
+.recent-invests-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.recent-invests-box-child {
+  width: 90vw;
+  background-color: #37466d;
+  height: auto;
+  border-radius: 15px;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  flex-direction: column;
+}
+
+@media (min-width: 950px) {
+  .recent-invests-box-child {
+    width: 70vw;
+  }
+}

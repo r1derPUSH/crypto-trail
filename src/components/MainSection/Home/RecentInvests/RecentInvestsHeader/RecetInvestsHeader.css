@@ -1,0 +1,23 @@
+.header-recent-invests {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.main-span-recent-invests {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 100;
+}
+
+.small-span-recent-invests {
+  cursor: pointer;
+  color: #ffffffa3;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
