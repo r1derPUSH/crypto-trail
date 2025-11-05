@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 import MainSection from "./components/MainSection/MainSection";
+import InvestPage from "./components/InvestPageSection/Invest/InvestPage";
 import "./components/MainSection/mainSection.css";
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<MainSection />}></Route>
-        <Route path="/invest-page-section" />
+        <Route path="/invest-page-section" element={<InvestPage />} />
       </Routes>
     </HashRouter>
   );
