@@ -1,6 +1,7 @@
 import React from "react";
 import "./InvestPage.css";
 import crystalImg from "./imgs/crystal-invest.png";
+import CoinHolder from "./CoinHolder/CoinHolder";
 
 function InvestPage() {
   return (
@@ -20,16 +21,7 @@ function InvestPage() {
       </div>
       <div className="invest-coins-container">
         <div className="coins-holder">
-          <div className="coin-card">
-            <img src="/btc-icon.png" alt="BTC" />
-            <span className="coin-name">Bitcoin (BTC)</span>
-            <span className="coin-price">$64,200</span>
-          </div>
-          <div className="coin-card">
-            <img src="/eth-icon.png" alt="ETH" />
-            <span className="coin-name">Ethereum (ETH)</span>
-            <span className="coin-price">$3,200</span>
-          </div>
+          <CoinHolder />
         </div>
       </div>
       <div className="back-buttons">

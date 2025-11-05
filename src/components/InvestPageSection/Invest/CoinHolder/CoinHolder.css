@@ -1,0 +1,70 @@
+/* 💰 Картки монет */
+.coin-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(145deg, #0b2044, #09203b);
+  border: 1px solid rgba(0, 140, 255, 0.25);
+  border-radius: 15px;
+
+  width: 90vw;
+  height: 160px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 12px rgba(0, 102, 255, 0.25);
+}
+
+.coin-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 153, 255, 0.45);
+}
+
+.coin-card img {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 0.8rem;
+}
+
+.coin-name {
+  color: #dbe7ff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.coin-price {
+  color: #87b0ff;
+  font-size: 0.9rem;
+}
+
+/* 💸 Кнопка "Invest" усередині монети */
+.invest-coin-card-btn {
+  margin-top: 0.8rem;
+  background: linear-gradient(135deg, #0b63ff, #00c8ff);
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.8rem;
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+
+  box-shadow: 0 0 12px rgba(0, 200, 255, 0.4);
+  transition: all 0.25s ease-in-out;
+}
+
+.invest-coin-card-btn:hover {
+  background: linear-gradient(135deg, #1c77ff, #00e6ff);
+  box-shadow: 0 0 22px rgba(0, 200, 255, 0.6);
+  transform: scale(1.06);
+}
+
+.invest-coin-card-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 10px rgba(0, 200, 255, 0.35);
+}
