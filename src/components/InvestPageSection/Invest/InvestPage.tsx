@@ -29,6 +29,9 @@ function InvestPage() {
       <div className="invest-coins-container">
         <div className="coins-holder">
           <CoinHolder />
+          <CoinHolder />
+          <CoinHolder />
+          <CoinHolder />v
         </div>
       </div>
       <div className="back-buttons">
