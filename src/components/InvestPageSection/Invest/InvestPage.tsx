@@ -18,8 +18,24 @@ function InvestPage() {
         />
         <button className="search-invest-btn">Search</button>
       </div>
-      <div className="invest-button"></div>
-      <div className="back-buttons"></div>
+      <div className="invest-coins-container">
+        <div className="coins-holder">
+          <div className="coin-card">
+            <img src="/btc-icon.png" alt="BTC" />
+            <span className="coin-name">Bitcoin (BTC)</span>
+            <span className="coin-price">$64,200</span>
+          </div>
+          <div className="coin-card">
+            <img src="/eth-icon.png" alt="ETH" />
+            <span className="coin-name">Ethereum (ETH)</span>
+            <span className="coin-price">$3,200</span>
+          </div>
+        </div>
+      </div>
+      <div className="back-buttons">
+        <button className="back-home-btn">Back to Home</button>
+        <button className="back-portfolio-btn">Back to Portfolio</button>
+      </div>
     </div>
   );
 }
