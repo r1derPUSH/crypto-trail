@@ -7,10 +7,17 @@ function InvestPage() {
     <div className="invest-body">
       <div className="invest-header">
         <img src={crystalImg} alt="Diamond" />
-        <span>Crypto Trail</span>
-        <span>Invest</span>
+        <span className="main-invest-text">Crypto Trail</span>
+        <span className="sub-invest-text">Invest</span>
       </div>
-      <div className="invest-inputs"></div>
+      <div className="invest-inputs">
+        <input
+          type="text"
+          className="search-coin-input"
+          placeholder="Enter coin"
+        />
+        <button className="search-invest-btn">Search</button>
+      </div>
       <div className="invest-button"></div>
       <div className="back-buttons"></div>
     </div>
