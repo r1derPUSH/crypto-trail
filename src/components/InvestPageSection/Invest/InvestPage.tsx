@@ -31,7 +31,7 @@ function InvestPage() {
           <CoinHolder />
           <CoinHolder />
           <CoinHolder />
-          <CoinHolder />v
+          <CoinHolder />
         </div>
       </div>
       <div className="back-buttons">
