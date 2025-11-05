@@ -2,8 +2,15 @@ import React from "react";
 import "./InvestPage.css";
 import crystalImg from "./imgs/crystal-invest.png";
 import CoinHolder from "./CoinHolder/CoinHolder";
+import { useNavigate } from "react-router-dom";
 
 function InvestPage() {
+  const navigation = useNavigate();
+
+  const handleNavigate = () => {
+    navigation("/");
+  };
+
   return (
     <div className="invest-body">
       <div className="invest-header">
@@ -25,7 +32,9 @@ function InvestPage() {
         </div>
       </div>
       <div className="back-buttons">
-        <button className="back-home-btn">Back to Home</button>
+        <button className="back-home-btn" onClick={handleNavigate}>
+          Back to Home
+        </button>
         <button className="back-portfolio-btn">Back to Portfolio</button>
       </div>
     </div>
