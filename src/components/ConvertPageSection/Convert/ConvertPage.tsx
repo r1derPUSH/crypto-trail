@@ -7,15 +7,17 @@ function ConvertPage() {
     <div className="convert-page">
       <div className="convert-header-section">
         <img src={swapImg} alt="Swap" />
-        <span>Crypto Trail</span>
-        <span>Convert</span>
+        <span className="main-convert-text">Crypto Trail</span>
+        <span className="sub-convert-text">Convert</span>
       </div>
       <div className="convert-section">
-        <div className="convert-from"></div>
-        <div className="convert-to"></div>
+        <div className="convert-from">Select Coin</div>
+        <div className="convert-to">Select value</div>
       </div>
-      <button>Convert</button>
-      <span>Instant convertion with live rates</span>
+      <button className="convert-btn">Convert</button>
+      <span className="convert-finalText">
+        Instant convertion with live rates
+      </span>
     </div>
   );
 }

@@ -4,3 +4,57 @@
   align-items: center;
   flex-direction: column;
 }
+
+.convert-header-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.main-convert-text {
+  font-size: 4rem;
+}
+
+.sub-convert-text {
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+.convert-section {
+  margin: 2rem;
+}
+
+.convert-section div {
+  background-color: aqua;
+}
+
+.convert-btn {
+  background: linear-gradient(90deg, #2a3c8c, #5b79e8);
+  border: none;
+  border-radius: 12px;
+  color: #e6ecff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.9rem 2.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px #5b79e855;
+}
+
+.convert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #5b79e8aa;
+  filter: brightness(1.2);
+}
+
+.convert-btn:active {
+  transform: translateY(1px);
+  filter: brightness(0.9);
+}
+
+.convert-finalText {
+  font-size: 1.5rem;
+  margin: 3rem;
+}
