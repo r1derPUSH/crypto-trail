@@ -1,8 +1,15 @@
 import React from "react";
 import "./ConvertPage.css";
 import swapImg from "./imgs/swap-img.png";
+import { useNavigate } from "react-router-dom";
 
 function ConvertPage() {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/");
+  };
+
   return (
     <div className="convert-page">
       <div className="convert-header-section">
@@ -18,6 +25,9 @@ function ConvertPage() {
       <span className="convert-finalText">
         Instant convertion with live rates
       </span>
+      <button className="back-home-btn" onClick={handleNavigate}>
+        Back to home
+      </button>
     </div>
   );
 }
