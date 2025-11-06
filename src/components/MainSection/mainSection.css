@@ -8,16 +8,14 @@ body {
     #1c1f4a 40%,
     #0f1530 100%
   );
-  /* background: radial-gradient(
-      circle at 30% 10%,
-      rgba(0, 229, 176, 0.15),
-      transparent 70%
-    ),
-    linear-gradient(180deg, #3b4cca 0%, #2a3e91 40%, #1f2e66 80%, #0e1329 100%); */
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* опціонально — щоб фон не рухався при скролі */
+  background-position: center;
   padding: 0;
   margin: 0;
   height: 100%;
+  /* width: 30vw; */
 }
 
 /* background: radial-gradient(
