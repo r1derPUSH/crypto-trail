@@ -1,0 +1,105 @@
+.convert-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.convert-header-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.main-convert-text {
+  font-size: 4rem;
+}
+
+.sub-convert-text {
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+.convert-section {
+  margin: 2rem;
+}
+
+.convert-section div {
+  background-color: aqua;
+}
+
+.convert-btn {
+  background: linear-gradient(90deg, #2a3c8c, #5b79e8);
+  border: none;
+  border-radius: 12px;
+  color: #e6ecff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.9rem 2.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px #5b79e855;
+}
+
+.convert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #5b79e8aa;
+  filter: brightness(1.2);
+}
+
+.convert-btn:active {
+  transform: translateY(1px);
+  filter: brightness(0.9);
+}
+
+.convert-finalText {
+  font-size: 1.5rem;
+  margin: 3rem;
+}
+
+.back-home-btn {
+  margin-top: 3rem;
+  background: linear-gradient(90deg, #1c1f4a, #2a3c8c);
+  color: #e6ecff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.9rem 2.8rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(91, 121, 232, 0.3);
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(91, 121, 232, 0.4);
+}
+
+.back-home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(91, 121, 232, 0.6);
+  filter: brightness(1.25);
+}
+
+.back-home-btn:active {
+  transform: translateY(1px);
+  filter: brightness(0.9);
+}
+
+.back-home-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(135deg, #5b79e8, #00e0ff);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.back-home-btn:hover::before {
+  opacity: 1;
+}
