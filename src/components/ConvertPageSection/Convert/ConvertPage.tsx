@@ -1,10 +1,12 @@
 import React from "react";
+import "./ConvertPage.css";
+import swapImg from "./imgs/swap-img.png";
 
 function ConvertPage() {
   return (
-    <div className="convert-header">
+    <div className="convert-page">
       <div className="convert-header-section">
-        <img src="" alt="Swap" />
+        <img src={swapImg} alt="Swap" />
         <span>Crypto Trail</span>
         <span>Convert</span>
       </div>
