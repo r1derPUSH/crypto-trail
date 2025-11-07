@@ -2,6 +2,8 @@ import React from "react";
 import "./ConvertPage.css";
 import swapImg from "./imgs/swap-img.png";
 import { useNavigate } from "react-router-dom";
+import SelectDropBox from "./SelectConvertor/SelectCoin/SelectDropBox";
+import SelectValueDropBox from "./SelectConvertor/SelectValue/SelectValueDropBox";
 
 function ConvertPage() {
   const navigate = useNavigate();
@@ -18,8 +20,12 @@ function ConvertPage() {
         <span className="sub-convert-text">Convert</span>
       </div>
       <div className="convert-section">
-        <div className="convert-from">Select Coin</div>
-        <div className="convert-to">Select value</div>
+        <div className="convert-from">
+          <SelectDropBox />
+        </div>
+        <div className="convert-to">
+          <SelectValueDropBox />
+        </div>
       </div>
       <button className="convert-btn">Convert</button>
       <span className="convert-finalText">
