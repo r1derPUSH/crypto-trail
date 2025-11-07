@@ -18,6 +18,7 @@ function InvestPage() {
         <span className="main-invest-text">Crypto Trail</span>
         <span className="sub-invest-text">Invest</span>
       </div>
+
       <div className="invest-inputs">
         <input
           type="text"
@@ -26,6 +27,7 @@ function InvestPage() {
         />
         <button className="search-invest-btn">Search</button>
       </div>
+
       <div className="invest-coins-container">
         <div className="coins-holder">
           <CoinHolder />
@@ -34,6 +36,7 @@ function InvestPage() {
           <CoinHolder />
         </div>
       </div>
+
       <div className="back-buttons">
         <button className="back-home-btn" onClick={handleNavigate}>
           Back to Home

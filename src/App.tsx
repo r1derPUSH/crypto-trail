@@ -10,10 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainSection />}></Route>
         <Route path="/invest-page-section" element={<InvestPage />} />
-<<<<<<< HEAD
-=======
         <Route path="/convert-page-section" element={<ConvertPage />} />
->>>>>>> origin/feat/convert-page-section
       </Routes>
     </HashRouter>
   );
