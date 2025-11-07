@@ -22,13 +22,12 @@
 /* Випадаюче меню */
 .dropdown-child {
   left: 0;
-  width: 250px;
+  width: 30vw;
   background: #0e1226;
   border-radius: 10px;
   box-shadow: 0 0 15px #00f0ff33;
   padding: 10px;
   animation: fadeIn 0.2s ease;
-  z-index: 99;
 }
 
 /* Інпут пошуку */
@@ -49,8 +48,6 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  max-height: 250px;
-  overflow-y: auto;
 }
 
 /* Елемент списку */
@@ -58,7 +55,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 1rem;
   border-radius: 8px;
   cursor: pointer;
   color: #d8eaff;
@@ -76,7 +73,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-5px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
