@@ -16,7 +16,7 @@ function SelectDropBox() {
   };
 
   return (
-    <>
+    <div className="select-parent">
       <div className="dropdown-container">
         <button onClick={handleOpen} className="dropdown-btn">
           ⚡ Select Currenct
@@ -41,7 +41,7 @@ function SelectDropBox() {
           </ul>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

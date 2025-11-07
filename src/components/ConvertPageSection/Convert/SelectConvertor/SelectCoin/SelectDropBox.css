@@ -2,6 +2,13 @@
   font-family: "Ubuntu", sans-serif;
 }
 
+.select-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 /* Кнопка відкриття */
 .dropdown-btn {
   background: linear-gradient(90deg, #1b214a, #2a3c8c);
@@ -13,6 +20,7 @@
   font-weight: 500;
   transition: 0.3s ease;
   box-shadow: 0 0 10px #00f0ff44;
+  margin-bottom: 2rem;
 }
 
 .dropdown-btn:hover {
@@ -32,7 +40,7 @@
 
 /* Інпут пошуку */
 .dropdown-input {
-  width: 100%;
+  width: 95%;
   padding: 8px 10px;
   margin-bottom: 8px;
   border-radius: 6px;
