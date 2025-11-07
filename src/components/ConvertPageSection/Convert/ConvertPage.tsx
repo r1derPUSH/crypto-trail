@@ -31,9 +31,9 @@ function ConvertPage() {
       <span className="convert-finalText">
         Instant convertion with live rates
       </span>
-      <button className="back-home-btn" onClick={handleNavigate}>
+      {/* <button className="back-home-btn" onClick={handleNavigate}>
         Back to home
-      </button>
+      </button> */}
     </div>
   );
 }

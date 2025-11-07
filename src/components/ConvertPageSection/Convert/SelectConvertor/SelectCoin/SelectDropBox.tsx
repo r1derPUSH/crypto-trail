@@ -5,10 +5,10 @@ import { useState } from "react";
 function SelectDropBox() {
   const [open, setOpen] = useState(false);
   const coins = [
-    { name: "BTC", price: 100940 },
-    { name: "ETH", price: 3350 },
-    { name: "ARB", price: 0.38 },
-    { name: "FF", price: 0.17 },
+    { name: "BTC", price: 100940, id: 1 },
+    { name: "ETH", price: 3350, id: 2 },
+    { name: "ARB", price: 0.38, id: 3 },
+    { name: "FF", price: 0.17, id: 4 },
   ];
 
   const handleOpen = () => {
@@ -25,10 +25,16 @@ function SelectDropBox() {
 
       {open && (
         <div className="dropdown-child">
-          <input type="text" className="dropdown-input" />
-          <ul>
+          <input
+            type="text"
+            className="dropdown-input"
+            name="coin-search"
+            id="coin-search"
+            placeholder="Search coin..."
+          />
+          <ul className="parent-li">
             {coins.map((item) => (
-              <li>
+              <li key={Math.random()} className="li-item">
                 {item.name}:{item.price}
               </li>
             ))}
