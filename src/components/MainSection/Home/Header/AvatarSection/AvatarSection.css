@@ -60,7 +60,18 @@
 
 /* section for username */
 
+@media (max-width: 1920px) {
+  .username {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
 @media (max-width: 970px) {
+  .username {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
   .avatar-container {
     width: 30vw;
   }
@@ -74,6 +85,10 @@
 }
 
 @media (max-width: 600px) {
+  .username {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
   .avatar-container {
     /* margin-left: 1rem; */
     width: 40vw;

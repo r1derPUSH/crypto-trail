@@ -9,7 +9,7 @@ function ChangeTheme() {
   return (
     <div>
       <button className="changeTheme-button">
-        <img src={sunImg} alt="" />
+        <img className="change-theme-img" src={sunImg} alt="" />
       </button>
     </div>
   );

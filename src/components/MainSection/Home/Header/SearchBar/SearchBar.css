@@ -1,12 +1,35 @@
 .searchBar-button {
-  cursor: pointer;
+  /* cursor: pointer; */
   background-color: transparent;
   border: none;
 }
 
-@media (max-width: 600px) {
+.searchBar-img {
+  width: 5vw;
+  height: 5vw;
+  /* margin-right: ; */
+}
+
+.searchBar-button {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.searchBar-button:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px rgba(62, 92, 227, 0.7));
+}
+
+@media (min-width: 900px) {
   .searchBar-img {
-    width: 7vw;
-    height: 7vw;
+    width: 3vw;
+    height: 3vw;
+  }
+}
+
+@media (max-width: 370px) {
+  .searchBar-img {
+    width: 10vw;
+    height: 10vw;
   }
 }

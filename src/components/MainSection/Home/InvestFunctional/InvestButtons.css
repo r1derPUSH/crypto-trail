@@ -1,0 +1,74 @@
+.invest-functional-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.invest-functional-container button {
+  cursor: pointer;
+  border: none;
+  border-radius: 1.5rem;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(42, 60, 140, 0.3);
+}
+
+/* 🟢 Hover effect */
+.invest-functional-container button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 18px rgba(62, 92, 227, 0.5);
+}
+
+/* 🔵 Active (натискання) */
+.invest-functional-container button:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 10px rgba(62, 92, 227, 0.3);
+}
+
+@media (max-width: 1920px) {
+  .invest-functional-container button {
+    cursor: pointer;
+    width: 25vw;
+    height: 14vh;
+  }
+  .invest-functional-container button div {
+    width: 12vw;
+    height: 8vh;
+  }
+  .invest-functional-container button div img {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .invest-functional-container button {
+    width: 22vw;
+    height: 15vw;
+  }
+  .invest-functional-container button div {
+    width: 8vw;
+    height: 8vw;
+  }
+  .invest-functional-container button div img {
+    width: 4vw;
+    height: 4vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .invest-functional-container button {
+    width: 25vw;
+    height: 25vw;
+  }
+  .invest-functional-container button div {
+    width: 10vw;
+    height: 10vw;
+  }
+  .invest-functional-container button div img {
+    width: 6vw;
+    height: 6vw;
+  }
+}

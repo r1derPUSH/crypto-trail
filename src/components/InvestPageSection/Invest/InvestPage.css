@@ -1,0 +1,224 @@
+.invest-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.invest-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.main-invest-text {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.sub-invest-text {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.invest-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-coin-input {
+  margin-top: 3rem;
+  width: 70vw;
+  padding: 1rem 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #0e2f5d, #0a2346);
+  color: #e0e7ff;
+  font-size: 1rem;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0.5px;
+
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(0, 102, 255, 0.15);
+  transition: all 0.25s ease-in-out;
+}
+
+/* 🔹 Placeholder стиль */
+.search-coin-input::placeholder {
+  color: #89a2d9;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.search-coin-input:focus::placeholder {
+  opacity: 0.3;
+}
+
+/* 🔹 Hover / Focus ефект */
+.search-coin-input:hover,
+.search-coin-input:focus {
+  background: linear-gradient(145deg, #123873, #0b2956);
+  box-shadow: 0 0 18px rgba(0, 140, 255, 0.35),
+    inset 0 0 4px rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+}
+
+/* 🔸 Кнопка пошуку */
+.search-invest-btn {
+  background: linear-gradient(135deg, #1c4aa7, #0a2b63);
+  border: none;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  width: 50vw;
+  padding: 0.9rem 2.5rem;
+  color: #e0e7ff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 102, 255, 0.3);
+  transition: all 0.25s ease-in-out;
+}
+
+.search-invest-btn:hover {
+  background: linear-gradient(135deg, #2b65d9, #113773);
+  box-shadow: 0 0 20px rgba(0, 153, 255, 0.55);
+  transform: scale(1.05);
+}
+
+.search-invest-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 8px rgba(0, 153, 255, 0.3);
+}
+
+.back-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.back-home-btn {
+  background: linear-gradient(135deg, #061a38, #0a244e);
+  border: 1px solid rgba(0, 140, 255, 0.25);
+  border-radius: 12px;
+  padding: 0.8rem 2.2rem;
+  margin-top: 0.5rem;
+  color: #89a2d9;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  opacity: 0.85;
+
+  transition: all 0.25s ease-in-out;
+  box-shadow: inset 0 0 8px rgba(0, 140, 255, 0.1),
+    0 0 10px rgba(0, 102, 255, 0.15);
+}
+
+.back-home-btn:hover {
+  color: #dbe7ff;
+  background: linear-gradient(135deg, #0e2d64, #13387d);
+  box-shadow: 0 0 18px rgba(0, 153, 255, 0.35);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.back-home-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 8px rgba(0, 153, 255, 0.25);
+}
+
+/* 🔹 Back to Home — спокійна, темно-синя */
+.back-home-btn {
+  background: linear-gradient(145deg, #081a3a, #0c295b);
+  border: 1px solid rgba(70, 130, 255, 0.25);
+  border-radius: 12px;
+  padding: 0.9rem 2.5rem;
+  margin-top: 0.8rem;
+  color: #b5c7f7;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: all 0.25s ease-in-out;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.05),
+    0 0 8px rgba(0, 50, 150, 0.25);
+}
+
+.back-home-btn:hover {
+  background: linear-gradient(145deg, #102e6b, #173f8e);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(80, 140, 255, 0.45);
+}
+
+.back-home-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 6px rgba(70, 130, 255, 0.3);
+}
+
+/* 🔸 Back to Portfolio — яскравіша, бірюзова */
+.back-portfolio-btn {
+  background: linear-gradient(145deg, #004e4e, #007a7a);
+  border: 1px solid rgba(0, 255, 200, 0.3);
+  border-radius: 12px;
+  padding: 0.9rem 2.5rem;
+<<<<<<< HEAD
+  margin-top: 0.8rem;
+=======
+  margin: 2rem;
+>>>>>>> origin/feat/convert-page-section
+  color: #b9fff7;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: all 0.25s ease-in-out;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1),
+    0 0 12px rgba(0, 255, 200, 0.35);
+}
+
+.back-portfolio-btn:hover {
+  background: linear-gradient(145deg, #009b9b, #00d4d4);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.55);
+}
+
+.back-portfolio-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 8px rgba(0, 255, 200, 0.35);
+}
+/* 🧱 Контейнер для монет */
+.coins-holder {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+
+  background: radial-gradient(circle at top left, #0c1d3a, #06132a 80%);
+  border: 1px solid rgba(0, 140, 255, 0.2);
+  border-radius: 20px;
+
+  box-shadow: inset 0 0 10px rgba(0, 140, 255, 0.1),
+    0 0 20px rgba(0, 140, 255, 0.25);
+  padding: 2rem;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.coins-holder:hover {
+  box-shadow: 0 0 35px rgba(0, 153, 255, 0.35);
+}

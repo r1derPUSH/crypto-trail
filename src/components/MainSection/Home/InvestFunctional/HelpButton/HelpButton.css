@@ -1,0 +1,35 @@
+.help-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #d44c94;
+  border: none;
+  border-radius: 15px;
+  height: 10vw;
+  width: 10vw;
+}
+
+.img-holder-help {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #d966a1;
+  border-radius: 15px;
+  width: 4vw;
+  height: 4vw;
+}
+
+img {
+  width: 50%;
+  height: auto;
+}
+
+span {
+  margin-top: 0.5rem;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}

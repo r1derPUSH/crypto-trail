@@ -2,9 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* margin-bottom: 4; */
+  /* height: 50vh; */
 }
 
 .income-section-container {
+  /* height: ; */
   border-radius: 15px;
   width: 95vw;
   display: flex;
@@ -33,13 +36,37 @@
 
 .total-balance-text {
   color: #ffffff90;
-  font-size: 2.2rem;
+  font-size: 1.3rem;
 }
 
 .total-balance-quantity {
   font-size: 5rem;
 }
-/* 
+
+/* income-section bottom */
+
+.income-section-bottom {
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.income-bottom-span-container {
+  color: #fff;
+  font-family: "Ubuntu";
+  font-weight: 300;
+  margin-top: -1vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1000px) {
+  .income-section-container {
+    width: 60vw;
+  }
+}
+
 @media (max-width: 500px) {
   .total-balance-text {
     font-size: 0.7rem;
@@ -47,8 +74,7 @@
   .income-section-top {
     padding: 20px;
   }
-} */
-
+}
 @media (max-width: 650px) {
   .total-balance-text {
     font-size: 0.8rem;
