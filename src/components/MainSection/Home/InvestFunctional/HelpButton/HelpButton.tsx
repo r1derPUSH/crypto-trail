@@ -6,7 +6,7 @@ function HelpButton() {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    // navigate("")
+    navigate("/help-page-section");
   };
 
   return (
