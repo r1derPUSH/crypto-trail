@@ -2,6 +2,8 @@ import React from "react";
 import "./ConvertPage.css";
 import swapImg from "./imgs/swap-img.png";
 import { useNavigate } from "react-router-dom";
+import SwapFrom from "../SwapMenu/SwapFrom/SwapFrom";
+import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 
 function ConvertPage() {
   const navigate = useNavigate();
@@ -17,7 +19,10 @@ function ConvertPage() {
         <span className="main-convert-text">Crypto Trail</span>
         <span className="sub-convert-text">Convert</span>
       </div>
-      <div className="convert-section"></div>
+      <div className="convert-section">
+        <SwapFrom />
+        <SwapTo />
+      </div>
       <button className="convert-btn">Convert</button>
       <span className="convert-finalText">
         Instant convertion with live rates

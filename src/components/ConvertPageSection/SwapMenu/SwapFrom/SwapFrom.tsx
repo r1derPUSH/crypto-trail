@@ -2,7 +2,18 @@ import React from "react";
 import "./SwapFrom.css";
 
 function SwapFrom() {
-  return <div>from</div>;
+  return (
+    <div className="swap-container">
+      <div className="input-price-container">
+        <span className="from-span-text">From</span>
+        <input type="text" className="from-amount-input" />
+        <span className="price-in-usd">$76.2</span>
+      </div>
+      <div className="dropbox-of-coins-container">
+        <div className="dropbox-of-coins"></div>
+      </div>
+    </div>
+  );
 }
 
 export default SwapFrom;
