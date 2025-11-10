@@ -7,6 +7,7 @@
   align-items: center;
   border-radius: 15px;
   margin: 0.5rem;
+  height: 15vh;
 }
 
 .input-price-container {
@@ -15,6 +16,14 @@
   align-items: center;
   flex-direction: column;
   margin-left: 1rem;
+}
+
+.input-price-container input {
+  font-size: 2rem;
+  color: #ffffffa2;
+  border: none;
+  background-color: transparent;
+  outline-style: none;
 }
 
 .dropbox-of-coins {
