@@ -19,14 +19,7 @@ function ConvertPage() {
         <span className="main-convert-text">Crypto Trail</span>
         <span className="sub-convert-text">Convert</span>
       </div>
-      <div className="convert-section">
-        <div className="convert-from">
-          <SelectDropBox />
-        </div>
-        <div className="convert-to">
-          <SelectValueDropBox />
-        </div>
-      </div>
+      <div className="convert-section"></div>
       <button className="convert-btn">Convert</button>
       <span className="convert-finalText">
         Instant convertion with live rates
