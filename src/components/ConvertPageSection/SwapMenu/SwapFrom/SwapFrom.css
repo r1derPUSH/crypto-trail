@@ -7,7 +7,7 @@
   align-items: center;
   border-radius: 15px;
   margin: 0.5rem;
-  height: 15vh;
+  height: 18vh;
 }
 
 .input-price-container {
@@ -24,6 +24,27 @@
   border: none;
   background-color: transparent;
   outline-style: none;
+}
+
+.input-price-flexbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.from-span-text {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+/* .from-amount-input {
+  margin-bottom: 0.5rem;
+} */
+
+.price-in-usd {
+  margin-top: 1rem;
 }
 
 .dropbox-of-coins {
