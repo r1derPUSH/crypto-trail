@@ -63,6 +63,7 @@
 }
 
 .dropbox-menu-inactive {
+  cursor: pointer;
   border: none;
   display: flex;
   align-items: center;
