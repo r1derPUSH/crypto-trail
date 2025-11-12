@@ -83,3 +83,9 @@
   height: 4vh;
   border-radius: 50%;
 }
+
+.dropbox-menu-active {
+  width: 10vw;
+  height: 15vh;
+  background-color: red;
+}

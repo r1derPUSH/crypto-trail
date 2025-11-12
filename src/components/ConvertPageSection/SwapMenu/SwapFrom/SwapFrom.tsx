@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SwapFrom.css";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 
 function SwapFrom() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="swap-container">
       <div className="input-price-container">
@@ -28,6 +30,7 @@ function SwapFrom() {
               }}
             />
           </button>
+          {isOpen && <div className="dropbox-menu-active"></div>}
         </div>
       </div>
     </div>
