@@ -5,6 +5,27 @@ import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 
 function SwapFrom() {
   const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const handleOpen = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const coins = [
+    { name: "BTC", icon: "₿" },
+    { name: "ETH", icon: "♦" },
+    { name: "ARB", icon: "◎" },
+    { name: "SOL", icon: "⚡" },
+    { name: "AVAX", icon: "▲" },
+    { name: "BNB", icon: "◉" },
+  ];
+
+  const filtered = coins.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="swap-container">
@@ -15,9 +36,10 @@ function SwapFrom() {
           <span className="price-in-usd">$76.1</span>
         </div>
       </div>
+      {/* <div className="dropbox-parent"> */}
       <div className="dropbox-of-coins-container">
         <div className="dropbox-of-coins">
-          <button className="dropbox-menu-inactive">
+          <button onClick={handleOpen} className="dropbox-menu-inactive">
             <img src={ethereumImg} className="coin-img" alt="ETH" />
             <span className="coin-name">ETH</span>
             <FaAngleDown
@@ -30,8 +52,27 @@ function SwapFrom() {
               }}
             />
           </button>
-          {isOpen && <div className="dropbox-menu-active"></div>}
         </div>
+        {isOpen && (
+          <div className="dropdown-content">
+            <input
+              type="text"
+              className="dropdown-search"
+              placeholder="Search"
+              value={search}
+              onChange={handleSearch}
+            />
+            <div className="dropdown-list">
+              {filtered.map((item) => (
+                <div key={item.name} className="dropdown-item">
+                  <div className="coin-logo">{item.icon}</div>
+                  <span>{item.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        {/* </div> */}
       </div>
     </div>
   );

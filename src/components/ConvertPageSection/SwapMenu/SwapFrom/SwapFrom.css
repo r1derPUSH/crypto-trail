@@ -58,8 +58,9 @@
   border-radius: 25px;
   margin-right: 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
 }
 
 .dropbox-menu-inactive {
@@ -71,6 +72,7 @@
   border-radius: 25px;
   padding: 0.2rem;
   background-color: #111111;
+  /* margin-bottom: 2rem; */
 }
 
 .dropbox-menu-inactive span {
@@ -88,4 +90,15 @@
   width: 10vw;
   height: 15vh;
   background-color: red;
+  margin-bottom: -30rem;
+  /* margin: 20px; */
+  /* margin-top: 5rem; */
 }
+
+.dropbox-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .dropbox-of-coins */
