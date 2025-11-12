@@ -48,11 +48,37 @@
   opacity: 0.5;
 }
 
+/* dropbox-menu */
+
 .dropbox-of-coins {
   background-color: #131313;
   border: #393939 1px solid;
-  width: 7vw;
+  width: 9vw;
   height: 3vw;
   border-radius: 25px;
   margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropbox-menu-inactive {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 0.2rem;
+  background-color: #111111;
+}
+
+.dropbox-menu-inactive span {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.coin-img {
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
 }
