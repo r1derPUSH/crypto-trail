@@ -12,7 +12,13 @@ function SwapFrom() {
         </div>
       </div>
       <div className="dropbox-of-coins-container">
-        <div className="dropbox-of-coins"></div>
+        <div className="dropbox-of-coins">
+          <button className="dropbox-menu-inactive">
+            <img src="" alt="ETH" />
+            <span>ETH</span>
+            <img src="" alt="arrow" />
+          </button>
+        </div>
       </div>
     </div>
   );
