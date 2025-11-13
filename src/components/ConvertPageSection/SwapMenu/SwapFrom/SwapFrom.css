@@ -106,3 +106,120 @@
 }
 
 /* .dropbox-of-coins */
+
+/* dropbox-containings */
+
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  width: 420px;
+  height: 75vh;
+  background: #131313;
+  border: 1px solid #393939;
+  border-radius: 20px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  animation: modalOpen 0.22s ease-out forwards;
+}
+
+@keyframes modalOpen {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== HEADER ===== */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #aaa;
+  transition: 0.15s;
+}
+
+.modal-header button:hover {
+  color: #fff;
+}
+
+/* ===== SEARCH FIELD ===== */
+.search {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #393939;
+  background: #111111;
+  color: white;
+  outline: none;
+  margin-bottom: 1.2rem;
+}
+
+.search::placeholder {
+  color: #6d6d6d;
+}
+
+/* ===== TOKEN LIST ===== */
+.token-list {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 6px; /* для скролу */
+}
+
+.token-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.token-list::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 6px;
+}
+
+/* ===== TOKEN ITEM ===== */
+.token-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #141414;
+  border: 1px solid #1f1f1f;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  transition: 0.17s ease;
+  color: #fff;
+}
+
+.token-container:hover {
+  border-color: #4c4c4c;
+  background: #1a1a1a;
+  transform: translateY(-1px);
+}
+
+/* endpoint of dropbox-containings */

@@ -54,21 +54,22 @@ function SwapFrom() {
           </button>
         </div>
         {isOpen && (
-          <div className="dropdown-content">
-            <div className="dropdown-list">
-              <input
-                type="text"
-                className="dropdown-search"
-                placeholder="Search"
-                value={search}
-                onChange={handleSearch}
-              />
-              {filtered.map((item) => (
-                <div key={item.name} className="dropdown-item">
-                  <div className="coin-logo">{item.icon}</div>
-                  <span>{item.name}</span>
-                </div>
-              ))}
+          <div className="overlay" onClick={() => setIsOpen((prev) => !prev)}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <span>Select a token</span>
+                <button onClick={() => setIsOpen(false)}>X</button>
+              </div>
+              <div className="input-and-coins">
+                <input className="search" placeholder="Search token" />
+                <div className="recent-coins"></div>
+              </div>
+              <div className="token-list">
+                {filtered.map((item) => (
+                  <div className="token-container">{item.name}</div>
+                ))}
+                ;
+              </div>
             </div>
           </div>
         )}
