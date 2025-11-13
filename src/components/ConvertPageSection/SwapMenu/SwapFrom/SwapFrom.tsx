@@ -61,7 +61,11 @@ function SwapFrom() {
                 <button onClick={() => setIsOpen(false)}>X</button>
               </div>
               <div className="input-and-coins">
-                <input className="search" placeholder="Search token" />
+                <input
+                  className="search"
+                  placeholder="Search token"
+                  onChange={handleSearch}
+                />
                 <div className="recent-coins"></div>
               </div>
               <div className="token-list">
