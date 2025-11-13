@@ -101,4 +101,8 @@
   align-items: center;
 }
 
+.dropdown-list {
+  position: absolute;
+}
+
 /* .dropbox-of-coins */

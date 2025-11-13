@@ -55,14 +55,14 @@ function SwapFrom() {
         </div>
         {isOpen && (
           <div className="dropdown-content">
-            <input
-              type="text"
-              className="dropdown-search"
-              placeholder="Search"
-              value={search}
-              onChange={handleSearch}
-            />
             <div className="dropdown-list">
+              <input
+                type="text"
+                className="dropdown-search"
+                placeholder="Search"
+                value={search}
+                onChange={handleSearch}
+              />
               {filtered.map((item) => (
                 <div key={item.name} className="dropdown-item">
                   <div className="coin-logo">{item.icon}</div>
