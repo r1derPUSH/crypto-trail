@@ -74,7 +74,6 @@
   border-radius: 25px;
   padding: 0.2rem;
   background-color: #111111;
-  /* margin-bottom: 2rem; */
 }
 
 .dropbox-menu-inactive span {
@@ -93,8 +92,6 @@
   height: 15vh;
   background-color: red;
   margin-bottom: -30rem;
-  /* margin: 20px; */
-  /* margin-top: 5rem; */
 }
 
 .dropbox-parent {
@@ -106,10 +103,6 @@
 .dropdown-list {
   position: absolute;
 }
-
-/* .dropbox-of-coins */
-
-/* dropbox-containings */
 
 /* ===== OVERLAY ===== */
 .overlay {
