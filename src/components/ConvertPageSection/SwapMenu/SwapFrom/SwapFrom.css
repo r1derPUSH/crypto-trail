@@ -8,9 +8,11 @@
   border-radius: 15px;
   margin: 0.5rem;
   height: 18vh;
+  /* width: 100vw; */
 }
 
 .input-price-container {
+  /* width: 100; */
   display: flex;
   justify-content: center;
   align-items: center;
