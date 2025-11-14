@@ -16,8 +16,13 @@ function LoginSection() {
           <input type="password" placeholder="Password" />
         </div>
         <div className="login-buttons">
-          <button>Sign In</button>
-          <button>Register</button>
+          <button className="signIn-button">Sign In</button>
+          <button className="recoverPassword-button">Forgot Password?</button>
+          <button className="register-button">Register</button>
+        </div>
+        <div className="backToHome-section">
+          <button className="backToHome-button">Back To Home</button>
+          <button className="backToWallet">Back To Wallet</button>
         </div>
       </div>
     </div>

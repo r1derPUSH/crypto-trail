@@ -36,6 +36,7 @@
 }
 
 .login-fields input {
+  font-family: "Ubuntu", sans-serif;
   height: 9vh;
   margin-left: 3rem;
   color: #fff;
@@ -51,4 +52,25 @@
   height: 1px;
   background: gray;
   margin-left: 2rem;
+}
+
+/* Login-Buttons */
+
+.login-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 25vh;
+}
+
+.signIn-button {
+  font-family: "Ubuntu", sans-serif;
+  background-color: #4bf2a4;
+  border: none;
+  border-radius: 15px;
+  color: #002a23;
+  width: 30vw;
+  height: 7vh;
+  font-size: 2rem;
 }
