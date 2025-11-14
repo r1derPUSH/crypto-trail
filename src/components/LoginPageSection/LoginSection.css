@@ -24,8 +24,31 @@
 /* Login-Inputs */
 
 .login-fields {
-  background-color: #808080;
-  opacity: 0.3;
+  display: flex;
+  justify-content: space-around;
+  align-items: left;
+  flex-direction: column;
+  background-color: #80808027;
+  /* opacity: 0.3; */
   width: 30vw;
-  height: 10vh;
+  height: 20vh;
+  border-radius: 15px;
+}
+
+.login-fields input {
+  height: 9vh;
+  margin-left: 3rem;
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 100;
+  outline: none;
+  background: none;
+}
+
+.line {
+  width: 85%;
+  height: 1px;
+  background: gray;
+  margin-left: 2rem;
 }

@@ -11,8 +11,9 @@ function LoginSection() {
           <span>Login</span>
         </div>
         <div className="login-fields">
-          <input type="text" placeholder="Email" />
-          <input type="text" placeholder="Password" />
+          <input type="email" placeholder="Email" />
+          <div className="line"></div>
+          <input type="password" placeholder="Password" />
         </div>
         <div className="login-buttons">
           <button>Sign In</button>
