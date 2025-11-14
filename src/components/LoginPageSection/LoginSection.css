@@ -1,13 +1,31 @@
-.login-parent-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow-y: hidden;
-}
+/* PARENTS */
 
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+/* Login--Header */
+
+.login-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.login-header span {
+  font-size: 4rem;
+}
+
+/* Login-Inputs */
+
+.login-fields {
+  background-color: #808080;
+  opacity: 0.3;
+  width: 30vw;
+  height: 10vh;
 }
