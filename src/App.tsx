@@ -4,6 +4,7 @@ import InvestPage from "./components/InvestPageSection/Invest/InvestPage";
 import "./components/MainSection/mainSection.css";
 import ConvertPage from "./components/ConvertPageSection/Convert/ConvertPage";
 import HelpPageSection from "./components/HelpPageSection/Help/HelpPageSection";
+import LoginSection from "./components/LoginPageSection/LoginSection";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/invest-page-section" element={<InvestPage />} />
         <Route path="/convert-page-section" element={<ConvertPage />} />
         <Route path="/help-page-section" element={<HelpPageSection />} />
+        <Route path="/login-page-section" element={<LoginSection />} />
       </Routes>
     </HashRouter>
   );
