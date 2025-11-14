@@ -39,6 +39,7 @@
   font-family: "Ubuntu", sans-serif;
   height: 9vh;
   margin-left: 3rem;
+  letter-spacing: 1px;
   color: #fff;
   border: none;
   font-size: 1.1rem;
@@ -65,6 +66,7 @@
 }
 
 .signIn-button {
+  cursor: pointer;
   font-family: "Ubuntu", sans-serif;
   background-color: #4bf2a4;
   border: none;
@@ -73,4 +75,15 @@
   width: 30vw;
   height: 7vh;
   font-size: 2rem;
+}
+
+.recoverPassword-button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #fff;
+  opacity: 0.3;
+  font-size: 1.1rem;
+  font-weight: 200;
+  letter-spacing: 1px;
 }
