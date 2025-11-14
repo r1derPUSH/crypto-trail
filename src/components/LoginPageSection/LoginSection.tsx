@@ -1,11 +1,13 @@
 import React from "react";
+import "./LoginSection.css";
+import passlockImg from "./imgs/image-removebg-preview.png";
 
 function LoginSection() {
   return (
-    <>
+    <div className="login-parent-box">
       <div className="login-container">
         <div className="login-header">
-          <img src="" alt="Login" />
+          <img src={passlockImg} alt="Login" />
           <span>Login</span>
         </div>
         <div className="login-fields">
@@ -17,7 +19,7 @@ function LoginSection() {
           <button>Register</button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
