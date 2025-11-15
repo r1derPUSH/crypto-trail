@@ -75,3 +75,13 @@
     padding: 20px;
   }
 }
+
+@media (max-height: 600px) {
+  .income-section-container {
+    height: 60vh;
+  }
+
+  .income-section-bottom {
+    height: 100vh;
+  }
+}

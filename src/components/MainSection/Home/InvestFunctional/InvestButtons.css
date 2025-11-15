@@ -27,6 +27,12 @@
   box-shadow: 0 0 10px rgba(62, 92, 227, 0.3);
 }
 
+@media (max-height: 600px) {
+  .invest-functional-container button {
+    height: 20vh;
+  }
+}
+
 @media (max-width: 2520px) {
   .invest-functional-container button {
     cursor: pointer;
@@ -43,7 +49,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .invest-functional-container button {
     width: 22vw;
     height: 15vw;
