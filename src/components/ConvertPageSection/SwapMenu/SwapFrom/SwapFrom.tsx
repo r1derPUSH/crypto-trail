@@ -10,7 +10,7 @@ function SwapFrom() {
     setIsOpen((prev) => !prev);
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: any) => {
     setSearch(e.target.value);
   };
 
