@@ -60,14 +60,14 @@
 
 /* section for username */
 
-@media (max-width: 1920px) {
+@media (max-width: 2200px) {
   .username {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
   }
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1170px) {
   .username {
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
@@ -84,7 +84,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .username {
     font-size: 0.7rem;
     margin-bottom: 0.5rem;
