@@ -272,3 +272,47 @@
   transform: scale(1.03);
   opacity: 0.9;
 }
+
+/* media styles */
+
+@media (max-width: 1200px) {
+  .login-fields {
+    width: 40vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  .login-fields {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .login-fields {
+    width: 70vw;
+  }
+  .signIn-button,
+  .register-button,
+  .backToHome-button,
+  .backToWallet-button {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-fields {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-fields {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-fields {
+    width: 92vw;
+  }
+}
