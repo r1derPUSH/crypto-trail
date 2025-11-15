@@ -1,6 +1,7 @@
 /* PARENTS */
 
 .login-container {
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +20,11 @@
 
 .login-header span {
   font-size: 4rem;
+}
+
+.passlock-img {
+  width: 25vh;
+  height: 20vh;
 }
 
 /* Login-Inputs */
@@ -66,6 +72,7 @@
 }
 
 .signIn-button {
+  margin: 2rem;
   cursor: pointer;
   font-family: "Ubuntu", sans-serif;
   background-color: #4bf2a4;
@@ -74,7 +81,7 @@
   color: #002a23;
   width: 30vw;
   height: 7vh;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 
 .recoverPassword-button {
@@ -86,4 +93,182 @@
   font-size: 1.1rem;
   font-weight: 200;
   letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+.register-button {
+  /* margin-bottom: 2rem; */
+  cursor: pointer;
+  font-family: "Ubuntu", sans-serif;
+  background-color: #643ead;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  width: 30vw;
+  height: 7vh;
+  font-size: 1.4rem;
+}
+
+/* backToHome-section */
+
+.backToHome-section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60vw;
+}
+
+.backToHome-button,
+.backToWallet-button {
+  cursor: pointer;
+  font-family: "Ubuntu", sans-serif;
+  border: none;
+  border-radius: 15px;
+  width: 22vw;
+  height: 6vh;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+
+  transition: 0.25s ease;
+  animation: buttonPop 0.35s ease;
+  color: #fff;
+}
+
+/* Back To Home — dark navy gradient */
+.backToHome-button {
+  background: linear-gradient(135deg, #0f1a2b, #182c47);
+}
+
+/* Back To Wallet — dark purple gradient */
+.backToWallet-button {
+  background: linear-gradient(135deg, #1b1228, #2c1b40);
+}
+
+/* Hover */
+.backToHome-button:hover,
+.backToWallet-button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 14px #00000066;
+}
+
+/* Pressed */
+.backToHome-button:active,
+.backToWallet-button:active {
+  transform: scale(0.96);
+}
+
+/* Animation */
+@keyframes buttonPop {
+  0% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* === GLOBAL ANIMATIONS === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animations */
+
+.login-container,
+.login-header,
+.login-fields,
+.login-buttons,
+.backToHome-section {
+  animation: fadeIn 0.45s ease;
+}
+
+.login-fields input {
+  transition: 0.25s ease;
+}
+
+.login-fields input:hover {
+  transform: translateX(4px);
+  opacity: 0.9;
+}
+
+.login-fields input:focus {
+  transform: translateX(6px);
+  opacity: 1;
+}
+
+.line {
+  transition: 0.25s ease;
+}
+
+.login-fields input:focus + .line {
+  background-color: #4bf2a4;
+  opacity: 0.9;
+}
+
+.signIn-button,
+.register-button,
+.backToHome-button,
+.backToWallet-button {
+  transition: 0.25s ease;
+  animation: pop 0.35s ease;
+  cursor: pointer;
+}
+
+/* Hover */
+.signIn-button:hover,
+.register-button:hover,
+.backToHome-button:hover,
+.backToWallet-button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 12px #ffffff22;
+}
+
+/* Pressed */
+.signIn-button:active,
+.register-button:active,
+.backToHome-button:active,
+.backToWallet-button:active {
+  transform: scale(0.96);
+}
+
+/* Recover password */
+.recoverPassword-button {
+  transition: 0.25s ease;
+}
+
+.recoverPassword-button:hover {
+  opacity: 0.6;
+  transform: scale(1.03);
+}
+
+/* Header hover small effect */
+.login-header span {
+  transition: 0.3s ease;
+}
+
+.login-header span:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
 }

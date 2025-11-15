@@ -16,7 +16,7 @@ function LoginSection() {
     <div className="login-parent-box">
       <div className="login-container">
         <div className="login-header">
-          <img src={passlockImg} alt="Login" />
+          <img className="passlock-img" src={passlockImg} alt="Login" />
           <span>Login</span>
         </div>
         <div className="login-fields">
@@ -33,7 +33,7 @@ function LoginSection() {
           <button onClick={backToHome} className="backToHome-button">
             Back To Home
           </button>
-          <button onClick={backToWallet} className="backToWallet">
+          <button onClick={backToWallet} className="backToWallet-button">
             Back To Wallet
           </button>
         </div>
