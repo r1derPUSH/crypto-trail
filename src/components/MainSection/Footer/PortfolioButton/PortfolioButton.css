@@ -46,9 +46,20 @@
   transform: translateY(-5px);
 }
 
-@media (max-width: 550px) {
+@media (max-width: 1219px) {
   .portfolio-section {
     font-size: 1.1rem;
     font-weight: 500;
+  }
+}
+
+@media (min-width: 1520px) {
+  .portfolio-section {
+    height: 6vh;
+    border-radius: 30px;
+  }
+
+  .portfolio-section span {
+    font-size: 2rem;
   }
 }

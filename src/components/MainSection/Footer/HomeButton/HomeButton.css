@@ -45,9 +45,20 @@
   transform: translateY(-5px);
 }
 
-@media (max-width: 550px) {
+@media (max-width: 1219px) {
   .home-button {
     font-size: 1.1rem;
     font-weight: 500;
+  }
+}
+
+@media (min-width: 1520px) {
+  .home-button {
+    height: 6vh;
+    border-radius: 30px;
+  }
+
+  .home-button span {
+    font-size: 2rem;
   }
 }
