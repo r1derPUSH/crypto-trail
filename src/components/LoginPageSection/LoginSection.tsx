@@ -1,8 +1,17 @@
 import React from "react";
 import "./LoginSection.css";
 import passlockImg from "./imgs/image-removebg-preview.png";
+import { useNavigate } from "react-router-dom";
 
 function LoginSection() {
+  const navigate = useNavigate();
+
+  const backToHome = () => {
+    navigate("/");
+  };
+
+  const backToWallet = () => {};
+
   return (
     <div className="login-parent-box">
       <div className="login-container">
@@ -21,8 +30,12 @@ function LoginSection() {
           <button className="register-button">Register</button>
         </div>
         <div className="backToHome-section">
-          <button className="backToHome-button">Back To Home</button>
-          <button className="backToWallet">Back To Wallet</button>
+          <button onClick={backToHome} className="backToHome-button">
+            Back To Home
+          </button>
+          <button onClick={backToWallet} className="backToWallet">
+            Back To Wallet
+          </button>
         </div>
       </div>
     </div>
