@@ -1,4 +1,3 @@
-import React from "react";
 import "./InvestPage.css";
 import crystalImg from "./imgs/crystal-invest.png";
 import CoinHolder from "./CoinHolder/CoinHolder";

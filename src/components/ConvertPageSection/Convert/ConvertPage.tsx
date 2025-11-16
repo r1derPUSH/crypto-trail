@@ -1,4 +1,3 @@
-import React from "react";
 import "./ConvertPage.css";
 import swapImg from "./imgs/swap-img.png";
 import { useNavigate } from "react-router-dom";
