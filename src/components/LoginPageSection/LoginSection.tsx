@@ -1,4 +1,3 @@
-import React from "react";
 import "./LoginSection.css";
 import passlockImg from "./imgs/image-removebg-preview.png";
 import { useNavigate } from "react-router-dom";

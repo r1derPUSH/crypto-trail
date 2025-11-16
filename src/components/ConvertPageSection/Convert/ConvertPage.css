@@ -14,8 +14,6 @@
 }
 
 .main-convert-text {
-  /* color: #0A0B1A; */
-  /* background: linear-gradient(90deg, #2A3C8C 0%, #8846F5 100%); */
   font-size: 4rem;
 }
 
@@ -26,16 +24,11 @@
 
 .convert-section {
   background: #131313;
-  /* border: 1px solid rgba(255, 255, 255, 0.06); */
   border-radius: 15px;
   width: 40vw;
   height: 40vh;
   margin: 2rem;
 }
-
-/* .convert-section div {
-  background-color: aqua;
-} */
 
 .convert-btn {
   background: linear-gradient(90deg, #2a3c8c, #5b79e8);

@@ -15,13 +15,11 @@
   box-shadow: 0 0 10px rgba(42, 60, 140, 0.3);
 }
 
-/* 🟢 Hover effect */
 .invest-functional-container button:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 0 18px rgba(62, 92, 227, 0.5);
 }
 
-/* 🔵 Active (натискання) */
 .invest-functional-container button:active {
   transform: scale(0.97);
   box-shadow: 0 0 10px rgba(62, 92, 227, 0.3);

@@ -2,12 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 4; */
-  /* height: 50vh; */
 }
 
 .income-section-container {
-  /* height: ; */
   border-radius: 15px;
   width: 95vw;
   display: flex;
@@ -29,7 +26,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   font-size: 3rem;
   padding: 50px;
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import InvestButton from "./InvestButton/InvestButton";
 import ConvertButton from "./ConvertButton/ConvertButton";
 import HelpButton from "./HelpButton/HelpButton";
