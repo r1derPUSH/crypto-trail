@@ -1,5 +1,4 @@
 .searchBar-button {
-  /* cursor: pointer; */
   background-color: transparent;
   border: none;
 }
@@ -7,7 +6,6 @@
 .searchBar-img {
   width: 5vw;
   height: 5vw;
-  /* margin-right: ; */
 }
 
 .searchBar-button {

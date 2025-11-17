@@ -1,4 +1,3 @@
-import React from "react";
 import convertImg from "../imgs/icons8-convert-100.png";
 import "./ConvertButton.css";
 import { useNavigate } from "react-router-dom";

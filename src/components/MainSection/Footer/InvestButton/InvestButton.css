@@ -30,7 +30,6 @@
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Неоновий ореол */
 .invest-img::before {
   content: "";
   position: absolute;
@@ -45,7 +44,6 @@
   transition: opacity 0.3s ease;
 }
 
-/* Анімація при натисканні */
 .invest-img:active {
   transform: scale(0.93) translateY(3px);
   box-shadow: 0 0 35px rgba(0, 180, 216, 0.7),
@@ -62,16 +60,13 @@
   animation: neonPulse 0.4s ease;
 }
 
-/* 
-@media (max-width: ) {
-  
-} */
-
 @media (max-height: 400px) {
   .invest-img img {
     width: 15vh;
     height: 15vh;
-/* Ключова анімація "спалаху" */
+  }
+}
+
 @keyframes neonPulse {
   0% {
     opacity: 0.5;

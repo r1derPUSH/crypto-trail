@@ -1,4 +1,3 @@
-import React from "react";
 import "./RecentInvests.css";
 import RecentInvestsHeader from "./RecentInvestsHeader/RecentInvestsHeader";
 

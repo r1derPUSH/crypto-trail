@@ -1,4 +1,3 @@
-import React from "react";
 import investImg from "../imgs/icons8-invest-100.png";
 import "./InvestButton.css";
 import { useNavigate } from "react-router-dom";

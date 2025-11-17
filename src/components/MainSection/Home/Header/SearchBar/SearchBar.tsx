@@ -1,4 +1,3 @@
-import React from "react";
 import "./SearchBar.css";
 import searchBarImg from "../img/icons8-search-30.png";
 

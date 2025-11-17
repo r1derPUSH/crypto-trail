@@ -8,11 +8,9 @@
   border-radius: 15px;
   margin: 0.5rem;
   height: 18vh;
-  /* width: 100vw; */
 }
 
 .input-price-container {
-  /* width: 100; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,10 +38,6 @@
   opacity: 0.5;
   margin-bottom: 1rem;
 }
-
-/* .from-amount-input {
-  margin-bottom: 0.5rem;
-} */
 
 .price-in-usd {
   margin-top: 1rem;
@@ -74,7 +68,9 @@
   border-radius: 25px;
   padding: 0.2rem;
   background-color: #111111;
-  margin-right: 150px;
+  /* width: 50%; */
+  /* width: 90%; */
+  /* margin-right: 150px; */
 }
 
 .dropbox-menu-inactive span {
@@ -183,7 +179,7 @@
 .token-list {
   overflow-y: auto;
   flex-grow: 1;
-  padding-right: 6px; /* для скролу */
+  padding-right: 6px;
 }
 
 .token-list::-webkit-scrollbar {

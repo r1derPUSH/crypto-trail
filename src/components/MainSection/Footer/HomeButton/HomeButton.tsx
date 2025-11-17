@@ -1,6 +1,5 @@
 import React from "react";
 import "./HomeButton.css";
-// import type { fnProps } from "../../../MainSection/MainSection";
 
 function HomeButton() {
   return (
