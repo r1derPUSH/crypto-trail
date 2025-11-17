@@ -5,11 +5,35 @@ import SwapFrom from "../SwapMenu/SwapFrom/SwapFrom";
 import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 
 function ConvertPage() {
+  const [coins, setCoins] = useState({});
   const navigate = useNavigate();
+  const [handleTime, setHandleTime] = useState();
 
   const handleNavigate = () => {
     navigate("/");
   };
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await fetch(
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,solana"
+        );
+        const data = await res.json();
+        console.log(data);
+      } catch (err) {
+        console.error(`Error: ${err}`);
+      }
+    }
+
+    getData();
+
+    const interval = setInterval(getData, 25000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className="convert-page">
