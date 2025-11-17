@@ -3,6 +3,7 @@ import swapImg from "./imgs/swap-img.png";
 import { useNavigate } from "react-router-dom";
 import SwapFrom from "../SwapMenu/SwapFrom/SwapFrom";
 import SwapTo from "../SwapMenu/SwapTo/SwapTo";
+import { useState, useEffect } from "react";
 
 function ConvertPage() {
   const [coins, setCoins] = useState({});
