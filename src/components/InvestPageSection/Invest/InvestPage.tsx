@@ -4,8 +4,14 @@ import CoinHolder from "./CoinHolder/CoinHolder";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+type Data = {
+  symbol: string;
+  image: string;
+};
+
 function InvestPage() {
-  let data = {};
+  const [data, setData] = useState<Data[]>([]);
+  const [search, setSearch] = useState("");
   const navigation = useNavigate();
 
   const handleNavigate = () => {
@@ -18,7 +24,7 @@ function InvestPage() {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
       );
       const response = await res.json();
-      data = response;
+      setData(response);
       console.log(response);
       console.log(data);
     } catch (err) {
@@ -28,8 +34,9 @@ function InvestPage() {
 
   useEffect(() => {
     getData();
-    console.log(data);
   }, []);
+
+  // const filtered = data
 
   return (
     <div className="invest-body">
@@ -44,6 +51,7 @@ function InvestPage() {
           type="text"
           className="search-coin-input"
           placeholder="Enter coin"
+          onChange={(e) => setSearch(e.target.value)}
         />
         <button className="search-invest-btn">Search</button>
       </div>
