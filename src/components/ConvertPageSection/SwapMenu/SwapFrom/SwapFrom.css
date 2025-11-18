@@ -52,7 +52,7 @@
   width: 9vw;
   height: 3vw;
   border-radius: 25px;
-  margin-right: 1rem;
+  /* margin-right: 150em; */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -66,6 +66,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 25px;
+  /* margin-right: 20; */
   padding: 0.2rem;
   background-color: #111111;
   /* width: 50%; */
@@ -216,3 +217,15 @@
 }
 
 /* endpoint of dropbox-containings */
+
+@media (max-width: 900px) {
+  .dropbox-of-coins {
+    width: auto;
+    height: auto;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .dropbox-menu-inactive span {
+    margin: 0 0.4rem;
+  }
+}
