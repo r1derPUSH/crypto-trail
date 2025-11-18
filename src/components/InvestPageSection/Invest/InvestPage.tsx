@@ -2,13 +2,34 @@ import "./InvestPage.css";
 import crystalImg from "./imgs/crystal-invest.png";
 import CoinHolder from "./CoinHolder/CoinHolder";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function InvestPage() {
+  let data = {};
   const navigation = useNavigate();
 
   const handleNavigate = () => {
     navigation("/");
   };
+
+  async function getData() {
+    try {
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
+      );
+      const response = await res.json();
+      data = response;
+      console.log(response);
+      console.log(data);
+    } catch (err) {
+      console.error(`ERROR: ${err}`);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+    console.log(data);
+  }, []);
 
   return (
     <div className="invest-body">
