@@ -5,6 +5,7 @@ import "./components/MainSection/mainSection.css";
 import ConvertPage from "./components/ConvertPageSection/Convert/ConvertPage";
 import HelpPageSection from "./components/HelpPageSection/Help/HelpPageSection";
 import LoginSection from "./components/LoginPageSection/LoginSection";
+import Overview from "./components/MainSection/Overview/Overview";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/convert-page-section" element={<ConvertPage />} />
         <Route path="/help-page-section" element={<HelpPageSection />} />
         <Route path="/login-page-section" element={<LoginSection />} />
+        <Route path="/wallet-section" element={<Overview />} />
       </Routes>
     </HashRouter>
   );

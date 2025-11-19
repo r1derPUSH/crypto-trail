@@ -3,7 +3,7 @@
 .swap-container {
   border: 1.5px solid #393939;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-radius: 15px;
   margin: 0.5rem;
@@ -47,27 +47,24 @@
 /* dropbox-menu */
 
 .dropbox-of-coins {
-  background-color: #131313;
-  border: #393939 1px solid;
-  width: 9vw;
-  height: 3vw;
-  border-radius: 25px;
-  margin-right: 1rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
+  /* padding-right: 5rem; */
+}
+
+.dropbox-of-coins-container {
+  margin-right: 5rem;
 }
 
 .dropbox-menu-inactive {
+  background-color: #131313;
+  border: #393939 1px solid;
+  border-radius: 25px;
   cursor: pointer;
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 25px;
   padding: 0.2rem;
-  background-color: #111111;
+  margin-right: 1rem;
   /* width: 50%; */
   /* width: 90%; */
   /* margin-right: 150px; */
@@ -216,3 +213,21 @@
 }
 
 /* endpoint of dropbox-containings */
+
+/* media styles */
+
+@media (max-width: 580px) {
+  .input-price-container {
+    margin-right: -10rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .input-price-container {
+    margin-right: -12rem;
+  }
+
+  .input-price-flexbox {
+    width: 80vw;
+  }
+}

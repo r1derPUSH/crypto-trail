@@ -12,7 +12,6 @@ function MainSection() {
   return (
     <>
       <Home />
-      <Overview />
       <Footer />
     </>
   );

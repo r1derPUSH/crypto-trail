@@ -9,7 +9,9 @@ function LoginSection() {
     navigate("/");
   };
 
-  const backToWallet = () => {};
+  const backToWallet = () => {
+    navigate("/wallet-section");
+  };
 
   return (
     <div className="login-parent-box">

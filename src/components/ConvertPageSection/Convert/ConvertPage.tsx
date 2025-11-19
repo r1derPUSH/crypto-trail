@@ -4,14 +4,19 @@ import { useNavigate } from "react-router-dom";
 import SwapFrom from "../SwapMenu/SwapFrom/SwapFrom";
 import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 import { useState, useEffect } from "react";
+import Footer from "../../MainSection/Footer/Footer";
 
 function ConvertPage() {
   const [coins, setCoins] = useState({});
   const navigate = useNavigate();
   const [handleTime, setHandleTime] = useState();
 
-  const handleNavigate = () => {
+  const handleNavigateHome = () => {
     navigate("/");
+  };
+
+  const handleNavigateWallet = () => {
+    navigate("/wallet-section");
   };
 
   useEffect(() => {
@@ -38,22 +43,28 @@ function ConvertPage() {
 
   return (
     <div className="convert-page">
-      <div className="convert-header-section">
-        <img src={swapImg} alt="Swap" />
-        <span className="main-convert-text">Crypto Trail</span>
-        <span className="sub-convert-text">Convert</span>
-      </div>
-      <div className="convert-section">
-        <SwapFrom />
-        <SwapTo />
+      <div className="flex-container-convert-page">
+        <div className="convert-header-section">
+          <img src={swapImg} alt="Swap" />
+          <span className="main-convert-text">Crypto Trail</span>
+          <span className="sub-convert-text">Convert</span>
+        </div>
+        <div className="convert-section">
+          <SwapFrom />
+          <SwapTo />
+        </div>
       </div>
       <button className="convert-btn">Convert</button>
       <span className="convert-finalText">
         Instant convertion with live rates
       </span>
-      <button className="back-home-btn" onClick={handleNavigate}>
-        Back to home
+      <button className="back-home-btn" onClick={handleNavigateHome}>
+        Back to Home
       </button>
+      <button className="back-home-btn" onClick={handleNavigateWallet}>
+        Back to Wallet
+      </button>
+      <Footer />
     </div>
   );
 }

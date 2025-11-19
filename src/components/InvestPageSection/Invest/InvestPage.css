@@ -99,6 +99,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 2rem;
+  margin-bottom: 20vh;
 }
 
 .back-home-btn {
@@ -132,41 +133,12 @@
   box-shadow: 0 0 8px rgba(0, 153, 255, 0.25);
 }
 
-.back-home-btn {
-  background: linear-gradient(145deg, #081a3a, #0c295b);
-  border: 1px solid rgba(70, 130, 255, 0.25);
-  border-radius: 12px;
-  padding: 0.9rem 2.5rem;
-  margin-top: 0.8rem;
-  color: #b5c7f7;
-  font-family: "Quicksand", sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-
-  transition: all 0.25s ease-in-out;
-  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.05),
-    0 0 8px rgba(0, 50, 150, 0.25);
-}
-
-.back-home-btn:hover {
-  background: linear-gradient(145deg, #102e6b, #173f8e);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(80, 140, 255, 0.45);
-}
-
-.back-home-btn:active {
-  transform: scale(0.97);
-  box-shadow: 0 0 6px rgba(70, 130, 255, 0.3);
-}
-
 .back-portfolio-btn {
   background: linear-gradient(145deg, #004e4e, #007a7a);
   border: 1px solid rgba(0, 255, 200, 0.3);
   border-radius: 12px;
   padding: 0.9rem 2.5rem;
-  margin: 2rem;
+  /* margin: 0rem; */
   color: #b9fff7;
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
