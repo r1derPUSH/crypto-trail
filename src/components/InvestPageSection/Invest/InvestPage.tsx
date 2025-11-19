@@ -3,6 +3,7 @@ import crystalImg from "./imgs/crystal-invest.png";
 import CoinHolder from "./CoinHolder/CoinHolder";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Footer from "../../MainSection/Footer/Footer";
 
 type Data = {
   name: string;
@@ -17,8 +18,12 @@ function InvestPage() {
   const [search, setSearch] = useState("");
   const navigation = useNavigate();
 
-  const handleNavigate = () => {
+  const handleNavigateHome = () => {
     navigation("/");
+  };
+
+  const hanldeNavigateWallet = () => {
+    navigation("/wallet-section");
   };
 
   async function getData() {
@@ -75,11 +80,14 @@ function InvestPage() {
       </div>
 
       <div className="back-buttons">
-        <button className="back-home-btn" onClick={handleNavigate}>
+        <button className="back-home-btn" onClick={handleNavigateHome}>
           Back to Home
         </button>
-        <button className="back-portfolio-btn">Back to Portfolio</button>
+        <button onClick={hanldeNavigateWallet} className="back-portfolio-btn">
+          Back to Portfolio
+        </button>
       </div>
+      <Footer />
     </div>
   );
 }

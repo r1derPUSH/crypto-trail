@@ -3,6 +3,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 10rem;
+}
+
+.flex-container-convert-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+  margin-bottom: 2rem;
 }
 
 .convert-header-section {
@@ -25,8 +34,6 @@
 .convert-section {
   background: #131313;
   border-radius: 15px;
-  width: 40vw;
-  height: 40vh;
   margin: 2rem;
 }
 
@@ -41,6 +48,8 @@
   cursor: pointer;
   transition: 0.3s ease;
   box-shadow: 0 0 15px #5b79e855;
+  margin-left: 35rem;
+  margin-bottom: 5rem;
 }
 
 .convert-btn:hover {
@@ -72,5 +81,17 @@
 @media (max-width: 1050px) {
   .convert-section {
     width: 98vw;
+  }
+  .flex-container-convert-page {
+    flex-direction: column;
+  }
+  .convert-btn {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .convert-header-section span {
+    font-size: 2.3rem;
   }
 }

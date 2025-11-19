@@ -1,5 +1,3 @@
-import React from "react";
-import "./SwapTo.css";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
@@ -37,7 +35,6 @@ function SwapTo() {
           <span className="price-in-usd">$76.1</span>
         </div>
       </div>
-      {/* <div className="dropbox-parent"> */}
       <div className="dropbox-of-coins-container">
         <div className="dropbox-of-coins">
           <button onClick={handleOpen} className="dropbox-menu-inactive">
@@ -78,7 +75,6 @@ function SwapTo() {
             </div>
           </div>
         )}
-        {/* </div> */}
       </div>
     </div>
   );

@@ -36,22 +36,20 @@ function SwapFrom() {
           <span className="price-in-usd">$76.1</span>
         </div>
       </div>
-      <div className="dropbox-of-coins-container">
-        <div className="dropbox-of-coins">
-          <button onClick={handleOpen} className="dropbox-menu-inactive">
-            <img src={ethereumImg} className="coin-img" alt="ETH" />
-            <span className="coin-name">ETH</span>
-            <FaAngleDown
-              style={{
-                color: "#9AA0A6",
-                fontSize: "1.2rem",
-                backgroundColor: "rgba(0,0,0,0.05)",
-                borderRadius: "6px",
-                padding: "4px",
-              }}
-            />
-          </button>
-        </div>
+      <div className="dropbox-of-coins">
+        <button onClick={handleOpen} className="dropbox-menu-inactive">
+          <img src={ethereumImg} className="coin-img" alt="ETH" />
+          <span className="coin-name">ETH</span>
+          <FaAngleDown
+            style={{
+              color: "#9AA0A6",
+              fontSize: "1.2rem",
+              backgroundColor: "rgba(0,0,0,0.05)",
+              borderRadius: "6px",
+              padding: "4px",
+            }}
+          />
+        </button>
         {isOpen && (
           <div className="overlay" onClick={() => setIsOpen((prev) => !prev)}>
             <div className="modal" onClick={(e) => e.stopPropagation()}>
