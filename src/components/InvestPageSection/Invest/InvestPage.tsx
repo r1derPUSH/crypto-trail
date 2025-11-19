@@ -63,16 +63,14 @@ function InvestPage() {
 
       <div className="invest-coins-container">
         <div className="coins-holder">
-          <ul>
-            {filtered.map((item) => (
-              <CoinHolder
-                shortName={item.symbol}
-                price={item.current_price}
-                image={item.image}
-                key={item.id}
-              />
-            ))}
-          </ul>
+          {filtered.map((item) => (
+            <CoinHolder
+              shortName={item.symbol}
+              price={item.current_price}
+              image={item.image}
+              key={item.id}
+            />
+          ))}
         </div>
       </div>
 
