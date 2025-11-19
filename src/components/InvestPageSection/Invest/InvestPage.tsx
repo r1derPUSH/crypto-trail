@@ -5,8 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 type Data = {
+  name: string;
   symbol: string;
   image: string;
+  current_price: number;
+  id?: string;
 };
 
 function InvestPage() {
@@ -36,7 +39,7 @@ function InvestPage() {
     getData();
   }, []);
 
-  // const filtered = data
+  // const filtered = data.filter()
 
   return (
     <div className="invest-body">
@@ -58,10 +61,16 @@ function InvestPage() {
 
       <div className="invest-coins-container">
         <div className="coins-holder">
-          <CoinHolder />
-          <CoinHolder />
-          <CoinHolder />
-          <CoinHolder />
+          <ul>
+            {data.map((item) => (
+              <CoinHolder
+                shortName={item.symbol}
+                price={item.current_price}
+                image={item.image}
+                key={item.id}
+              />
+            ))}
+          </ul>
         </div>
       </div>
 
