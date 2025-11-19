@@ -36,7 +36,11 @@ function InvestPage() {
   }
 
   useEffect(() => {
-    getData();
+    const interval = setInterval(() => {
+      getData();
+    }, 15000);
+
+    return () => clearInterval(interval);
   }, []);
 
   // const filtered = data.filter()
