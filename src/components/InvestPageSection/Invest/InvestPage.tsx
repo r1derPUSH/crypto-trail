@@ -28,8 +28,6 @@ function InvestPage() {
       );
       const response = await res.json();
       setData(response);
-      console.log(response);
-      console.log(data);
     } catch (err) {
       console.error(`ERROR: ${err}`);
     }
@@ -43,7 +41,7 @@ function InvestPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // const filtered = data.filter()
+  const filtered = data.filter((item) => item.symbol.includes(search));
 
   return (
     <div className="invest-body">
@@ -66,7 +64,7 @@ function InvestPage() {
       <div className="invest-coins-container">
         <div className="coins-holder">
           <ul>
-            {data.map((item) => (
+            {filtered.map((item) => (
               <CoinHolder
                 shortName={item.symbol}
                 price={item.current_price}
