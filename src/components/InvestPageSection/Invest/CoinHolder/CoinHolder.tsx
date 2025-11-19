@@ -1,11 +1,17 @@
 import "./CoinHolder.css";
 
-function CoinHolder() {
+type CoinHolder = {
+  shortName: string;
+  price: number;
+  image: string;
+};
+
+function CoinHolder({ shortName, price, image }: CoinHolder) {
   return (
     <div className="coin-card">
-      <img src="/btc-icon.png" alt="BTC" />
-      <span className="coin-name">Bitcoin (BTC)</span>
-      <span className="coin-price">$64,200</span>
+      <img src={image} alt="BTC" />
+      <span className="coin-name">{shortName}</span>
+      <span className="coin-price">${price}</span>
       <button className="invest-coin-card-btn">Invest</button>
     </div>
   );

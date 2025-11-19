@@ -3,12 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   background: linear-gradient(145deg, #0b2044, #09203b);
   border: 1px solid rgba(0, 140, 255, 0.25);
   border-radius: 15px;
-
-  width: 90vw;
+  width: 80vw;
   height: 160px;
   padding: 1rem;
   cursor: pointer;
