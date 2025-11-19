@@ -63,6 +63,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 25px;
+  /* margin-right: 20; */
   padding: 0.2rem;
   margin-right: 1rem;
   /* width: 50%; */
@@ -229,5 +230,14 @@
 
   .input-price-flexbox {
     width: 80vw;
+@media (max-width: 900px) {
+  .dropbox-of-coins {
+    width: auto;
+    height: auto;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .dropbox-menu-inactive span {
+    margin: 0 0.4rem;
   }
 }
