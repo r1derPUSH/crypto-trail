@@ -17,6 +17,7 @@ function App() {
         <Route path="/help-page-section" element={<HelpPageSection />} />
         <Route path="/login-page-section" element={<LoginSection />} />
         <Route path="/wallet-section" element={<Overview />} />
+        <Route path="/invest-unique-token" />
       </Routes>
     </HashRouter>
   );
