@@ -1,0 +1,43 @@
+/* invest-token container */
+
+.token-invest-container {
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* token-header */
+
+.header {
+  width: 20vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.token-symbol-h1 {
+  opacity: 0.9;
+}
+
+.token-name-span {
+  opacity: 0.6;
+}
+
+.invest-token-functional {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.other-token-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
