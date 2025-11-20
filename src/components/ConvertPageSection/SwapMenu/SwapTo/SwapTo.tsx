@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
+import "../SwapFrom/SwapFrom.css";
 
 function SwapTo() {
   const [isOpen, setIsOpen] = useState(false);

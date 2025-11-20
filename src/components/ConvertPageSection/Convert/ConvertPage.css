@@ -80,7 +80,8 @@
 
 @media (max-width: 1050px) {
   .convert-section {
-    width: 98vw;
+    width: 80vw;
+    /* margin-left: 15vw; */
   }
   .flex-container-convert-page {
     flex-direction: column;

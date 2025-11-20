@@ -1,0 +1,228 @@
+/* container of swap-to */
+
+.swap-container {
+  border: 1.5px solid #393939;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 15px;
+  margin: 0.5rem;
+  height: 18vh;
+}
+
+/* input price */
+.input-price-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.input-price-container input {
+  font-size: 2rem;
+  color: #ffffffa2;
+  border: none;
+  background-color: transparent;
+  outline-style: none;
+}
+
+.input-price-flexbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.from-span-text {
+  font-size: 1.2rem;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.price-in-usd {
+  margin-top: 1rem;
+  opacity: 0.5;
+}
+
+/* dropbox of coins */
+
+.dropbox-of-coins-container {
+  margin-right: 5rem;
+}
+
+.dropbox-menu-inactive {
+  background-color: #131313;
+  border: 1px solid #393939;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  margin-right: 1rem;
+}
+
+.dropbox-menu-inactive span {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.coin-img {
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+}
+
+.dropbox-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-list {
+  position: absolute;
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  width: 420px;
+  height: 75vh;
+  background: #131313;
+  border: 1px solid #393939;
+  border-radius: 20px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  animation: modalOpen 0.22s ease-out forwards;
+}
+
+@keyframes modalOpen {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== HEADER ===== */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #aaa;
+  transition: 0.15s;
+}
+
+.modal-header button:hover {
+  color: #fff;
+}
+
+/* ===== SEARCH FIELD ===== */
+.search {
+  width: 90%;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #393939;
+  background: #111111;
+  color: white;
+  outline: none;
+  margin-bottom: 1.2rem;
+}
+
+.search::placeholder {
+  color: #6d6d6d;
+}
+
+/* ===== TOKEN LIST ===== */
+.token-list {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 6px;
+}
+
+.token-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.token-list::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 6px;
+}
+
+/* ===== TOKEN ITEM ===== */
+.token-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #141414;
+  border: 1px solid #1f1f1f;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+
+  margin-top: 0.5rem;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  transition: 0.17s ease;
+  color: #fff;
+}
+
+.token-container:hover {
+  border-color: #4c4c4c;
+  background: #1a1a1a;
+  transform: translateY(-1px);
+}
+
+/* media styles */
+@media (max-width: 580px) {
+  .input-price-container {
+    margin-right: -10rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .input-price-container {
+    margin-right: -12rem;
+  }
+
+  .input-price-flexbox {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .dropbox-of-coins {
+    width: auto;
+    height: auto;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .dropbox-menu-inactive span {
+    margin: 0 0.4rem;
+  }
+}

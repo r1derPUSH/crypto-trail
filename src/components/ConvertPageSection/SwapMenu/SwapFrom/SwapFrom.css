@@ -230,6 +230,9 @@
 
   .input-price-flexbox {
     width: 80vw;
+  }
+}
+
 @media (max-width: 900px) {
   .dropbox-of-coins {
     width: auto;
