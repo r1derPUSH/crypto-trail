@@ -9,7 +9,9 @@ type CoinHolder = {
 
 function CoinHolder({ shortName, price, image }: CoinHolder) {
   const navigate = useNavigate();
-  const handleNavigate = () => {};
+  const handleNavigate = () => {
+    navigate("/invest-unique-token");
+  };
 
   return (
     <div className="coin-card">

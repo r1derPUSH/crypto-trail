@@ -6,6 +6,7 @@ import ConvertPage from "./components/ConvertPageSection/Convert/ConvertPage";
 import HelpPageSection from "./components/HelpPageSection/Help/HelpPageSection";
 import LoginSection from "./components/LoginPageSection/LoginSection";
 import Overview from "./components/MainSection/Overview/Overview";
+import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSectionPage/InvestToken";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/help-page-section" element={<HelpPageSection />} />
         <Route path="/login-page-section" element={<LoginSection />} />
         <Route path="/wallet-section" element={<Overview />} />
-        <Route path="/invest-unique-token" />
+        <Route path="/invest-unique-token" element={<InvestToken />} />
       </Routes>
     </HashRouter>
   );
