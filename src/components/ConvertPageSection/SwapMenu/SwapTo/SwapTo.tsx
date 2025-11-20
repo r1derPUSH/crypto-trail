@@ -36,47 +36,45 @@ function SwapTo() {
           <span className="price-in-usd">$76.1</span>
         </div>
       </div>
-      <div className="dropbox-of-coins-container">
-        <div className="dropbox-of-coins">
-          <button onClick={handleOpen} className="dropbox-menu-inactive">
-            <img src={ethereumImg} className="coin-img" alt="ETH" />
-            <span className="coin-name">ETH</span>
-            <FaAngleDown
-              style={{
-                color: "#9AA0A6",
-                fontSize: "1.2rem",
-                backgroundColor: "rgba(0,0,0,0.05)",
-                borderRadius: "6px",
-                padding: "4px",
-              }}
-            />
-          </button>
-        </div>
-        {isOpen && (
-          <div className="overlay" onClick={() => setIsOpen((prev) => !prev)}>
-            <div className="modal" onClick={(e) => e.stopPropagation()}>
-              <div className="modal-header">
-                <span>Select a token</span>
-                <button onClick={() => setIsOpen(false)}>X</button>
-              </div>
-              <div className="input-and-coins">
-                <input
-                  className="search"
-                  placeholder="Search token"
-                  onChange={handleSearch}
-                />
-                <div className="recent-coins"></div>
-              </div>
-              <div className="token-list">
-                {filtered.map((item) => (
-                  <div className="token-container">{item.name}</div>
-                ))}
-                ;
-              </div>
+      <div className="dropbox-of-coins">
+        <button onClick={handleOpen} className="dropbox-menu-inactive">
+          <img src={ethereumImg} className="coin-img" alt="ETH" />
+          <span className="coin-name">ETH</span>
+          <FaAngleDown
+            style={{
+              color: "#9AA0A6",
+              fontSize: "1.2rem",
+              backgroundColor: "rgba(0,0,0,0.05)",
+              borderRadius: "6px",
+              padding: "4px",
+            }}
+          />
+        </button>
+      </div>
+      {isOpen && (
+        <div className="overlay" onClick={() => setIsOpen((prev) => !prev)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <span>Select a token</span>
+              <button onClick={() => setIsOpen(false)}>X</button>
+            </div>
+            <div className="input-and-coins">
+              <input
+                className="search"
+                placeholder="Search token"
+                onChange={handleSearch}
+              />
+              <div className="recent-coins"></div>
+            </div>
+            <div className="token-list">
+              {filtered.map((item) => (
+                <div className="token-container">{item.name}</div>
+              ))}
+              ;
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
