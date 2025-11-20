@@ -13,7 +13,7 @@ type Data = {
   id?: string;
 };
 
-function InvestPage() {
+function InvestPage({ setTokenInfo }) {
   const [data, setData] = useState<Data[]>([]);
   const [search, setSearch] = useState("");
   const navigation = useNavigate();
@@ -33,6 +33,7 @@ function InvestPage() {
       );
       const response = await res.json();
       setData(response);
+      setTokenInfo(response);
     } catch (err) {
       console.error(`ERROR: ${err}`);
     }
