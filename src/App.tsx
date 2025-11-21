@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MainSection from "./components/MainSection/MainSection";
 import InvestPage from "./components/InvestPageSection/Invest/InvestPage";
 import "./components/MainSection/mainSection.css";
@@ -11,7 +11,9 @@ import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSecti
 
 function App() {
   const [tokenInfo, setTokenInfo] = useState([]);
-  console.log(tokenInfo);
+  useEffect(() => {
+    console.log(tokenInfo);
+  });
 
   return (
     <HashRouter>
@@ -25,7 +27,10 @@ function App() {
         <Route path="/help-page-section" element={<HelpPageSection />} />
         <Route path="/login-page-section" element={<LoginSection />} />
         <Route path="/wallet-section" element={<Overview />} />
-        <Route path="/invest-unique-token" element={<InvestToken />} />
+        <Route
+          path="/invest-unique-token"
+          element={<InvestToken tokenInfo={tokenInfo} />}
+        />
       </Routes>
     </HashRouter>
   );
