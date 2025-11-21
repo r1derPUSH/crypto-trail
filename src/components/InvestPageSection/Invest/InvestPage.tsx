@@ -10,10 +10,15 @@ type Data = {
   symbol: string;
   image: string;
   current_price: number;
+  price_change_percentage_24h: number;
+  ath: number;
+  high_24h: number;
+  low_24h: number;
+  price_change_24h: number;
   id?: string;
 };
 
-function InvestPage({ setTokenInfo }) {
+function InvestPage({ setTokenInfo }: { setTokenInfo: any }) {
   const [data, setData] = useState<Data[]>([]);
   const [search, setSearch] = useState("");
   const navigation = useNavigate();
@@ -33,7 +38,7 @@ function InvestPage({ setTokenInfo }) {
       );
       const response = await res.json();
       setData(response);
-      setTokenInfo(response);
+      console.log(response);
     } catch (err) {
       console.error(`ERROR: ${err}`);
     }
@@ -71,7 +76,14 @@ function InvestPage({ setTokenInfo }) {
         <div className="coins-holder">
           {filtered.map((item) => (
             <CoinHolder
+              setTokenInfo={setTokenInfo}
               shortName={item.symbol}
+              name={item.name}
+              priceChange24H={item.price_change_24h}
+              price_change_24H_in_percentage={item.price_change_percentage_24h}
+              ath={item.ath}
+              ath_today={item.high_24h}
+              atl_today={item.low_24h}
               price={item.current_price}
               image={item.image}
               key={item.id}

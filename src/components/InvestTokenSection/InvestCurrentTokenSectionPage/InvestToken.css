@@ -28,16 +28,21 @@
   opacity: 0.6;
 }
 
+/* inputs */
+
 .invest-token-functional {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+/* other info */
+
 .other-token-info {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   text-align: center;
   color: #fff;
 }

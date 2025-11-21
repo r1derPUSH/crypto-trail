@@ -7,9 +7,14 @@ type CoinHolder = {
   image: string;
 };
 
-function CoinHolder({ shortName, price, image }: CoinHolder) {
+function CoinHolder({ shortName, price, image, setTokenInfo }: CoinHolder) {
   const navigate = useNavigate();
   const handleNavigate = () => {
+    setTokenInfo({
+      shortName: shortName,
+      price: price,
+      image: image,
+    });
     navigate("/invest-unique-token");
   };
 
