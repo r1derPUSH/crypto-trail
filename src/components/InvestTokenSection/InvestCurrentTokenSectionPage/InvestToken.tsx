@@ -9,8 +9,10 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
       <div className="token-invest-container">
         <div className="header">
           <div className="first-flex-header">
-            <img src={tokenInfo.image} alt={tokenInfo.name} />
-            <h1 className="token-symbol-h1">{tokenInfo.symbol}</h1>
+            <div className="img-flex-section-token">
+              <img src={tokenInfo.image} alt={tokenInfo.name} />
+              <h1 className="token-symbol-h1">{tokenInfo.shortName}</h1>
+            </div>
             <span className="token-name-span">{tokenInfo.name}</span>
           </div>
           <div className="second-flex-header">
@@ -18,17 +20,77 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
           </div>
         </div>
         <div className="invest-token-functional">
-          <input type="text" className="invest-token" />
-          <input type="text" className="recive-token" />
+          {" "}
+          <div className="input-wrapper">
+            <span className="input-label">You invest</span>
+
+            <div className="crypto-input-box">
+              <input
+                type="text"
+                placeholder="0.00"
+                className="crypto-input-field"
+              />
+
+              <div className="crypto-input-token">
+                <img src={tokenInfo.image} alt="" />
+                <span>{tokenInfo.shortName}</span>
+              </div>
+            </div>
+          </div>
+          <span className="input-arrow">↕</span>
+          <div className="input-wrapper">
+            <span className="input-label">You receive (USD)</span>
+
+            <div className="crypto-input-box">
+              <input
+                type="text"
+                placeholder="0.00"
+                className="crypto-input-field"
+              />
+
+              <div className="crypto-input-token">
+                <span>$</span>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="other-token-info">
-          <span>ATH: {tokenInfo.ath}$ </span>
-          <span>ATH 24H: {tokenInfo.ath_today}$ </span>
-          <span>ATL 24H: {tokenInfo.atl_today}$ </span>
-          <span>Priche Change 24H: {tokenInfo.price_change_24h}$ </span>
-          <span>
-            Price Change 24H %: {tokenInfo.price_change_24H_in_percentage}%
-          </span>
+          <div className="other-token-info">
+            <div className="token-stat-card">
+              <span className="token-stat-title">ATH:</span>
+              <span className="token-stat-value">{tokenInfo.ath}$</span>
+            </div>
+
+            <div className="token-stat-card">
+              <span className="token-stat-title">ATH 24H:</span>
+              <span className="token-stat-value">{tokenInfo.ath_today}$</span>
+            </div>
+
+            <div className="token-stat-card">
+              <span className="token-stat-title">ATL 24H:</span>
+              <span className="token-stat-value">{tokenInfo.atl_today}$</span>
+            </div>
+
+            <div className="token-stat-card">
+              <span className="token-stat-title">Price Change 24H:</span>
+              <span className="token-stat-value">
+                {tokenInfo.price_change_24h}$
+              </span>
+            </div>
+
+            <div className="token-stat-card">
+              <span className="token-stat-title">Price Change 24H %:</span>
+              <span
+                className={
+                  tokenInfo.price_change_24H_in_percentage > 0
+                    ? "token-stat-value price-green"
+                    : "token-stat-value price-red"
+                }
+              >
+                {tokenInfo.price_change_24H_in_percentage}%
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
