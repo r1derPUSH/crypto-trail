@@ -5,11 +5,39 @@ type CoinHolder = {
   shortName: string;
   price: number;
   image: string;
+  name: string;
+  priceChange24H: number;
+  price_change_24H_in_percentage: number;
+  ath: number;
+  ath_today: number;
+  atl_today: number;
 };
 
-function CoinHolder({ shortName, price, image }: CoinHolder) {
+function CoinHolder({
+  name,
+  priceChange24H,
+  price_change_24H_in_percentage,
+  ath,
+  ath_today,
+  atl_today,
+  shortName,
+  price,
+  image,
+  setTokenInfo,
+}: CoinHolder) {
   const navigate = useNavigate();
   const handleNavigate = () => {
+    setTokenInfo({
+      name,
+      priceChange24H,
+      price_change_24H_in_percentage,
+      ath,
+      ath_today,
+      atl_today,
+      shortName,
+      price,
+      image,
+    });
     navigate("/invest-unique-token");
   };
 
