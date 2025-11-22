@@ -12,6 +12,7 @@
   margin: 3rem auto;
   padding: 3rem;
   border-radius: 28px;
+  margin-bottom: 10rem;
 
   background: radial-gradient(circle at 30% 20%, #232b69, #0f1129 70%);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45), 0 0 80px rgba(81, 134, 255, 0.18);
@@ -278,8 +279,8 @@
 .crypto-input-token {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
-
   padding: 0.35rem 0.6rem;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
