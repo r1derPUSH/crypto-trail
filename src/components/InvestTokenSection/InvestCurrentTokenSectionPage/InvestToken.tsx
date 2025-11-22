@@ -86,7 +86,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                     : "token-stat-value price-red"
                 }
               >
-                {tokenInfo.priceChange24H} $
+                {tokenInfo.priceChange24H.toFixed(2)} $
               </span>
             </div>
 
@@ -99,7 +99,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                     : "token-stat-value price-red"
                 }
               >
-                {tokenInfo.price_change_24H_in_percentage} %
+                {tokenInfo.price_change_24H_in_percentage.toFixed(2)} %
               </span>
             </div>
           </div>
