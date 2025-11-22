@@ -57,30 +57,36 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
           <div className="other-token-info">
             <div className="token-stat-card">
               <span className="token-stat-title">ATH:</span>
-              <span className="token-stat-value">{tokenInfo.ath}$</span>
+              <span className="token-stat-value">{tokenInfo.ath} $</span>
             </div>
 
             <div className="token-stat-card">
               <span className="token-stat-title">Market Cap:</span>
               <span className="token-stat-value">
-                {tokenInfo.market_cap / 1e9}$
+                {(tokenInfo.market_cap / 1e9).toFixed(1)} M $
               </span>
             </div>
 
             <div className="token-stat-card">
               <span className="token-stat-title">ATH 24H:</span>
-              <span className="token-stat-value">{tokenInfo.ath_today}$</span>
+              <span className="token-stat-value">{tokenInfo.ath_today} $</span>
             </div>
 
             <div className="token-stat-card">
               <span className="token-stat-title">ATL 24H:</span>
-              <span className="token-stat-value">{tokenInfo.atl_today}$</span>
+              <span className="token-stat-value">{tokenInfo.atl_today} $</span>
             </div>
 
             <div className="token-stat-card">
               <span className="token-stat-title">Price Change 24H:</span>
-              <span className="token-stat-value">
-                {tokenInfo.priceChange24H}$
+              <span
+                className={
+                  tokenInfo.priceChange24H > 0
+                    ? "token-stat-value price-green"
+                    : "token-stat-value price-red"
+                }
+              >
+                {tokenInfo.priceChange24H} $
               </span>
             </div>
 
@@ -93,7 +99,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                     : "token-stat-value price-red"
                 }
               >
-                {tokenInfo.price_change_24H_in_percentage}%
+                {tokenInfo.price_change_24H_in_percentage} %
               </span>
             </div>
           </div>
