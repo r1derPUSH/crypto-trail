@@ -15,6 +15,7 @@ type Data = {
   high_24h: number;
   low_24h: number;
   price_change_24h: number;
+  market_cap: number;
   id?: string;
 };
 
@@ -22,6 +23,10 @@ function InvestPage({ setTokenInfo }: { setTokenInfo: any }) {
   const [data, setData] = useState<Data[]>([]);
   const [search, setSearch] = useState("");
   const navigation = useNavigate();
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const handleNavigateHome = () => {
     navigation("/");
@@ -47,7 +52,7 @@ function InvestPage({ setTokenInfo }: { setTokenInfo: any }) {
   useEffect(() => {
     const interval = setInterval(() => {
       getData();
-    }, 15000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -84,6 +89,7 @@ function InvestPage({ setTokenInfo }: { setTokenInfo: any }) {
               ath={item.ath}
               ath_today={item.high_24h}
               atl_today={item.low_24h}
+              market_cap={item.market_cap}
               price={item.current_price}
               image={item.image}
               key={item.id}
