@@ -20,13 +20,12 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
           </div>
         </div>
         <div className="invest-token-functional">
-          {" "}
           <div className="input-wrapper">
             <span className="input-label">You invest</span>
 
             <div className="crypto-input-box">
               <input
-                type="text"
+                type="number"
                 placeholder="0.00"
                 className="crypto-input-field"
               />
@@ -43,7 +42,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
 
             <div className="crypto-input-box">
               <input
-                type="text"
+                type="number"
                 placeholder="0.00"
                 className="crypto-input-field"
               />
@@ -62,6 +61,13 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             </div>
 
             <div className="token-stat-card">
+              <span className="token-stat-title">Market Cap:</span>
+              <span className="token-stat-value">
+                {tokenInfo.market_cap / 1e9}$
+              </span>
+            </div>
+
+            <div className="token-stat-card">
               <span className="token-stat-title">ATH 24H:</span>
               <span className="token-stat-value">{tokenInfo.ath_today}$</span>
             </div>
@@ -74,7 +80,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             <div className="token-stat-card">
               <span className="token-stat-title">Price Change 24H:</span>
               <span className="token-stat-value">
-                {tokenInfo.price_change_24h}$
+                {tokenInfo.priceChange24H}$
               </span>
             </div>
 

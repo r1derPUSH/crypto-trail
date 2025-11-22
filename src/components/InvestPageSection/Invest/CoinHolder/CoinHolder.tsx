@@ -10,6 +10,7 @@ type CoinHolder = {
   price_change_24H_in_percentage: number;
   ath: number;
   ath_today: number;
+  market_cap: number;
   atl_today: number;
 };
 
@@ -21,6 +22,7 @@ function CoinHolder({
   ath_today,
   atl_today,
   shortName,
+  market_cap,
   price,
   image,
   setTokenInfo,
@@ -35,6 +37,7 @@ function CoinHolder({
       ath_today,
       atl_today,
       shortName,
+      market_cap,
       price,
       image,
     });
