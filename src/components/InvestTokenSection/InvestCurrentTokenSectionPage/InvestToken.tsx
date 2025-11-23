@@ -22,8 +22,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
 
   return (
     <div>
-      {/* <span>Invest in Token</span> */}
-
       <div className="token-invest-container">
         <div className="header">
           <div className="first-flex-header">
@@ -44,7 +42,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             <span className="input-label">You recieve</span>
 
             <div className="crypto-input-box">
-              {/* 1st input */}
               <input
                 type="number"
                 onChange={handleChangeToken}
@@ -64,7 +61,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             <span className="input-label">You spend (USD)</span>
 
             <div className="crypto-input-box">
-              {/* 2nd input  */}
               <input
                 type="number"
                 onChange={handleChangeUSD}
