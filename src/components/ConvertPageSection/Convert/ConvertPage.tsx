@@ -6,8 +6,10 @@ import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 import { useState, useEffect } from "react";
 import Footer from "../../MainSection/Footer/Footer";
 
+// type Coins = {};
+
 function ConvertPage() {
-  const [coins, setCoins] = useState({});
+  const [coins, setCoins] = useState<any[]>([]);
   const navigate = useNavigate();
   const [handleTime, setHandleTime] = useState();
 
@@ -19,26 +21,25 @@ function ConvertPage() {
     navigate("/wallet-section");
   };
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        const res = await fetch(
-          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,solana"
-        );
-        const data = await res.json();
-        console.log(data);
-      } catch (err) {
-        console.error(`Error: ${err}`);
-      }
+  async function getData() {
+    try {
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
+      );
+      const response = await res.json();
+      setCoins(response);
+      console.log(response);
+    } catch (err) {
+      console.error(`ERROR: ${err}`);
     }
+  }
 
-    getData();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getData();
+    }, 10000);
 
-    const interval = setInterval(getData, 25000);
-
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -50,8 +51,8 @@ function ConvertPage() {
           <span className="sub-convert-text">Convert</span>
         </div>
         <div className="convert-section">
-          <SwapFrom />
-          <SwapTo />
+          <SwapFrom coins={coins} />
+          <SwapTo coins={coins} />
         </div>
       </div>
       <button className="convert-btn">Convert</button>

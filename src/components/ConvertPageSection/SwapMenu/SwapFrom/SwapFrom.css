@@ -113,7 +113,7 @@
 
 /* ===== MODAL ===== */
 .modal {
-  width: 420px;
+  width: 37vw;
   height: 75vh;
   background: #131313;
   border: 1px solid #393939;
@@ -178,6 +178,7 @@
   overflow-y: auto;
   flex-grow: 1;
   padding-right: 6px;
+  width: 90vw;
 }
 
 .token-list::-webkit-scrollbar {
@@ -205,6 +206,7 @@
   cursor: pointer;
   transition: 0.17s ease;
   color: #fff;
+  width: 33vw;
 }
 
 .token-container:hover {

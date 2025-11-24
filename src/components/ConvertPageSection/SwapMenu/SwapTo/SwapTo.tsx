@@ -2,8 +2,27 @@ import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import "../SwapFrom/SwapFrom.css";
+import TokenContainer from "../SwapFrom/TokenContainer/TokenContainer";
 
-function SwapTo() {
+type Data = {
+  name: string;
+  symbol: string;
+  image: string;
+  current_price: number;
+  price_change_percentage_24h: number;
+  ath: number;
+  high_24h: number;
+  low_24h: number;
+  price_change_24h: number;
+  market_cap: number;
+  id?: string;
+};
+
+type Symbol = {
+  symbol: string;
+};
+
+function SwapTo({ coins }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
   const handleOpen = () => {
@@ -14,17 +33,8 @@ function SwapTo() {
     setSearch(e.target.value);
   };
 
-  const coins = [
-    { name: "BTC", icon: "₿" },
-    { name: "ETH", icon: "♦" },
-    { name: "ARB", icon: "◎" },
-    { name: "SOL", icon: "⚡" },
-    { name: "AVAX", icon: "▲" },
-    { name: "BNB", icon: "◉" },
-  ];
-
-  const filtered = coins.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
+  const filtered = coins.filter((item: Symbol) =>
+    item.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -67,8 +77,14 @@ function SwapTo() {
               <div className="recent-coins"></div>
             </div>
             <div className="token-list">
-              {filtered.map((item) => (
-                <div className="token-container">{item.name}</div>
+              {filtered.map((item: Data) => (
+                <div className="token-container">
+                  <TokenContainer
+                    image={item.image}
+                    current_price={item.current_price}
+                    symbol={item.symbol}
+                  />
+                </div>
               ))}
               ;
             </div>
