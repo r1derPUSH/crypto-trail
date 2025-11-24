@@ -77,7 +77,9 @@ function SwapTo({ coins }: Data & Record<string, any>) {
             </div>
             <div className="token-list">
               {filtered.map((item: Symbol) => (
-                <div className="token-container">{item.symbol}</div>
+                <div className="token-container">
+                  {item.symbol.toUpperCase()}
+                </div>
               ))}
               ;
             </div>
