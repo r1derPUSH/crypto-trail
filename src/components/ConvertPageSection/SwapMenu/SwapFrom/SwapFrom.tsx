@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./SwapFrom.css";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
+import TokenContainer from "./TokenContainer/TokenContainer";
 
 type Data = {
   name: string;
@@ -75,9 +76,13 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
                 <div className="recent-coins"></div>
               </div>
               <div className="token-list">
-                {filtered.map((item: Symbol) => (
+                {filtered.map((item: Data & Record<string, any>) => (
                   <div className="token-container">
-                    {item.symbol.toUpperCase()}
+                    <TokenContainer
+                      image={item.image}
+                      current_price={item.current_price}
+                      symbol={item.symbol}
+                    />
                   </div>
                 ))}
                 ;

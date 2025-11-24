@@ -1,0 +1,71 @@
+.pair-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background: #1a1d26;
+  border-bottom: 1px solid #242833;
+  font-family: "Inter", sans-serif;
+  color: #dfe4ee;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.pair-row:hover {
+  background: #1f232e;
+}
+
+/* Left block */
+.pair-symbol {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.star {
+  color: #f5c542;
+  font-size: 1rem;
+}
+
+.pair-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.symbol-text {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.tag {
+  background: #2d3445;
+  padding: 0.15rem 0.45rem;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  color: #e4e6f1;
+  font-weight: 500;
+}
+
+/* Right side cells */
+.pair-last-price {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.pair-change {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.pair-change.positive {
+  color: #27c281;
+}
+
+.pair-change.negative {
+  color: #e05252;
+}
+
+.pair-funding {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
