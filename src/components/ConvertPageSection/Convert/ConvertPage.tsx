@@ -52,7 +52,7 @@ function ConvertPage() {
         </div>
         <div className="convert-section">
           <SwapFrom coins={coins} />
-          <SwapTo />
+          <SwapTo coins={coins} />
         </div>
       </div>
       <button className="convert-btn">Convert</button>

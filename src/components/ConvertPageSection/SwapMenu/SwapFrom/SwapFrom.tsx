@@ -21,7 +21,7 @@ type Symbol = {
   symbol: string;
 };
 
-function SwapFrom({ coins }: { coins: any }) {
+function SwapFrom({ coins }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
   const handleOpen = () => {
