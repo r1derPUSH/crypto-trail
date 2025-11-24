@@ -21,15 +21,15 @@ function TokenContainer({ image, symbol, current_price }: Data) {
       <div className="pair-symbol">
         <span className="star">★</span>
         <img src={image} alt="btc" className="pair-icon" />
-        <span className="symbol-text">{symbol}/USDT</span>
+        <span className="symbol-text">{symbol.toUpperCase()}/USDT</span>
         <span className="tag">Spot</span>
       </div>
 
-      <div className="pair-last-price">{current_price}$</div>
+      <div className="pair-last-price">{current_price.toFixed(2)}$</div>
 
       <div className="pair-change positive">+1.50%</div>
 
-      <div className="pair-funding">-0.00486%</div>
+      <div className="pair-funding">-0.02%</div>
     </div>
   );
 }
