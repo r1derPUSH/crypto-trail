@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./TokenContainer.css";
 
 type Data = {
@@ -26,15 +26,22 @@ function TokenContainer({
   setIsOpen,
   setCurrentSwapFromToken,
 }: Data) {
-  const obj = {
-    image: image,
-    symbol: symbol,
-    current_price: current_price,
-    price_change_percentage_24h,
-  };
-
+  // fix later
   const handleSwapFromToken = () => {
-    setCurrentSwapFromToken(obj);
+    setCurrentSwapFromToken({
+      image,
+      symbol,
+      current_price,
+      price_change_percentage_24h,
+    });
+    console.log(
+      `Set: ${{
+        image,
+        symbol,
+        current_price,
+        price_change_percentage_24h,
+      }}`
+    );
     setIsOpen(false);
   };
 

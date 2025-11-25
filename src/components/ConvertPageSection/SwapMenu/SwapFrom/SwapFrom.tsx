@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./SwapFrom.css";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
@@ -22,12 +22,18 @@ type Symbol = {
   symbol: string;
 };
 
-function SwapFrom({
-  coins,
-  setCurrentSwapFromToken,
-}: Data & Record<string, any>) {
+function SwapFrom({ coins }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [currentSwapFromToken, setCurrentSwapFromToken] = useState([]);
+
+  useEffect(() => {
+    const invertval = setInterval(() => {
+      console.log(currentSwapFromToken);
+    }, 3000);
+
+    return () => clearInterval(invertval);
+  }, []);
 
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
