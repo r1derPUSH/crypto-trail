@@ -21,6 +21,11 @@ function TokenContainer({
   current_price,
   price_change_percentage_24h,
 }: Data) {
+  //
+  //   const handleSwapFromToken = () => {
+  //     alert(1);
+  //   };
+
   return (
     <button className="pair-row">
       <div className="pair-symbol">

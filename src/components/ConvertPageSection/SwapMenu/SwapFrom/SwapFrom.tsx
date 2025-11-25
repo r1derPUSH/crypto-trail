@@ -33,6 +33,10 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
     setSearch(e.target.value);
   };
 
+  const handleSwapFromToken = () => {
+    alert(1);
+  };
+
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
@@ -77,7 +81,10 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
               </div>
               <div className="token-list">
                 {filtered.map((item: Data & Record<string, any>) => (
-                  <div className="token-container">
+                  <button
+                    onClick={handleSwapFromToken}
+                    className="token-container"
+                  >
                     <TokenContainer
                       image={item.image}
                       current_price={item.current_price}
@@ -86,7 +93,7 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
                         item.price_change_percentage_24h
                       }
                     />
-                  </div>
+                  </button>
                 ))}
                 ;
               </div>
