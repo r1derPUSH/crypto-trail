@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./SwapFrom.css";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
@@ -25,6 +25,20 @@ type Symbol = {
 function SwapFrom({ coins }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [currentSwapFromToken, setCurrentSwapFromToken] = useState([]);
+
+  useEffect(() => {
+    const invertval = setInterval(() => {
+      console.log(currentSwapFromToken);
+    }, 3000);
+
+    return () => clearInterval(invertval);
+  }, []);
+
+  const filtered = coins.filter((item: Symbol) =>
+    item.symbol.toLowerCase().includes(search.toLowerCase())
+  );
+
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
   };
@@ -32,10 +46,6 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
   const handleSearch = (e: any) => {
     setSearch(e.target.value);
   };
-
-  const filtered = coins.filter((item: Symbol) =>
-    item.symbol.toLowerCase().includes(search.toLowerCase())
-  );
 
   return (
     <div className="swap-container">
@@ -76,16 +86,21 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
                 <div className="recent-coins"></div>
               </div>
               <div className="token-list">
-                {filtered.map((item: Data & Record<string, any>) => (
-                  <div className="token-container">
+                {filtered.map(
+                  (item: Data & Record<string, any>, index: number) => (
                     <TokenContainer
+                      key={index}
+                      setIsOpen={setIsOpen}
+                      setCurrentSwapFromToken={setCurrentSwapFromToken}
                       image={item.image}
                       current_price={item.current_price}
                       symbol={item.symbol}
+                      price_change_percentage_24h={
+                        item.price_change_percentage_24h
+                      }
                     />
-                  </div>
-                ))}
-                ;
+                  )
+                )}
               </div>
             </div>
           </div>

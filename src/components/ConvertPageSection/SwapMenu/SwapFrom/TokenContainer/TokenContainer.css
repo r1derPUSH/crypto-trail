@@ -5,6 +5,7 @@
   padding: 1rem 1.2rem;
   background: #1a1d26;
   border-bottom: 0.07rem solid #242833;
+  border: none;
   font-family: "Inter", sans-serif;
   color: #dfe4ee;
   cursor: pointer;
@@ -35,6 +36,7 @@
 .pair-icon {
   height: 1.3rem;
   width: 1.3rem;
+  border-radius: 50%;
 }
 
 /* text */

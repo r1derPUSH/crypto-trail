@@ -12,7 +12,7 @@ function ConvertPage() {
   const [coins, setCoins] = useState<any[]>([]);
   const navigate = useNavigate();
   const [handleTime, setHandleTime] = useState();
-
+  const [currentSwapToToken, setCurrentSwapToToken] = useState([]);
   const handleNavigateHome = () => {
     navigate("/");
   };
@@ -52,7 +52,7 @@ function ConvertPage() {
         </div>
         <div className="convert-section">
           <SwapFrom coins={coins} />
-          <SwapTo coins={coins} />
+          <SwapTo coins={coins} setCurrentSwapToToken={setCurrentSwapToToken} />
         </div>
       </div>
       <button className="convert-btn">Convert</button>
