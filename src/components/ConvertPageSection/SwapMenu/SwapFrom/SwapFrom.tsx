@@ -82,6 +82,9 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
                       image={item.image}
                       current_price={item.current_price}
                       symbol={item.symbol}
+                      price_change_percentage_24h={
+                        item.price_change_percentage_24h
+                      }
                     />
                   </div>
                 ))}

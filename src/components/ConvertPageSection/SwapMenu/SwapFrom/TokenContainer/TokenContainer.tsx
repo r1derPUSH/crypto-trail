@@ -15,9 +15,14 @@ type Data = {
   id?: string;
 };
 
-function TokenContainer({ image, symbol, current_price }: Data) {
+function TokenContainer({
+  image,
+  symbol,
+  current_price,
+  price_change_percentage_24h,
+}: Data) {
   return (
-    <div className="pair-row">
+    <button className="pair-row">
       <div className="pair-symbol">
         <span className="star">★</span>
         <img src={image} alt="btc" className="pair-icon" />
@@ -29,8 +34,10 @@ function TokenContainer({ image, symbol, current_price }: Data) {
 
       <div className="pair-change positive">+1.50%</div>
 
-      <div className="pair-funding">-0.02%</div>
-    </div>
+      <div className="pair-funding">
+        {price_change_percentage_24h.toFixed(2)}%
+      </div>
+    </button>
   );
 }
 

@@ -175,9 +175,9 @@
 
 /* ===== TOKEN LIST ===== */
 .token-list {
-  overflow-y: auto;
-  flex-grow: 1;
-  padding-right: 6px;
+  overflow-y: scroll;
+  /* flex-grow: 1; */
+  /* padding-right: 6px; */
   width: 90vw;
 }
 
