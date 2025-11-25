@@ -2,16 +2,19 @@ import React from "react";
 import "./TokenContainer.css";
 
 type Data = {
-  name: string;
-  symbol: string;
+  name?: string;
+  ath?: number;
+  high_24h?: number;
+  low_24h?: number;
+  price_change_24h?: number;
+  market_cap?: number;
+
   image: string;
+  symbol: string;
   current_price: number;
   price_change_percentage_24h: number;
-  ath: number;
-  high_24h: number;
-  low_24h: number;
-  price_change_24h: number;
-  market_cap: number;
+  setCurrentSwapFromToken: any;
+  setIsOpen: any;
   id?: string;
 };
 
@@ -20,27 +23,38 @@ function TokenContainer({
   symbol,
   current_price,
   price_change_percentage_24h,
+  setIsOpen,
+  setCurrentSwapFromToken,
 }: Data) {
-  //
-  //   const handleSwapFromToken = () => {
-  //     alert(1);
-  //   };
+  const obj = {
+    image: image,
+    symbol: symbol,
+    current_price: current_price,
+    price_change_percentage_24h,
+  };
+
+  const handleSwapFromToken = () => {
+    setCurrentSwapFromToken(obj);
+    setIsOpen(false);
+  };
 
   return (
-    <button className="pair-row">
-      <div className="pair-symbol">
-        <span className="star">★</span>
-        <img src={image} alt="btc" className="pair-icon" />
-        <span className="symbol-text">{symbol.toUpperCase()}/USDT</span>
-        <span className="tag">Spot</span>
-      </div>
+    <button onClick={handleSwapFromToken} className="token-container">
+      <div className="pair-row">
+        <div className="pair-symbol">
+          <span className="star">★</span>
+          <img src={image} alt="btc" className="pair-icon" />
+          <span className="symbol-text">{symbol.toUpperCase()}/USDT</span>
+          <span className="tag">Spot</span>
+        </div>
 
-      <div className="pair-last-price">{current_price.toFixed(2)}$</div>
+        <div className="pair-last-price">{current_price.toFixed(2)}$</div>
 
-      <div className="pair-change positive">+1.50%</div>
+        <div className="pair-change positive">+1.50%</div>
 
-      <div className="pair-funding">
-        {price_change_percentage_24h.toFixed(2)}%
+        <div className="pair-funding">
+          {price_change_percentage_24h?.toFixed(2)}%
+        </div>
       </div>
     </button>
   );
