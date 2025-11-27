@@ -139,6 +139,12 @@
    BACK TO HOME BUTTON
 ============================ */
 
+.flexbox-for-back-to-home-btb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .back-home-btn {
   width: 50%;
   margin-top: 2.5rem;
