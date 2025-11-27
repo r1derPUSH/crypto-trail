@@ -27,9 +27,11 @@ function Overview() {
             <span>PNL</span>
           </div>
         </div>
-        <button className="back-home-btn" onClick={handleNavigate}>
-          Back to Home
-        </button>
+        <div className="flexbox-for-back-to-home-btb">
+          <button className="back-home-btn" onClick={handleNavigate}>
+            Back to Home
+          </button>
+        </div>
         {/* <button></button> */}
       </div>
       <Footer />
