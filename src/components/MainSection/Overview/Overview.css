@@ -129,6 +129,10 @@
   cursor: pointer;
   transition: 0.25s ease;
 }
+.margin {
+  margin: 1000px;
+}
+
 /* 
 .wallet-container button:acti:hover {
   background: linear-gradient(90deg, #22d9af, #17c999);
