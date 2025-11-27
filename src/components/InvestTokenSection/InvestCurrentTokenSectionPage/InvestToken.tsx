@@ -39,7 +39,25 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
         </div>
         <div className="invest-token-functional">
           <div className="input-wrapper">
-            <span className="input-label">You recieve</span>
+            <span className="input-label">You Invest (USD)</span>
+
+            <div className="crypto-input-box">
+              <input
+                type="number"
+                onChange={handleChangeUSD}
+                placeholder="0.00"
+                value={USDValue}
+                className="crypto-input-field"
+              />
+
+              <div className="crypto-input-token">
+                <span>$</span>
+              </div>
+            </div>
+          </div>
+          <span className="input-arrow">↕</span>
+          <div className="input-wrapper">
+            <span className="input-label">You Recieve</span>
 
             <div className="crypto-input-box">
               <input
@@ -53,24 +71,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
               <div className="crypto-input-token">
                 <img src={tokenInfo.image} alt="" />
                 <span>{tokenInfo.shortName.toUpperCase()}</span>
-              </div>
-            </div>
-          </div>
-          <span className="input-arrow">↕</span>
-          <div className="input-wrapper">
-            <span className="input-label">You spend (USD)</span>
-
-            <div className="crypto-input-box">
-              <input
-                type="number"
-                onChange={handleChangeUSD}
-                placeholder="0.00"
-                value={USDValue}
-                className="crypto-input-field"
-              />
-
-              <div className="crypto-input-token">
-                <span>$</span>
               </div>
             </div>
           </div>
