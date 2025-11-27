@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import "./Overview.css";
+import CandleChart from "./CandleChart";
 
 function Overview() {
   const navigate = useNavigate();
@@ -34,6 +35,8 @@ function Overview() {
         </div>
         {/* <button></button> */}
       </div>
+      <CandleChart />
+      <div className="margin"></div>
       <Footer />
     </>
   );

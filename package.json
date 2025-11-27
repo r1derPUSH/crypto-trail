@@ -12,6 +12,7 @@
   "dependencies": {
     "cryptocurrency-icons": "^0.18.1",
     "install": "^0.13.0",
+    "lightweight-charts": "^3.8.0",
     "npm": "^11.6.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
