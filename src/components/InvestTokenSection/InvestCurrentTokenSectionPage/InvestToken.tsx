@@ -75,6 +75,51 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             </div>
           </div>
         </div>
+        <div className="advanced-invest-token-container">
+          <div className="header-advanced-invest">
+            <span>Advanced Invest</span>
+          </div>
+          <div className="advanced-invest-info">
+            <span>You will Recieve: 3.74 ETH</span>
+            <span>Your investment: 10650 $</span>
+            <span>current: 3070 $</span>
+          </div>
+          <div className="advanced-section-multipliers">
+            <div className="target-price">
+              <span>Target Price</span>
+              <span>20.09 $</span>
+            </div>
+            <div className="advanced-multipliers">
+              <div className="advanced-quick-multipliers">
+                <button>x0.7 (-30%)</button>
+                <button>x1.05 (5%)</button>
+                <button>x1.2 (20%)</button>
+                <button>x1.5 (50%)</button>
+                <button>x2 (100%)</button>
+                <button>x3 (150%)</button>
+                <button>x10 (500%)</button>
+                <button>x100 (5000%)</button>
+              </div>
+              <div className="advanced-input-multiplier-container">
+                <input
+                  className="advanced-input-multiplier-by-amount"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div className="advanced-results">
+              <div className="advanced-res-header">
+                <span>If price reaches 20.90$ (+170%)</span>
+              </div>
+              <div className="advanced-res-profit">
+                <div className="advanced-total-invest">
+                  <span>Total Value: 794.80 $ </span>
+                  <span>Profit/Loss: +197.84 $ (+25%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="other-token-info">
           <div className="token-stat-card">
             <span className="token-stat-title">ATH:</span>
