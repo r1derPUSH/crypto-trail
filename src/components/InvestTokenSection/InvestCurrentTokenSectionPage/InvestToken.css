@@ -299,3 +299,201 @@
   color: #7aa2ff;
   text-shadow: 0 0 8px rgba(120, 160, 255, 0.5);
 }
+
+/* advanced-invest-section */
+
+/* === MAIN WRAPPER (WOW VERSION) === */
+.advanced-invest-token-container {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 2.2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  border-radius: 1.8rem;
+
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(30, 35, 60, 0.1)
+    ),
+    rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(0.8rem);
+
+  border: 0.1rem solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 3rem rgba(80, 120, 255, 0.15), 0 0 2rem rgba(0, 0, 0, 0.4);
+
+  transition: transform 0.35s ease, box-shadow 0.45s ease;
+}
+
+/* Slight hover 3D lift */
+.advanced-invest-token-container:hover {
+  transform: translateY(-0.02rem) scale(1.005);
+  box-shadow: 0 0 4rem rgba(90, 130, 255, 0.25), 0 0 2.5rem rgba(0, 0, 0, 0.55);
+}
+
+/* === HEADER === */
+.header-advanced-invest span {
+  font-size: 1.9rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #bfcaff, #ffffff);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.06rem;
+}
+
+/* === BASIC INFO === */
+.advanced-invest-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.advanced-invest-info span {
+  font-size: 1.3rem;
+  color: #cfd7fa;
+  font-weight: 500;
+  opacity: 0.92;
+}
+
+/* === SECTION (big spacing) === */
+.advanced-section-multipliers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* === TARGET PRICE === */
+.target-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1.35rem;
+  color: #e0e6ff;
+}
+
+.target-price span:last-child {
+  font-weight: 700;
+  background: linear-gradient(90deg, #82a0ff, #d7e2ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* === MULTIPLIERS BUTTON GRID === */
+.advanced-quick-multipliers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.advanced-quick-multipliers button {
+  padding: 0.55rem 1.3rem;
+  border-radius: 1rem;
+
+  font-size: 1.05rem;
+  font-weight: 500;
+
+  background: rgba(40, 60, 120, 0.55);
+  color: #dce6ff;
+
+  border: 0.05rem solid rgba(120, 150, 255, 0.2);
+  cursor: pointer;
+
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* MAGNETIC HOVER */
+.advanced-quick-multipliers button:hover {
+  background: rgba(75, 115, 255, 0.85);
+  transform: translateY(-0.18rem) scale(1.05);
+  box-shadow: 0 0 1.4rem rgba(75, 135, 255, 0.55);
+}
+
+/* === CUSTOM INPUT === */
+.advanced-input-multiplier-container {
+  width: 60%;
+}
+
+.advanced-input-multiplier-by-amount {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+
+  border-radius: 1.1rem;
+
+  background: rgba(12, 17, 35, 0.9);
+  color: #ffffff;
+
+  border: none;
+  outline: 0.1rem solid rgba(120, 140, 220, 0.4);
+
+  font-size: 1.1rem;
+
+  transition: 0.3s ease;
+}
+
+.advanced-input-multiplier-by-amount:focus {
+  background: rgba(17, 23, 50, 1);
+  outline-color: rgba(140, 170, 255, 0.9);
+  box-shadow: 0 0 1rem rgba(120, 160, 255, 0.4);
+}
+
+/* === RESULTS === */
+.advanced-results {
+  padding-top: 1.6rem;
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* RESULT HEADER */
+.advanced-res-header span {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #e2e7ff;
+}
+
+/* TOTALS */
+.advanced-total-invest {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  font-size: 1.28rem;
+  color: #d5dcff;
+  opacity: 0.95;
+}
+
+/* PROFIT */
+.advanced-total-invest .profit {
+  color: #5aff9e;
+  font-weight: 700;
+  text-shadow: 0 0 0.6rem rgba(95, 255, 170, 0.6),
+    0 0 1.6rem rgba(95, 255, 170, 0.45);
+}
+
+/* LOSS */
+.advanced-total-invest .loss {
+  color: #ff6d6d;
+  font-weight: 700;
+  text-shadow: 0 0 0.6rem rgba(255, 110, 110, 0.6),
+    0 0 1.6rem rgba(255, 110, 110, 0.45);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 48rem) {
+  .advanced-invest-token-container {
+    padding: 1.6rem;
+  }
+
+  .advanced-input-multiplier-container {
+    width: 100%;
+  }
+}
+
+/* endpoint of advanced-invest-section */
