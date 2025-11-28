@@ -6,8 +6,8 @@ import "./Overview.css";
 function Overview() {
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    navigate("/");
+  const handleNavigate = (url: string) => {
+    navigate(url);
   };
 
   return (
@@ -18,8 +18,12 @@ function Overview() {
           <span>$1,257.98</span>
         </div>
         <div className="wallet-buttons">
-          <button>Invest</button>
-          <button>Convert</button>
+          <button onClick={() => handleNavigate("/invest-page-section")}>
+            Invest
+          </button>
+          <button onClick={() => handleNavigate("/convert-page-section")}>
+            Convert
+          </button>
           <button>Check PNL</button>
         </div>
         <div className="user-invests">
@@ -29,7 +33,7 @@ function Overview() {
           </div>
         </div>
         <div className="flexbox-for-back-to-home-btb">
-          <button className="back-home-btn" onClick={handleNavigate}>
+          <button className="back-home-btn" onClick={() => handleNavigate("/")}>
             Back to Home
           </button>
         </div>

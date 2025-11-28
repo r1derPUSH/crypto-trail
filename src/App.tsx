@@ -8,6 +8,7 @@ import HelpPageSection from "./components/HelpPageSection/Help/HelpPageSection";
 import LoginSection from "./components/LoginPageSection/LoginSection";
 import Overview from "./components/MainSection/Overview/Overview";
 import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSectionPage/InvestToken";
+import ScrollToTop from "./components/CustomComponents/ScrollToTop";
 
 function App() {
   const [tokenInfo, setTokenInfo] = useState([]);
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainSection />}></Route>
         <Route
