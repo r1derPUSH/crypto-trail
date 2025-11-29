@@ -42,6 +42,10 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
     setTokenValue(convertedPrice.toFixed(2).toString());
   };
 
+  // const tokenQuantity = tokenValue;
+  // const userInvestment = USDValue;
+  const currentPrice = tokenInfo.price;
+
   return (
     <div>
       <div className="token-invest-container">
@@ -56,7 +60,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             <span className="token-name-span">{tokenInfo.name}</span>
           </div>
           <div className="second-flex-header">
-            <span>{tokenInfo.price}$</span>
+            <span>{currentPrice}$</span>
           </div>
         </div>
         <div className="invest-token-functional">
@@ -134,7 +138,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                   <button>x2 (100%)</button>
                   <button>x3 (150%)</button>
                   <button>x10 (500%)</button>
-                  <button>x100 (5000%)</button>
                 </div>
 
                 <div className="advanced-input-multiplier-container">

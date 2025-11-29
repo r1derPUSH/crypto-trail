@@ -465,6 +465,7 @@
 
 /* === CUSTOM INPUT === */
 .advanced-input-multiplier-container {
+  margin-top: 2rem;
   width: 60%;
 }
 
