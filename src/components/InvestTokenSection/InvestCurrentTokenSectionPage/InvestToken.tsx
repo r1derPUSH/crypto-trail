@@ -360,6 +360,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                     className="advanced-input-multiplier-by-amount"
                     type="text"
                     value={targetPrice}
+                    placeholder="Enter future price"
                     onChange={(e) => {
                       const newPrice = e.target.value;
                       setTargetPrice(newPrice);
