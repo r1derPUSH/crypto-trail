@@ -4,10 +4,11 @@ import { useState } from "react";
 
 function InvestToken({ tokenInfo }: { tokenInfo: any }) {
   const [tokenValue, setTokenValue] = useState("");
-  const [USDValue, setUSDValue] = useState("");
+  const [USDValue, setUSDValue] = useState(""); // for dbnc
   const [isAdvanced, setIsAdvanced] = useState(false);
+  const [debouncedValue, setDebouncedValue] = useState("");
 
-  export function debounce<T extends (...args: any[]) => void>(
+  function debounce<T extends (...args: any[]) => void>(
     func: T,
     delay: number
   ) {
@@ -21,9 +22,14 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
     };
   }
 
+  const updateDebouncedValue = debounce((value: string) => {
+    setDebouncedValue(value);
+  }, 1000);
+
   const handleChangeToken = (e) => {
     const val = e.target.value;
     setTokenValue(val);
+    updateDebouncedValue(val);
     const convertedPrice = val * tokenInfo.price;
     setUSDValue(convertedPrice.toFixed(2).toString());
   };
@@ -31,6 +37,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
   const handleChangeUSD = (e) => {
     const val = e.target.value;
     setUSDValue(val);
+    updateDebouncedValue(val);
     const convertedPrice = val / tokenInfo.price;
     setTokenValue(convertedPrice.toFixed(2).toString());
   };
@@ -91,11 +98,13 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
           </div>
         </div>
         <div
-          className={`advanced-wrapper ${USDValue >= "1" ? "open" : "closed"}`}
+          className={`advanced-wrapper ${
+            debouncedValue >= "1" ? "open" : "closed"
+          }`}
         >
           <div
             className={
-              USDValue >= "1"
+              debouncedValue >= "1"
                 ? "advanced-invest-token-container smooth-appear"
                 : "advanced-invest-token-container smooth-disappear"
             }
