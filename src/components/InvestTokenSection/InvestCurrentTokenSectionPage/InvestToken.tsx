@@ -361,7 +361,33 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                     type="text"
                     value={targetPrice}
                     onChange={(e) => {
-                      setTargetPrice(e.target.value);
+                      const newPrice = e.target.value;
+                      setTargetPrice(newPrice);
+
+                      // % CHANGE
+                      const percent = (
+                        ((Number(newPrice) - currentPrice) / currentPrice) *
+                        100
+                      ).toFixed(2);
+                      setTargetPriceInPercents(percent);
+
+                      // MULTIPLIER
+                      const multiplier = Number(newPrice) / currentPrice;
+
+                      // TOTAL VALUE
+                      const newTotalValue = Number(USDValue) * multiplier;
+                      setTotalValue(newTotalValue);
+
+                      // PROFIT
+                      const newProfit = newTotalValue - Number(USDValue);
+                      setProfit(newProfit);
+
+                      // PROFIT %
+                      const newProfitInPercentage =
+                        (newProfit / Number(USDValue)) * 100;
+                      setProfitInPercents(
+                        Number(newProfitInPercentage.toFixed(2))
+                      );
                     }}
                   />
                 </div>
