@@ -7,6 +7,20 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
   const [USDValue, setUSDValue] = useState("");
   const [isAdvanced, setIsAdvanced] = useState(false);
 
+  export function debounce<T extends (...args: any[]) => void>(
+    func: T,
+    delay: number
+  ) {
+    let timer: ReturnType<typeof setTimeout>;
+
+    return (...args: Parameters<T>) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
+  }
+
   const handleChangeToken = (e) => {
     const val = e.target.value;
     setTokenValue(val);
