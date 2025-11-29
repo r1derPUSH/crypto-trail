@@ -42,9 +42,15 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
     setTokenValue(convertedPrice.toFixed(2).toString());
   };
 
+  const tokentName = tokenInfo.name;
   // const tokenQuantity = tokenValue;
   // const userInvestment = USDValue;
   const currentPrice = tokenInfo.price;
+  const [targetPrice, setTargetPrice] = useState("");
+  const [targetPriceInPercents, setTargetPriceInPercents] = useState("");
+  const [totalValue, setTotalValue] = useState(0);
+  const [profit, setProfit] = useState(0);
+  const [profitInPercents, setProfitInPercents] = useState("");
 
   return (
     <div>
@@ -52,12 +58,12 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
         <div className="header">
           <div className="first-flex-header">
             <div className="img-flex-section-token">
-              <img src={tokenInfo.image} alt={tokenInfo.name} />
+              <img src={tokenInfo.image} alt={tokentName} />
               <h1 className="token-symbol-h1">
                 {tokenInfo.shortName.toUpperCase()}
               </h1>
             </div>
-            <span className="token-name-span">{tokenInfo.name}</span>
+            <span className="token-name-span">{tokentName}</span>
           </div>
           <div className="second-flex-header">
             <span>{currentPrice}$</span>
@@ -103,12 +109,12 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
         </div>
         <div
           className={`advanced-wrapper ${
-            debouncedValue >= "1" ? "open" : "closed"
+            Number(debouncedValue) >= 1 ? "open" : "closed"
           }`}
         >
           <div
             className={
-              debouncedValue >= "1"
+              Number(debouncedValue) >= 1
                 ? "advanced-invest-token-container smooth-appear"
                 : "advanced-invest-token-container smooth-disappear"
             }
@@ -118,9 +124,11 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             </div>
 
             <div className="advanced-invest-info">
-              <span>You will Recieve: 3.74 ETH</span>
-              <span>Your investment: 10650 $</span>
-              <span>Current: 3070 $</span>
+              <span>Your investment: {USDValue} $</span>
+              <span>
+                You will Recieve: {tokenValue} {tokentName.toUpperCase()}
+              </span>
+              <span>Token Price: {currentPrice} $</span>
             </div>
 
             <div className="advanced-section-multipliers">
@@ -130,27 +138,148 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
               </div>
 
               <div className="advanced-multipliers">
+                <button
+                  onClick={() => {
+                    const newPrice = (Number(currentPrice) * 10).toFixed(1);
+                    setTargetPrice(newPrice);
+
+                    const percent = (
+                      ((Number(newPrice) - currentPrice) / currentPrice) *
+                      100
+                    ).toFixed(2);
+
+                    setTargetPriceInPercents(percent);
+                  }}
+                >
+                  x1
+                </button>
                 <div className="advanced-quick-multipliers">
-                  <button>x0.7 (-30%)</button>
-                  <button>x1.05 (5%)</button>
-                  <button>x1.2 (20%)</button>
-                  <button>x1.5 (50%)</button>
-                  <button>x2 (100%)</button>
-                  <button>x3 (150%)</button>
-                  <button>x10 (500%)</button>
+                  <button
+                    onClick={() => {
+                      const newPrice = (Number(currentPrice) * 0.7).toFixed(1);
+                      setTargetPrice(newPrice);
+
+                      const percent = (
+                        ((Number(newPrice) - currentPrice) / currentPrice) *
+                        100
+                      ).toFixed(2);
+
+                      setTargetPriceInPercents(percent);
+                    }}
+                  >
+                    x0.7 (-30%)
+                  </button>
+                  <button
+                    onClick={() => {
+                      const newPrice = (Number(currentPrice) * 1.05).toFixed(1);
+                      setTargetPrice(newPrice);
+
+                      const percent = (
+                        ((Number(newPrice) - currentPrice) / currentPrice) *
+                        100
+                      ).toFixed(2);
+
+                      setTargetPriceInPercents(percent);
+                    }}
+                  >
+                    x1.05 (5%)
+                  </button>
+                  <button
+                    onClick={() => {
+                      const newPrice = (Number(currentPrice) * 1.2).toFixed(1);
+                      setTargetPrice(newPrice);
+
+                      const percent = (
+                        ((Number(newPrice) - currentPrice) / currentPrice) *
+                        100
+                      ).toFixed(2);
+
+                      setTargetPriceInPercents(percent);
+                    }}
+                  >
+                    x1.2 (20%)
+                  </button>
+                  <button
+                    onClick={() => {
+                      const newPrice = (Number(currentPrice) * 1.5).toFixed(1);
+                      setTargetPrice(newPrice);
+
+                      const percent = (
+                        ((Number(newPrice) - currentPrice) / currentPrice) *
+                        100
+                      ).toFixed(2);
+
+                      setTargetPriceInPercents(percent);
+                    }}
+                  >
+                    x1.5 (50%)
+                  </button>
+                  <button
+                    onClick={() => {
+                      const newPrice = (Number(currentPrice) * 2).toFixed(1);
+                      setTargetPrice(newPrice);
+
+                      const percent = (
+                        ((Number(newPrice) - currentPrice) / currentPrice) *
+                        100
+                      ).toFixed(2);
+
+                      setTargetPriceInPercents(percent);
+                    }}
+                  >
+                    x2 (100%)
+                  </button>
+                  <button
+                    onClick={() => {
+                      const newPrice = (Number(currentPrice) * 3).toFixed(1);
+                      setTargetPrice(newPrice);
+
+                      const percent = (
+                        ((Number(newPrice) - currentPrice) / currentPrice) *
+                        100
+                      ).toFixed(2);
+
+                      setTargetPriceInPercents(percent);
+                    }}
+                  >
+                    x3 (150%)
+                  </button>
+                  <button
+                    onClick={() => {
+                      const newPrice = (Number(currentPrice) * 10).toFixed(1);
+                      setTargetPrice(newPrice);
+
+                      const percent = (
+                        ((Number(newPrice) - currentPrice) / currentPrice) *
+                        100
+                      ).toFixed(2);
+
+                      setTargetPriceInPercents(percent);
+                    }}
+                  >
+                    x10 (500%)
+                  </button>
                 </div>
 
                 <div className="advanced-input-multiplier-container">
                   <input
                     className="advanced-input-multiplier-by-amount"
                     type="text"
+                    value={targetPrice}
+                    onChange={(e) => {
+                      setTargetPrice(e.target.value);
+                    }}
                   />
                 </div>
               </div>
 
               <div className="advanced-results">
                 <div className="advanced-res-header">
-                  <span>If price reaches 20.90$ (+170%)</span>
+                  <span>
+                    If price reaches {targetPrice}$ (
+                    {Number(targetPriceInPercents) >= 0 ? "+" : ""}
+                    {Number(targetPriceInPercents).toFixed()}%)
+                  </span>
                 </div>
 
                 <div className="advanced-res-profit">
