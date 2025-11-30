@@ -5,7 +5,6 @@ import { useState } from "react";
 function InvestToken({ tokenInfo }: { tokenInfo: any }) {
   const [tokenValue, setTokenValue] = useState("");
   const [USDValue, setUSDValue] = useState(""); // for dbnc
-  const [isAdvanced, setIsAdvanced] = useState(false);
   const [debouncedValue, setDebouncedValue] = useState("");
 
   function debounce<T extends (...args: any[]) => void>(
