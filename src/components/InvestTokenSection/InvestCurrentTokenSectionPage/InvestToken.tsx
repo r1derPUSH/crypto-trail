@@ -368,8 +368,14 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
 
                 <div className="advanced-input-multiplier-container">
                   <input
-                    className="advanced-input-multiplier-by-amount"
-                    type="text"
+                    className={`advanced-input-multiplier-by-amount ${
+                      Number(targetPriceInPercents) > 0
+                        ? "positive"
+                        : Number(targetPriceInPercents) < 0
+                        ? "negative"
+                        : ""
+                    }`}
+                    type="number"
                     value={targetPrice}
                     placeholder="Enter future price"
                     onChange={(e) => {
