@@ -513,6 +513,8 @@
 .advanced-total-invest {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 0.6rem;
 
   font-size: 1.28rem;
@@ -548,3 +550,54 @@
 }
 
 /* endpoint of advanced-invest-section */
+
+/* POSITIVE (GREEN) */
+.positive {
+  color: #6dffb8;
+  text-shadow: 0 0 0.35rem rgba(80, 255, 170, 0.6),
+    0 0 1rem rgba(100, 255, 200, 0.5);
+  font-weight: 700;
+}
+
+/* NEGATIVE (RED) */
+.negative {
+  color: #ff6b6b;
+  text-shadow: 0 0 0.35rem rgba(255, 120, 120, 0.7),
+    0 0 1rem rgba(255, 100, 100, 0.5);
+  font-weight: 700;
+}
+
+/* NEUTRAL (BLUE) */
+.neutral {
+  color: #dce4ff;
+  opacity: 0.85;
+}
+
+/* BOX SHADOW FOR SECTION */
+.green-shadow {
+  box-shadow: 0 0 2rem rgba(80, 255, 170, 0.25),
+    0 0 4rem rgba(80, 255, 170, 0.15);
+  transition: 0.35s ease;
+}
+
+.red-shadow {
+  box-shadow: 0 0 2rem rgba(255, 80, 80, 0.25), 0 0 4rem rgba(255, 80, 80, 0.15);
+  transition: 0.35s ease;
+}
+
+.blue-shadow {
+  box-shadow: 0 0 2rem rgba(120, 150, 255, 0.18),
+    0 0 4rem rgba(120, 150, 255, 0.1);
+  transition: 0.35s ease;
+}
+
+.profit-span {
+  margin-right: 50px;
+}
+
+.flex-profit-spans {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

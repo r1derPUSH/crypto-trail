@@ -395,21 +395,27 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
 
               <div className="advanced-results">
                 <div className="advanced-res-header">
-                  <span>
-                    If price reaches {targetPrice}$ (
-                    {Number(targetPriceInPercents) >= 0 ? "+" : ""}
-                    {Number(targetPriceInPercents).toFixed(2)}%)
-                  </span>
+                  <span>If price reaches {targetPrice}$ </span>
                 </div>
 
                 <div className="advanced-res-profit">
                   <div className="advanced-total-invest">
                     <span>Total Value: {totalValue.toFixed(1)} $ </span>
-                    <span>
-                      Profit/Loss: {profit >= 0 ? "+" : ""}
-                      {profit.toFixed(2)}$ ({profitInPercents >= 0 ? "+" : ""}
-                      {profitInPercents}%)
-                    </span>
+                    <div className="flex-profit-spans">
+                      <span className="profit-span">Profit/Loss:</span>
+                      <span
+                        className={
+                          Number(targetPriceInPercents) > 0
+                            ? "positive"
+                            : Number(targetPriceInPercents) < 0
+                            ? "negative"
+                            : "neutral"
+                        }
+                      >
+                        {profit >= 0 ? "+" : ""}
+                        {profit.toFixed(2)}$ ({targetPriceInPercents}%)
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
