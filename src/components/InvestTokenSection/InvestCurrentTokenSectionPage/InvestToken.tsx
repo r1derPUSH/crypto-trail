@@ -25,7 +25,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
     setDebouncedValue(value);
   }, 1000);
 
-  const handleChangeToken = (e) => {
+  const handleChangeToken = (e: any) => {
     const val = e.target.value;
     setTokenValue(val);
     updateDebouncedValue(val);
@@ -33,7 +33,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
     setUSDValue(convertedPrice.toFixed(2).toString());
   };
 
-  const handleChangeUSD = (e) => {
+  const handleChangeUSD = (e: any) => {
     const val = e.target.value;
     setUSDValue(val);
     updateDebouncedValue(val);
@@ -134,7 +134,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
               <div className="flex-target-price">
                 <div className="target-price">
                   <span>Target Price</span>
-                  <span>20.09 $</span>
+                  <span>{targetPrice} $</span>
                 </div>
               </div>
               <div className="advanced-multipliers">
