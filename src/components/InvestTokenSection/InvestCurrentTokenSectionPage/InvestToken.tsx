@@ -140,230 +140,246 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
               <div className="advanced-multipliers">
                 <div className="advanced-quick-multipliers">
                   <div className="first-section-of-multipliers">
-                    <button
-                      onClick={() => {
-                        const newPrice = (Number(currentPrice) * 0.7).toFixed(
-                          1
-                        );
-                        setTargetPrice(newPrice);
+                    <div className="first-section-of-multipliers-first-part">
+                      <button
+                        onClick={() => {
+                          const newPrice = (Number(currentPrice) * 0.7).toFixed(
+                            1
+                          );
+                          setTargetPrice(newPrice);
 
-                        const percent = (
-                          ((Number(newPrice) - currentPrice) / currentPrice) *
-                          100
-                        ).toFixed(2);
+                          const percent = (
+                            ((Number(newPrice) - currentPrice) / currentPrice) *
+                            100
+                          ).toFixed(2);
 
-                        setTargetPriceInPercents(percent);
+                          setTargetPriceInPercents(percent);
 
-                        const newTotalValue = Number(USDValue) * 0.7;
-                        setTotalValue(newTotalValue);
+                          const newTotalValue = Number(USDValue) * 0.7;
+                          setTotalValue(newTotalValue);
 
-                        const newProfit = newTotalValue - Number(USDValue);
-                        setProfit(newProfit);
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
 
-                        const newProfitInPercentage =
-                          (newProfit / Number(USDValue)) * 100;
+                          const newProfitInPercentage =
+                            (newProfit / Number(USDValue)) * 100;
 
-                        setProfitInPercents(
-                          Number(newProfitInPercentage.toFixed(2))
-                        );
-                      }}
-                    >
-                      x0.7 (-30%)
-                    </button>
-                    <button
-                      onClick={() => {
-                        const newPrice = (Number(currentPrice) * 1).toFixed(1);
-                        setTargetPrice(newPrice);
+                          setProfitInPercents(
+                            Number(newProfitInPercentage.toFixed(2))
+                          );
+                        }}
+                      >
+                        x0.7 (-30%)
+                      </button>
+                      <button
+                        onClick={() => {
+                          const newPrice = (Number(currentPrice) * 1).toFixed(
+                            1
+                          );
+                          setTargetPrice(newPrice);
 
-                        const percent = (
-                          ((Number(newPrice) - currentPrice) / currentPrice) *
-                          100
-                        ).toFixed(2);
+                          const percent = (
+                            ((Number(newPrice) - currentPrice) / currentPrice) *
+                            100
+                          ).toFixed(2);
 
-                        setTargetPriceInPercents(percent);
-                        setTotalValue(Number(USDValue));
-                        setProfit(0);
-                        setProfitInPercents(0);
-                      }}
-                    >
-                      x1
-                    </button>
-                    <button
-                      onClick={() => {
-                        const newPrice = (Number(currentPrice) * 1.05).toFixed(
-                          1
-                        );
-                        setTargetPrice(newPrice);
+                          setTargetPriceInPercents(percent);
+                          setTotalValue(Number(USDValue));
+                          setProfit(0);
+                          setProfitInPercents(0);
+                        }}
+                      >
+                        x1
+                      </button>
+                    </div>
+                    <div className="first-section-of-multipliers-second-part">
+                      <button
+                        onClick={() => {
+                          const newPrice = (
+                            Number(currentPrice) * 1.05
+                          ).toFixed(1);
+                          setTargetPrice(newPrice);
 
-                        const percent = (
-                          ((Number(newPrice) - currentPrice) / currentPrice) *
-                          100
-                        ).toFixed(2);
+                          const percent = (
+                            ((Number(newPrice) - currentPrice) / currentPrice) *
+                            100
+                          ).toFixed(2);
 
-                        setTargetPriceInPercents(percent);
+                          setTargetPriceInPercents(percent);
 
-                        const newTotalValue = Number(USDValue) * 1.05;
-                        setTotalValue(newTotalValue);
+                          const newTotalValue = Number(USDValue) * 1.05;
+                          setTotalValue(newTotalValue);
 
-                        const newProfit = newTotalValue - Number(USDValue);
-                        setProfit(newProfit);
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
 
-                        const newProfitInPercentage =
-                          (newProfit / Number(USDValue)) * 100;
+                          const newProfitInPercentage =
+                            (newProfit / Number(USDValue)) * 100;
 
-                        setProfitInPercents(
-                          Number(newProfitInPercentage.toFixed(2))
-                        );
-                      }}
-                    >
-                      x1.05 (5%)
-                    </button>
-                    <button
-                      onClick={() => {
-                        const newPrice = (Number(currentPrice) * 1.2).toFixed(
-                          1
-                        );
-                        setTargetPrice(newPrice);
+                          setProfitInPercents(
+                            Number(newProfitInPercentage.toFixed(2))
+                          );
+                        }}
+                      >
+                        x1.05 (5%)
+                      </button>
+                      <button
+                        onClick={() => {
+                          const newPrice = (Number(currentPrice) * 1.2).toFixed(
+                            1
+                          );
+                          setTargetPrice(newPrice);
 
-                        const percent = (
-                          ((Number(newPrice) - currentPrice) / currentPrice) *
-                          100
-                        ).toFixed(2);
+                          const percent = (
+                            ((Number(newPrice) - currentPrice) / currentPrice) *
+                            100
+                          ).toFixed(2);
 
-                        setTargetPriceInPercents(percent);
+                          setTargetPriceInPercents(percent);
 
-                        const newTotalValue = Number(USDValue) * 1.2;
-                        setTotalValue(newTotalValue);
+                          const newTotalValue = Number(USDValue) * 1.2;
+                          setTotalValue(newTotalValue);
 
-                        const newProfit = newTotalValue - Number(USDValue);
-                        setProfit(newProfit);
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
 
-                        const newProfitInPercentage =
-                          (newProfit / Number(USDValue)) * 100;
+                          const newProfitInPercentage =
+                            (newProfit / Number(USDValue)) * 100;
 
-                        setProfitInPercents(
-                          Number(newProfitInPercentage.toFixed(2))
-                        );
-                      }}
-                    >
-                      x1.2 (20%)
-                    </button>
+                          setProfitInPercents(
+                            Number(newProfitInPercentage.toFixed(2))
+                          );
+                        }}
+                      >
+                        x1.2 (20%)
+                      </button>
+                    </div>
                   </div>
                   <div className="second-section-of-multipliers">
-                    <button
-                      onClick={() => {
-                        const newPrice = (Number(currentPrice) * 1.5).toFixed(
-                          1
-                        );
-                        setTargetPrice(newPrice);
+                    <div className="second-section-of-multipliers-first-part">
+                      <button
+                        onClick={() => {
+                          const newPrice = (Number(currentPrice) * 1.5).toFixed(
+                            1
+                          );
+                          setTargetPrice(newPrice);
 
-                        const percent = (
-                          ((Number(newPrice) - currentPrice) / currentPrice) *
-                          100
-                        ).toFixed(2);
+                          const percent = (
+                            ((Number(newPrice) - currentPrice) / currentPrice) *
+                            100
+                          ).toFixed(2);
 
-                        setTargetPriceInPercents(percent);
+                          setTargetPriceInPercents(percent);
 
-                        const newTotalValue = Number(USDValue) * 1.5;
-                        setTotalValue(newTotalValue);
+                          const newTotalValue = Number(USDValue) * 1.5;
+                          setTotalValue(newTotalValue);
 
-                        const newProfit = newTotalValue - Number(USDValue);
-                        setProfit(newProfit);
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
 
-                        const newProfitInPercentage =
-                          (newProfit / Number(USDValue)) * 100;
+                          const newProfitInPercentage =
+                            (newProfit / Number(USDValue)) * 100;
 
-                        setProfitInPercents(
-                          Number(newProfitInPercentage.toFixed(2))
-                        );
-                      }}
-                    >
-                      x1.5 (50%)
-                    </button>
-                    <button
-                      onClick={() => {
-                        const newPrice = (Number(currentPrice) * 2).toFixed(1);
-                        setTargetPrice(newPrice);
+                          setProfitInPercents(
+                            Number(newProfitInPercentage.toFixed(2))
+                          );
+                        }}
+                      >
+                        x1.5 (50%)
+                      </button>
+                      <button
+                        onClick={() => {
+                          const newPrice = (Number(currentPrice) * 2).toFixed(
+                            1
+                          );
+                          setTargetPrice(newPrice);
 
-                        const percent = (
-                          ((Number(newPrice) - currentPrice) / currentPrice) *
-                          100
-                        ).toFixed(2);
+                          const percent = (
+                            ((Number(newPrice) - currentPrice) / currentPrice) *
+                            100
+                          ).toFixed(2);
 
-                        setTargetPriceInPercents(percent);
+                          setTargetPriceInPercents(percent);
 
-                        const newTotalValue = Number(USDValue) * 2;
-                        setTotalValue(newTotalValue);
+                          const newTotalValue = Number(USDValue) * 2;
+                          setTotalValue(newTotalValue);
 
-                        const newProfit = newTotalValue - Number(USDValue);
-                        setProfit(newProfit);
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
 
-                        const newProfitInPercentage =
-                          (newProfit / Number(USDValue)) * 100;
+                          const newProfitInPercentage =
+                            (newProfit / Number(USDValue)) * 100;
 
-                        setProfitInPercents(
-                          Number(newProfitInPercentage.toFixed(2))
-                        );
-                      }}
-                    >
-                      x2 (100%)
-                    </button>
-                    <button
-                      onClick={() => {
-                        const newPrice = (Number(currentPrice) * 3).toFixed(1);
-                        setTargetPrice(newPrice);
+                          setProfitInPercents(
+                            Number(newProfitInPercentage.toFixed(2))
+                          );
+                        }}
+                      >
+                        x2 (100%)
+                      </button>
+                    </div>
+                    <div className="second-section-of-multipliers-second-part">
+                      <button
+                        onClick={() => {
+                          const newPrice = (Number(currentPrice) * 3).toFixed(
+                            1
+                          );
+                          setTargetPrice(newPrice);
 
-                        const percent = (
-                          ((Number(newPrice) - currentPrice) / currentPrice) *
-                          100
-                        ).toFixed(2);
+                          const percent = (
+                            ((Number(newPrice) - currentPrice) / currentPrice) *
+                            100
+                          ).toFixed(2);
 
-                        setTargetPriceInPercents(percent);
+                          setTargetPriceInPercents(percent);
 
-                        const newTotalValue = Number(USDValue) * 3;
-                        setTotalValue(newTotalValue);
+                          const newTotalValue = Number(USDValue) * 3;
+                          setTotalValue(newTotalValue);
 
-                        const newProfit = newTotalValue - Number(USDValue);
-                        setProfit(newProfit);
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
 
-                        const newProfitInPercentage =
-                          (newProfit / Number(USDValue)) * 100;
+                          const newProfitInPercentage =
+                            (newProfit / Number(USDValue)) * 100;
 
-                        setProfitInPercents(
-                          Number(newProfitInPercentage.toFixed(2))
-                        );
-                      }}
-                    >
-                      x3 (150%)
-                    </button>
-                    <button
-                      onClick={() => {
-                        const newPrice = (Number(currentPrice) * 10).toFixed(1);
-                        setTargetPrice(newPrice);
+                          setProfitInPercents(
+                            Number(newProfitInPercentage.toFixed(2))
+                          );
+                        }}
+                      >
+                        x3 (150%)
+                      </button>
+                      <button
+                        onClick={() => {
+                          const newPrice = (Number(currentPrice) * 10).toFixed(
+                            1
+                          );
+                          setTargetPrice(newPrice);
 
-                        const percent = (
-                          ((Number(newPrice) - currentPrice) / currentPrice) *
-                          100
-                        ).toFixed(2);
+                          const percent = (
+                            ((Number(newPrice) - currentPrice) / currentPrice) *
+                            100
+                          ).toFixed(2);
 
-                        setTargetPriceInPercents(percent);
+                          setTargetPriceInPercents(percent);
 
-                        const newTotalValue = Number(USDValue) * 10;
-                        setTotalValue(newTotalValue);
+                          const newTotalValue = Number(USDValue) * 10;
+                          setTotalValue(newTotalValue);
 
-                        const newProfit = newTotalValue - Number(USDValue);
-                        setProfit(newProfit);
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
 
-                        const newProfitInPercentage =
-                          (newProfit / Number(USDValue)) * 100;
+                          const newProfitInPercentage =
+                            (newProfit / Number(USDValue)) * 100;
 
-                        setProfitInPercents(
-                          Number(newProfitInPercentage.toFixed(2))
-                        );
-                      }}
-                    >
-                      x10 (500%)
-                    </button>
+                          setProfitInPercents(
+                            Number(newProfitInPercentage.toFixed(2))
+                          );
+                        }}
+                      >
+                        x10 (500%)
+                      </button>
+                    </div>
                   </div>
                 </div>
 
