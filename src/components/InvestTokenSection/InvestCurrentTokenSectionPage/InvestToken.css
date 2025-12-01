@@ -304,7 +304,7 @@
 
 /* === MAIN WRAPPER (WOW VERSION) === */
 .advanced-invest-token-container {
-  width: 100%;
+  width: 75vw;
   margin-top: 2rem;
   padding: 2.2rem;
 
@@ -436,8 +436,24 @@
 /* === MULTIPLIERS BUTTON GRID === */
 .advanced-quick-multipliers {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.8px;
+}
+
+.first-section-of-multipliers,
+.second-section-of-multipliers {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.first-section-of-multipliers button,
+.second-section-of-multipliers button {
+  width: 12vw;
+  margin-bottom: 2rem;
 }
 
 .advanced-quick-multipliers button {
