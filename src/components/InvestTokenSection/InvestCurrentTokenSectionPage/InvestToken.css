@@ -482,11 +482,14 @@
 /* === CUSTOM INPUT === */
 .advanced-input-multiplier-container {
   margin-top: 2rem;
-  width: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .advanced-input-multiplier-by-amount {
-  width: 100%;
+  width: 60%;
   padding: 0.8rem 1.2rem;
 
   border-radius: 1.1rem;
