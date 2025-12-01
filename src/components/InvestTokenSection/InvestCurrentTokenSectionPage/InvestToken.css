@@ -304,7 +304,7 @@
 
 /* === MAIN WRAPPER (WOW VERSION) === */
 .advanced-invest-token-container {
-  width: 100%;
+  width: 75vw;
   margin-top: 2rem;
   padding: 2.2rem;
 
@@ -387,6 +387,9 @@
 
 /* === HEADER === */
 .header-advanced-invest span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.9rem;
   font-weight: 600;
   background: linear-gradient(90deg, #bfcaff, #ffffff);
@@ -398,6 +401,8 @@
 /* === BASIC INFO === */
 .advanced-invest-info {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 0.5rem;
 }
@@ -417,11 +422,17 @@
 }
 
 /* === TARGET PRICE === */
+.flex-target-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .target-price {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-
+  width: 20%;
   font-size: 1.35rem;
   color: #e0e6ff;
 }
@@ -436,8 +447,25 @@
 /* === MULTIPLIERS BUTTON GRID === */
 .advanced-quick-multipliers {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.8px;
+}
+
+.first-section-of-multipliers,
+.second-section-of-multipliers {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.first-section-of-multipliers button,
+.second-section-of-multipliers button {
+  width: 12vw;
+  height: 6vh;
+  margin-bottom: 2rem;
 }
 
 .advanced-quick-multipliers button {
@@ -466,11 +494,14 @@
 /* === CUSTOM INPUT === */
 .advanced-input-multiplier-container {
   margin-top: 2rem;
-  width: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .advanced-input-multiplier-by-amount {
-  width: 100%;
+  width: 60%;
   padding: 0.8rem 1.2rem;
 
   border-radius: 1.1rem;
@@ -498,6 +529,8 @@
   border-top: 0.1rem solid rgba(255, 255, 255, 0.08);
 
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 1.2rem;
 }
@@ -513,6 +546,8 @@
 .advanced-total-invest {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 0.6rem;
 
   font-size: 1.28rem;
@@ -548,3 +583,105 @@
 }
 
 /* endpoint of advanced-invest-section */
+
+/* POSITIVE (GREEN) */
+.positive {
+  color: #6dffb8;
+  text-shadow: 0 0 0.35rem rgba(80, 255, 170, 0.6),
+    0 0 1rem rgba(100, 255, 200, 0.5);
+  font-weight: 700;
+}
+
+/* NEGATIVE (RED) */
+.negative {
+  color: #ff6b6b;
+  text-shadow: 0 0 0.35rem rgba(255, 120, 120, 0.7),
+    0 0 1rem rgba(255, 100, 100, 0.5);
+  font-weight: 700;
+}
+
+/* NEUTRAL (BLUE) */
+.neutral {
+  color: #dce4ff;
+  opacity: 0.85;
+}
+
+/* BOX SHADOW FOR SECTION */
+.green-shadow {
+  box-shadow: 0 0 2rem rgba(80, 255, 170, 0.25),
+    0 0 4rem rgba(80, 255, 170, 0.15);
+  transition: 0.35s ease;
+}
+
+.red-shadow {
+  box-shadow: 0 0 2rem rgba(255, 80, 80, 0.25), 0 0 4rem rgba(255, 80, 80, 0.15);
+  transition: 0.35s ease;
+}
+
+.blue-shadow {
+  box-shadow: 0 0 2rem rgba(120, 150, 255, 0.18),
+    0 0 4rem rgba(120, 150, 255, 0.1);
+  transition: 0.35s ease;
+}
+
+.profit-span {
+  margin-right: 50px;
+}
+
+.flex-profit-spans {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.advanced-input-multiplier-by-amount.positive {
+  text-shadow: none;
+  outline-color: rgba(80, 255, 170, 0.8);
+  box-shadow: 0 0 0.6rem rgba(80, 255, 170, 0.5),
+    0 0 1.4rem rgba(80, 255, 170, 0.3);
+}
+
+.advanced-input-multiplier-by-amount.negative {
+  text-shadow: none;
+  outline-color: rgba(255, 90, 90, 0.8);
+  box-shadow: 0 0 0.6rem rgba(255, 90, 90, 0.5),
+    0 0 1.4rem rgba(255, 90, 90, 0.3);
+}
+
+.first-section-of-multipliers-first-part,
+.first-section-of-multipliers-second-part,
+.second-section-of-multipliers-first-part,
+.second-section-of-multipliers-second-part {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  /* .first-section-of-multipliers-first-part,
+  .first-section-of-multipliers-second-part,
+  .second-section-of-multipliers-first-part,
+  .second-section-of-multipliers-second-part {
+    
+  } */
+
+  .target-price {
+    width: 40%;
+  }
+
+  .target-price span {
+    font-size: 0.9rem;
+  }
+
+  .advanced-multipliers button {
+    font-size: 0.9rem;
+    width: 20vw;
+  }
+
+  .first-section-of-multipliers,
+  .second-section-of-multipliers {
+    flex-direction: column;
+  }
+}
