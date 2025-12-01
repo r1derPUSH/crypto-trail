@@ -387,6 +387,9 @@
 
 /* === HEADER === */
 .header-advanced-invest span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.9rem;
   font-weight: 600;
   background: linear-gradient(90deg, #bfcaff, #ffffff);
@@ -398,6 +401,8 @@
 /* === BASIC INFO === */
 .advanced-invest-info {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 0.5rem;
 }
@@ -417,11 +422,17 @@
 }
 
 /* === TARGET PRICE === */
+.flex-target-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .target-price {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-
+  width: 20%;
   font-size: 1.35rem;
   color: #e0e6ff;
 }
@@ -517,6 +528,8 @@
   border-top: 0.1rem solid rgba(255, 255, 255, 0.08);
 
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 1.2rem;
 }

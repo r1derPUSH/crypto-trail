@@ -131,11 +131,12 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             </div>
 
             <div className="advanced-section-multipliers">
-              <div className="target-price">
-                <span>Target Price</span>
-                <span>20.09 $</span>
+              <div className="flex-target-price">
+                <div className="target-price">
+                  <span>Target Price</span>
+                  <span>20.09 $</span>
+                </div>
               </div>
-
               <div className="advanced-multipliers">
                 <div className="advanced-quick-multipliers">
                   <div className="first-section-of-multipliers">
