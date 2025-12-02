@@ -116,16 +116,18 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                 : "advanced-invest-token-container smooth-disappear"
             }
           >
-            <div className="header-advanced-invest">
-              <span>Advanced Invest</span>
-            </div>
+            <div className="flex-token-info-section">
+              <div className="header-advanced-invest">
+                <span>Advanced Invest</span>
+              </div>
 
-            <div className="advanced-invest-info">
-              <span>Your investment: {USDValue} $</span>
-              <span>
-                You will Recieve: {tokenValue} {tokentName.toUpperCase()}
-              </span>
-              <span>Token Price: {currentPrice} $</span>
+              <div className="advanced-invest-info">
+                <span>Your investment: {USDValue} $</span>
+                <span>
+                  You will Recieve: {tokenValue} {tokentName.toUpperCase()}
+                </span>
+                <span>Token Price: {currentPrice} $</span>
+              </div>
             </div>
 
             <div className="advanced-section-multipliers">

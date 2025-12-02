@@ -539,7 +539,14 @@
 }
 
 /* RESULT HEADER */
+.advanced-res-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .advanced-res-header span {
+  text-align: center;
   font-size: 1.45rem;
   font-weight: 700;
   color: #e2e7ff;
@@ -680,8 +687,17 @@
   width: 100%;
 }
 
-/* @media (max-width: 0px) {
-} */
+@media (max-width: 420px) {
+  .flex-token-info-section span {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .flex-token-info-section span {
+    font-size: 0.9rem;
+  }
+}
 
 @media (max-width: 600px) {
   /* .target-price {
