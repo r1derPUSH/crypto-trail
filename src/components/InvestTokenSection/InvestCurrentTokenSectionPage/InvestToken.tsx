@@ -81,9 +81,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                 className="crypto-input-field"
               />
 
-              <div className="crypto-input-token">
-                <span>$</span>
-              </div>
+              <div className="crypto-input-token">$</div>
             </div>
           </div>
           <span className="input-arrow">↕</span>
@@ -101,7 +99,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
 
               <div className="crypto-input-token">
                 <img src={tokenInfo.image} alt="" />
-                <span>{tokenInfo.shortName.toUpperCase()}</span>
+                {tokenInfo.shortName.toUpperCase()}
               </div>
             </div>
           </div>
@@ -118,22 +116,24 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                 : "advanced-invest-token-container smooth-disappear"
             }
           >
-            <div className="header-advanced-invest">
-              <span>Advanced Invest</span>
-            </div>
+            <div className="flex-token-info-section">
+              <div className="header-advanced-invest">
+                <span>Advanced Invest</span>
+              </div>
 
-            <div className="advanced-invest-info">
-              <span>Your investment: {USDValue} $</span>
-              <span>
-                You will Recieve: {tokenValue} {tokentName.toUpperCase()}
-              </span>
-              <span>Token Price: {currentPrice} $</span>
+              <div className="advanced-invest-info">
+                <span>Your investment: {USDValue} $</span>
+                <span>
+                  You will Recieve: {tokenValue} {tokentName.toUpperCase()}
+                </span>
+                <span>Token Price: {currentPrice} $</span>
+              </div>
             </div>
 
             <div className="advanced-section-multipliers">
               <div className="flex-target-price">
                 <div className="target-price">
-                  <span>Target Price</span>
+                  <span>Target: </span>
                   <span>{targetPrice} $</span>
                 </div>
               </div>
