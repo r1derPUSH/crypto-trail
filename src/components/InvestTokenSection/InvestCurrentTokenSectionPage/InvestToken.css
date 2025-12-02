@@ -678,6 +678,10 @@
   .input-wrapper {
     width: 80%;
   }
+
+  .first-flex-header {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 1100px) {

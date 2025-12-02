@@ -81,9 +81,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
                 className="crypto-input-field"
               />
 
-              <div className="crypto-input-token">
-                <span>$</span>
-              </div>
+              <div className="crypto-input-token">$</div>
             </div>
           </div>
           <span className="input-arrow">↕</span>
@@ -101,7 +99,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
 
               <div className="crypto-input-token">
                 <img src={tokenInfo.image} alt="" />
-                <span>{tokenInfo.shortName.toUpperCase()}</span>
+                {tokenInfo.shortName.toUpperCase()}
               </div>
             </div>
           </div>
