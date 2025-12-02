@@ -131,7 +131,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             <div className="advanced-section-multipliers">
               <div className="flex-target-price">
                 <div className="target-price">
-                  <span>Target Price</span>
+                  <span>Target: </span>
                   <span>{targetPrice} $</span>
                 </div>
               </div>
