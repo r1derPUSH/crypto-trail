@@ -26,10 +26,11 @@ type Symbol = {
 function SwapFrom({ coins }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [inputValue, setInputValue] = useState(0);
+  const [inputValue, setInputValue] = useState<number>();
   const [currentToken, setCurrentToken] = useState("ETH");
   const [currentImage, setCurrentImage] = useState();
   const [currentPrice, setCurrentPrice] = useState(0);
+  const [tokenPrice, setTokenPrice] = useState<number>();
   const [currentSwapToToken, setCurrentSwapToToken] = useState("");
 
   const filtered = coins.filter((item: Symbol) =>
@@ -37,9 +38,10 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
   );
 
   const handleChangePrice = (e: any) => {
-    const value = e.target.value;
+    const value = Number(e.target.value);
     setInputValue(value);
-    setCurrentPrice(currentPrice * value);
+    setTokenPrice(value * currentPrice);
+    console.log(currentPrice);
   };
 
   const handleOpen = () => {
@@ -63,7 +65,7 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
             className="from-amount-input"
             placeholder="0"
           />
-          <span className="price-in-usd">${currentPrice}</span>
+          <span className="price-in-usd">${tokenPrice}</span>
         </div>
       </div>
       <div className="dropbox-of-coins">
