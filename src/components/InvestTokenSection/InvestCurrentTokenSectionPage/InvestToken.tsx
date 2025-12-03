@@ -65,7 +65,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
             <span className="token-name-span">{tokentName}</span>
           </div>
           <div className="second-flex-header">
-            <span>{currentPrice.toFixed(5)}$</span>
+            <span>{currentPrice}$</span>
           </div>
         </div>
         <div className="invest-token-functional">
