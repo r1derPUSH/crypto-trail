@@ -28,20 +28,7 @@ function TokenContainer({
 }: Data) {
   // fix later
   const handleSwapFromToken = () => {
-    setCurrentSwapFromToken({
-      image,
-      symbol,
-      current_price,
-      price_change_percentage_24h,
-    });
-    console.log(
-      `Set: ${{
-        image,
-        symbol,
-        current_price,
-        price_change_percentage_24h,
-      }}`
-    );
+    setCurrentSwapFromToken(symbol);
     setIsOpen(false);
   };
 

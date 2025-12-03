@@ -16,6 +16,7 @@ type Data = {
   price_change_24h: number;
   market_cap: number;
   id?: string;
+  current_swapToToken: string;
 };
 
 type Symbol = {
@@ -25,15 +26,8 @@ type Symbol = {
 function SwapFrom({ coins }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentSwapFromToken, setCurrentSwapFromToken] = useState([]);
-
-  useEffect(() => {
-    const invertval = setInterval(() => {
-      console.log(currentSwapFromToken);
-    }, 3000);
-
-    return () => clearInterval(invertval);
-  }, []);
+  const [currentSwapFromToken, setCurrentSwapFromToken] = useState("ETH");
+  const [currentSwapToToken, setCurrentSwapToToken] = useState("");
 
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
@@ -59,7 +53,7 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
       <div className="dropbox-of-coins">
         <button onClick={handleOpen} className="dropbox-menu-inactive">
           <img src={ethereumImg} className="coin-img" alt="ETH" />
-          <span className="coin-name">ETH</span>
+          <span className="coin-name">{currentSwapFromToken}</span>
           <FaAngleDown
             style={{
               color: "#9AA0A6",
