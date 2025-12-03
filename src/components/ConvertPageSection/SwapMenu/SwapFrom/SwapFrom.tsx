@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./SwapFrom.css";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
@@ -16,6 +16,7 @@ type Data = {
   price_change_24h: number;
   market_cap: number;
   id?: string;
+  current_swapToToken: string;
 };
 
 type Symbol = {
@@ -25,19 +26,23 @@ type Symbol = {
 function SwapFrom({ coins }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentSwapFromToken, setCurrentSwapFromToken] = useState([]);
-
-  useEffect(() => {
-    const invertval = setInterval(() => {
-      console.log(currentSwapFromToken);
-    }, 3000);
-
-    return () => clearInterval(invertval);
-  }, []);
+  const [inputValue, setInputValue] = useState<number>();
+  const [currentToken, setCurrentToken] = useState("ETH");
+  const [currentImage, setCurrentImage] = useState();
+  const [currentPrice, setCurrentPrice] = useState(0);
+  const [tokenPrice, setTokenPrice] = useState<number>();
+  const [currentSwapToToken, setCurrentSwapToToken] = useState("");
 
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
+
+  const handleChangePrice = (e: any) => {
+    const value = Number(e.target.value);
+    setInputValue(value);
+    setTokenPrice(value * currentPrice);
+    console.log(currentPrice);
+  };
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
@@ -52,14 +57,25 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
       <div className="input-price-container">
         <div className="input-price-flexbox">
           <span className="from-span-text">From</span>
-          <input type="text" className="from-amount-input" placeholder="0" />
-          <span className="price-in-usd">$76.1</span>
+          <input
+            onChange={handleChangePrice}
+            value={inputValue}
+            type="number"
+            min={0}
+            className="from-amount-input"
+            placeholder="0"
+          />
+          <span className="price-in-usd">${tokenPrice}</span>
         </div>
       </div>
       <div className="dropbox-of-coins">
         <button onClick={handleOpen} className="dropbox-menu-inactive">
-          <img src={ethereumImg} className="coin-img" alt="ETH" />
-          <span className="coin-name">ETH</span>
+          {currentImage ? (
+            <img src={currentImage} className="coin-img" alt={currentToken} />
+          ) : (
+            <img src={ethereumImg} className="coin-img" alt="ETH" />
+          )}
+          <span className="coin-name">{currentToken.toUpperCase()}</span>
           <FaAngleDown
             style={{
               color: "#9AA0A6",
@@ -91,7 +107,9 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
                     <TokenContainer
                       key={index}
                       setIsOpen={setIsOpen}
-                      setCurrentSwapFromToken={setCurrentSwapFromToken}
+                      setCurrentSwapFromToken={setCurrentToken}
+                      setCurrentImage={setCurrentImage}
+                      setCurrentPrice={setCurrentPrice}
                       image={item.image}
                       current_price={item.current_price}
                       symbol={item.symbol}
