@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./SwapFrom.css";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
@@ -26,7 +26,8 @@ type Symbol = {
 function SwapFrom({ coins }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentSwapFromToken, setCurrentSwapFromToken] = useState("ETH");
+  const [currentToken, setCurrentToken] = useState("ETH");
+  const [currentImage, setCurrentImage] = useState();
   const [currentSwapToToken, setCurrentSwapToToken] = useState("");
 
   const filtered = coins.filter((item: Symbol) =>
@@ -52,8 +53,8 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
       </div>
       <div className="dropbox-of-coins">
         <button onClick={handleOpen} className="dropbox-menu-inactive">
-          <img src={ethereumImg} className="coin-img" alt="ETH" />
-          <span className="coin-name">{currentSwapFromToken}</span>
+          <img src={currentImage} className="coin-img" alt="ETH" />
+          <span className="coin-name">{currentToken}</span>
           <FaAngleDown
             style={{
               color: "#9AA0A6",
@@ -85,7 +86,8 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
                     <TokenContainer
                       key={index}
                       setIsOpen={setIsOpen}
-                      setCurrentSwapFromToken={setCurrentSwapFromToken}
+                      setCurrentSwapFromToken={setCurrentToken}
+                      setCurrentImage={setCurrentImage}
                       image={item.image}
                       current_price={item.current_price}
                       symbol={item.symbol}
