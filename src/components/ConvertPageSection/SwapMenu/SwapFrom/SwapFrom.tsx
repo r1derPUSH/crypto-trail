@@ -26,13 +26,21 @@ type Symbol = {
 function SwapFrom({ coins }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [inputValue, setInputValue] = useState(0);
   const [currentToken, setCurrentToken] = useState("ETH");
   const [currentImage, setCurrentImage] = useState();
+  const [currentPrice, setCurrentPrice] = useState(0);
   const [currentSwapToToken, setCurrentSwapToToken] = useState("");
 
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
+
+  const handleChangePrice = (e: any) => {
+    const value = e.target.value;
+    setInputValue(value);
+    setCurrentPrice(currentPrice * value);
+  };
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
@@ -47,14 +55,25 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
       <div className="input-price-container">
         <div className="input-price-flexbox">
           <span className="from-span-text">From</span>
-          <input type="text" className="from-amount-input" placeholder="0" />
-          <span className="price-in-usd">$76.1</span>
+          <input
+            onChange={handleChangePrice}
+            value={inputValue}
+            type="number"
+            min={0}
+            className="from-amount-input"
+            placeholder="0"
+          />
+          <span className="price-in-usd">${currentPrice}</span>
         </div>
       </div>
       <div className="dropbox-of-coins">
         <button onClick={handleOpen} className="dropbox-menu-inactive">
-          <img src={currentImage} className="coin-img" alt="ETH" />
-          <span className="coin-name">{currentToken}</span>
+          {currentImage ? (
+            <img src={currentImage} className="coin-img" alt={currentToken} />
+          ) : (
+            <img src={ethereumImg} className="coin-img" alt="ETH" />
+          )}
+          <span className="coin-name">{currentToken.toUpperCase()}</span>
           <FaAngleDown
             style={{
               color: "#9AA0A6",
@@ -88,6 +107,7 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
                       setIsOpen={setIsOpen}
                       setCurrentSwapFromToken={setCurrentToken}
                       setCurrentImage={setCurrentImage}
+                      setCurrentPrice={setCurrentPrice}
                       image={item.image}
                       current_price={item.current_price}
                       symbol={item.symbol}
