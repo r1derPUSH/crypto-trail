@@ -23,26 +23,37 @@ type Symbol = {
   symbol: string;
 };
 
-function SwapFrom({ coins }: Data & Record<string, any>) {
+function SwapFrom({
+  coins,
+  inputValue,
+  setInputValue,
+  setInputValueTo,
+}: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [inputValue, setInputValue] = useState<number>();
   const [currentToken, setCurrentToken] = useState("ETH");
   const [currentImage, setCurrentImage] = useState();
   const [currentPrice, setCurrentPrice] = useState(0);
   const [tokenPrice, setTokenPrice] = useState<number>();
-  const [currentSwapToToken, setCurrentSwapToToken] = useState("");
 
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
   const handleChangePrice = (e: any) => {
-    const value = Number(e.target.value);
-    setInputValue(value);
+    let value = e.target.value;
+
+    if (value.length > 1 && value.startsWith("0")) {
+      value = value.replace(/^0+/, "");
+    }
     setTokenPrice(value * currentPrice);
+    setInputValue(value);
+    setInputValueTo((value * currentPrice).toFixed(2));
     console.log(currentPrice);
   };
+
+  // Futures updates:
+  // update bnb -> trx swap for example,
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
@@ -65,7 +76,7 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
             className="from-amount-input"
             placeholder="0"
           />
-          <span className="price-in-usd">${tokenPrice}</span>
+          <span className="price-in-usd">${tokenPrice?.toFixed(2)}</span>
         </div>
       </div>
       <div className="dropbox-of-coins">
@@ -110,6 +121,7 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
                       setCurrentSwapFromToken={setCurrentToken}
                       setCurrentImage={setCurrentImage}
                       setCurrentPrice={setCurrentPrice}
+                      setCurrentTokenValue={setCurrentTokenValue}
                       image={item.image}
                       current_price={item.current_price}
                       symbol={item.symbol}

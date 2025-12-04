@@ -11,8 +11,11 @@ import Footer from "../../MainSection/Footer/Footer";
 function ConvertPage() {
   const [coins, setCoins] = useState<any[]>([]);
   const navigate = useNavigate();
-  const [handleTime, setHandleTime] = useState();
   const [currentSwapToToken, setCurrentSwapToToken] = useState([]);
+  const [inputValue, setInputValue] = useState<number>();
+  const [currentTokenValue, setCurrentTokenValue] = useState<number>();
+  const [inputValueTo, setInputValueTo] = useState<number>();
+  const [currentTokenValueTo, setCurrentTokenValueTo] = useState<number>();
   const handleNavigateHome = () => {
     navigate("/");
   };
@@ -37,7 +40,7 @@ function ConvertPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       getData();
-    }, 10000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -51,8 +54,21 @@ function ConvertPage() {
           <span className="sub-convert-text">Convert</span>
         </div>
         <div className="convert-section">
-          <SwapFrom coins={coins} />
-          <SwapTo coins={coins} setCurrentSwapToToken={setCurrentSwapToToken} />
+          <SwapFrom
+            coins={coins}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+            setInputValueTo={setInputValueTo}
+            setCurrentTokenValue={setCurrentTokenValue}
+          />
+          <SwapTo
+            coins={coins}
+            currentTokenValueTo={currentTokenValueTo}
+            setInputValueTo={setInputValueTo}
+            setInputValue={setInputValue}
+            inputValueTo={inputValueTo}
+            setCurrentTokenValueTo={setCurrentTokenValueTo}
+          />
         </div>
       </div>
       <button className="convert-btn">Convert</button>
