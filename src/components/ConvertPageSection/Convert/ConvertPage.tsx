@@ -11,7 +11,6 @@ import Footer from "../../MainSection/Footer/Footer";
 function ConvertPage() {
   const [coins, setCoins] = useState<any[]>([]);
   const navigate = useNavigate();
-  const [handleTime, setHandleTime] = useState();
   const [currentSwapToToken, setCurrentSwapToToken] = useState([]);
   const handleNavigateHome = () => {
     navigate("/");

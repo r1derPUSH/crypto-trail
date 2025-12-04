@@ -38,9 +38,13 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
   );
 
   const handleChangePrice = (e: any) => {
-    const value = Number(e.target.value);
-    setInputValue(value);
+    let value = e.target.value;
+
+    if (value.length > 1 && value.startsWith("0")) {
+      value = value.replace(/^0+/, "");
+    }
     setTokenPrice(value * currentPrice);
+    inputValue == 0 ? setInputValue(value) : setInputValue(value);
     console.log(currentPrice);
   };
 
