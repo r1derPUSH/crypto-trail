@@ -52,6 +52,9 @@ function SwapFrom({
     console.log(currentPrice);
   };
 
+  // Futures updates:
+  // update bnb -> trx swap for example,
+
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
   };
@@ -118,6 +121,7 @@ function SwapFrom({
                       setCurrentSwapFromToken={setCurrentToken}
                       setCurrentImage={setCurrentImage}
                       setCurrentPrice={setCurrentPrice}
+                      setCurrentTokenValue={setCurrentTokenValue}
                       image={item.image}
                       current_price={item.current_price}
                       symbol={item.symbol}

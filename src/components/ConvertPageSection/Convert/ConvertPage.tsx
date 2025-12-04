@@ -13,7 +13,9 @@ function ConvertPage() {
   const navigate = useNavigate();
   const [currentSwapToToken, setCurrentSwapToToken] = useState([]);
   const [inputValue, setInputValue] = useState<number>();
+  const [currentTokenValue, setCurrentTokenValue] = useState<number>();
   const [inputValueTo, setInputValueTo] = useState<number>();
+  const [currentTokenValueTo, setCurrentTokenValueTo] = useState<number>();
   const handleNavigateHome = () => {
     navigate("/");
   };
@@ -57,12 +59,15 @@ function ConvertPage() {
             inputValue={inputValue}
             setInputValue={setInputValue}
             setInputValueTo={setInputValueTo}
+            setCurrentTokenValue={setCurrentTokenValue}
           />
           <SwapTo
             coins={coins}
+            currentTokenValueTo={currentTokenValueTo}
             setInputValueTo={setInputValueTo}
             setInputValue={setInputValue}
             inputValueTo={inputValueTo}
+            setCurrentTokenValueTo={setCurrentTokenValueTo}
           />
         </div>
       </div>
