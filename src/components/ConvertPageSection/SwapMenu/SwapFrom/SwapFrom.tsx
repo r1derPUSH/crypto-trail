@@ -23,15 +23,18 @@ type Symbol = {
   symbol: string;
 };
 
-function SwapFrom({ coins }: Data & Record<string, any>) {
+function SwapFrom({
+  coins,
+  inputValue,
+  setInputValue,
+  setInputValueTo,
+}: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [inputValue, setInputValue] = useState<number>();
   const [currentToken, setCurrentToken] = useState("ETH");
   const [currentImage, setCurrentImage] = useState();
   const [currentPrice, setCurrentPrice] = useState(0);
   const [tokenPrice, setTokenPrice] = useState<number>();
-  const [currentSwapToToken, setCurrentSwapToToken] = useState("");
 
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
@@ -44,7 +47,8 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
       value = value.replace(/^0+/, "");
     }
     setTokenPrice(value * currentPrice);
-    inputValue == 0 ? setInputValue(value) : setInputValue(value);
+    setInputValue(value);
+    setInputValueTo((value * currentPrice).toFixed(2));
     console.log(currentPrice);
   };
 
@@ -69,7 +73,7 @@ function SwapFrom({ coins }: Data & Record<string, any>) {
             className="from-amount-input"
             placeholder="0"
           />
-          <span className="price-in-usd">${tokenPrice}</span>
+          <span className="price-in-usd">${tokenPrice?.toFixed(2)}</span>
         </div>
       </div>
       <div className="dropbox-of-coins">

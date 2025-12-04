@@ -1,7 +1,7 @@
 import { useState } from "react";
+import "./SwapTo.css";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
-import "../SwapFrom/SwapFrom.css";
 import TokenContainer from "../SwapFrom/TokenContainer/TokenContainer";
 
 type Data = {
@@ -16,15 +16,42 @@ type Data = {
   price_change_24h: number;
   market_cap: number;
   id?: string;
+  current_swapToToken: string;
 };
 
 type Symbol = {
   symbol: string;
 };
 
-function SwapTo({ coins }: Data & Record<string, any>) {
+function SwapFrom({
+  coins,
+  inputValueTo,
+  setInputValueTo,
+  setInputValue,
+}: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [currentToken, setCurrentToken] = useState("ETH");
+  const [currentImage, setCurrentImage] = useState();
+  const [currentPrice, setCurrentPrice] = useState(0);
+  const [tokenPrice, setTokenPrice] = useState<number>();
+
+  const filtered = coins.filter((item: Symbol) =>
+    item.symbol.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const handleChangePrice = (e: any) => {
+    let value = e.target.value;
+
+    if (value.length > 1 && value.startsWith("0")) {
+      value = value.replace(/^0+/, "");
+    }
+    setTokenPrice(value * currentPrice);
+    setInputValueTo(value);
+    setInputValue(value * currentPrice);
+    console.log(currentPrice);
+  };
+
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
   };
@@ -33,23 +60,30 @@ function SwapTo({ coins }: Data & Record<string, any>) {
     setSearch(e.target.value);
   };
 
-  const filtered = coins.filter((item: Symbol) =>
-    item.symbol.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
     <div className="swap-container">
       <div className="input-price-container">
         <div className="input-price-flexbox">
-          <span className="from-span-text">To</span>
-          <input type="text" className="from-amount-input" placeholder="0" />
-          <span className="price-in-usd">$76.1</span>
+          <span className="from-span-text">From</span>
+          <input
+            onChange={handleChangePrice}
+            value={inputValueTo}
+            type="number"
+            min={0}
+            className="from-amount-input"
+            placeholder="0"
+          />
+          <span className="price-in-usd">${tokenPrice?.toFixed(2)}</span>
         </div>
       </div>
       <div className="dropbox-of-coins">
         <button onClick={handleOpen} className="dropbox-menu-inactive">
-          <img src={ethereumImg} className="coin-img" alt="ETH" />
-          <span className="coin-name">ETH</span>
+          {currentImage ? (
+            <img src={currentImage} className="coin-img" alt={currentToken} />
+          ) : (
+            <img src={ethereumImg} className="coin-img" alt="ETH" />
+          )}
+          <span className="coin-name">{currentToken.toUpperCase()}</span>
           <FaAngleDown
             style={{
               color: "#9AA0A6",
@@ -60,39 +94,46 @@ function SwapTo({ coins }: Data & Record<string, any>) {
             }}
           />
         </button>
-      </div>
-      {isOpen && (
-        <div className="overlay" onClick={() => setIsOpen((prev) => !prev)}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <span>Select a token</span>
-              <button onClick={() => setIsOpen(false)}>X</button>
-            </div>
-            <div className="input-and-coins">
-              <input
-                className="search"
-                placeholder="Search token"
-                onChange={handleSearch}
-              />
-              <div className="recent-coins"></div>
-            </div>
-            <div className="token-list">
-              {filtered.map((item: Data) => (
-                <div className="token-container">
-                  <TokenContainer
-                    image={item.image}
-                    current_price={item.current_price}
-                    symbol={item.symbol}
-                  />
-                </div>
-              ))}
-              ;
+        {isOpen && (
+          <div className="overlay" onClick={() => setIsOpen((prev) => !prev)}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <span>Select a token</span>
+                <button onClick={() => setIsOpen(false)}>X</button>
+              </div>
+              <div className="input-and-coins">
+                <input
+                  className="search"
+                  placeholder="Search token"
+                  onChange={handleSearch}
+                />
+                <div className="recent-coins"></div>
+              </div>
+              <div className="token-list">
+                {filtered.map(
+                  (item: Data & Record<string, any>, index: number) => (
+                    <TokenContainer
+                      key={index}
+                      setIsOpen={setIsOpen}
+                      setCurrentSwapFromToken={setCurrentToken}
+                      setCurrentImage={setCurrentImage}
+                      setCurrentPrice={setCurrentPrice}
+                      image={item.image}
+                      current_price={item.current_price}
+                      symbol={item.symbol}
+                      price_change_percentage_24h={
+                        item.price_change_percentage_24h
+                      }
+                    />
+                  )
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
 
-export default SwapTo;
+export default SwapFrom;
