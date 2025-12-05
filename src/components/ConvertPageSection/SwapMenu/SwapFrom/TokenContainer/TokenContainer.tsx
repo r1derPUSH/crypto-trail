@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import "./TokenContainer.css";
 
 type Data = {

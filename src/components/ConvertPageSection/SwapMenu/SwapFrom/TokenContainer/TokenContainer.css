@@ -1,6 +1,6 @@
 .pair-row {
   display: flex;
-  justify-content: space-between; /* рівні проміжки */
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 1.2rem;
   background: #1a1d26;
@@ -12,27 +12,23 @@
   transition: background 0.15s ease;
   border-radius: 0.6rem;
   gap: 1rem;
-  /* width: 1000px; */
 }
 
 .pair-row:hover {
   background: #1f232e;
 }
 
-/* LEFT BLOCK */
 .pair-symbol {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-/* star */
 .star {
   color: #f5c542;
   font-size: 1rem;
 }
 
-/* icon – відносна висота */
 .pair-icon {
   height: 1.3rem;
   width: 1.3rem;
@@ -63,7 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 4rem; /* чисто для стабільності колонки */
+  min-width: 4rem;
 }
 
 /* colors */

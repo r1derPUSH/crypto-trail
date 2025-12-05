@@ -7,19 +7,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 75vw;
   margin: 3rem auto;
   padding: 3rem;
   border-radius: 28px;
   margin-bottom: 10rem;
-
   background: radial-gradient(circle at 30% 20%, #232b69, #0f1129 70%);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45), 0 0 80px rgba(81, 134, 255, 0.18);
-
   color: #e4e9ff;
   backdrop-filter: blur(10px);
-
   animation: fadeIn 0.5s ease;
 }
 
@@ -43,7 +39,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -57,7 +52,6 @@
 .img-flex-section-token {
   display: flex;
   align-items: center;
-  /* margin-top: 2rem; */
   gap: 0.8rem;
 }
 
@@ -79,7 +73,6 @@
 .token-name-span {
   font-size: 1.2rem;
   opacity: 0.35;
-  /* margin-top: 2rem; */
 }
 
 .second-flex-header span {
@@ -96,11 +89,9 @@
   margin-top: 1.5rem;
   width: 80%;
   text-align: center;
-
   font-size: 1.15rem;
   line-height: 1.7rem;
   opacity: 0.8;
-
   background: rgba(255, 255, 255, 0.05);
   padding: 1.4rem 2rem;
   border-radius: 16px;
