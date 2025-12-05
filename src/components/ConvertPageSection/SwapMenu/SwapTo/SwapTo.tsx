@@ -1,5 +1,5 @@
-import { useState } from "react";
 import "./SwapTo.css";
+import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import TokenContainer from "../SwapFrom/TokenContainer/TokenContainer";
@@ -35,14 +35,12 @@ function SwapFrom({
   const [currentImage, setCurrentImage] = useState();
   const [currentPrice, setCurrentPrice] = useState(0);
   const [tokenPrice, setTokenPrice] = useState<number>();
-
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
   const handleChangePrice = (e: any) => {
     let value = e.target.value;
-
     if (value.length > 1 && value.startsWith("0")) {
       value = value.replace(/^0+/, "");
     }

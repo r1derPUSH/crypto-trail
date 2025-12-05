@@ -1,7 +1,6 @@
 import "../MainSection/mainSection.css";
 import Home from "./Home/Home";
 import Footer from "./Footer/Footer";
-import Overview from "./Overview/Overview";
 
 export interface fnProps {
   currentSection: string;

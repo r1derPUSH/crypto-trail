@@ -46,11 +46,8 @@ function TokenContainer({
           <span className="symbol-text">{symbol.toUpperCase()}/USDT</span>
           <span className="tag">Spot</span>
         </div>
-
         <div className="pair-last-price">{current_price.toFixed(2)}$</div>
-
         <div className="pair-change positive">+1.50%</div>
-
         <div className="pair-funding">
           {price_change_percentage_24h?.toFixed(2)}%
         </div>
