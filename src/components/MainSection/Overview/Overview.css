@@ -12,7 +12,6 @@
   justify-content: center;
   background: radial-gradient(circle at 30% 20%, #232b69, #0f1129 70%);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45), 0 0 50px rgba(81, 134, 255, 0.18);
-
   color: #e4e9ff;
   font-family: "Ubuntu", sans-serif;
   animation: fadeIn 0.5s ease;
@@ -38,7 +37,6 @@
   padding: 1.8rem 2rem;
   border-radius: 20px;
   text-align: left;
-
   color: #eaf2ff;
   margin-bottom: 2rem;
   box-shadow: 0 0 20px rgba(60, 110, 255, 0.25);
@@ -71,10 +69,8 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 0.9rem 2.2rem;
   border-radius: 12px;
-
   font-size: 1.05rem;
   color: #e4e9ff;
-
   cursor: pointer;
   transition: 0.2s;
   backdrop-filter: blur(6px);
@@ -115,14 +111,11 @@
 
 .wallet-container button[onClick] {
   margin-top: 2.5rem;
-
   width: 100%;
   padding: 1rem;
-
   background: linear-gradient(90deg, #28ffcb, #1ddfa5);
   border: none;
   border-radius: 16px;
-
   color: #03131f;
   font-size: 1.2rem;
   font-weight: 600;
@@ -132,12 +125,6 @@
 .margin {
   margin: 1000px;
 }
-
-/* 
-.wallet-container button:acti:hover {
-  background: linear-gradient(90deg, #22d9af, #17c999);
-  transform: translateY(-2px);
-} */
 
 /* ============================
    BACK TO HOME BUTTON
@@ -153,15 +140,12 @@
   width: 50%;
   margin-top: 2.5rem;
   padding: 1rem 1.5rem;
-
   background: linear-gradient(90deg, #2affd6, #13caa3);
   border: none;
   border-radius: 16px;
-
   color: #051821;
   font-size: 1.25rem;
   font-weight: 600;
-
   cursor: pointer;
   transition: 0.25s ease;
   box-shadow: 0 0 12px rgba(42, 255, 214, 0.4);

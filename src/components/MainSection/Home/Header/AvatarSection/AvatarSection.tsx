@@ -1,5 +1,5 @@
-import { FiChevronRight } from "react-icons/fi";
 import "./AvatarSection.css";
+import { FiChevronRight } from "react-icons/fi";
 import manExampleAvatar from "../img/manExaple.jpg";
 import { useNavigate } from "react-router-dom";
 

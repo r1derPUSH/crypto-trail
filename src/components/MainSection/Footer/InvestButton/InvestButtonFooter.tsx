@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./InvestButton.css";
 import investImg from "./imgInvest.png";
 import { useNavigate } from "react-router-dom";

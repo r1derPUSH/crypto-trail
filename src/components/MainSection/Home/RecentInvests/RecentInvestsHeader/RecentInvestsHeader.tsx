@@ -9,7 +9,7 @@ function RecentInvestsHeader() {
         See More
         <FiChevronRight
           size={18}
-          color="#8a93b1" // той самий сіро-блакитний як у “See more”
+          color="#8a93b1"
           style={{ marginLeft: "4px", transition: "transform 0.2s ease" }}
         />
       </button>

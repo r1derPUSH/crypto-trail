@@ -42,8 +42,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: any }) {
   };
 
   const tokentName = tokenInfo.name;
-  // const tokenQuantity = tokenValue;
-  // const userInvestment = USDValue;
   const currentPrice = tokenInfo.price;
   const [targetPrice, setTargetPrice] = useState("");
   const [targetPriceInPercents, setTargetPriceInPercents] = useState("");
