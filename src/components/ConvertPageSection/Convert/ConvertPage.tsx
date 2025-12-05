@@ -6,12 +6,9 @@ import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 import { useState, useEffect } from "react";
 import Footer from "../../MainSection/Footer/Footer";
 
-// type Coins = {};
-
 function ConvertPage() {
   const [coins, setCoins] = useState<any[]>([]);
   const navigate = useNavigate();
-  const [currentSwapToToken, setCurrentSwapToToken] = useState([]);
   const [inputValue, setInputValue] = useState<number>();
   const [currentTokenValue, setCurrentTokenValue] = useState<number>();
   const [inputValueTo, setInputValueTo] = useState<number>();

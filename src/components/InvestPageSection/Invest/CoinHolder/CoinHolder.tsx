@@ -12,6 +12,7 @@ type CoinHolder = {
   ath_today: number;
   market_cap: number;
   atl_today: number;
+  setTokenInfo: any;
 };
 
 function CoinHolder({

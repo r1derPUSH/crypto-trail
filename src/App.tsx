@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MainSection from "./components/MainSection/MainSection";
 import InvestPage from "./components/InvestPageSection/Invest/InvestPage";
 import "./components/MainSection/mainSection.css";
@@ -12,9 +12,6 @@ import ScrollToTop from "./components/CustomComponents/ScrollToTop";
 
 function App() {
   const [tokenInfo, setTokenInfo] = useState([]);
-  useEffect(() => {
-    console.log(tokenInfo);
-  });
 
   return (
     <HashRouter>
