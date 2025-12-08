@@ -49,7 +49,6 @@ function SwapFrom({
     if (value.length > 1 && value.startsWith("0")) {
       value = value.replace(/^0+/, "");
     }
-    setTokenSwapFromPrice(value * currentPrice);
     setInputValue(value);
     setInputValueTo(((value * tokenSwapFromPrice) / tokenPrice).toFixed(2));
     console.log(currentPrice);

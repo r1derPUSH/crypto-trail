@@ -31,7 +31,6 @@ function TokenContainer({
   setTokenPrice,
   setCurrentImage,
   setCurrentPrice,
-  tokenSwapFromPrice,
 }: Data) {
   // fix later
   const handleSwapFromToken = () => {
