@@ -28,13 +28,16 @@ function SwapFrom({
   inputValue,
   setInputValue,
   setInputValueTo,
+  tokenSwapFromPrice,
+  currentSwapFromToken,
+  setTokenSwapFromPrice,
+  setCurrentSwapFromToken,
+  tokenPrice,
 }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentToken, setCurrentToken] = useState("ETH");
   const [currentImage, setCurrentImage] = useState();
   const [currentPrice, setCurrentPrice] = useState(0);
-  const [tokenPrice, setTokenPrice] = useState<number>();
 
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
@@ -46,9 +49,8 @@ function SwapFrom({
     if (value.length > 1 && value.startsWith("0")) {
       value = value.replace(/^0+/, "");
     }
-    setTokenPrice(value * currentPrice);
     setInputValue(value);
-    setInputValueTo((value * currentPrice).toFixed(2));
+    setInputValueTo(((value * tokenSwapFromPrice) / tokenPrice).toFixed(2));
     console.log(currentPrice);
   };
 
@@ -76,17 +78,25 @@ function SwapFrom({
             className="from-amount-input"
             placeholder="0"
           />
-          <span className="price-in-usd">${tokenPrice?.toFixed(2)}</span>
+          <span className="price-in-usd">
+            ${tokenSwapFromPrice?.toFixed(2)}
+          </span>
         </div>
       </div>
       <div className="dropbox-of-coins">
         <button onClick={handleOpen} className="dropbox-menu-inactive">
           {currentImage ? (
-            <img src={currentImage} className="coin-img" alt={currentToken} />
+            <img
+              src={currentImage}
+              className="coin-img"
+              alt={currentSwapFromToken}
+            />
           ) : (
             <img src={ethereumImg} className="coin-img" alt="ETH" />
           )}
-          <span className="coin-name">{currentToken.toUpperCase()}</span>
+          <span className="coin-name">
+            {currentSwapFromToken.toUpperCase()}
+          </span>
           <FaAngleDown
             style={{
               color: "#9AA0A6",
@@ -118,7 +128,8 @@ function SwapFrom({
                     <TokenContainer
                       key={index}
                       setIsOpen={setIsOpen}
-                      setCurrentSwapFromToken={setCurrentToken}
+                      setCurrentSwapFromToken={setCurrentSwapFromToken}
+                      setTokenPrice={setTokenSwapFromPrice}
                       setCurrentImage={setCurrentImage}
                       setCurrentPrice={setCurrentPrice}
                       image={item.image}

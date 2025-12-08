@@ -23,18 +23,21 @@ type Symbol = {
   symbol: string;
 };
 
-function SwapFrom({
+function SwapTo({
   coins,
   inputValueTo,
   setInputValueTo,
   setInputValue,
+  currentToken,
+  tokenPrice,
+  setCurrentToken,
+  setTokenPrice,
+  tokenSwapFromPrice,
 }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentToken, setCurrentToken] = useState("ETH");
   const [currentImage, setCurrentImage] = useState();
   const [currentPrice, setCurrentPrice] = useState(0);
-  const [tokenPrice, setTokenPrice] = useState<number>();
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
@@ -44,9 +47,8 @@ function SwapFrom({
     if (value.length > 1 && value.startsWith("0")) {
       value = value.replace(/^0+/, "");
     }
-    setTokenPrice(value * currentPrice);
     setInputValueTo(value);
-    setInputValue(value * currentPrice);
+    setInputValue(((value * tokenPrice) / tokenSwapFromPrice).toFixed(2));
     console.log(currentPrice);
   };
 
@@ -114,6 +116,7 @@ function SwapFrom({
                       key={index}
                       setIsOpen={setIsOpen}
                       setCurrentSwapFromToken={setCurrentToken}
+                      setTokenPrice={setTokenPrice}
                       setCurrentImage={setCurrentImage}
                       setCurrentPrice={setCurrentPrice}
                       image={item.image}
@@ -134,4 +137,4 @@ function SwapFrom({
   );
 }
 
-export default SwapFrom;
+export default SwapTo;

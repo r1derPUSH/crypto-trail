@@ -17,6 +17,8 @@ type Data = {
   setCurrentPrice: any;
   setIsOpen: any;
   id?: string;
+  setTokenPrice: any;
+  tokenSwapFromPrice: any;
 };
 
 function TokenContainer({
@@ -26,6 +28,7 @@ function TokenContainer({
   price_change_percentage_24h,
   setIsOpen,
   setCurrentSwapFromToken,
+  setTokenPrice,
   setCurrentImage,
   setCurrentPrice,
 }: Data) {
@@ -34,6 +37,7 @@ function TokenContainer({
     setCurrentSwapFromToken(symbol);
     setCurrentImage(image);
     setCurrentPrice(current_price);
+    setTokenPrice(current_price);
     setIsOpen(false);
   };
 
