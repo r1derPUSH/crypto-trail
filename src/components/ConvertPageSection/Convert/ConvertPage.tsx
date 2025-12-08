@@ -10,9 +10,18 @@ function ConvertPage() {
   const [coins, setCoins] = useState<any[]>([]);
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState<number>();
-  const [currentTokenValue, setCurrentTokenValue] = useState<number>();
   const [inputValueTo, setInputValueTo] = useState<number>();
-  const [currentTokenValueTo, setCurrentTokenValueTo] = useState<number>();
+
+  // # 1
+
+  const [tokenSwapFromPrice, setTokenSwapFromPrice] = useState<number>();
+  const [currentSwapFromToken, setCurrentSwapFromToken] = useState("ETH");
+
+  // #2
+
+  const [tokenPrice, setTokenPrice] = useState<number>();
+  const [currentToken, setCurrentToken] = useState("ETH");
+
   const handleNavigateHome = () => {
     navigate("/");
   };
@@ -52,19 +61,26 @@ function ConvertPage() {
         </div>
         <div className="convert-section">
           <SwapFrom
+            tokenSwapFromPrice={tokenSwapFromPrice}
+            currentSwapFromToken={currentSwapFromToken}
+            tokenPrice={tokenPrice}
+            setTokenSwapFromPrice={setTokenSwapFromPrice}
+            setCurrentSwapFromToken={setCurrentSwapFromToken}
             coins={coins}
             inputValue={inputValue}
             setInputValue={setInputValue}
             setInputValueTo={setInputValueTo}
-            setCurrentTokenValue={setCurrentTokenValue}
           />
           <SwapTo
+            currentToken={currentToken}
+            tokenPrice={tokenPrice}
+            setTokenPrice={setTokenPrice}
+            setCurrentToken={setCurrentToken}
+            tokenSwapFromPrice={tokenSwapFromPrice}
             coins={coins}
-            currentTokenValueTo={currentTokenValueTo}
             setInputValueTo={setInputValueTo}
             setInputValue={setInputValue}
             inputValueTo={inputValueTo}
-            setCurrentTokenValueTo={setCurrentTokenValueTo}
           />
         </div>
       </div>
