@@ -11,6 +11,7 @@ function ConvertPage() {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState<number>();
   const [inputValueTo, setInputValueTo] = useState<number>();
+  const [order, setOrder] = useState(true);
 
   // # 1
 
@@ -71,6 +72,7 @@ function ConvertPage() {
             setInputValue={setInputValue}
             setInputValueTo={setInputValueTo}
           />
+          <button onClick={() => setOrder((prev) => !prev)}>Swap</button>
           <SwapTo
             currentToken={currentToken}
             tokenPrice={tokenPrice}
