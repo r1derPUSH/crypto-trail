@@ -48,7 +48,7 @@ function SwapTo({
       value = value.replace(/^0+/, "");
     }
     setInputValueTo(value);
-    setInputValue((value * tokenPrice) / tokenSwapFromPrice);
+    setInputValue(((value * tokenPrice) / tokenSwapFromPrice).toFixed(2));
     console.log(currentPrice);
   };
 
