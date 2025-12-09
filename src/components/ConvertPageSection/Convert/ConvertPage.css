@@ -86,7 +86,7 @@
   font-size: 22px;
   cursor: pointer;
   color: #d1d5db;
-  margin: -24px auto; /* підтягує кнопку між блоками */
+  margin: -24px auto;
   transition: all 0.2s ease;
 }
 
