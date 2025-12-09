@@ -17,11 +17,13 @@ function ConvertPage() {
 
   const [tokenSwapFromPrice, setTokenSwapFromPrice] = useState<number>();
   const [currentSwapFromToken, setCurrentSwapFromToken] = useState("ETH");
+  const [currentSfImage, setCurrentSfImage] = useState();
 
   // #2
 
   const [tokenPrice, setTokenPrice] = useState<number>();
   const [currentToken, setCurrentToken] = useState("ETH");
+  const [currentImage, setCurrentImage] = useState();
 
   const handleNavigateHome = () => {
     navigate("/");
@@ -61,29 +63,97 @@ function ConvertPage() {
           <span className="sub-convert-text">Convert</span>
         </div>
         <div className="convert-section">
-          <SwapFrom
-            tokenSwapFromPrice={tokenSwapFromPrice}
-            currentSwapFromToken={currentSwapFromToken}
-            tokenPrice={tokenPrice}
-            setTokenSwapFromPrice={setTokenSwapFromPrice}
-            setCurrentSwapFromToken={setCurrentSwapFromToken}
-            coins={coins}
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-            setInputValueTo={setInputValueTo}
-          />
-          <button onClick={() => setOrder((prev) => !prev)}>Swap</button>
-          <SwapTo
-            currentToken={currentToken}
-            tokenPrice={tokenPrice}
-            setTokenPrice={setTokenPrice}
-            setCurrentToken={setCurrentToken}
-            tokenSwapFromPrice={tokenSwapFromPrice}
-            coins={coins}
-            setInputValueTo={setInputValueTo}
-            setInputValue={setInputValue}
-            inputValueTo={inputValueTo}
-          />
+          {order ? (
+            <>
+              <SwapFrom
+                key={"from-first"}
+                tokenSwapFromPrice={tokenSwapFromPrice}
+                currentSwapFromToken={currentSwapFromToken}
+                tokenPrice={tokenPrice}
+                setTokenSwapFromPrice={setTokenSwapFromPrice}
+                setCurrentSwapFromToken={setCurrentSwapFromToken}
+                currentSfImage={currentSfImage}
+                currentImage={currentImage}
+                setCurrentSfImage={setCurrentSfImage}
+                setCurrentImage={setCurrentImage}
+                coins={coins}
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                setInputValueTo={setInputValueTo}
+              />
+
+              <div
+                className="swap-btn"
+                onClick={() => {
+                  setOrder((prev) => !prev);
+                }}
+              >
+                ⇅
+              </div>
+
+              <SwapTo
+                key={"to-second"}
+                currentToken={currentToken}
+                tokenPrice={tokenPrice}
+                setTokenPrice={setTokenPrice}
+                setCurrentToken={setCurrentToken}
+                currentSfImage={currentSfImage}
+                currentImage={currentImage}
+                setCurrentSfImage={setCurrentSfImage}
+                setCurrentImage={setCurrentImage}
+                tokenSwapFromPrice={tokenSwapFromPrice}
+                coins={coins}
+                setInputValueTo={setInputValueTo}
+                setInputValue={setInputValue}
+                inputValueTo={inputValueTo}
+              />
+            </>
+          ) : (
+            <>
+              <SwapTo
+                key={"to-first"}
+                currentToken={currentToken}
+                tokenPrice={tokenPrice}
+                setTokenPrice={setTokenPrice}
+                setCurrentToken={setCurrentToken}
+                currentSfImage={currentSfImage}
+                currentImage={currentImage}
+                setCurrentSfImage={setCurrentSfImage}
+                setCurrentImage={setCurrentImage}
+                tokenSwapFromPrice={tokenSwapFromPrice}
+                coins={coins}
+                setInputValueTo={setInputValueTo}
+                setInputValue={setInputValue}
+                inputValueTo={inputValueTo}
+              />
+
+              <div
+                className="swap-btn"
+                onClick={() => {
+                  setOrder((prev) => !prev);
+                }}
+              >
+                ⇅
+              </div>
+
+              <SwapFrom
+                key={"from-second"}
+                tokenSwapFromPrice={tokenSwapFromPrice}
+                currentSwapFromToken={currentSwapFromToken}
+                tokenPrice={tokenPrice}
+                setTokenSwapFromPrice={setTokenSwapFromPrice}
+                setCurrentSwapFromToken={setCurrentSwapFromToken}
+                currentSfImage={currentSfImage}
+                currentImage={currentImage}
+                setCurrentSfImage={setCurrentSfImage}
+                setCurrentImage={setCurrentImage}
+                coins={coins}
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                setInputValueTo={setInputValueTo}
+              />
+            </>
+          )}
         </div>
       </div>
       <button className="convert-btn">Convert</button>

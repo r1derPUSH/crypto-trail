@@ -32,11 +32,12 @@ function SwapFrom({
   currentSwapFromToken,
   setTokenSwapFromPrice,
   setCurrentSwapFromToken,
+  currentSfImage,
+  setCurrentSfImage,
   tokenPrice,
 }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentImage, setCurrentImage] = useState();
   const [currentPrice, setCurrentPrice] = useState(0);
 
   const filtered = coins.filter((item: Symbol) =>
@@ -85,9 +86,9 @@ function SwapFrom({
       </div>
       <div className="dropbox-of-coins">
         <button onClick={handleOpen} className="dropbox-menu-inactive">
-          {currentImage ? (
+          {currentSfImage ? (
             <img
-              src={currentImage}
+              src={currentSfImage}
               className="coin-img"
               alt={currentSwapFromToken}
             />
@@ -130,7 +131,7 @@ function SwapFrom({
                       setIsOpen={setIsOpen}
                       setCurrentSwapFromToken={setCurrentSwapFromToken}
                       setTokenPrice={setTokenSwapFromPrice}
-                      setCurrentImage={setCurrentImage}
+                      setCurrentImage={setCurrentSfImage}
                       setCurrentPrice={setCurrentPrice}
                       image={item.image}
                       current_price={item.current_price}

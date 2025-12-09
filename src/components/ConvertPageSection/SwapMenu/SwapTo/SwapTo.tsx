@@ -33,10 +33,11 @@ function SwapTo({
   setCurrentToken,
   setTokenPrice,
   tokenSwapFromPrice,
+  currentImage,
+  setCurrentImage,
 }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentImage, setCurrentImage] = useState();
   const [currentPrice, setCurrentPrice] = useState(0);
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
