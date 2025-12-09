@@ -82,6 +82,15 @@ function ConvertPage() {
                 setInputValueTo={setInputValueTo}
               />
 
+              <div
+                className="swap-btn"
+                onClick={() => {
+                  setOrder((prev) => !prev);
+                }}
+              >
+                ⇅
+              </div>
+
               <SwapTo
                 key={"to-second"}
                 currentToken={currentToken}
@@ -118,6 +127,15 @@ function ConvertPage() {
                 inputValueTo={inputValueTo}
               />
 
+              <div
+                className="swap-btn"
+                onClick={() => {
+                  setOrder((prev) => !prev);
+                }}
+              >
+                ⇅
+              </div>
+
               <SwapFrom
                 key={"from-second"}
                 tokenSwapFromPrice={tokenSwapFromPrice}
@@ -136,7 +154,6 @@ function ConvertPage() {
               />
             </>
           )}
-          <button onClick={() => setOrder((prev) => !prev)}>Swap</button>
         </div>
       </div>
       <button className="convert-btn">Convert</button>
