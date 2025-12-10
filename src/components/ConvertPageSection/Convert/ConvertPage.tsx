@@ -15,15 +15,18 @@ function ConvertPage() {
 
   // # 1
 
-  const [tokenSwapFromPrice, setTokenSwapFromPrice] = useState<number>();
-  const [currentSwapFromToken, setCurrentSwapFromToken] = useState("ETH");
-  const [currentSfImage, setCurrentSfImage] = useState();
+  const imgUrlDefault =
+    "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661";
+  const [tokenSwapFromPrice, setTokenSwapFromPrice] = useState<number>(1);
+  // coins[1].current_price
+  const [currentSwapFromToken, setCurrentSwapFromToken] = useState("USDT");
+  const [currentSfImage, setCurrentSfImage] = useState(imgUrlDefault);
 
   // #2
 
-  const [tokenPrice, setTokenPrice] = useState<number>();
-  const [currentToken, setCurrentToken] = useState("ETH");
-  const [currentImage, setCurrentImage] = useState();
+  const [tokenPrice, setTokenPrice] = useState<number>(1);
+  const [currentToken, setCurrentToken] = useState("USDT");
+  const [currentImage, setCurrentImage] = useState(imgUrlDefault);
 
   const handleNavigateHome = () => {
     navigate("/");
@@ -53,6 +56,23 @@ function ConvertPage() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // functional for loader P.S: optimise to single components later
+
+  const [state, setState] = useState<"idle" | "loading" | "success">("idle");
+
+  const handleClick = () => {
+    if (state !== "idle") return;
+
+    setState("loading");
+
+    setTimeout(() => {
+      setState("success");
+      setTimeout(() => {
+        setState("idle");
+      }, 1000);
+    }, 900);
+  };
 
   return (
     <div className="convert-page">
@@ -156,7 +176,20 @@ function ConvertPage() {
           )}
         </div>
       </div>
-      <button className="convert-btn">Convert</button>
+      <div className="flex-convert-and-history-buttons-container">
+        <button onClick={handleClick} className={`convert-btn ${state}`}>
+          {state === "idle" && "Convert"}
+          {state === "loading" && <span className="loader"></span>}
+          {state === "success" && <span className="success-check">✔</span>}
+        </button>
+        <button
+          className="history-btn"
+          onClick={() => navigate("/convert-section-history")}
+        >
+          <span className="icon">📜</span>
+          History
+        </button>
+      </div>
       <span className="convert-finalText">
         Instant convertion with live rates
       </span>
