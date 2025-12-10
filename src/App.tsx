@@ -9,6 +9,7 @@ import LoginSection from "./components/LoginPageSection/LoginSection";
 import Overview from "./components/MainSection/Overview/Overview";
 import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSectionPage/InvestToken";
 import ScrollToTop from "./components/CustomComponents/ScrollToTop";
+import ConvertSectionHistory from "./components/ConvertSectionHistory/ConvertSectionHistory";
 
 function App() {
   const [tokenInfo, setTokenInfo] = useState([]);
@@ -29,6 +30,10 @@ function App() {
         <Route
           path="/invest-unique-token"
           element={<InvestToken tokenInfo={tokenInfo} />}
+        />
+        <Route
+          path="/convert-section-history"
+          element={<ConvertSectionHistory />}
         />
       </Routes>
     </HashRouter>

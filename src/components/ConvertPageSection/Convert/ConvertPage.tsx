@@ -182,7 +182,10 @@ function ConvertPage() {
           {state === "loading" && <span className="loader"></span>}
           {state === "success" && <span className="success-check">✔</span>}
         </button>
-        <button className="history-btn" onClick={() => navigate("/history")}>
+        <button
+          className="history-btn"
+          onClick={() => navigate("/convert-section-history")}
+        >
           <span className="icon">📜</span>
           History
         </button>
