@@ -37,32 +37,6 @@
   margin: 2rem;
 }
 
-.convert-btn {
-  background: linear-gradient(90deg, #2a3c8c, #5b79e8);
-  border: none;
-  border-radius: 12px;
-  color: #e6ecff;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 0.9rem 2.5rem;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 0 15px #5b79e855;
-  margin-left: 35rem;
-  margin-bottom: 5rem;
-}
-
-.convert-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px #5b79e8aa;
-  filter: brightness(1.2);
-}
-
-.convert-btn:active {
-  transform: translateY(1px);
-  filter: brightness(0.9);
-}
-
 .convert-finalText {
   font-size: 1.5rem;
   margin: 2rem;
@@ -99,8 +73,8 @@
 /* convert-loader functional */
 
 .convert-btn {
-  width: 220px;
-  height: 55px;
+  width: 15vw;
+  height: 6vh;
   border-radius: 14px;
   border: none;
   background: linear-gradient(135deg, #4e8af7, #2d63d6);
@@ -151,6 +125,77 @@
   font-size: 26px;
   font-weight: bold;
   animation: pop 0.25s ease forwards;
+}
+
+/* convert and history buttons */
+
+.flex-convert-and-history-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80;
+  margin-left: 33rem;
+}
+
+.flex-convert-and-history-buttons-container button {
+  margin: 2rem;
+}
+
+.convert-btn {
+  background: linear-gradient(90deg, #2a3c8c, #5b79e8);
+  border: none;
+  border-radius: 12px;
+  color: #e6ecff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.9rem 2.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px #5b79e855;
+}
+
+.convert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #5b79e8aa;
+  filter: brightness(1.2);
+}
+
+.convert-btn:active {
+  transform: translateY(1px);
+  filter: brightness(0.9);
+}
+
+.history-btn {
+  background: linear-gradient(90deg, #1e2a63, #3b4a9b);
+  border: none;
+  border-radius: 12px; /* як convert */
+  color: #e6ecff;
+  font-size: 1.2rem; /* як convert */
+  font-weight: 600; /* як convert */
+  padding: 0.9rem 2.5rem; /* як convert */
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px #3b4a9b55; /* ніжніша тінь ніж у convert */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.history-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px #3b4a9baa;
+  filter: brightness(1.15);
+}
+
+.history-btn:active {
+  transform: translateY(1px);
+  filter: brightness(0.9);
+}
+
+.history-btn .icon {
+  font-size: 1.3rem;
+  margin-top: 1px;
 }
 
 @keyframes pop {

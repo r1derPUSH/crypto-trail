@@ -176,11 +176,17 @@ function ConvertPage() {
           )}
         </div>
       </div>
-      <button onClick={handleClick} className={`convert-btn ${state}`}>
-        {state === "idle" && "Convert"}
-        {state === "loading" && <span className="loader"></span>}
-        {state === "success" && <span className="success-check">✔</span>}
-      </button>
+      <div className="flex-convert-and-history-buttons-container">
+        <button onClick={handleClick} className={`convert-btn ${state}`}>
+          {state === "idle" && "Convert"}
+          {state === "loading" && <span className="loader"></span>}
+          {state === "success" && <span className="success-check">✔</span>}
+        </button>
+        <button className="history-btn" onClick={() => navigate("/history")}>
+          <span className="icon">📜</span>
+          History
+        </button>
+      </div>
       <span className="convert-finalText">
         Instant convertion with live rates
       </span>
