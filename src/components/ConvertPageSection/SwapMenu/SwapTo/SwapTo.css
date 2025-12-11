@@ -98,7 +98,7 @@
 
 /* ===== MODAL ===== */
 .modal {
-  width: 420px;
+  width: 45vw;
   height: 75vh;
   background: #131313;
   border: 1px solid #393939;
@@ -110,6 +110,10 @@
   opacity: 0;
   transform: translateY(20px) scale(0.97);
   animation: modalOpen 0.22s ease-out forwards;
+}
+
+.pair-row {
+  width: 100%;
 }
 
 @keyframes modalOpen {

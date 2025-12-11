@@ -103,7 +103,7 @@
 
 /* ===== MODAL ===== */
 .modal {
-  width: 37vw;
+  width: 50vw;
   height: 75vh;
   background: #131313;
   border: 1px solid #393939;
@@ -111,7 +111,6 @@
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
-
   opacity: 0;
   transform: translateY(20px) scale(0.97);
   animation: modalOpen 0.22s ease-out forwards;
@@ -165,8 +164,11 @@
 
 /* ===== TOKEN LIST ===== */
 .token-list {
-  overflow-y: scroll;
-  width: 90vw;
+  width: 100%;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 0.4rem; /* щоб було місце для скролу */
+  box-sizing: border-box;
 }
 
 .token-list::-webkit-scrollbar {
@@ -186,7 +188,6 @@
 
   background: #141414;
   border: 1px solid #1f1f1f;
-  padding: 0.8rem 1rem;
   border-radius: 12px;
 
   margin-top: 0.5rem;
@@ -194,7 +195,17 @@
   cursor: pointer;
   transition: 0.17s ease;
   color: #fff;
-  width: 33vw;
+  width: 100%;
+  padding: 1rem 1.2rem;
+}
+
+.token-container,
+.token-list {
+  box-sizing: border-box;
+}
+
+.pair-row {
+  width: 10 0%;
 }
 
 .token-container:hover {
@@ -220,6 +231,12 @@
 
   .input-price-flexbox {
     width: 80vw;
+  }
+}
+
+@media (max-width: 670px) {
+  .input-price-flexbox {
+    width: 40vw;
   }
 }
 
