@@ -45,7 +45,7 @@
 }
 
 .dropbox-of-coins-container {
-  margin-right: 5rem;
+  /* margin-right: -100rem; */
 }
 
 .dropbox-menu-inactive {
@@ -58,7 +58,7 @@
   justify-content: center;
   border-radius: 25px;
   padding: 0.2rem;
-  margin-right: 1rem;
+  margin-right: 20rem;
 }
 
 .dropbox-menu-inactive span {
@@ -232,5 +232,11 @@
 
   .dropbox-menu-inactive span {
     margin: 0 0.4rem;
+  }
+}
+
+@media (max-width: 1150px) and (min-width: 1050px) {
+  .dropbox-menu-inactive {
+    width: 14.5vw;
   }
 }
