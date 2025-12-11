@@ -98,7 +98,7 @@
 
 /* ===== MODAL ===== */
 .modal {
-  width: 420px;
+  width: 45vw;
   height: 75vh;
   background: #131313;
   border: 1px solid #393939;
@@ -110,6 +110,20 @@
   opacity: 0;
   transform: translateY(20px) scale(0.97);
   animation: modalOpen 0.22s ease-out forwards;
+}
+
+.pair-row {
+  width: 100%;
+}
+
+.pair-symbol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pair-symbol img {
+  margin-top: 5px;
 }
 
 @keyframes modalOpen {
@@ -174,6 +188,10 @@
   border-radius: 6px;
 }
 
+.pair-symbol {
+  margin-bottom: 7px;
+}
+
 /* ===== TOKEN ITEM ===== */
 .token-container {
   display: flex;
@@ -224,5 +242,149 @@
 
   .dropbox-menu-inactive span {
     margin: 0 0.4rem;
+  }
+}
+
+@media (max-width: 1260px) {
+  .modal {
+    width: 50vw;
+  }
+
+  .pair-symbol {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 1110px) {
+  .modal {
+    width: 70vw;
+  }
+
+  .pair-symbol {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 800px) {
+  .modal {
+    width: 85vw;
+  }
+
+  .pair-symbol {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 670px) {
+  .modal {
+    width: 75vw;
+  }
+
+  .pair-symbol {
+    margin-bottom: 5px;
+  }
+
+  .token-container span {
+    font-size: 0.4rem;
+  }
+  .token-container div {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 600px) {
+  .modal {
+    width: 95vw;
+  }
+
+  .pair-symbol {
+    margin-bottom: 5px;
+  }
+
+  .token-container span {
+    font-size: 0.5rem;
+  }
+  .token-container div {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .token-container {
+    width: 95%;
+    margin-right: 0;
+    margin-left: 0.5rem;
+  }
+  .pair-row {
+    width: 92%;
+    padding: 1rem;
+  }
+  .pair-symbol {
+    margin-bottom: 6px;
+  }
+  .token-container span {
+    font-size: 0.5rem;
+  }
+  .token-container div {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 475px) {
+  .token-container {
+    width: 90%;
+    margin-right: 0;
+    margin-left: 1rem;
+    padding: 0.2rem;
+  }
+  .pair-row {
+    width: 95%;
+    padding: 0.5rem;
+  }
+  .token-container span {
+    font-size: 0.4rem;
+  }
+  .token-container div {
+    font-size: 0.5rem;
+  }
+
+  .pair-symbol {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 440px) {
+  .token-container {
+    width: 95%;
+    margin-right: 0;
+    margin-left: 1rem;
+    padding: 0.2rem;
+  }
+
+  .pair-row {
+    width: 100%;
+    padding: 0.5rem;
+    justify-content: space-around;
+    padding-right: 3rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .pair-symbol {
+    margin-bottom: 5px;
+  }
+
+  .pair-row div {
+    margin-right: -50px;
+  }
+
+  .pair-funding {
+    display: none;
+  }
+
+  .token-container span {
+    font-size: 0.4rem;
+  }
+  .token-container div {
+    font-size: 0.5rem;
   }
 }

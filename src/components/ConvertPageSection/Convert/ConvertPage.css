@@ -152,6 +152,7 @@
   cursor: pointer;
   transition: 0.3s ease;
   box-shadow: 0 0 15px #5b79e855;
+  height: 6vh;
 }
 
 .convert-btn:hover {
@@ -180,6 +181,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
+  height: 6vh;
 }
 
 .history-btn:hover {
@@ -213,6 +215,16 @@
   .convert-section {
     width: 50vw;
   }
+
+  .flex-convert-and-history-buttons-container {
+    margin-left: 30rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .flex-convert-and-history-buttons-container {
+    margin-left: 29rem;
+  }
 }
 
 @media (max-width: 1050px) {
@@ -223,6 +235,10 @@
     flex-direction: column;
   }
   .convert-btn {
+    margin-left: 0;
+  }
+
+  .flex-convert-and-history-buttons-container {
     margin-left: 0;
   }
 }
