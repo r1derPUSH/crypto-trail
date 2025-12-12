@@ -26,7 +26,7 @@ function ConvertPage() {
 
   // #2
 
-  const [tokenPrice, setTokenPrice] = useState<number>(1);
+  const [toPrice, setToPrice] = useState<number>(1);
   const [toToken, setToToken] = useState("USDT");
   const [toImage, setToImage] = useState(IMG_DEFAULT);
 
@@ -91,7 +91,7 @@ function ConvertPage() {
                 key={"from-first"}
                 tokenSwapFromPrice={fromPrice}
                 currentSwapFromToken={fromToken}
-                tokenPrice={tokenPrice}
+                tokenPrice={toPrice}
                 setTokenSwapFromPrice={setFromPrice}
                 setCurrentSwapFromToken={setFromToken}
                 currentSfImage={fromImage}
@@ -116,8 +116,8 @@ function ConvertPage() {
               <SwapTo
                 key={"to-second"}
                 currentToken={toToken}
-                tokenPrice={tokenPrice}
-                setTokenPrice={setTokenPrice}
+                tokenPrice={toPrice}
+                setTokenPrice={setToPrice}
                 setCurrentToken={setToToken}
                 currentSfImage={fromImage}
                 currentImage={toImage}
@@ -135,8 +135,8 @@ function ConvertPage() {
               <SwapTo
                 key={"to-first"}
                 currentToken={toToken}
-                tokenPrice={tokenPrice}
-                setTokenPrice={setTokenPrice}
+                tokenPrice={toPrice}
+                setTokenPrice={setToPrice}
                 setCurrentToken={setToToken}
                 currentSfImage={fromImage}
                 currentImage={toImage}
@@ -162,7 +162,7 @@ function ConvertPage() {
                 key={"from-second"}
                 tokenSwapFromPrice={fromPrice}
                 currentSwapFromToken={fromToken}
-                tokenPrice={tokenPrice}
+                tokenPrice={toPrice}
                 setTokenSwapFromPrice={setFromPrice}
                 setCurrentSwapFromToken={setFromToken}
                 currentSfImage={fromImage}
