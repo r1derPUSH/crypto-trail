@@ -7,6 +7,9 @@ import { useState, useEffect } from "react";
 import Footer from "../../MainSection/Footer/Footer";
 import type { Coin } from "../../../types/coin";
 
+const IMG_DEFAULT =
+  "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661";
+
 function ConvertPage() {
   const [coins, setCoins] = useState<Coin[]>([]);
   const navigate = useNavigate();
@@ -16,18 +19,16 @@ function ConvertPage() {
 
   // # 1
 
-  const imgUrlDefault =
-    "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661";
   const [tokenSwapFromPrice, setTokenSwapFromPrice] = useState<number>(1);
   // coins[1].current_price
   const [currentSwapFromToken, setCurrentSwapFromToken] = useState("USDT");
-  const [currentSfImage, setCurrentSfImage] = useState(imgUrlDefault);
+  const [currentSfImage, setCurrentSfImage] = useState(IMG_DEFAULT);
 
   // #2
 
   const [tokenPrice, setTokenPrice] = useState<number>(1);
   const [currentToken, setCurrentToken] = useState("USDT");
-  const [currentImage, setCurrentImage] = useState(imgUrlDefault);
+  const [currentImage, setCurrentImage] = useState(IMG_DEFAULT);
 
   const handleNavigateHome = () => {
     navigate("/");
