@@ -19,16 +19,16 @@ function ConvertPage() {
 
   // # 1
 
-  const [tokenSwapFromPrice, setTokenSwapFromPrice] = useState<number>(1);
+  const [fromPrice, setFromPrice] = useState<number>(1);
   // coins[1].current_price
-  const [currentSwapFromToken, setCurrentSwapFromToken] = useState("USDT");
-  const [currentSfImage, setCurrentSfImage] = useState(IMG_DEFAULT);
+  const [fromToken, setFromToken] = useState("USDT");
+  const [fromImage, setFromImage] = useState(IMG_DEFAULT);
 
   // #2
 
   const [tokenPrice, setTokenPrice] = useState<number>(1);
-  const [currentToken, setCurrentToken] = useState("USDT");
-  const [currentImage, setCurrentImage] = useState(IMG_DEFAULT);
+  const [toToken, setToToken] = useState("USDT");
+  const [toImage, setToImage] = useState(IMG_DEFAULT);
 
   const handleNavigateHome = () => {
     navigate("/");
@@ -89,15 +89,15 @@ function ConvertPage() {
             <>
               <SwapFrom
                 key={"from-first"}
-                tokenSwapFromPrice={tokenSwapFromPrice}
-                currentSwapFromToken={currentSwapFromToken}
+                tokenSwapFromPrice={fromPrice}
+                currentSwapFromToken={fromToken}
                 tokenPrice={tokenPrice}
-                setTokenSwapFromPrice={setTokenSwapFromPrice}
-                setCurrentSwapFromToken={setCurrentSwapFromToken}
-                currentSfImage={currentSfImage}
-                currentImage={currentImage}
-                setCurrentSfImage={setCurrentSfImage}
-                setCurrentImage={setCurrentImage}
+                setTokenSwapFromPrice={setFromPrice}
+                setCurrentSwapFromToken={setFromToken}
+                currentSfImage={fromImage}
+                currentImage={toImage}
+                setCurrentSfImage={setFromImage}
+                setCurrentImage={setToImage}
                 coins={coins}
                 inputValue={inputValue}
                 setInputValue={setInputValue}
@@ -115,15 +115,15 @@ function ConvertPage() {
 
               <SwapTo
                 key={"to-second"}
-                currentToken={currentToken}
+                currentToken={toToken}
                 tokenPrice={tokenPrice}
                 setTokenPrice={setTokenPrice}
-                setCurrentToken={setCurrentToken}
-                currentSfImage={currentSfImage}
-                currentImage={currentImage}
-                setCurrentSfImage={setCurrentSfImage}
-                setCurrentImage={setCurrentImage}
-                tokenSwapFromPrice={tokenSwapFromPrice}
+                setCurrentToken={setToToken}
+                currentSfImage={fromImage}
+                currentImage={toImage}
+                setCurrentSfImage={setFromImage}
+                setCurrentImage={setToImage}
+                tokenSwapFromPrice={fromPrice}
                 coins={coins}
                 setInputValueTo={setInputValueTo}
                 setInputValue={setInputValue}
@@ -134,15 +134,15 @@ function ConvertPage() {
             <>
               <SwapTo
                 key={"to-first"}
-                currentToken={currentToken}
+                currentToken={toToken}
                 tokenPrice={tokenPrice}
                 setTokenPrice={setTokenPrice}
-                setCurrentToken={setCurrentToken}
-                currentSfImage={currentSfImage}
-                currentImage={currentImage}
-                setCurrentSfImage={setCurrentSfImage}
-                setCurrentImage={setCurrentImage}
-                tokenSwapFromPrice={tokenSwapFromPrice}
+                setCurrentToken={setToToken}
+                currentSfImage={fromImage}
+                currentImage={toImage}
+                setCurrentSfImage={setFromImage}
+                setCurrentImage={setToImage}
+                tokenSwapFromPrice={fromPrice}
                 coins={coins}
                 setInputValueTo={setInputValueTo}
                 setInputValue={setInputValue}
@@ -160,15 +160,15 @@ function ConvertPage() {
 
               <SwapFrom
                 key={"from-second"}
-                tokenSwapFromPrice={tokenSwapFromPrice}
-                currentSwapFromToken={currentSwapFromToken}
+                tokenSwapFromPrice={fromPrice}
+                currentSwapFromToken={fromToken}
                 tokenPrice={tokenPrice}
-                setTokenSwapFromPrice={setTokenSwapFromPrice}
-                setCurrentSwapFromToken={setCurrentSwapFromToken}
-                currentSfImage={currentSfImage}
-                currentImage={currentImage}
-                setCurrentSfImage={setCurrentSfImage}
-                setCurrentImage={setCurrentImage}
+                setTokenSwapFromPrice={setFromPrice}
+                setCurrentSwapFromToken={setFromToken}
+                currentSfImage={fromImage}
+                currentImage={toImage}
+                setCurrentSfImage={setFromImage}
+                setCurrentImage={setToImage}
                 coins={coins}
                 inputValue={inputValue}
                 setInputValue={setInputValue}
