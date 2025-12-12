@@ -5,9 +5,10 @@ import SwapFrom from "../SwapMenu/SwapFrom/SwapFrom";
 import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 import { useState, useEffect } from "react";
 import Footer from "../../MainSection/Footer/Footer";
+import type { Coin } from "../../../types/coin";
 
 function ConvertPage() {
-  const [coins, setCoins] = useState<any[]>([]);
+  const [coins, setCoins] = useState<Coin[]>([]);
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState<number>();
   const [inputValueTo, setInputValueTo] = useState<number>();
@@ -41,7 +42,7 @@ function ConvertPage() {
       const res = await fetch(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
       );
-      const response = await res.json();
+      const response: Coin[] = await res.json();
       setCoins(response);
       console.log(response);
     } catch (err) {
