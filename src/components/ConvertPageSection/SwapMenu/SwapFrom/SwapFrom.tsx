@@ -56,7 +56,7 @@ function SwapFrom({
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
-  const handleChangePrice = (e: any) => {
+  const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInputValue(value);
 
