@@ -5,20 +5,20 @@ import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import TokenContainer from "./TokenContainer/TokenContainer";
 import type { Coin } from "../../../../types/coin";
 
-type Data = {
-  name: string;
-  symbol: string;
-  image: string;
-  current_price: number;
-  price_change_percentage_24h: number;
-  ath: number;
-  high_24h: number;
-  low_24h: number;
-  price_change_24h: number;
-  market_cap: number;
-  id?: string;
-  current_swapToToken: string;
-};
+// type Data = {
+//   name: string;
+//   symbol: string;
+//   image: string;
+//   current_price: number;
+//   price_change_percentage_24h: number;
+//   ath: number;
+//   high_24h: number;
+//   low_24h: number;
+//   price_change_24h: number;
+//   market_cap: number;
+//   id?: string;
+//   current_swapToToken: string;
+// };
 
 type Symbol = {
   symbol: string;
@@ -58,7 +58,6 @@ function SwapFrom({
 
   const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setInputValue(value);
 
     if (!value || !fromPrice || !toPrice) {
       setInputValueTo("");

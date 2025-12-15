@@ -5,7 +5,6 @@ import SwapFrom from "../SwapMenu/SwapFrom/SwapFrom";
 import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 import { useState, useEffect } from "react";
 import Footer from "../../MainSection/Footer/Footer";
-import type { Coin } from "../../../types/coin";
 import { useCoins } from "../../../hooks/useCoins";
 
 const IMG_DEFAULT =

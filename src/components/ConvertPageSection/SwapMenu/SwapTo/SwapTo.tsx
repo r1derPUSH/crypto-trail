@@ -57,7 +57,6 @@ function SwapTo({
 
   const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setInputValueTo(value);
 
     if (!value || !fromPrice || !toPrice) {
       setInputValue("");
