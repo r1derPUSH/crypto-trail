@@ -94,7 +94,7 @@ function SwapFrom({
             className="from-amount-input"
             placeholder="0"
           />
-          <span className="price-in-usd">${toPrice?.toFixed(2)}</span>
+          <span className="price-in-usd">${fromPrice?.toFixed(2)}</span>
         </div>
       </div>
       <div className="dropbox-of-coins">
