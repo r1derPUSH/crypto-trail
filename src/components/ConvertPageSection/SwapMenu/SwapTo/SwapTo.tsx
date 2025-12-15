@@ -47,7 +47,7 @@ function SwapTo({
   setToImage: (v: string) => void;
   fromPrice: number;
   toPrice: number;
-  setToPrice: any;
+  setToPrice: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
