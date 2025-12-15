@@ -13,8 +13,8 @@ const IMG_DEFAULT =
 function ConvertPage() {
   const [coins, setCoins] = useState<Coin[]>([]);
   const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState<number>();
-  const [inputValueTo, setInputValueTo] = useState<number>();
+  const [inputValue, setInputValue] = useState<string>();
+  const [inputValueTo, setInputValueTo] = useState<string>();
   const [order, setOrder] = useState(true);
 
   // # 1
@@ -88,20 +88,17 @@ function ConvertPage() {
           {order ? (
             <>
               <SwapFrom
-                key={"from-first"}
-                tokenSwapFromPrice={fromPrice}
-                currentSwapFromToken={fromToken}
-                tokenPrice={toPrice}
-                setTokenSwapFromPrice={setFromPrice}
-                setCurrentSwapFromToken={setFromToken}
-                currentSfImage={fromImage}
-                currentImage={toImage}
-                setCurrentSfImage={setFromImage}
-                setCurrentImage={setToImage}
+                setFromPrice={setFromPrice}
                 coins={coins}
                 inputValue={inputValue}
                 setInputValue={setInputValue}
                 setInputValueTo={setInputValueTo}
+                fromPrice={fromPrice}
+                fromToken={fromToken}
+                setFromToken={setFromToken}
+                fromImage={fromImage}
+                setFromImage={setFromImage}
+                toPrice={toPrice}
               />
 
               <div
@@ -114,39 +111,31 @@ function ConvertPage() {
               </div>
 
               <SwapTo
-                key={"to-second"}
-                currentToken={toToken}
-                tokenPrice={toPrice}
-                setTokenPrice={setToPrice}
-                setCurrentToken={setToToken}
-                currentSfImage={fromImage}
-                currentImage={toImage}
-                setCurrentSfImage={setFromImage}
-                setCurrentImage={setToImage}
-                tokenSwapFromPrice={fromPrice}
                 coins={coins}
+                inputValueTo={inputValueTo}
                 setInputValueTo={setInputValueTo}
                 setInputValue={setInputValue}
-                inputValueTo={inputValueTo}
+                toPrice={toPrice}
+                toToken={toToken}
+                setToToken={setToToken}
+                toImage={toImage}
+                setToImage={setToImage}
+                fromPrice={fromPrice}
               />
             </>
           ) : (
             <>
               <SwapTo
-                key={"to-first"}
-                currentToken={toToken}
-                tokenPrice={toPrice}
-                setTokenPrice={setToPrice}
-                setCurrentToken={setToToken}
-                currentSfImage={fromImage}
-                currentImage={toImage}
-                setCurrentSfImage={setFromImage}
-                setCurrentImage={setToImage}
-                tokenSwapFromPrice={fromPrice}
                 coins={coins}
+                inputValueTo={inputValueTo}
                 setInputValueTo={setInputValueTo}
                 setInputValue={setInputValue}
-                inputValueTo={inputValueTo}
+                toPrice={toPrice}
+                toToken={toToken}
+                setToToken={setToToken}
+                toImage={toImage}
+                setToImage={setToImage}
+                fromPrice={fromPrice}
               />
 
               <div
@@ -159,20 +148,17 @@ function ConvertPage() {
               </div>
 
               <SwapFrom
-                key={"from-second"}
-                tokenSwapFromPrice={fromPrice}
-                currentSwapFromToken={fromToken}
-                tokenPrice={toPrice}
-                setTokenSwapFromPrice={setFromPrice}
-                setCurrentSwapFromToken={setFromToken}
-                currentSfImage={fromImage}
-                currentImage={toImage}
-                setCurrentSfImage={setFromImage}
-                setCurrentImage={setToImage}
+                setFromPrice={setFromPrice}
                 coins={coins}
                 inputValue={inputValue}
                 setInputValue={setInputValue}
                 setInputValueTo={setInputValueTo}
+                fromPrice={fromPrice}
+                fromToken={fromToken}
+                setFromToken={setFromToken}
+                fromImage={fromImage}
+                setFromImage={setFromImage}
+                toPrice={toPrice}
               />
             </>
           )}

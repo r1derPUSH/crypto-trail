@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import TokenContainer from "./TokenContainer/TokenContainer";
+import type { Coin } from "../../../../types/coin";
 
 type Data = {
   name: string;
@@ -28,31 +29,44 @@ function SwapFrom({
   inputValue,
   setInputValue,
   setInputValueTo,
-  tokenSwapFromPrice,
-  currentSwapFromToken,
-  setTokenSwapFromPrice,
-  setCurrentSwapFromToken,
-  currentSfImage,
-  setCurrentSfImage,
-  tokenPrice,
-}: Data & Record<string, any>) {
+  fromToken,
+  setFromToken,
+  fromImage,
+  setFromImage,
+  setFromPrice,
+  fromPrice,
+  toPrice,
+}: {
+  coins: Coin[];
+  inputValue?: string;
+  setInputValue: (v: string) => void;
+  setInputValueTo: (v: string) => void;
+  fromToken: string;
+  setFromToken: (v: string) => void;
+  fromImage: string;
+  setFromImage: (v: string) => void;
+  fromPrice: number;
+  toPrice: number;
+  setFromPrice: any;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentPrice, setCurrentPrice] = useState(0);
 
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
   const handleChangePrice = (e: any) => {
-    let value = e.target.value;
-
-    if (value.length > 1 && value.startsWith("0")) {
-      value = value.replace(/^0+/, "");
-    }
+    const value = e.target.value;
     setInputValue(value);
-    setInputValueTo(((value * tokenSwapFromPrice) / tokenPrice).toFixed(2));
-    console.log(currentPrice);
+
+    if (!value || !fromPrice || !toPrice) {
+      setInputValueTo("");
+      return;
+    }
+
+    const result = ((Number(value) * fromPrice) / toPrice).toFixed(2);
+    setInputValueTo(result);
   };
 
   // Futures updates:
@@ -79,25 +93,17 @@ function SwapFrom({
             className="from-amount-input"
             placeholder="0"
           />
-          <span className="price-in-usd">
-            ${tokenSwapFromPrice?.toFixed(2)}
-          </span>
+          <span className="price-in-usd">${toPrice?.toFixed(2)}</span>
         </div>
       </div>
       <div className="dropbox-of-coins">
         <button onClick={handleOpen} className="dropbox-menu-inactive">
-          {currentSfImage ? (
-            <img
-              src={currentSfImage}
-              className="coin-img"
-              alt={currentSwapFromToken}
-            />
+          {fromImage ? (
+            <img src={fromImage} className="coin-img" alt={fromToken} />
           ) : (
             <img src={ethereumImg} className="coin-img" alt="ETH" />
           )}
-          <span className="coin-name">
-            {currentSwapFromToken.toUpperCase()}
-          </span>
+          <span className="coin-name">{fromToken.toUpperCase()}</span>
           <FaAngleDown
             style={{
               color: "#9AA0A6",
@@ -124,24 +130,21 @@ function SwapFrom({
                 <div className="recent-coins"></div>
               </div>
               <div className="token-list">
-                {filtered.map(
-                  (item: Data & Record<string, any>, index: number) => (
-                    <TokenContainer
-                      key={index}
-                      setIsOpen={setIsOpen}
-                      setCurrentSwapFromToken={setCurrentSwapFromToken}
-                      setTokenPrice={setTokenSwapFromPrice}
-                      setCurrentImage={setCurrentSfImage}
-                      setCurrentPrice={setCurrentPrice}
-                      image={item.image}
-                      current_price={item.current_price}
-                      symbol={item.symbol}
-                      price_change_percentage_24h={
-                        item.price_change_percentage_24h
-                      }
-                    />
-                  )
-                )}
+                {filtered.map((item: any, index: number) => (
+                  <TokenContainer
+                    key={item.id ?? item.symbol} // ← ВАЖЛИВО
+                    image={item.image}
+                    symbol={item.symbol}
+                    current_price={item.current_price}
+                    price_change_percentage_24h={
+                      item.price_change_percentage_24h
+                    }
+                    setIsOpen={setIsOpen}
+                    setToken={setFromToken}
+                    setImage={setFromImage}
+                    setFromPrice={setFromPrice} // 🔥
+                  />
+                ))}
               </div>
             </div>
           </div>

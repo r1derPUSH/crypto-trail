@@ -1,24 +1,15 @@
 import "./TokenContainer.css";
 
-type Data = {
-  name?: string;
-  ath?: number;
-  high_24h?: number;
-  low_24h?: number;
-  price_change_24h?: number;
-  market_cap?: number;
-
+type TokenContainerProps = {
   image: string;
   symbol: string;
-  current_price: number;
-  price_change_percentage_24h: number;
-  setCurrentSwapFromToken: any;
-  setCurrentImage: any;
-  setCurrentPrice: any;
-  setIsOpen: any;
-  id?: string;
-  setTokenPrice: any;
-  tokenSwapFromPrice: any;
+  current_price: number | null;
+  price_change_percentage_24h: number | null;
+
+  setIsOpen: (v: boolean) => void;
+  setToken: (symbol: string) => void;
+  setImage: (img: string) => void;
+  setFromPrice?: (price: number) => void;
 };
 
 function TokenContainer({
@@ -27,33 +18,47 @@ function TokenContainer({
   current_price,
   price_change_percentage_24h,
   setIsOpen,
-  setCurrentSwapFromToken,
-  setTokenPrice,
-  setCurrentImage,
-  setCurrentPrice,
-}: Data) {
-  // fix later
-  const handleSwapFromToken = () => {
-    setCurrentSwapFromToken(symbol);
-    setCurrentImage(image);
-    setCurrentPrice(current_price);
-    setTokenPrice(current_price);
+  setToken,
+  setImage,
+  setFromPrice,
+}: TokenContainerProps) {
+  const handleSelect = () => {
+    setToken(symbol);
+    setImage(image);
+
+    if (setFromPrice && current_price !== null) {
+      setFromPrice(current_price);
+    }
+
     setIsOpen(false);
   };
 
   return (
-    <button onClick={handleSwapFromToken} className="token-container">
+    <button onClick={handleSelect} className="token-container">
       <div className="pair-row">
         <div className="pair-symbol">
           <span className="star">★</span>
-          <img src={image} alt="btc" className="pair-icon" />
+          <img src={image} alt={symbol} className="pair-icon" />
           <span className="symbol-text">{symbol.toUpperCase()}/USDT</span>
           <span className="tag">Spot</span>
         </div>
-        <div className="pair-last-price">{current_price.toFixed(2)}$</div>
-        <div className="pair-change positive">+1.50%</div>
-        <div className="pair-funding">
-          {price_change_percentage_24h?.toFixed(2)}%
+
+        <div className="pair-last-price">
+          ${current_price !== null ? current_price.toFixed(2) : "0.00"}
+        </div>
+
+        <div
+          className={`pair-change ${
+            price_change_percentage_24h !== null &&
+            price_change_percentage_24h >= 0
+              ? "positive"
+              : "negative"
+          }`}
+        >
+          {price_change_percentage_24h !== null
+            ? price_change_percentage_24h.toFixed(2)
+            : "0.00"}
+          %
         </div>
       </div>
     </button>
