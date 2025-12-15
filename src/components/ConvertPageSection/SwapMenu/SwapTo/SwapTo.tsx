@@ -47,7 +47,7 @@ function SwapTo({
   setToImage: (v: string) => void;
   fromPrice: number;
   toPrice: number;
-  setToPrice: any;
+  setToPrice: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -55,9 +55,8 @@ function SwapTo({
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
-  const handleChangePrice = (e: any) => {
+  const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setInputValueTo(value);
 
     if (!value || !fromPrice || !toPrice) {
       setInputValue("");
@@ -81,7 +80,7 @@ function SwapTo({
     <div className="swap-container">
       <div className="input-price-container">
         <div className="input-price-flexbox">
-          <span className="from-span-text">From</span>
+          <span className="from-span-text">To</span>
           <input
             onChange={handleChangePrice}
             value={inputValueTo}
