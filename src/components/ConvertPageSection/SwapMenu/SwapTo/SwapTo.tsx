@@ -80,7 +80,7 @@ function SwapTo({
     <div className="swap-container">
       <div className="input-price-container">
         <div className="input-price-flexbox">
-          <span className="from-span-text">From</span>
+          <span className="from-span-text">To</span>
           <input
             onChange={handleChangePrice}
             value={inputValueTo}
