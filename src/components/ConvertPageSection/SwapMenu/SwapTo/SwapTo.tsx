@@ -35,6 +35,7 @@ function SwapTo({
   setToImage,
   fromPrice,
   toPrice,
+  setToPrice,
 }: {
   coins: Coin[];
   inputValueTo?: string;
@@ -46,6 +47,7 @@ function SwapTo({
   setToImage: (v: string) => void;
   fromPrice: number;
   toPrice: number;
+  setToPrice: any;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -63,6 +65,7 @@ function SwapTo({
     }
 
     const result = ((Number(value) * toPrice) / fromPrice).toFixed(2);
+    setInputValueTo(value);
     setInputValue(result);
   };
 
@@ -136,6 +139,7 @@ function SwapTo({
                     setIsOpen={setIsOpen}
                     setToken={setToToken}
                     setImage={setToImage}
+                    setFromPrice={setToPrice}
                   />
                 ))}
               </div>

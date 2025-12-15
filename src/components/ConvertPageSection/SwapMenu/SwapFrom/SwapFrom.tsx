@@ -66,6 +66,7 @@ function SwapFrom({
     }
 
     const result = ((Number(value) * fromPrice) / toPrice).toFixed(2);
+    setInputValue(value);
     setInputValueTo(result);
   };
 

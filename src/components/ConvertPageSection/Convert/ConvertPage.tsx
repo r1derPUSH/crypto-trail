@@ -111,6 +111,7 @@ function ConvertPage() {
               </div>
 
               <SwapTo
+                setToPrice={setToPrice}
                 coins={coins}
                 inputValueTo={inputValueTo}
                 setInputValueTo={setInputValueTo}
@@ -126,6 +127,7 @@ function ConvertPage() {
           ) : (
             <>
               <SwapTo
+                setToPrice={setToPrice}
                 coins={coins}
                 inputValueTo={inputValueTo}
                 setInputValueTo={setInputValueTo}
