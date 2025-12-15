@@ -6,12 +6,13 @@ import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 import { useState, useEffect } from "react";
 import Footer from "../../MainSection/Footer/Footer";
 import type { Coin } from "../../../types/coin";
+import { useCoins } from "../../../hooks/useCoins";
 
 const IMG_DEFAULT =
   "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661";
 
 function ConvertPage() {
-  const [coins, setCoins] = useState<Coin[]>([]);
+  const { coins } = useCoins();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState<string>();
   const [inputValueTo, setInputValueTo] = useState<string>();
@@ -37,27 +38,6 @@ function ConvertPage() {
   const handleNavigateWallet = () => {
     navigate("/wallet-section");
   };
-
-  async function getData() {
-    try {
-      const res = await fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
-      );
-      const response: Coin[] = await res.json();
-      setCoins(response);
-      console.log(response);
-    } catch (err) {
-      console.error(`ERROR: ${err}`);
-    }
-  }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      getData();
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   // functional for loader P.S: optimise to single components later
 
