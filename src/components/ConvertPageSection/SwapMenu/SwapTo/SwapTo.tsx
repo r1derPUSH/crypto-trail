@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import TokenContainer from "../SwapFrom/TokenContainer/TokenContainer";
+import type { Coin } from "../../../../types/coin";
 
 type Data = {
   name: string;
@@ -28,34 +29,41 @@ function SwapTo({
   inputValueTo,
   setInputValueTo,
   setInputValue,
-  currentToken,
+  toToken,
+  setToToken,
+  toImage,
+  setToImage,
+  fromPrice,
   toPrice,
-  setCurrentToken,
-  setTokenPrice,
-  tokenSwapFromPrice,
-  currentImage,
-  setCurrentImage,
-}: Data & Record<string, any>) {
+}: {
+  coins: Coin[];
+  inputValueTo?: string;
+  setInputValueTo: (v: string) => void;
+  setInputValue: (v: string) => void;
+  toToken: string;
+  setToToken: (v: string) => void;
+  toImage: string;
+  setToImage: (v: string) => void;
+  fromPrice: number;
+  toPrice: number;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentPrice, setCurrentPrice] = useState(0);
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
   const handleChangePrice = (e: any) => {
-    let value = e.target.value;
-    if (value.length > 1 && value.startsWith("0")) {
-      value = value.replace(/^0+/, "");
-    }
-    if (!tokenSwapFromPrice || !toPrice) {
-      setInputValueTo(0);
+    const value = e.target.value;
+    setInputValueTo(value);
+
+    if (!value || !fromPrice || !toPrice) {
+      setInputValue("");
       return;
     }
 
-    setInputValueTo(value);
-    setInputValue(((value * toPrice) / tokenSwapFromPrice).toFixed(2));
-    console.log(currentPrice);
+    const result = ((Number(value) * toPrice) / fromPrice).toFixed(2);
+    setInputValue(result);
   };
 
   const handleOpen = () => {
@@ -84,12 +92,12 @@ function SwapTo({
       </div>
       <div className="dropbox-of-coins">
         <button onClick={handleOpen} className="dropbox-menu-inactive">
-          {currentImage ? (
-            <img src={currentImage} className="coin-img" alt={currentToken} />
+          {toImage ? (
+            <img src={toImage} className="coin-img" alt={toToken} />
           ) : (
             <img src={ethereumImg} className="coin-img" alt="ETH" />
           )}
-          <span className="coin-name">{currentToken.toUpperCase()}</span>
+          <span className="coin-name">{toToken.toUpperCase()}</span>
           <FaAngleDown
             style={{
               color: "#9AA0A6",
@@ -116,24 +124,20 @@ function SwapTo({
                 <div className="recent-coins"></div>
               </div>
               <div className="token-list">
-                {filtered.map(
-                  (item: Data & Record<string, any>, index: number) => (
-                    <TokenContainer
-                      key={index}
-                      setIsOpen={setIsOpen}
-                      setCurrentSwapFromToken={setCurrentToken}
-                      setTokenPrice={setTokenPrice}
-                      setCurrentImage={setCurrentImage}
-                      setCurrentPrice={setCurrentPrice}
-                      image={item.image}
-                      current_price={item.current_price}
-                      symbol={item.symbol}
-                      price_change_percentage_24h={
-                        item.price_change_percentage_24h
-                      }
-                    />
-                  )
-                )}
+                {filtered.map((item: any, index: number) => (
+                  <TokenContainer
+                    key={item.id ?? item.symbol} // ← ВАЖЛИВО
+                    image={item.image}
+                    symbol={item.symbol}
+                    current_price={item.current_price}
+                    price_change_percentage_24h={
+                      item.price_change_percentage_24h
+                    }
+                    setIsOpen={setIsOpen}
+                    setToken={setToToken}
+                    setImage={setToImage}
+                  />
+                ))}
               </div>
             </div>
           </div>

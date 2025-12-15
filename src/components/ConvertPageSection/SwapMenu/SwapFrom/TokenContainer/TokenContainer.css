@@ -24,6 +24,14 @@
   gap: 0.5rem;
 }
 
+.pair-icon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  object-fit: contain;
+}
+
 .star {
   color: #f5c542;
   font-size: 1rem;
