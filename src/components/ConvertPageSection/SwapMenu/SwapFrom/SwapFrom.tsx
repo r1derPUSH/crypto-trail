@@ -30,7 +30,7 @@ function SwapFrom({
   setInputValueTo,
   tokenSwapFromPrice,
   currentSwapFromToken,
-  setTokenSwapFromPrice,
+  fromPrice,
   setCurrentSwapFromToken,
   currentSfImage,
   setCurrentSfImage,
@@ -38,7 +38,6 @@ function SwapFrom({
 }: Data & Record<string, any>) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [currentPrice, setCurrentPrice] = useState(0);
 
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
@@ -51,8 +50,7 @@ function SwapFrom({
       value = value.replace(/^0+/, "");
     }
     setInputValue(value);
-    setInputValueTo(((value * tokenSwapFromPrice) / tokenPrice).toFixed(2));
-    console.log(currentPrice);
+    setInputValueTo(((value * fromPrice) / tokenPrice).toFixed(2));
   };
 
   // Futures updates:
@@ -130,12 +128,10 @@ function SwapFrom({
                       key={index}
                       setIsOpen={setIsOpen}
                       setCurrentSwapFromToken={setCurrentSwapFromToken}
-                      setTokenPrice={setTokenSwapFromPrice}
                       setCurrentImage={setCurrentSfImage}
-                      setCurrentPrice={setCurrentPrice}
                       image={item.image}
-                      current_price={item.current_price}
                       symbol={item.symbol}
+                      current_price={item.current_price}
                       price_change_percentage_24h={
                         item.price_change_percentage_24h
                       }

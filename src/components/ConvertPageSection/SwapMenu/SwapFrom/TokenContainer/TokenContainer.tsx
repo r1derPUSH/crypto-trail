@@ -7,37 +7,29 @@ type Data = {
   low_24h?: number;
   price_change_24h?: number;
   market_cap?: number;
-
+  current_price: number;
   image: string;
   symbol: string;
-  current_price: number;
   price_change_percentage_24h: number;
   setCurrentSwapFromToken: any;
   setCurrentImage: any;
-  setCurrentPrice: any;
   setIsOpen: any;
   id?: string;
-  setTokenPrice: any;
-  tokenSwapFromPrice: any;
 };
 
 function TokenContainer({
   image,
   symbol,
-  current_price,
   price_change_percentage_24h,
   setIsOpen,
   setCurrentSwapFromToken,
-  setTokenPrice,
   setCurrentImage,
-  setCurrentPrice,
+  current_price,
 }: Data) {
   // fix later
   const handleSwapFromToken = () => {
     setCurrentSwapFromToken(symbol);
     setCurrentImage(image);
-    setCurrentPrice(current_price);
-    setTokenPrice(current_price);
     setIsOpen(false);
   };
 

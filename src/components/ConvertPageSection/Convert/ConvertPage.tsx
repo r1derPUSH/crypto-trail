@@ -19,16 +19,17 @@ function ConvertPage() {
 
   // # 1
 
-  const [fromPrice, setFromPrice] = useState<number>(1);
   // coins[1].current_price
   const [fromToken, setFromToken] = useState("USDT");
   const [fromImage, setFromImage] = useState(IMG_DEFAULT);
-
+  const fromPrice =
+    coins.find((c) => c.symbol.toUpperCase() === fromToken)?.current_price ?? 0;
   // #2
 
-  const [toPrice, setToPrice] = useState<number>(1);
   const [toToken, setToToken] = useState("USDT");
   const [toImage, setToImage] = useState(IMG_DEFAULT);
+  const toPrice =
+    coins.find((c) => c.symbol.toUpperCase() === toToken)?.current_price ?? 0;
 
   const handleNavigateHome = () => {
     navigate("/");
@@ -92,7 +93,6 @@ function ConvertPage() {
                 tokenSwapFromPrice={fromPrice}
                 currentSwapFromToken={fromToken}
                 tokenPrice={toPrice}
-                setTokenSwapFromPrice={setFromPrice}
                 setCurrentSwapFromToken={setFromToken}
                 currentSfImage={fromImage}
                 currentImage={toImage}
@@ -117,7 +117,6 @@ function ConvertPage() {
                 key={"to-second"}
                 currentToken={toToken}
                 tokenPrice={toPrice}
-                setTokenPrice={setToPrice}
                 setCurrentToken={setToToken}
                 currentSfImage={fromImage}
                 currentImage={toImage}
@@ -136,7 +135,6 @@ function ConvertPage() {
                 key={"to-first"}
                 currentToken={toToken}
                 tokenPrice={toPrice}
-                setTokenPrice={setToPrice}
                 setCurrentToken={setToToken}
                 currentSfImage={fromImage}
                 currentImage={toImage}
@@ -163,7 +161,6 @@ function ConvertPage() {
                 tokenSwapFromPrice={fromPrice}
                 currentSwapFromToken={fromToken}
                 tokenPrice={toPrice}
-                setTokenSwapFromPrice={setFromPrice}
                 setCurrentSwapFromToken={setFromToken}
                 currentSfImage={fromImage}
                 currentImage={toImage}

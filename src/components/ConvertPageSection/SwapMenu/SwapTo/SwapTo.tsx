@@ -29,7 +29,7 @@ function SwapTo({
   setInputValueTo,
   setInputValue,
   currentToken,
-  tokenPrice,
+  toPrice,
   setCurrentToken,
   setTokenPrice,
   tokenSwapFromPrice,
@@ -48,8 +48,13 @@ function SwapTo({
     if (value.length > 1 && value.startsWith("0")) {
       value = value.replace(/^0+/, "");
     }
+    if (!tokenSwapFromPrice || !toPrice) {
+      setInputValueTo(0);
+      return;
+    }
+
     setInputValueTo(value);
-    setInputValue(((value * tokenPrice) / tokenSwapFromPrice).toFixed(2));
+    setInputValue(((value * toPrice) / tokenSwapFromPrice).toFixed(2));
     console.log(currentPrice);
   };
 
@@ -74,7 +79,7 @@ function SwapTo({
             className="from-amount-input"
             placeholder="0"
           />
-          <span className="price-in-usd">${tokenPrice?.toFixed(2)}</span>
+          <span className="price-in-usd">${toPrice?.toFixed(2)}</span>
         </div>
       </div>
       <div className="dropbox-of-coins">
