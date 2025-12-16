@@ -129,7 +129,9 @@ function SwapTo({
             <div className="modal" onClick={(e) => e.stopPropagation()}>
               <div className="modal-header">
                 <span>Select a token</span>
-                <button onClick={() => setIsOpen(false)}>X</button>
+                <button type="button" onClick={() => setIsOpen(false)}>
+                  X
+                </button>
               </div>
               <div className="input-and-coins">
                 <input
