@@ -5,6 +5,7 @@ import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import TokenContainer from "../SwapFrom/TokenContainer/TokenContainer";
 import type { Coin } from "../../../../types/coin";
 import { useEffect } from "react";
+import { useMemo } from "react";
 
 // type Data = {
 //   name: string;
@@ -52,9 +53,11 @@ function SwapTo({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const filtered = coins.filter((item: Symbol) =>
-    item.symbol.toLowerCase().includes(search.toLowerCase())
-  );
+
+  const filtered = useMemo(() => {
+    const q = search.toLowerCase();
+    return coins.filter((item) => item.symbol.toLowerCase().includes(q));
+  }, [coins, search]);
 
   useEffect(() => {
     if (!isOpen) return;
