@@ -1,29 +1,23 @@
 import "./InvestToken.css";
 import Footer from "../../MainSection/Footer/Footer";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function InvestToken({ tokenInfo }: { tokenInfo: any }) {
   const [tokenValue, setTokenValue] = useState("");
   const [USDValue, setUSDValue] = useState(""); // for dbnc
   const [debouncedValue, setDebouncedValue] = useState("");
 
-  function debounce<T extends (...args: any[]) => void>(
-    func: T,
-    delay: number
-  ) {
-    let timer: ReturnType<typeof setTimeout>;
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    return (...args: Parameters<T>) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        func(...args);
-      }, delay);
-    };
-  }
+  const updateDebouncedValue = (value: string) => {
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
 
-  const updateDebouncedValue = debounce((value: string) => {
-    setDebouncedValue(value);
-  }, 1000);
+    debounceRef.current = setTimeout(() => {
+      setDebouncedValue(value);
+    }, 1000);
+  };
 
   const handleChangeToken = (e: any) => {
     const val = e.target.value;
