@@ -7,21 +7,6 @@ import type { Coin } from "../../../../types/coin";
 import { useEffect } from "react";
 import { useMemo } from "react";
 
-// type Data = {
-//   name: string;
-//   symbol: string;
-//   image: string;
-//   current_price: number;
-//   price_change_percentage_24h: number;
-//   ath: number;
-//   high_24h: number;
-//   low_24h: number;
-//   price_change_24h: number;
-//   market_cap: number;
-//   id?: string;
-//   current_swapToToken: string;
-// };
-
 type Symbol = {
   symbol: string;
 };
@@ -53,10 +38,11 @@ function SwapTo({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
-    return coins.filter((item) => item.symbol.toLowerCase().includes(q));
+    return coins.filter((item: Symbol) =>
+      item.symbol.toLowerCase().includes(q)
+    );
   }, [coins, search]);
 
   useEffect(() => {
