@@ -2,7 +2,20 @@ import "./InvestToken.css";
 import Footer from "../../MainSection/Footer/Footer";
 import { useState, useRef } from "react";
 
-function InvestToken({ tokenInfo }: { tokenInfo: any }) {
+type TokenInfo = {
+  name: string;
+  shortName: string;
+  image: string;
+  price: number;
+  ath: number;
+  ath_today: number;
+  atl_today: number;
+  market_cap: number;
+  priceChange24H: number;
+  price_change_24H_in_percentage: number;
+};
+
+function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
   const [tokenValue, setTokenValue] = useState("");
   const [USDValue, setUSDValue] = useState(""); // for dbnc
   const [debouncedValue, setDebouncedValue] = useState("");
