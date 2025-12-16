@@ -10,6 +10,7 @@ type TokenContainerProps = {
   setToken: (symbol: string) => void;
   setImage: (img: string) => void;
   setFromPrice?: (price: number) => void;
+  setPrice: any;
 };
 
 function TokenContainer({
@@ -20,14 +21,14 @@ function TokenContainer({
   setIsOpen,
   setToken,
   setImage,
-  setFromPrice,
+  setPrice,
 }: TokenContainerProps) {
   const handleSelect = () => {
     setToken(symbol);
     setImage(image);
 
-    if (setFromPrice && current_price !== null) {
-      setFromPrice(current_price);
+    if (setPrice && current_price !== null) {
+      setPrice(current_price);
     }
 
     setIsOpen(false);

@@ -130,7 +130,7 @@ function SwapFrom({
                 <div className="recent-coins"></div>
               </div>
               <div className="token-list">
-                {filtered.map((item: any, index: number) => (
+                {filtered.map((item: any) => (
                   <TokenContainer
                     key={item.id ?? item.symbol} // ← ВАЖЛИВО
                     image={item.image}
@@ -142,7 +142,7 @@ function SwapFrom({
                     setIsOpen={setIsOpen}
                     setToken={setFromToken}
                     setImage={setFromImage}
-                    setFromPrice={setFromPrice} // 🔥
+                    setPrice={setFromPrice} // 🔥
                   />
                 ))}
               </div>

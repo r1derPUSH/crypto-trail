@@ -19,14 +19,14 @@ function ConvertPage() {
 
   // # 1
 
-  const [fromPrice, setFromPrice] = useState<number>(1);
+  const [fromPrice, setFromPrice] = useState(1);
   // coins[1].current_price
   const [fromToken, setFromToken] = useState("USDT");
   const [fromImage, setFromImage] = useState(IMG_DEFAULT);
 
   // #2
 
-  const [toPrice, setToPrice] = useState<number>(1);
+  const [toPrice, setToPrice] = useState(1);
   const [toToken, setToToken] = useState("USDT");
   const [toImage, setToImage] = useState(IMG_DEFAULT);
 
