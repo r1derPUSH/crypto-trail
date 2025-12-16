@@ -4,21 +4,22 @@ import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import TokenContainer from "../SwapFrom/TokenContainer/TokenContainer";
 import type { Coin } from "../../../../types/coin";
+import { useEffect } from "react";
 
-type Data = {
-  name: string;
-  symbol: string;
-  image: string;
-  current_price: number;
-  price_change_percentage_24h: number;
-  ath: number;
-  high_24h: number;
-  low_24h: number;
-  price_change_24h: number;
-  market_cap: number;
-  id?: string;
-  current_swapToToken: string;
-};
+// type Data = {
+//   name: string;
+//   symbol: string;
+//   image: string;
+//   current_price: number;
+//   price_change_percentage_24h: number;
+//   ath: number;
+//   high_24h: number;
+//   low_24h: number;
+//   price_change_24h: number;
+//   market_cap: number;
+//   id?: string;
+//   current_swapToToken: string;
+// };
 
 type Symbol = {
   symbol: string;
@@ -54,6 +55,19 @@ function SwapTo({
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
 
   const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

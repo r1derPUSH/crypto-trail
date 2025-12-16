@@ -4,6 +4,7 @@ import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import TokenContainer from "./TokenContainer/TokenContainer";
 import type { Coin } from "../../../../types/coin";
+import { useEffect } from "react";
 
 // type Data = {
 //   name: string;
@@ -55,6 +56,19 @@ function SwapFrom({
   const filtered = coins.filter((item: Symbol) =>
     item.symbol.toLowerCase().includes(search.toLowerCase())
   );
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
 
   const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
