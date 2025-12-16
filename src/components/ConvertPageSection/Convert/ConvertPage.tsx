@@ -20,7 +20,6 @@ function ConvertPage() {
   // # 1
 
   const [fromPrice, setFromPrice] = useState<number>(1);
-  // coins[1].current_price
   const [fromToken, setFromToken] = useState("USDT");
   const [fromImage, setFromImage] = useState(IMG_DEFAULT);
 
@@ -37,8 +36,6 @@ function ConvertPage() {
   const handleNavigateWallet = () => {
     navigate("/wallet-section");
   };
-
-  // functional for loader P.S: optimise to single components later
 
   const [state, setState] = useState<"idle" | "loading" | "success">("idle");
 

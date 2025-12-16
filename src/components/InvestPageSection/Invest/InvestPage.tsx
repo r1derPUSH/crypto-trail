@@ -4,20 +4,7 @@ import CoinHolder from "./CoinHolder/CoinHolder";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Footer from "../../MainSection/Footer/Footer";
-
-type Data = {
-  name: string;
-  symbol: string;
-  image: string;
-  current_price: number;
-  price_change_percentage_24h: number;
-  ath: number;
-  high_24h: number;
-  low_24h: number;
-  price_change_24h: number;
-  market_cap: number;
-  id?: string;
-};
+import type { Data } from "../../../types/data";
 
 function InvestPage({ setTokenInfo }: { setTokenInfo: any }) {
   const [data, setData] = useState<Data[]>([]);

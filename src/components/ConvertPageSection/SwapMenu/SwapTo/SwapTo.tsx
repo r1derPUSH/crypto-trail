@@ -4,21 +4,8 @@ import { FaAngleDown } from "react-icons/fa";
 import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import TokenContainer from "../SwapFrom/TokenContainer/TokenContainer";
 import type { Coin } from "../../../../types/coin";
-
-type Data = {
-  name: string;
-  symbol: string;
-  image: string;
-  current_price: number;
-  price_change_percentage_24h: number;
-  ath: number;
-  high_24h: number;
-  low_24h: number;
-  price_change_24h: number;
-  market_cap: number;
-  id?: string;
-  current_swapToToken: string;
-};
+import { useEffect } from "react";
+import { useMemo } from "react";
 
 type Symbol = {
   symbol: string;
@@ -51,9 +38,25 @@ function SwapTo({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const filtered = coins.filter((item: Symbol) =>
-    item.symbol.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = useMemo(() => {
+    const q = search.toLowerCase();
+    return coins.filter((item: Symbol) =>
+      item.symbol.toLowerCase().includes(q)
+    );
+  }, [coins, search]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
 
   const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -115,7 +118,9 @@ function SwapTo({
             <div className="modal" onClick={(e) => e.stopPropagation()}>
               <div className="modal-header">
                 <span>Select a token</span>
-                <button onClick={() => setIsOpen(false)}>X</button>
+                <button type="button" onClick={() => setIsOpen(false)}>
+                  X
+                </button>
               </div>
               <div className="input-and-coins">
                 <input
@@ -126,7 +131,7 @@ function SwapTo({
                 <div className="recent-coins"></div>
               </div>
               <div className="token-list">
-                {filtered.map((item: any, index: number) => (
+                {filtered.map((item: any) => (
                   <TokenContainer
                     key={item.id ?? item.symbol} // ← ВАЖЛИВО
                     image={item.image}
@@ -138,7 +143,7 @@ function SwapTo({
                     setIsOpen={setIsOpen}
                     setToken={setToToken}
                     setImage={setToImage}
-                    setFromPrice={setToPrice}
+                    setPrice={setToPrice}
                   />
                 ))}
               </div>
