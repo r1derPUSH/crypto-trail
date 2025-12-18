@@ -5,10 +5,7 @@ import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
 import TokenContainer from "./TokenContainer/TokenContainer";
 import type { Coin } from "../../../../types/coin";
 import { useEffect } from "react";
-
-type Symbol = {
-  symbol: string;
-};
+import type { Symbol } from "../../../../types/symbol";
 
 function SwapFrom({
   coins,
@@ -67,9 +64,6 @@ function SwapFrom({
     setInputValue(value);
     setInputValueTo(result);
   };
-
-  // Futures updates:
-  // update bnb -> trx swap for example,
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
