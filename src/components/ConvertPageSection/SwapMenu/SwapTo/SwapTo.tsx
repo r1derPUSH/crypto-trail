@@ -6,10 +6,7 @@ import TokenContainer from "../SwapFrom/TokenContainer/TokenContainer";
 import type { Coin } from "../../../../types/coin";
 import { useEffect } from "react";
 import { useMemo } from "react";
-
-type Symbol = {
-  symbol: string;
-};
+import type { Symbol } from "../../../../types/symbol";
 
 function SwapTo({
   coins,
