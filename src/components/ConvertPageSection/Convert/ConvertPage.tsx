@@ -6,6 +6,7 @@ import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 import { useState, useEffect } from "react";
 import Footer from "../../MainSection/Footer/Footer";
 import { useCoins } from "../../../hooks/useCoins";
+import { addSwapToHistory } from "../../../functions/swapHistory";
 
 const IMG_DEFAULT =
   "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661";
@@ -70,6 +71,12 @@ function ConvertPage() {
         setState("idle");
       }, 1000);
     }, 900);
+
+    addSwapToHistory({
+      from: fromToken,
+      to: toToken,
+      time: getCurrentDateTime(),
+    });
   };
 
   return (
