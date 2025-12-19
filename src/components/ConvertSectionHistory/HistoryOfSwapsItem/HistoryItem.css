@@ -1,0 +1,12 @@
+.history-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.history-left {
+  width: 15vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
