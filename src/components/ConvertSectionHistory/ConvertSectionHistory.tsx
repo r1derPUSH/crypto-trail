@@ -1,11 +1,18 @@
 import "./ConvertSectionHistory.css";
 import HistoryItem from "./HistoryOfSwapsItem/HistoryItem";
 import { getSwapHistory } from "../../functions/swapHistory";
-
-const history = getSwapHistory();
+import type { SwapHistoryItem } from "../../types/swapHistory";
 
 function ConvertSectionHistory() {
-  return <HistoryItem />;
+  const history: SwapHistoryItem[] = getSwapHistory();
+
+  return (
+    <>
+      {/* {history.map((item) => (
+        <HistoryItem itemFrom={item.from} itemTo={item.to} />
+      ))} */}
+    </>
+  );
 }
 
 export default ConvertSectionHistory;
