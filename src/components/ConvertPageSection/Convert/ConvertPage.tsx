@@ -13,9 +13,12 @@ const IMG_DEFAULT =
 function ConvertPage() {
   const { coins } = useCoins();
   const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState<string>();
-  const [inputValueTo, setInputValueTo] = useState<string>();
+  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValueTo, setInputValueTo] = useState<string>("");
   const [order, setOrder] = useState(true);
+
+  const [timeOfSwap, setTimeOfSwap] = useState("");
+  const [isSwapped, setIsSwapped] = useState(false);
 
   // # 1
 
@@ -29,6 +32,24 @@ function ConvertPage() {
   const [toToken, setToToken] = useState("USDT");
   const [toImage, setToImage] = useState(IMG_DEFAULT);
 
+  function getCurrentDateTime() {
+    const now = new Date();
+
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    const year = now.getFullYear();
+
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+
+    return `${month}.${day}.${year} | ${hours}:${minutes}`;
+  }
+
+  useEffect(() => {
+    setTimeOfSwap(getCurrentDateTime());
+    console.log(timeOfSwap);
+  }, [isSwapped]);
+
   const handleNavigateHome = () => {
     navigate("/");
   };
@@ -39,11 +60,10 @@ function ConvertPage() {
 
   const [state, setState] = useState<"idle" | "loading" | "success">("idle");
 
-  const handleClick = () => {
+  const handleSwap = () => {
     if (state !== "idle") return;
-
+    setIsSwapped((prev) => !prev);
     setState("loading");
-
     setTimeout(() => {
       setState("success");
       setTimeout(() => {
@@ -143,7 +163,7 @@ function ConvertPage() {
         </div>
       </div>
       <div className="flex-convert-and-history-buttons-container">
-        <button onClick={handleClick} className={`convert-btn ${state}`}>
+        <button onClick={handleSwap} className={`convert-btn ${state}`}>
           {state === "idle" && "Convert"}
           {state === "loading" && <span className="loader"></span>}
           {state === "success" && <span className="success-check">✔</span>}
