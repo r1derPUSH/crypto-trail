@@ -1,5 +1,4 @@
 import "./ConvertSectionHistory.css";
-import HistoryItem from "./HistoryOfSwapsItem/HistoryItem";
 import { getSwapHistory } from "../../functions/swapHistory";
 import type { SwapHistoryItem } from "../../types/swapHistory";
 
