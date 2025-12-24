@@ -1,5 +1,6 @@
 import "./HistoryItem.css";
 import type { HistoryItemProps } from "../../../types/historyItemProps";
+import { removeSwapFromHistory } from "../../../functions/swapHistory";
 
 const HistoryItem = ({
   from,
@@ -9,6 +10,7 @@ const HistoryItem = ({
   inputValueTo,
   fromImage,
   toImage,
+  id,
 }: HistoryItemProps) => {
   return (
     <div className="history-item">
@@ -31,6 +33,8 @@ const HistoryItem = ({
           </div>
         </div>
       </div>
+
+      <button onClick={removeSwapFromHistory(id)}>Remove</button>
 
       <div className="history-time">{time}</div>
     </div>

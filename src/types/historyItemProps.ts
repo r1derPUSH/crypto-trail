@@ -1,6 +1,7 @@
 export interface HistoryItemProps {
   from: string;
   to: string;
+  id: number | string;
   time: string;
   fromPrice: number | string;
   toPrice: number | string;
@@ -8,4 +9,5 @@ export interface HistoryItemProps {
   toImage: string;
   inputValue: string | number;
   inputValueTo: string | number;
+  onDelete: (id: string) => void;
 }

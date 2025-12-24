@@ -13,6 +13,7 @@ function ConvertSectionHistory() {
           from={item.from}
           to={item.to}
           time={item.time}
+          id={item.id}
           inputValue={item.inputValue}
           inputValueTo={item.inputValueTo}
           fromImage={item.fromImage}
