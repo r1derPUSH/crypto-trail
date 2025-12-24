@@ -6,4 +6,6 @@ export interface HistoryItemProps {
   toPrice: number | string;
   fromImage: string;
   toImage: string;
+  inputValue: string | number;
+  inputValueTo: string | number;
 }

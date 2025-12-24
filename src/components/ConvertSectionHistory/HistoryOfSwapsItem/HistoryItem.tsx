@@ -5,8 +5,8 @@ const HistoryItem = ({
   from,
   to,
   time,
-  fromPrice,
-  toPrice,
+  inputValue,
+  inputValueTo,
   fromImage,
   toImage,
 }: HistoryItemProps) => {
@@ -15,9 +15,9 @@ const HistoryItem = ({
       <div className="history-content">
         <div className="history-token-block">
           <img src={fromImage} alt={from} />
-          <div>
-            <span className="token-name">{from}</span>
-            <span className="token-amount negative">-{fromPrice}</span>
+          <div className="price-info">
+            <span className="token-name">{from.toUpperCase()}</span>
+            <span className="token-amount negative">-{inputValue}</span>
           </div>
         </div>
 
@@ -25,9 +25,9 @@ const HistoryItem = ({
 
         <div className="history-token-block">
           <img src={toImage} alt={to} />
-          <div>
-            <span className="token-name">{to}</span>
-            <span className="token-amount positive">+{toPrice}</span>
+          <div className="price-info">
+            <span className="token-name">{to.toUpperCase()}</span>
+            <span className="token-amount positive">+{inputValueTo}</span>
           </div>
         </div>
       </div>

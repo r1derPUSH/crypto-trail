@@ -13,8 +13,8 @@ function ConvertSectionHistory() {
           from={item.from}
           to={item.to}
           time={item.time}
-          fromPrice={item.fromPrice}
-          toPrice={item.toPrice}
+          inputValue={item.inputValue}
+          inputValueTo={item.inputValueTo}
           fromImage={item.fromImage}
           toImage={item.toImage}
         />

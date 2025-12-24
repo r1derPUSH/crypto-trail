@@ -76,8 +76,8 @@ function ConvertPage() {
       from: fromToken,
       to: toToken,
       time: getCurrentDateTime(),
-      fromPrice,
-      toPrice,
+      inputValue,
+      inputValueTo,
       fromImage,
       toImage,
     });
