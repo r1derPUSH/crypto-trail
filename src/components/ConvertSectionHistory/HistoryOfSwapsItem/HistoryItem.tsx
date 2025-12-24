@@ -1,16 +1,44 @@
 import "./HistoryItem.css";
+import type { HistoryItemProps } from "../../../types/historyItemProps";
+import { removeSwapFromHistory } from "../../../functions/swapHistory";
 
-function HistoryItem() {
+const HistoryItem = ({
+  from,
+  to,
+  time,
+  inputValue,
+  inputValueTo,
+  fromImage,
+  toImage,
+  id,
+}: HistoryItemProps) => {
   return (
     <div className="history-item">
-      <div className="history-left">
-        <span className="history-pair">BTC → ETH</span>
-        <span className="history-cost">$923</span>
+      <div className="history-content">
+        <div className="history-token-block">
+          <img src={fromImage} alt={from} />
+          <div className="price-info">
+            <span className="token-name">{from.toUpperCase()}</span>
+            <span className="token-amount negative">-{inputValue}</span>
+          </div>
+        </div>
+
+        <span className="history-divider">→</span>
+
+        <div className="history-token-block">
+          <img src={toImage} alt={to} />
+          <div className="price-info">
+            <span className="token-name">{to.toUpperCase()}</span>
+            <span className="token-amount positive">+{inputValueTo}</span>
+          </div>
+        </div>
       </div>
 
-      <div className="history-time">02.12 · 12:42</div>
+      <button onClick={removeSwapFromHistory(id)}>Remove</button>
+
+      <div className="history-time">{time}</div>
     </div>
   );
-}
+};
 
 export default HistoryItem;

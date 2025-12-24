@@ -1,12 +1,131 @@
+/* ===== CARD ===== */
+
 .history-item {
+  width: min(92%, 1100px);
+  margin: 0 auto 1.4rem;
+  margin-top: 1rem;
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+
+  background: linear-gradient(155deg, #0b1028, #141b42);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
+  gap: 0.6rem;
+
+  animation: cardIn 0.45s ease forwards;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.history-left {
-  width: 15vw;
+.history-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 1px rgba(91, 121, 232, 0.25),
+    0 18px 45px rgba(91, 121, 232, 0.35);
+}
+
+/* ===== MAIN ROW ===== */
+
+.history-content {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: center;
+  gap: clamp(1.2rem, 3vw, 2.4rem);
+  flex-wrap: nowrap;
+}
+
+/* ===== TOKEN BLOCK ===== */
+
+.history-token-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 140px;
+}
+
+/* icon */
+.history-token-block img {
+  width: clamp(34px, 4vw, 44px);
+  height: clamp(34px, 4vw, 44px);
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(91, 121, 232, 0.35);
+}
+
+/* text stack */
+.price-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+/* name */
+.token-name {
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  font-weight: 600;
+  color: #e6ecff;
+}
+
+/* amount */
+.token-amount {
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+}
+
+.token-amount.negative {
+  color: #ff6b6b;
+}
+
+.token-amount.positive {
+  color: #4ade80;
+}
+
+/* ===== ARROW ===== */
+
+.history-divider {
+  font-size: clamp(1.4rem, 2.5vw, 1.7rem);
+  opacity: 0.45;
+  user-select: none;
+}
+
+/* ===== TIME ===== */
+
+.history-time {
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+  color: rgba(230, 236, 255, 0.6);
+  letter-spacing: 0.4px;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 640px) {
+  .history-content {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .history-divider {
+    transform: rotate(90deg);
+  }
+
+  .history-token-block {
+    justify-content: center;
+  }
+
+  .history-item {
+    padding: 1.2rem 1rem;
+  }
 }
