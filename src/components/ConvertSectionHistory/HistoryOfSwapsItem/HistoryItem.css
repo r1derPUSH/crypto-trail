@@ -1,12 +1,69 @@
 .history-item {
+  width: 100%;
+  background: linear-gradient(145deg, #0f1325, #151a35);
+  border: 1px solid #2a2f55;
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  color: #e6ecff;
+  animation: fadeSlideIn 0.4s ease forwards;
+  transition: 0.3s ease;
 }
 
-.history-left {
-  width: 15vw;
+.history-item:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 0 20px #5b79e833;
+}
+
+.history-tokens {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  gap: 1.2rem;
+}
+
+.history-token {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.history-token img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.token-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.token-price {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.history-arrow {
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+.history-time {
+  font-size: 0.85rem;
+  opacity: 0.5;
+}
+
+/* animation */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

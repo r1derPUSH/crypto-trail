@@ -76,6 +76,10 @@ function ConvertPage() {
       from: fromToken,
       to: toToken,
       time: getCurrentDateTime(),
+      fromPrice,
+      toPrice,
+      fromImage,
+      toImage,
     });
   };
 
