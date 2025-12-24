@@ -12,22 +12,22 @@ const HistoryItem = ({
 }: HistoryItemProps) => {
   return (
     <div className="history-item">
-      <div className="history-tokens">
-        <div className="history-token">
+      <div className="history-content">
+        <div className="history-token-block">
           <img src={fromImage} alt={from} />
           <div>
             <span className="token-name">{from}</span>
-            <span className="token-price">-{fromPrice}</span>
+            <span className="token-amount negative">-{fromPrice}</span>
           </div>
         </div>
 
-        <span className="history-arrow">→</span>
+        <span className="history-divider">→</span>
 
-        <div className="history-token">
+        <div className="history-token-block">
           <img src={toImage} alt={to} />
           <div>
             <span className="token-name">{to}</span>
-            <span className="token-price">+{toPrice}</span>
+            <span className="token-amount positive">+{toPrice}</span>
           </div>
         </div>
       </div>
