@@ -6,9 +6,12 @@ import {
   removeSwapFromHistory,
 } from "../../functions/swapHistory";
 import HistoryItem from "./HistoryOfSwapsItem/HistoryItem";
+import { useNavigate } from "react-router-dom";
 
 function ConvertSectionHistory() {
   const [history, setHistory] = useState<SwapHistoryItem[]>([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setHistory(getSwapHistory());
@@ -35,8 +38,15 @@ function ConvertSectionHistory() {
         />
       ))}
       <div className="back-to-home-container">
-        <button className="back-to-home-btn">Back To Home</button>
-        <button className="back-to-wallet-btn">Back To Wallet</button>
+        <button onClick={() => navigate("/")} className="back-to-home-btn">
+          Back To Home
+        </button>
+        <button
+          onClick={() => navigate("/wallet-section")}
+          className="back-to-wallet-btn"
+        >
+          Back To Wallet
+        </button>
       </div>
     </>
   );
