@@ -7,7 +7,9 @@ export function getSwapHistory(): SwapHistoryItem[] {
   return raw ? JSON.parse(raw) : [];
 }
 
-export function addSwapToHistory(item: Omit<SwapHistoryItem, "id">) {
+export function addSwapToHistory(
+  item: Omit<SwapHistoryItem, "id">
+): SwapHistoryItem[] {
   const history = getSwapHistory();
 
   const newItem: SwapHistoryItem = {
@@ -15,16 +17,19 @@ export function addSwapToHistory(item: Omit<SwapHistoryItem, "id">) {
     ...item,
   };
 
-  history.unshift(newItem);
+  const updated = [newItem, ...history];
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  return updated;
 }
 
-export function removeSwapFromHistory(id: string) {
-  const history = getSwapHistory().filter((item) => item.id !== id);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+export function removeSwapFromHistory(id: string): SwapHistoryItem[] {
+  const updated = getSwapHistory().filter((item) => item.id !== id);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  return updated;
 }
 
-export function clearSwapHistory() {
+export function clearSwapHistory(): SwapHistoryItem[] {
   localStorage.removeItem(STORAGE_KEY);
+  return [];
 }

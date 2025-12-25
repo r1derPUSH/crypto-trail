@@ -1,0 +1,37 @@
+.back-to-home-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.back-to-home-btn,
+.back-to-wallet-btn {
+  background: transparent;
+  border: 1.5px solid #393939;
+  border-radius: 12px;
+  padding: 0.75rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e6ecff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.back-to-home-btn:hover,
+.back-to-wallet-btn:hover {
+  background: #1a1f3c;
+  border-color: #5b79e8;
+  box-shadow: 0 0 15px #5b79e855;
+  transform: translateY(-2px);
+}
+
+/* трохи різниці між кнопками */
+.back-to-wallet-btn {
+  background: linear-gradient(90deg, #2a3c8c, #5b79e8);
+  border: none;
+}
+
+.back-to-wallet-btn:hover {
+  box-shadow: 0 0 20px #5b79e8aa;
+}
