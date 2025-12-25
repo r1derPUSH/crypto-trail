@@ -1,0 +1,43 @@
+import { HashRouter, Routes, Route } from "react-router-dom";
+import MainSection from "./components/MainSection/MainSection";
+import InvestPage from "./components/InvestPageSection/Invest/InvestPage";
+import "./components/MainSection/mainSection.css";
+import ConvertPage from "./components/ConvertPageSection/Convert/ConvertPage";
+import HelpPageSection from "./components/HelpPageSection/Help/HelpPageSection";
+import LoginSection from "./components/LoginPageSection/LoginSection";
+import Overview from "./components/MainSection/Overview/Overview";
+import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSectionPage/InvestToken";
+import ScrollToTop from "./components/CustomComponents/ScrollToTop";
+import ConvertSectionHistory from "./components/ConvertSectionHistory/ConvertSectionHistory";
+import { useState } from "react";
+
+function MainComponent() {
+  const [tokenInfo, setTokenInfo] = useState([]);
+
+  return (
+    <HashRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<MainSection />}></Route>
+        <Route
+          path="/invest-page-section"
+          element={<InvestPage setTokenInfo={setTokenInfo} />}
+        />
+        <Route path="/convert-page-section" element={<ConvertPage />} />
+        <Route path="/help-page-section" element={<HelpPageSection />} />
+        <Route path="/login-page-section" element={<LoginSection />} />
+        <Route path="/wallet-section" element={<Overview />} />
+        <Route
+          path="/invest-unique-token"
+          element={<InvestToken tokenInfo={tokenInfo} />}
+        />
+        <Route
+          path="/convert-section-history"
+          element={<ConvertSectionHistory />}
+        />
+      </Routes>
+    </HashRouter>
+  );
+}
+
+export default MainComponent;

@@ -10,34 +10,12 @@ import Overview from "./components/MainSection/Overview/Overview";
 import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSectionPage/InvestToken";
 import ScrollToTop from "./components/CustomComponents/ScrollToTop";
 import ConvertSectionHistory from "./components/ConvertSectionHistory/ConvertSectionHistory";
+import MainComponent from "./MainComponent";
 
 function App() {
   const [tokenInfo, setTokenInfo] = useState([]);
 
-  return (
-    <HashRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<MainSection />}></Route>
-        <Route
-          path="/invest-page-section"
-          element={<InvestPage setTokenInfo={setTokenInfo} />}
-        />
-        <Route path="/convert-page-section" element={<ConvertPage />} />
-        <Route path="/help-page-section" element={<HelpPageSection />} />
-        <Route path="/login-page-section" element={<LoginSection />} />
-        <Route path="/wallet-section" element={<Overview />} />
-        <Route
-          path="/invest-unique-token"
-          element={<InvestToken tokenInfo={tokenInfo} />}
-        />
-        <Route
-          path="/convert-section-history"
-          element={<ConvertSectionHistory />}
-        />
-      </Routes>
-    </HashRouter>
-  );
+  return <MainComponent />;
 }
 
 export default App;
