@@ -34,7 +34,7 @@ const HistoryItem = ({
         </div>
       </div>
 
-      <button onClick={removeSwapFromHistory(id)}>Remove</button>
+      <button onClick={() => removeSwapFromHistory(id)}>Remove</button>
 
       <div className="history-time">{time}</div>
     </div>
