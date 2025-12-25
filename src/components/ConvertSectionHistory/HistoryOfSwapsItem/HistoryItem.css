@@ -35,6 +35,31 @@
   flex-wrap: nowrap;
 }
 
+/* REMOVE BTN */
+
+.remove-btn {
+  background: transparent;
+  border: 1.5px solid #ff4d4f;
+  border-radius: 10px;
+  padding: 0.35rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ff4d4f;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background: #ff4d4f;
+  color: #ffffff;
+  box-shadow: 0 0 12px #ff4d4f88;
+  transform: scale(1.05);
+}
+
+.remove-btn:active {
+  transform: scale(0.97);
+}
+
 /* ===== TOKEN BLOCK ===== */
 
 .history-token-block {

@@ -34,6 +34,10 @@ function ConvertSectionHistory() {
           onRemove={handleRemove}
         />
       ))}
+      <div className="back-to-home-container">
+        <button className="back-to-home-btn">Back To Home</button>
+        <button className="back-to-wallet-btn">Back To Wallet</button>
+      </div>
     </>
   );
 }
