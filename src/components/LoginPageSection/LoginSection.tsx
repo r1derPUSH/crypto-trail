@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import type { LoginSectionProps } from "../../types/loginSectionProps";
 import type { ChangeEvent } from "react";
 import { useState } from "react";
+import { EMAIL_REGEX } from "../../constants/regax";
+import { PASSWORD_REGEX } from "../../constants/regax";
 
 function LoginSection({
   isRegistered,
@@ -40,14 +42,19 @@ function LoginSection({
   const forgotPasswordFunction = () => {};
 
   const signUpFunction = () => {
-    if (true) {
-      // тут потрібна перевірка твоя) на інпути через регулярку чи все норм по реєстрації + паролю
-      setLogin(emailValue);
+    if (!EMAIL_REGEX.test(emailValue)) {
+      alert("Invalid email format");
+      return;
+    }
+    if (!PASSWORD_REGEX.test(passwordValue)) {
+      alert(
+        "Password must be at least 8 characters long and contain at least one letter and one number"
+      );
+      return;
     }
 
-    if (true) {
-      setPassword(passwordValue);
-    }
+    setLogin(emailValue);
+    setPassword(passwordValue);
     setIsRegistered(true);
   };
 
