@@ -18,6 +18,7 @@ import avatar7 from "../../avatars/avatar7.jpg";
 import avatar8 from "../../avatars/avatar8.jpg";
 import avatar9 from "../../avatars/avatar9.jpg";
 import avatar10 from "../../avatars/avatar10.jpg";
+import Footer from "../MainSection/Footer/Footer";
 
 const avatars = [
   avatar1,
@@ -153,18 +154,6 @@ function LoginSection({
               Register
             </button>
           </div>
-
-          <div className="backToHome-section">
-            <button onClick={() => navigate("/")} className="backToHome-button">
-              Back To Home
-            </button>
-            <button
-              onClick={() => navigate("/wallet-section")}
-              className="backToWallet-button"
-            >
-              Back To Wallet
-            </button>
-          </div>
         </div>
       ) : (
         <div className="flex-container-of-profile-box">
@@ -203,6 +192,7 @@ function LoginSection({
           </div>
         ))}
       </div>
+      {isRegistered && <Footer />}
     </div>
   );
 }
