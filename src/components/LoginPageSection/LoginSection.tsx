@@ -6,6 +6,7 @@ import type { ChangeEvent } from "react";
 import { useState } from "react";
 import { EMAIL_REGEX } from "../../constants/regax";
 import { PASSWORD_REGEX } from "../../constants/regax";
+import type { FloatingError } from "../../types/floatinError";
 
 function LoginSection({
   isRegistered,
@@ -21,6 +22,11 @@ function LoginSection({
 
   const [emailError, setEmailError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
+
+  /* state for errors */
+
+  const [floatingErrors, setFloatingErrors] = useState<FloatingError[]>([]);
 
   const navigate = useNavigate();
 
@@ -45,6 +51,24 @@ function LoginSection({
   };
 
   /* buttons signIn/signUp */
+
+  /* helper fn */
+
+  const showFloatingError = (message: string) => {
+    const positions: FloatingError["position"][] = ["left", "right", "bottom"];
+
+    const newError: FloatingError = {
+      id: Date.now(),
+      message,
+      position: positions[Math.floor(Math.random() * positions.length)],
+    };
+
+    setFloatingErrors((prev) => [...prev, newError]);
+
+    setTimeout(() => {
+      setFloatingErrors((prev) => prev.filter((err) => err.id !== newError.id));
+    }, 3000);
+  };
 
   const signInFunction = () => {};
 
@@ -101,15 +125,27 @@ function LoginSection({
 
           <div className="line"></div>
 
-          <input
-            value={passwordValue}
-            onChange={handleChangePasswordValue}
-            type="password"
-            placeholder="Password"
-            className={passwordError ? "input-error" : ""}
-          />
+          <div className="password-input-wrapper">
+            <input
+              value={passwordValue}
+              onChange={handleChangePasswordValue}
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              className={passwordError ? "input-error" : ""}
+            />
+
+            <button
+              type="button"
+              className="password-eye-btn"
+              onClick={() => setShowPassword((prev) => !prev)}
+            >
+              {showPassword ? "🙈" : "👁️"}
+            </button>
+          </div>
+
           {passwordError && <span className="error-text">{passwordError}</span>}
         </div>
+
         <div className="login-buttons">
           {isRegistered ? (
             <>
