@@ -2,8 +2,11 @@ import "./LoginSection.css";
 import passlockImg from "./imgs/image-removebg-preview.png";
 import { useNavigate } from "react-router-dom";
 import type { LoginSectionProps } from "../../types/loginSectionProps";
+import { useState } from "react";
 
 function LoginSection({ isAuthorized, setIsAuthorized }) {
+  const [emailValue, setEmailValue] = useState("");
+  const [passwordValue, setPasswordValue] = useState("");
   const navigate = useNavigate();
 
   const backToHome = () => {
@@ -14,6 +17,36 @@ function LoginSection({ isAuthorized, setIsAuthorized }) {
     navigate("/wallet-section");
   };
 
+  /* OnChange events */
+
+  const handleChangeEmailValue = (e: any) => {
+    if (!e.target.value.trim()) return;
+    setEmailValue(e.target.value);
+  };
+
+  const handleChangePasswordValue = (e: any) => {
+    if (!e.target.value.trim()) return;
+    setPasswordValue(e.target.value);
+  };
+
+  /* buttons signIn/signUp */
+
+  const signInFunction = () => {};
+
+  const forgotPasswordFunction = () => {};
+
+  const signUpFunction = () => {
+    // тут потрібна перевірка твоя) на інпути через регулярку чи все норм по реєстрації + паролю
+
+    setIsAuthorized(true);
+  };
+
+  /* Log Out FN */
+
+  const logOut = () => {
+    setIsAuthorized(false);
+  };
+
   return (
     <div className="login-parent-box">
       <div className="login-container">
@@ -22,20 +55,37 @@ function LoginSection({ isAuthorized, setIsAuthorized }) {
           <span>Login</span>
         </div>
         <div className="login-fields">
-          <input type="email" placeholder="Email" />
+          <input
+            value={emailValue}
+            onChange={handleChangeEmailValue}
+            type="email"
+            placeholder="Email"
+          />
           <div className="line"></div>
-          <input type="password" placeholder="Password" />
+          <input
+            value={passwordValue}
+            onChange={handleChangePasswordValue}
+            type="password"
+            placeholder="Password"
+          />
         </div>
         <div className="login-buttons">
           {isAuthorized ? (
             <>
-              <button className="signIn-button">Sign In</button>
-              <button className="recoverPassword-button">
+              <button onClick={signInFunction} className="signIn-button">
+                Sign In
+              </button>
+              <button
+                onClick={forgotPasswordFunction}
+                className="recoverPassword-button"
+              >
                 Forgot Password?
               </button>
             </>
           ) : (
-            <button className="register-button">Register</button>
+            <button onClick={signUpFunction} className="register-button">
+              Register
+            </button>
           )}
         </div>
         <div className="backToHome-section">
