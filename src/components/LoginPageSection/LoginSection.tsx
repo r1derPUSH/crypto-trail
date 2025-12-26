@@ -2,9 +2,15 @@ import "./LoginSection.css";
 import passlockImg from "./imgs/image-removebg-preview.png";
 import { useNavigate } from "react-router-dom";
 import type { LoginSectionProps } from "../../types/loginSectionProps";
+import type { ChangeEvent } from "react";
 import { useState } from "react";
 
-function LoginSection({ isAuthorized, setIsAuthorized }) {
+function LoginSection({
+  isRegistered,
+  setIsRegistered,
+  setLogin,
+  setPassword,
+}: LoginSectionProps) {
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const navigate = useNavigate();
@@ -19,13 +25,11 @@ function LoginSection({ isAuthorized, setIsAuthorized }) {
 
   /* OnChange events */
 
-  const handleChangeEmailValue = (e: any) => {
-    if (!e.target.value.trim()) return;
+  const handleChangeEmailValue = (e: ChangeEvent<HTMLInputElement>) => {
     setEmailValue(e.target.value);
   };
 
-  const handleChangePasswordValue = (e: any) => {
-    if (!e.target.value.trim()) return;
+  const handleChangePasswordValue = (e: ChangeEvent<HTMLInputElement>) => {
     setPasswordValue(e.target.value);
   };
 
@@ -36,15 +40,21 @@ function LoginSection({ isAuthorized, setIsAuthorized }) {
   const forgotPasswordFunction = () => {};
 
   const signUpFunction = () => {
-    // тут потрібна перевірка твоя) на інпути через регулярку чи все норм по реєстрації + паролю
+    if (true) {
+      // тут потрібна перевірка твоя) на інпути через регулярку чи все норм по реєстрації + паролю
+      setLogin(emailValue);
+    }
 
-    setIsAuthorized(true);
+    if (true) {
+      setPassword(passwordValue);
+    }
+    setIsRegistered(true);
   };
 
   /* Log Out FN */
 
   const logOut = () => {
-    setIsAuthorized(false);
+    setIsRegistered(false);
   };
 
   return (
@@ -70,7 +80,7 @@ function LoginSection({ isAuthorized, setIsAuthorized }) {
           />
         </div>
         <div className="login-buttons">
-          {isAuthorized ? (
+          {isRegistered ? (
             <>
               <button onClick={signInFunction} className="signIn-button">
                 Sign In

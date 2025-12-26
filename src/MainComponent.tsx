@@ -14,7 +14,9 @@ import type { TokenInfo } from "./types/tokenInfo";
 
 function MainComponent() {
   const [tokenInfo, setTokenInfo] = useState<TokenInfo | null>(null);
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <HashRouter>
@@ -31,8 +33,10 @@ function MainComponent() {
           path="/login-page-section"
           element={
             <LoginSection
-              isAuthorized={isAuthorized}
-              setIsAuthorized={setIsAuthorized}
+              isRegistered={isRegistered}
+              setIsRegistered={setIsRegistered}
+              setLogin={setLogin}
+              setPassword={setPassword}
             />
           }
         />
