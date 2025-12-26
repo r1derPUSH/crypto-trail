@@ -34,10 +34,15 @@ const avatars = [
 ];
 
 function LoginSection({
+  login,
   isRegistered,
   setIsRegistered,
   setLogin,
   setPassword,
+  registerDate,
+  userAvatar,
+  setRegisterDate,
+  setUserAvatar,
 }: LoginSectionProps) {
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
@@ -45,10 +50,7 @@ function LoginSection({
 
   const [floatingErrors, setFloatingErrors] = useState<FloatingError[]>([]);
 
-  const [userAvatar, setUserAvatar] = useState<string | null>(null);
-  const [registerDate, setRegisterDate] = useState<string | null>(null);
-
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   /* helpers */
 
@@ -99,6 +101,15 @@ function LoginSection({
     setPassword(passwordValue);
 
     const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+
+    const userData = {
+      email: emailValue,
+      avatar: randomAvatar,
+      registerDate: new Date().toLocaleDateString(),
+    };
+
+    localStorage.setItem("user", JSON.stringify(userData));
+    sessionStorage.setItem("isSignedIn", "true");
 
     setUserAvatar(randomAvatar);
     setRegisterDate(new Date().toLocaleDateString());
@@ -164,7 +175,7 @@ function LoginSection({
               className="profile-avatar"
             />
 
-            <h3 className="profile-email">{emailValue}</h3>
+            <h3 className="profile-email">{emailValue || login}</h3>
 
             <div className="profile-info">
               <span>
