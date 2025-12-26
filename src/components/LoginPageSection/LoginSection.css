@@ -156,6 +156,26 @@
   transform: scale(0.96);
 }
 
+/* styles for errors in input validation */
+
+/* error text */
+.error-text {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* input error state */
+.input-error {
+  border-bottom: 2px solid #ff6b6b !important;
+}
+
+/* optional: smooth */
+.login-fields input {
+  transition: border-color 0.3s ease;
+}
+
 /* Animation */
 @keyframes buttonPop {
   0% {

@@ -13,8 +13,15 @@ function LoginSection({
   setLogin,
   setPassword,
 }: LoginSectionProps) {
+  /* states for buttons */
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
+
+  /* useStates for input validation */
+
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [passwordError, setPasswordError] = useState<string | null>(null);
+
   const navigate = useNavigate();
 
   const backToHome = () => {
@@ -29,10 +36,12 @@ function LoginSection({
 
   const handleChangeEmailValue = (e: ChangeEvent<HTMLInputElement>) => {
     setEmailValue(e.target.value);
+    if (emailError) setEmailError(null);
   };
 
   const handleChangePasswordValue = (e: ChangeEvent<HTMLInputElement>) => {
     setPasswordValue(e.target.value);
+    if (passwordError) setPasswordError(null);
   };
 
   /* buttons signIn/signUp */
@@ -42,16 +51,25 @@ function LoginSection({
   const forgotPasswordFunction = () => {};
 
   const signUpFunction = () => {
+    let isValid = true;
+
     if (!EMAIL_REGEX.test(emailValue)) {
-      alert("Invalid email format");
-      return;
+      setEmailError("Invalid email format");
+      isValid = false;
+    } else {
+      setEmailError(null);
     }
+
     if (!PASSWORD_REGEX.test(passwordValue)) {
-      alert(
-        "Password must be at least 8 characters long and contain at least one letter and one number"
+      setPasswordError(
+        "Password must be at least 8 characters and contain a letter and a number"
       );
-      return;
+      isValid = false;
+    } else {
+      setPasswordError(null);
     }
+
+    if (!isValid) return;
 
     setLogin(emailValue);
     setPassword(passwordValue);
@@ -77,14 +95,20 @@ function LoginSection({
             onChange={handleChangeEmailValue}
             type="email"
             placeholder="Email"
+            className={emailError ? "input-error" : ""}
           />
+          {emailError && <span className="error-text">{emailError}</span>}
+
           <div className="line"></div>
+
           <input
             value={passwordValue}
             onChange={handleChangePasswordValue}
             type="password"
             placeholder="Password"
+            className={passwordError ? "input-error" : ""}
           />
+          {passwordError && <span className="error-text">{passwordError}</span>}
         </div>
         <div className="login-buttons">
           {isRegistered ? (
