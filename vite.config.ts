@@ -5,4 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/crypto-trail/",
   plugins: [react()],
+  server: {
+    open: "/#/login-page-section",
+  },
 });

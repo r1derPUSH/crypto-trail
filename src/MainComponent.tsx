@@ -1,24 +1,27 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import MainSection from "./components/MainSection/MainSection";
 import InvestPage from "./components/InvestPageSection/Invest/InvestPage";
-import "./components/MainSection/mainSection.css";
 import ConvertPage from "./components/ConvertPageSection/Convert/ConvertPage";
 import HelpPageSection from "./components/HelpPageSection/Help/HelpPageSection";
 import LoginSection from "./components/LoginPageSection/LoginSection";
 import Overview from "./components/MainSection/Overview/Overview";
 import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSectionPage/InvestToken";
-import ScrollToTop from "./components/CustomComponents/ScrollToTop";
 import ConvertSectionHistory from "./components/ConvertSectionHistory/ConvertSectionHistory";
-import { useState, useEffect } from "react";
+import ScrollToTop from "./components/CustomComponents/ScrollToTop";
+
 import type { TokenInfo } from "./types/tokenInfo";
 
 function MainComponent() {
   const [tokenInfo, setTokenInfo] = useState<TokenInfo | null>(null);
+
   const [isRegistered, setIsRegistered] = useState(false);
   const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
   const [userAvatar, setUserAvatar] = useState<string | null>(null);
   const [registerDate, setRegisterDate] = useState<string | null>(null);
+
+  const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -26,25 +29,39 @@ function MainComponent() {
 
     if (user && isSignedIn === "true") {
       const parsedUser = JSON.parse(user);
-
       setLogin(parsedUser.email);
       setUserAvatar(parsedUser.avatar);
       setRegisterDate(parsedUser.registerDate);
       setIsRegistered(true);
     }
+
+    // ⬅️ КЛЮЧОВИЙ МОМЕНТ
+    setAuthChecked(true);
   }, []);
+
+  // ❗ ПОКИ НЕ ВІДНОВИЛИ AUTH — НІЧОГО НЕ РЕНДЕРИМО
+  if (!authChecked) {
+    return null; // або Loader
+  }
 
   return (
     <HashRouter>
       <ScrollToTop />
+
       <Routes>
-        <Route path="/" element={<MainSection />}></Route>
+        {/* ROOT */}
         <Route
-          path="/invest-page-section"
-          element={<InvestPage setTokenInfo={setTokenInfo} />}
+          path="/"
+          element={
+            isRegistered ? (
+              <MainSection />
+            ) : (
+              <Navigate to="/login-page-section" replace />
+            )
+          }
         />
-        <Route path="/convert-page-section" element={<ConvertPage />} />
-        <Route path="/help-page-section" element={<HelpPageSection />} />
+
+        {/* LOGIN — ЗАВЖДИ ДОСТУПНИЙ */}
         <Route
           path="/login-page-section"
           element={
@@ -53,7 +70,7 @@ function MainComponent() {
               isRegistered={isRegistered}
               setIsRegistered={setIsRegistered}
               setLogin={setLogin}
-              setPassword={setPassword}
+              setPassword={() => {}}
               userAvatar={userAvatar}
               registerDate={registerDate}
               setUserAvatar={setUserAvatar}
@@ -61,15 +78,60 @@ function MainComponent() {
             />
           }
         />
-        <Route path="/wallet-section" element={<Overview />} />
+
+        {/* PROTECTED */}
         <Route
-          path="/invest-unique-token"
-          element={<InvestToken tokenInfo={tokenInfo} />}
+          path="/wallet-section"
+          element={
+            isRegistered ? <Overview /> : <Navigate to="/login-page-section" />
+          }
         />
+
+        <Route
+          path="/invest-page-section"
+          element={
+            isRegistered ? (
+              <InvestPage setTokenInfo={setTokenInfo} />
+            ) : (
+              <Navigate to="/login-page-section" />
+            )
+          }
+        />
+
+        <Route
+          path="/convert-page-section"
+          element={
+            isRegistered ? (
+              <ConvertPage />
+            ) : (
+              <Navigate to="/login-page-section" />
+            )
+          }
+        />
+
         <Route
           path="/convert-section-history"
-          element={<ConvertSectionHistory />}
+          element={
+            isRegistered ? (
+              <ConvertSectionHistory />
+            ) : (
+              <Navigate to="/login-page-section" />
+            )
+          }
         />
+
+        <Route
+          path="/invest-unique-token"
+          element={
+            isRegistered ? (
+              <InvestToken tokenInfo={tokenInfo} />
+            ) : (
+              <Navigate to="/login-page-section" />
+            )
+          }
+        />
+
+        <Route path="/help-page-section" element={<HelpPageSection />} />
       </Routes>
     </HashRouter>
   );

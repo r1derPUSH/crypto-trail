@@ -119,6 +119,7 @@ function LoginSection({
 
   const logOut = () => {
     setIsRegistered(false);
+    localStorage.removeItem("user");
     setEmailValue("");
     setPasswordValue("");
   };
