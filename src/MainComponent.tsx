@@ -13,6 +13,7 @@ import { useState } from "react";
 
 function MainComponent() {
   const [tokenInfo, setTokenInfo] = useState([]);
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
   return (
     <HashRouter>
@@ -25,7 +26,15 @@ function MainComponent() {
         />
         <Route path="/convert-page-section" element={<ConvertPage />} />
         <Route path="/help-page-section" element={<HelpPageSection />} />
-        <Route path="/login-page-section" element={<LoginSection />} />
+        <Route
+          path="/login-page-section"
+          element={
+            <LoginSection
+              isAuthorized={isAuthorized}
+              setIsAuthorized={setIsAuthorized}
+            />
+          }
+        />
         <Route path="/wallet-section" element={<Overview />} />
         <Route
           path="/invest-unique-token"

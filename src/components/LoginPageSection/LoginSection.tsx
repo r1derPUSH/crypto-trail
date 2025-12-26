@@ -1,8 +1,10 @@
 import "./LoginSection.css";
 import passlockImg from "./imgs/image-removebg-preview.png";
 import { useNavigate } from "react-router-dom";
+import type { LoginSectionProps } from "../../types/loginSectionProps";
 
-function LoginSection() {
+const LoginSection = ({ isAuthorized, setIsAuthorized }: LoginSectionProps) => {
+  // логін логіка тут
   const navigate = useNavigate();
 
   const backToHome = () => {
@@ -41,6 +43,6 @@ function LoginSection() {
       </div>
     </div>
   );
-}
+};
 
 export default LoginSection;
