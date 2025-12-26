@@ -78,19 +78,15 @@ function LoginSection({
     let isValid = true;
 
     if (!EMAIL_REGEX.test(emailValue)) {
-      setEmailError("Invalid email format");
+      showFloatingError("Invalid email format");
       isValid = false;
-    } else {
-      setEmailError(null);
     }
 
     if (!PASSWORD_REGEX.test(passwordValue)) {
-      setPasswordError(
+      showFloatingError(
         "Password must be at least 8 characters and contain a letter and a number"
       );
       isValid = false;
-    } else {
-      setPasswordError(null);
     }
 
     if (!isValid) return;
@@ -173,6 +169,16 @@ function LoginSection({
             Back To Wallet
           </button>
         </div>
+      </div>
+      <div className="floating-error-container">
+        {floatingErrors.map((error) => (
+          <div
+            key={error.id}
+            className={`floating-error floating-${error.position}`}
+          >
+            {error.message}
+          </div>
+        ))}
       </div>
     </div>
   );
