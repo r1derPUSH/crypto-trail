@@ -10,9 +10,10 @@ import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSecti
 import ScrollToTop from "./components/CustomComponents/ScrollToTop";
 import ConvertSectionHistory from "./components/ConvertSectionHistory/ConvertSectionHistory";
 import { useState } from "react";
+import type { TokenInfo } from "./types/tokenInfo";
 
 function MainComponent() {
-  const [tokenInfo, setTokenInfo] = useState([]);
+  const [tokenInfo, setTokenInfo] = useState<TokenInfo | null>(null);
   const [isAuthorized, setIsAuthorized] = useState(false);
 
   return (

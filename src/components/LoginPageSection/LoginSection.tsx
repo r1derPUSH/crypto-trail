@@ -3,8 +3,7 @@ import passlockImg from "./imgs/image-removebg-preview.png";
 import { useNavigate } from "react-router-dom";
 import type { LoginSectionProps } from "../../types/loginSectionProps";
 
-const LoginSection = ({ isAuthorized, setIsAuthorized }: LoginSectionProps) => {
-  // логін логіка тут
+function LoginSection({ isAuthorized, setIsAuthorized }) {
   const navigate = useNavigate();
 
   const backToHome = () => {
@@ -28,9 +27,16 @@ const LoginSection = ({ isAuthorized, setIsAuthorized }: LoginSectionProps) => {
           <input type="password" placeholder="Password" />
         </div>
         <div className="login-buttons">
-          <button className="signIn-button">Sign In</button>
-          <button className="recoverPassword-button">Forgot Password?</button>
-          <button className="register-button">Register</button>
+          {isAuthorized ? (
+            <>
+              <button className="signIn-button">Sign In</button>
+              <button className="recoverPassword-button">
+                Forgot Password?
+              </button>
+            </>
+          ) : (
+            <button className="register-button">Register</button>
+          )}
         </div>
         <div className="backToHome-section">
           <button onClick={backToHome} className="backToHome-button">
@@ -43,6 +49,6 @@ const LoginSection = ({ isAuthorized, setIsAuthorized }: LoginSectionProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default LoginSection;
