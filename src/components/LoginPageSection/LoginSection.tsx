@@ -4,9 +4,33 @@ import { useNavigate } from "react-router-dom";
 import type { LoginSectionProps } from "../../types/loginSectionProps";
 import type { ChangeEvent } from "react";
 import { useState } from "react";
-import { EMAIL_REGEX } from "../../constants/regax";
-import { PASSWORD_REGEX } from "../../constants/regax";
+import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regax";
 import type { FloatingError } from "../../types/floatinError";
+
+/* avatars */
+import avatar1 from "../../avatars/avatar1.jpg";
+import avatar2 from "../../avatars/avatar2.jpg";
+import avatar3 from "../../avatars/avatar3.jpg";
+import avatar4 from "../../avatars/avatar4.jpg";
+import avatar5 from "../../avatars/avatar5.jpg";
+import avatar6 from "../../avatars/avatar6.jpg";
+import avatar7 from "../../avatars/avatar7.jpg";
+import avatar8 from "../../avatars/avatar8.jpg";
+import avatar9 from "../../avatars/avatar9.jpg";
+import avatar10 from "../../avatars/avatar10.jpg";
+
+const avatars = [
+  avatar1,
+  avatar2,
+  avatar3,
+  avatar4,
+  avatar5,
+  avatar6,
+  avatar7,
+  avatar8,
+  avatar9,
+  avatar10,
+];
 
 function LoginSection({
   isRegistered,
@@ -14,45 +38,18 @@ function LoginSection({
   setLogin,
   setPassword,
 }: LoginSectionProps) {
-  /* states for buttons */
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
-
-  /* useStates for input validation */
-
-  const [emailError, setEmailError] = useState<string | null>(null);
-  const [passwordError, setPasswordError] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
-
-  /* state for errors */
 
   const [floatingErrors, setFloatingErrors] = useState<FloatingError[]>([]);
 
+  const [userAvatar, setUserAvatar] = useState<string | null>(null);
+  const [registerDate, setRegisterDate] = useState<string | null>(null);
+
   const navigate = useNavigate();
 
-  const backToHome = () => {
-    navigate("/");
-  };
-
-  const backToWallet = () => {
-    navigate("/wallet-section");
-  };
-
-  /* OnChange events */
-
-  const handleChangeEmailValue = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmailValue(e.target.value);
-    if (emailError) setEmailError(null);
-  };
-
-  const handleChangePasswordValue = (e: ChangeEvent<HTMLInputElement>) => {
-    setPasswordValue(e.target.value);
-    if (passwordError) setPasswordError(null);
-  };
-
-  /* buttons signIn/signUp */
-
-  /* helper fn */
+  /* helpers */
 
   const showFloatingError = (message: string) => {
     const positions: FloatingError["position"][] = ["left", "right", "bottom"];
@@ -70,9 +67,15 @@ function LoginSection({
     }, 3000);
   };
 
-  const signInFunction = () => {};
+  /* handlers */
 
-  const forgotPasswordFunction = () => {};
+  const handleChangeEmailValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmailValue(e.target.value);
+  };
+
+  const handleChangePasswordValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setPasswordValue(e.target.value);
+  };
 
   const signUpFunction = () => {
     let isValid = true;
@@ -93,83 +96,103 @@ function LoginSection({
 
     setLogin(emailValue);
     setPassword(passwordValue);
+
+    const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+
+    setUserAvatar(randomAvatar);
+    setRegisterDate(new Date().toLocaleDateString());
+
     setIsRegistered(true);
   };
 
-  /* Log Out FN */
-
   const logOut = () => {
     setIsRegistered(false);
+    setEmailValue("");
+    setPasswordValue("");
   };
 
   return (
     <div className="login-parent-box">
-      <div className="login-container">
-        <div className="login-header">
-          <img className="passlock-img" src={passlockImg} alt="Login" />
-          <span>Login</span>
-        </div>
-        <div className="login-fields">
-          <input
-            value={emailValue}
-            onChange={handleChangeEmailValue}
-            type="email"
-            placeholder="Email"
-            className={emailError ? "input-error" : ""}
-          />
-          {emailError && <span className="error-text">{emailError}</span>}
-
-          <div className="line"></div>
-
-          <div className="password-input-wrapper">
-            <input
-              value={passwordValue}
-              onChange={handleChangePasswordValue}
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              className={passwordError ? "input-error" : ""}
-            />
-
-            <button
-              type="button"
-              className="password-eye-btn"
-              onClick={() => setShowPassword((prev) => !prev)}
-            >
-              {showPassword ? "🙈" : "👁️"}
-            </button>
+      {!isRegistered ? (
+        <div className="login-container">
+          <div className="login-header">
+            <img className="passlock-img" src={passlockImg} alt="Login" />
+            <span>Login</span>
           </div>
 
-          {passwordError && <span className="error-text">{passwordError}</span>}
-        </div>
+          <div className="login-fields">
+            <input
+              value={emailValue}
+              onChange={handleChangeEmailValue}
+              type="email"
+              placeholder="Email"
+            />
 
-        <div className="login-buttons">
-          {isRegistered ? (
-            <>
-              <button onClick={signInFunction} className="signIn-button">
-                Sign In
-              </button>
+            <div className="line"></div>
+
+            <div className="password-input-wrapper">
+              <input
+                value={passwordValue}
+                onChange={handleChangePasswordValue}
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+              />
+
               <button
-                onClick={forgotPasswordFunction}
-                className="recoverPassword-button"
+                type="button"
+                className="password-eye-btn"
+                onClick={() => setShowPassword((prev) => !prev)}
               >
-                Forgot Password?
+                {showPassword ? "🙈" : "👁️"}
               </button>
-            </>
-          ) : (
+            </div>
+          </div>
+
+          <div className="login-buttons">
             <button onClick={signUpFunction} className="register-button">
               Register
             </button>
-          )}
+          </div>
+
+          <div className="backToHome-section">
+            <button onClick={() => navigate("/")} className="backToHome-button">
+              Back To Home
+            </button>
+            <button
+              onClick={() => navigate("/wallet-section")}
+              className="backToWallet-button"
+            >
+              Back To Wallet
+            </button>
+          </div>
         </div>
-        <div className="backToHome-section">
-          <button onClick={backToHome} className="backToHome-button">
-            Back To Home
-          </button>
-          <button onClick={backToWallet} className="backToWallet-button">
-            Back To Wallet
-          </button>
+      ) : (
+        <div className="flex-container-of-profile-box">
+          <div className="profile-box">
+            <img
+              src={userAvatar ?? avatars[0]}
+              alt="User avatar"
+              className="profile-avatar"
+            />
+
+            <h3 className="profile-email">{emailValue}</h3>
+
+            <div className="profile-info">
+              <span>
+                <strong>Registered:</strong> {registerDate}
+              </span>
+              <span>
+                <strong>Status:</strong> Active
+              </span>
+            </div>
+
+            <button onClick={logOut} className="logout-button">
+              Log out
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+
       <div className="floating-error-container">
         {floatingErrors.map((error) => (
           <div
