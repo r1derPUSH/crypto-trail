@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
+/* Dark Theme */
+
 body.dark-theme {
   font-family: "Ubuntu", sans-serif;
   background: radial-gradient(
@@ -17,14 +19,16 @@ body.dark-theme {
   height: 100%;
 }
 
+/* Light Theme  */
+
 body.light-theme {
   font-family: "Ubuntu", sans-serif;
 
   background: radial-gradient(
     circle at 30% 20%,
-    #ffffff 0%,
-    #f1f4ff 40%,
-    #e4e9ff 100%
+    #4b63c9 0%,
+    /* ↑ світліше */ #36428a 40%,
+    /* ↑ світліше */ #232a5f 100% /* ↑ світліше */
   );
 
   background-size: cover;
@@ -35,7 +39,7 @@ body.light-theme {
   padding: 0;
   margin: 0;
   height: 100%;
-  color: #1c1f4a;
+  color: #ffffff;
 }
 
 /* Chrome, Safari, Edge */
