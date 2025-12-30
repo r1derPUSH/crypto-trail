@@ -133,7 +133,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80;
+  /* width: 60vw; */
   margin-left: 33rem;
 }
 
@@ -182,6 +182,7 @@
   justify-content: center;
   gap: 0.4rem;
   height: 6vh;
+  margin-right: 0;
 }
 
 .history-btn:hover {
@@ -246,5 +247,10 @@
 @media (max-width: 500px) {
   .convert-header-section span {
     font-size: 2.3rem;
+  }
+
+  .history-btn {
+    /* width: 100px; */
+    /* margin-right: 2rem; */
   }
 }
