@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import "./Overview.css";
+import Header from "../Home/Header/Header";
 
 function Overview() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function Overview() {
 
   return (
     <>
+      <Header />
       <div className="wallet-container">
         <div className="wallet-header">
           <span>Balance</span>
