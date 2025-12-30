@@ -186,7 +186,6 @@ function ConvertPage() {
             className="history-btn"
             onClick={() => navigate("/convert-section-history")}
           >
-            <span className="icon">📜</span>
             History
           </button>
         </div>
