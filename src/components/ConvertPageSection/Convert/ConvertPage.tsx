@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Footer from "../../MainSection/Footer/Footer";
 import { useCoins } from "../../../hooks/useCoins";
 import { addSwapToHistory } from "../../../functions/swapHistory";
+import Header from "../../MainSection/Home/Header/Header";
 
 const IMG_DEFAULT =
   "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661";
@@ -84,120 +85,123 @@ function ConvertPage() {
   };
 
   return (
-    <div className="convert-page">
-      <div className="flex-container-convert-page">
-        <div className="convert-header-section">
-          <img src={swapImg} alt="Swap" />
-          <span className="main-convert-text">Crypto Trail</span>
-          <span className="sub-convert-text">Convert</span>
+    <>
+      <Header />
+      <div className="convert-page">
+        <div className="flex-container-convert-page">
+          <div className="convert-header-section">
+            <img src={swapImg} alt="Swap" />
+            <span className="main-convert-text">Crypto Trail</span>
+            <span className="sub-convert-text">Convert</span>
+          </div>
+          <div className="convert-section">
+            {order ? (
+              <>
+                <SwapFrom
+                  setFromPrice={setFromPrice}
+                  coins={coins}
+                  inputValue={inputValue}
+                  setInputValue={setInputValue}
+                  setInputValueTo={setInputValueTo}
+                  fromPrice={fromPrice}
+                  fromToken={fromToken}
+                  setFromToken={setFromToken}
+                  fromImage={fromImage}
+                  setFromImage={setFromImage}
+                  toPrice={toPrice}
+                />
+
+                <div
+                  className="swap-btn"
+                  onClick={() => {
+                    setOrder((prev) => !prev);
+                  }}
+                >
+                  ⇅
+                </div>
+
+                <SwapTo
+                  setToPrice={setToPrice}
+                  coins={coins}
+                  inputValueTo={inputValueTo}
+                  setInputValueTo={setInputValueTo}
+                  setInputValue={setInputValue}
+                  toPrice={toPrice}
+                  toToken={toToken}
+                  setToToken={setToToken}
+                  toImage={toImage}
+                  setToImage={setToImage}
+                  fromPrice={fromPrice}
+                />
+              </>
+            ) : (
+              <>
+                <SwapTo
+                  setToPrice={setToPrice}
+                  coins={coins}
+                  inputValueTo={inputValueTo}
+                  setInputValueTo={setInputValueTo}
+                  setInputValue={setInputValue}
+                  toPrice={toPrice}
+                  toToken={toToken}
+                  setToToken={setToToken}
+                  toImage={toImage}
+                  setToImage={setToImage}
+                  fromPrice={fromPrice}
+                />
+
+                <div
+                  className="swap-btn"
+                  onClick={() => {
+                    setOrder((prev) => !prev);
+                  }}
+                >
+                  ⇅
+                </div>
+
+                <SwapFrom
+                  setFromPrice={setFromPrice}
+                  coins={coins}
+                  inputValue={inputValue}
+                  setInputValue={setInputValue}
+                  setInputValueTo={setInputValueTo}
+                  fromPrice={fromPrice}
+                  fromToken={fromToken}
+                  setFromToken={setFromToken}
+                  fromImage={fromImage}
+                  setFromImage={setFromImage}
+                  toPrice={toPrice}
+                />
+              </>
+            )}
+          </div>
         </div>
-        <div className="convert-section">
-          {order ? (
-            <>
-              <SwapFrom
-                setFromPrice={setFromPrice}
-                coins={coins}
-                inputValue={inputValue}
-                setInputValue={setInputValue}
-                setInputValueTo={setInputValueTo}
-                fromPrice={fromPrice}
-                fromToken={fromToken}
-                setFromToken={setFromToken}
-                fromImage={fromImage}
-                setFromImage={setFromImage}
-                toPrice={toPrice}
-              />
-
-              <div
-                className="swap-btn"
-                onClick={() => {
-                  setOrder((prev) => !prev);
-                }}
-              >
-                ⇅
-              </div>
-
-              <SwapTo
-                setToPrice={setToPrice}
-                coins={coins}
-                inputValueTo={inputValueTo}
-                setInputValueTo={setInputValueTo}
-                setInputValue={setInputValue}
-                toPrice={toPrice}
-                toToken={toToken}
-                setToToken={setToToken}
-                toImage={toImage}
-                setToImage={setToImage}
-                fromPrice={fromPrice}
-              />
-            </>
-          ) : (
-            <>
-              <SwapTo
-                setToPrice={setToPrice}
-                coins={coins}
-                inputValueTo={inputValueTo}
-                setInputValueTo={setInputValueTo}
-                setInputValue={setInputValue}
-                toPrice={toPrice}
-                toToken={toToken}
-                setToToken={setToToken}
-                toImage={toImage}
-                setToImage={setToImage}
-                fromPrice={fromPrice}
-              />
-
-              <div
-                className="swap-btn"
-                onClick={() => {
-                  setOrder((prev) => !prev);
-                }}
-              >
-                ⇅
-              </div>
-
-              <SwapFrom
-                setFromPrice={setFromPrice}
-                coins={coins}
-                inputValue={inputValue}
-                setInputValue={setInputValue}
-                setInputValueTo={setInputValueTo}
-                fromPrice={fromPrice}
-                fromToken={fromToken}
-                setFromToken={setFromToken}
-                fromImage={fromImage}
-                setFromImage={setFromImage}
-                toPrice={toPrice}
-              />
-            </>
-          )}
+        <div className="flex-convert-and-history-buttons-container">
+          <button onClick={handleSwap} className={`convert-btn ${state}`}>
+            {state === "idle" && "Convert"}
+            {state === "loading" && <span className="loader"></span>}
+            {state === "success" && <span className="success-check">✔</span>}
+          </button>
+          <button
+            className="history-btn"
+            onClick={() => navigate("/convert-section-history")}
+          >
+            <span className="icon">📜</span>
+            History
+          </button>
         </div>
-      </div>
-      <div className="flex-convert-and-history-buttons-container">
-        <button onClick={handleSwap} className={`convert-btn ${state}`}>
-          {state === "idle" && "Convert"}
-          {state === "loading" && <span className="loader"></span>}
-          {state === "success" && <span className="success-check">✔</span>}
+        <span className="convert-finalText">
+          Instant convertion with live rates
+        </span>
+        <button className="back-home-btn" onClick={handleNavigateHome}>
+          Back to Home
         </button>
-        <button
-          className="history-btn"
-          onClick={() => navigate("/convert-section-history")}
-        >
-          <span className="icon">📜</span>
-          History
+        <button className="back-home-btn" onClick={handleNavigateWallet}>
+          Back to Wallet
         </button>
+        <Footer />
       </div>
-      <span className="convert-finalText">
-        Instant convertion with live rates
-      </span>
-      <button className="back-home-btn" onClick={handleNavigateHome}>
-        Back to Home
-      </button>
-      <button className="back-home-btn" onClick={handleNavigateWallet}>
-        Back to Wallet
-      </button>
-      <Footer />
-    </div>
+    </>
   );
 }
 

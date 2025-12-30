@@ -2,6 +2,7 @@ import "./InvestToken.css";
 import Footer from "../../MainSection/Footer/Footer";
 import { useState, useRef } from "react";
 import type { TokenInfo } from "../../../types/tokenInfo";
+import Header from "../../MainSection/Home/Header/Header";
 
 function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
   const [tokenValue, setTokenValue] = useState("");
@@ -46,6 +47,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
 
   return (
     <div>
+      <Header />
       <div className="token-invest-container">
         <div className="header">
           <div className="first-flex-header">

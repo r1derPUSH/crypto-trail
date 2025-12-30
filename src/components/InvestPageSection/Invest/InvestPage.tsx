@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Footer from "../../MainSection/Footer/Footer";
 import type { Data } from "../../../types/data";
+import Header from "../../MainSection/Home/Header/Header";
 
 function InvestPage({ setTokenInfo }: { setTokenInfo: any }) {
   const [data, setData] = useState<Data[]>([]);
@@ -47,54 +48,59 @@ function InvestPage({ setTokenInfo }: { setTokenInfo: any }) {
   const filtered = data.filter((item) => item.symbol.includes(search));
 
   return (
-    <div className="invest-body">
-      <div className="invest-header">
-        <img src={crystalImg} alt="Diamond" />
-        <span className="main-invest-text">Crypto Trail</span>
-        <span className="sub-invest-text">Invest</span>
-      </div>
-
-      <div className="invest-inputs">
-        <input
-          type="text"
-          className="search-coin-input"
-          placeholder="Enter coin"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button className="search-invest-btn">Search</button>
-      </div>
-
-      <div className="invest-coins-container">
-        <div className="coins-holder">
-          {filtered.map((item) => (
-            <CoinHolder
-              setTokenInfo={setTokenInfo}
-              shortName={item.symbol}
-              name={item.name}
-              priceChange24H={item.price_change_24h}
-              price_change_24H_in_percentage={item.price_change_percentage_24h}
-              ath={item.ath}
-              ath_today={item.high_24h}
-              atl_today={item.low_24h}
-              market_cap={item.market_cap}
-              price={item.current_price}
-              image={item.image}
-              key={item.id}
-            />
-          ))}
+    <>
+      <Header />
+      <div className="invest-body">
+        <div className="invest-header">
+          <img src={crystalImg} alt="Diamond" />
+          <span className="main-invest-text">Crypto Trail</span>
+          <span className="sub-invest-text">Invest</span>
         </div>
-      </div>
 
-      <div className="back-buttons">
-        <button className="back-home-btn" onClick={handleNavigateHome}>
-          Back to Home
-        </button>
-        <button onClick={hanldeNavigateWallet} className="back-portfolio-btn">
-          Back to Portfolio
-        </button>
+        <div className="invest-inputs">
+          <input
+            type="text"
+            className="search-coin-input"
+            placeholder="Enter coin"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button className="search-invest-btn">Search</button>
+        </div>
+
+        <div className="invest-coins-container">
+          <div className="coins-holder">
+            {filtered.map((item) => (
+              <CoinHolder
+                setTokenInfo={setTokenInfo}
+                shortName={item.symbol}
+                name={item.name}
+                priceChange24H={item.price_change_24h}
+                price_change_24H_in_percentage={
+                  item.price_change_percentage_24h
+                }
+                ath={item.ath}
+                ath_today={item.high_24h}
+                atl_today={item.low_24h}
+                market_cap={item.market_cap}
+                price={item.current_price}
+                image={item.image}
+                key={item.id}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="back-buttons">
+          <button className="back-home-btn" onClick={handleNavigateHome}>
+            Back to Home
+          </button>
+          <button onClick={hanldeNavigateWallet} className="back-portfolio-btn">
+            Back to Portfolio
+          </button>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
 
