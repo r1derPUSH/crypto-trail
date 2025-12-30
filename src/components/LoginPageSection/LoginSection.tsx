@@ -1,6 +1,5 @@
 import "./LoginSection.css";
 import passlockImg from "./imgs/image-removebg-preview.png";
-import { useNavigate } from "react-router-dom";
 import type { LoginSectionProps } from "../../types/loginSectionProps";
 import type { ChangeEvent } from "react";
 import { useState } from "react";

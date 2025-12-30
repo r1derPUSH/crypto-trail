@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { createChart, ColorType } from "lightweight-charts";
+import { createChart } from "lightweight-charts";
 
 // таймфрейми
 const TIMEFRAMES = [

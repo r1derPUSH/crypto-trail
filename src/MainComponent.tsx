@@ -123,7 +123,7 @@ function MainComponent() {
         <Route
           path="/invest-unique-token"
           element={
-            isRegistered ? (
+            isRegistered && tokenInfo ? (
               <InvestToken tokenInfo={tokenInfo} />
             ) : (
               <Navigate to="/login-page-section" />

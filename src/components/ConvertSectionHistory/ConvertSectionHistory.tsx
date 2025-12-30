@@ -30,10 +30,10 @@ function ConvertSectionHistory() {
           from={item.from}
           to={item.to}
           time={item.time}
-          inputValue={item.inputValue}
-          inputValueTo={item.inputValueTo}
-          fromImage={item.fromImage}
-          toImage={item.toImage}
+          inputValue={String(item.inputValue ?? "0")}
+          inputValueTo={String(item.inputValueTo ?? "0")}
+          fromImage={item.fromImage ?? ""}
+          toImage={item.toImage ?? ""}
           onRemove={handleRemove}
         />
       ))}

@@ -43,7 +43,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
   const [targetPriceInPercents, setTargetPriceInPercents] = useState("");
   const [totalValue, setTotalValue] = useState(0);
   const [profit, setProfit] = useState(0);
-  const [profitInPercents, setProfitInPercents] = useState(0);
 
   return (
     <div>
@@ -155,13 +154,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
 
                           const newProfit = newTotalValue - Number(USDValue);
                           setProfit(newProfit);
-
-                          const newProfitInPercentage =
-                            (newProfit / Number(USDValue)) * 100;
-
-                          setProfitInPercents(
-                            Number(newProfitInPercentage.toFixed(2))
-                          );
                         }}
                       >
                         x0.7 (-30%)
@@ -181,7 +173,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
                           setTargetPriceInPercents(percent);
                           setTotalValue(Number(USDValue));
                           setProfit(0);
-                          setProfitInPercents(0);
                         }}
                       >
                         x1
@@ -207,13 +198,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
 
                           const newProfit = newTotalValue - Number(USDValue);
                           setProfit(newProfit);
-
-                          const newProfitInPercentage =
-                            (newProfit / Number(USDValue)) * 100;
-
-                          setProfitInPercents(
-                            Number(newProfitInPercentage.toFixed(2))
-                          );
                         }}
                       >
                         x1.05 (5%)
@@ -237,13 +221,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
 
                           const newProfit = newTotalValue - Number(USDValue);
                           setProfit(newProfit);
-
-                          const newProfitInPercentage =
-                            (newProfit / Number(USDValue)) * 100;
-
-                          setProfitInPercents(
-                            Number(newProfitInPercentage.toFixed(2))
-                          );
                         }}
                       >
                         x1.2 (20%)
@@ -271,13 +248,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
 
                           const newProfit = newTotalValue - Number(USDValue);
                           setProfit(newProfit);
-
-                          const newProfitInPercentage =
-                            (newProfit / Number(USDValue)) * 100;
-
-                          setProfitInPercents(
-                            Number(newProfitInPercentage.toFixed(2))
-                          );
                         }}
                       >
                         x1.5 (50%)
@@ -301,13 +271,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
 
                           const newProfit = newTotalValue - Number(USDValue);
                           setProfit(newProfit);
-
-                          const newProfitInPercentage =
-                            (newProfit / Number(USDValue)) * 100;
-
-                          setProfitInPercents(
-                            Number(newProfitInPercentage.toFixed(2))
-                          );
                         }}
                       >
                         x2 (100%)
@@ -333,13 +296,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
 
                           const newProfit = newTotalValue - Number(USDValue);
                           setProfit(newProfit);
-
-                          const newProfitInPercentage =
-                            (newProfit / Number(USDValue)) * 100;
-
-                          setProfitInPercents(
-                            Number(newProfitInPercentage.toFixed(2))
-                          );
                         }}
                       >
                         x3 (150%)
@@ -363,13 +319,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
 
                           const newProfit = newTotalValue - Number(USDValue);
                           setProfit(newProfit);
-
-                          const newProfitInPercentage =
-                            (newProfit / Number(USDValue)) * 100;
-
-                          setProfitInPercents(
-                            Number(newProfitInPercentage.toFixed(2))
-                          );
                         }}
                       >
                         x10 (500%)
@@ -411,13 +360,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
                       // PROFIT
                       const newProfit = newTotalValue - Number(USDValue);
                       setProfit(newProfit);
-
-                      // PROFIT %
-                      const newProfitInPercentage =
-                        (newProfit / Number(USDValue)) * 100;
-                      setProfitInPercents(
-                        Number(newProfitInPercentage.toFixed(2))
-                      );
                     }}
                   />
                 </div>
