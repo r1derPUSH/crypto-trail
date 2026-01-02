@@ -531,6 +531,16 @@
 
 /* fix inputs */
 
+.login-fields input {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+
+  color: #eafcff;
+  -webkit-text-fill-color: #eafcff;
+  caret-color: #7cffc4;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
