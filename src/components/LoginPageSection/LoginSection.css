@@ -1,3 +1,15 @@
+/* fix white fields */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #eafcff !important;
+  transition: background-color 9999s ease-in-out 0s;
+  box-shadow: 0 0 0px 1000px rgba(15, 20, 60, 0.55) inset !important;
+  caret-color: #7cffc4;
+}
+
 /* PARENTS */
 
 .login-container {
