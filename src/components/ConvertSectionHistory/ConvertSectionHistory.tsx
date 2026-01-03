@@ -4,7 +4,7 @@ import type { SwapHistoryItem } from "../../types/swapHistory";
 import {
   getSwapHistory,
   removeSwapFromHistory,
-} from "../../functions/swapHistory";
+} from "../../functions/swapHistoryFn";
 import HistoryItem from "./HistoryOfSwapsItem/HistoryItem";
 import { useNavigate } from "react-router-dom";
 
