@@ -161,3 +161,11 @@
   transform: scale(0.97);
   box-shadow: 0 0 10px rgba(42, 255, 214, 0.3);
 }
+
+@media (max-width: 600px) {
+  .wallet-buttons button {
+    width: 20vw;
+    height: 5vh;
+    font-size: 0.8rem;
+  }
+}
