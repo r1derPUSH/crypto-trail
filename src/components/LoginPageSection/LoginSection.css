@@ -1,3 +1,7 @@
+input {
+  background-color: transparent !important;
+}
+
 /* PARENTS */
 
 .login-container {
@@ -30,6 +34,7 @@
 /* Login-Inputs */
 
 .login-fields {
+  backdrop-filter: blur(18px);
   display: flex;
   justify-content: space-around;
   align-items: left;
@@ -41,6 +46,7 @@
 }
 
 .login-fields input {
+  isolation: isolate;
   font-family: "Ubuntu", sans-serif;
   height: 9vh;
   margin-left: 3rem;
@@ -531,26 +537,26 @@
 
 /* fix inputs */
 
-.login-fields input {
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-
-  color: #eafcff;
-  -webkit-text-fill-color: #eafcff;
-  caret-color: #7cffc4;
+/* === FINAL STABLE INPUT COLOR === */
+.login-fields {
+  background-color: #2c3056;
+  overflow: hidden;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+.login-fields input {
+  background-color: #2c3056 !important;
+  box-shadow: none !important;
+}
+
+.login-fields input:-webkit-autofill,
+.login-fields input:-webkit-autofill:hover,
+.login-fields input:-webkit-autofill:focus,
+.login-fields input:-webkit-autofill:active {
   -webkit-text-fill-color: #eafcff !important;
   caret-color: #7cffc4;
 
-  /* колір = login-fields */
-  box-shadow: 0 0 0px 1000px rgba(15, 20, 60, 0.55) inset !important;
+  /* 🔥 ЗАЛИВАЄМО ТИМ Ж КОЛЬОРОМ */
+  box-shadow: 0 0 0 1000px #2c3056 inset !important;
 
-  background-color: transparent !important;
   transition: background-color 9999s ease-in-out 0s;
 }
