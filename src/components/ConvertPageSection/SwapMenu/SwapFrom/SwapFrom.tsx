@@ -19,6 +19,7 @@ function SwapFrom({
   setFromPrice,
   fromPrice,
   toPrice,
+  setActiveSide,
 }: {
   coins: Coin[];
   inputValue?: string;
@@ -30,6 +31,7 @@ function SwapFrom({
   setFromImage: (v: string) => void;
   fromPrice: number;
   toPrice: number;
+  setActiveSide: any;
   setFromPrice: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,18 +55,8 @@ function SwapFrom({
   }, [isOpen]);
 
   const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-
-    setInputValue(value);
-
-    if (!value || !fromPrice || !toPrice) {
-      setInputValueTo("");
-      return;
-    }
-
-    const result = ((Number(value) * fromPrice) / toPrice).toFixed(2);
-    setInputValue(value);
-    setInputValueTo(result);
+    setActiveSide("from");
+    setInputValue(e.target.value);
   };
 
   const handleOpen = () => {

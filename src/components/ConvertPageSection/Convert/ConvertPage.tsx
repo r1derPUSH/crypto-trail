@@ -15,12 +15,14 @@ const IMG_DEFAULT =
 function ConvertPage() {
   const { coins } = useCoins();
   const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState<string>();
-  const [inputValueTo, setInputValueTo] = useState<string>();
+  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValueTo, setInputValueTo] = useState<string>("");
   const [order, setOrder] = useState(true);
 
   const [timeOfSwap, setTimeOfSwap] = useState("");
   const [isSwapped, setIsSwapped] = useState(false);
+
+  const [activeSide, setActiveSide] = useState<"from" | "to">("from");
 
   // # 1
 
@@ -33,6 +35,30 @@ function ConvertPage() {
   const [toPrice, setToPrice] = useState<number>(1);
   const [toToken, setToToken] = useState("USDT");
   const [toImage, setToImage] = useState(IMG_DEFAULT);
+
+  useEffect(() => {
+    if (!fromPrice || !toPrice) return;
+
+    if (activeSide === "from") {
+      if (inputValue === "") {
+        setInputValueTo("");
+        return;
+      }
+
+      const result = ((Number(inputValue) * fromPrice) / toPrice).toFixed(2);
+      setInputValueTo(result);
+    }
+
+    if (activeSide === "to") {
+      if (inputValueTo === "") {
+        setInputValue("");
+        return;
+      }
+
+      const result = ((Number(inputValueTo) * toPrice) / fromPrice).toFixed(2);
+      setInputValue(result);
+    }
+  }, [inputValue, inputValueTo, fromPrice, toPrice, activeSide]);
 
   function getCurrentDateTime() {
     const now = new Date();
@@ -109,12 +135,14 @@ function ConvertPage() {
                   fromImage={fromImage}
                   setFromImage={setFromImage}
                   toPrice={toPrice}
+                  setActiveSide={setActiveSide}
                 />
 
                 <div
                   className="swap-btn"
                   onClick={() => {
                     setOrder((prev) => !prev);
+                    setActiveSide((prev) => (prev === "from" ? "to" : "from"));
                   }}
                 >
                   ⇅
@@ -132,6 +160,7 @@ function ConvertPage() {
                   toImage={toImage}
                   setToImage={setToImage}
                   fromPrice={fromPrice}
+                  setActiveSide={setActiveSide}
                 />
               </>
             ) : (
@@ -148,12 +177,14 @@ function ConvertPage() {
                   toImage={toImage}
                   setToImage={setToImage}
                   fromPrice={fromPrice}
+                  setActiveSide={setActiveSide}
                 />
 
                 <div
                   className="swap-btn"
                   onClick={() => {
                     setOrder((prev) => !prev);
+                    setActiveSide((prev) => (prev === "from" ? "to" : "from"));
                   }}
                 >
                   ⇅
@@ -171,6 +202,7 @@ function ConvertPage() {
                   fromImage={fromImage}
                   setFromImage={setFromImage}
                   toPrice={toPrice}
+                  setActiveSide={setActiveSide}
                 />
               </>
             )}
