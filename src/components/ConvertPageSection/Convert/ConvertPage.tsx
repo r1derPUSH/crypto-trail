@@ -15,8 +15,8 @@ const IMG_DEFAULT =
 function ConvertPage() {
   const { coins } = useCoins();
   const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState<string>("");
-  const [inputValueTo, setInputValueTo] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>();
+  const [inputValueTo, setInputValueTo] = useState<string>();
   const [order, setOrder] = useState(true);
 
   const [timeOfSwap, setTimeOfSwap] = useState("");
