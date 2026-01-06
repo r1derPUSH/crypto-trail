@@ -1,9 +1,11 @@
+import "./RecentInvestComponent.css";
+
 function RecentInvestComponent({ invests }: any) {
   console.log(123);
   return (
-    <>
+    <div className="recent-invests-container">
       {invests.map((item: any) => (
-        <div key={item.id}>
+        <div key={item.id} className="recent-invest-card">
           <div className="name">
             <span>Name:</span>
             <span>{item.name}</span>
@@ -30,13 +32,13 @@ function RecentInvestComponent({ invests }: any) {
             <span> {item.targetPrice}$ </span>
             <span> +{item.targetPriceInPercents}% </span>
             <span> Target Profit: </span>
-            <span> +{item.targetProfit}$ </span>
+            <span> +{item.targetProfit.toFixed(2)}$ </span>
             {/* here i want to add circle with progress of profit */}
             <span>8% / 100%</span>
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 

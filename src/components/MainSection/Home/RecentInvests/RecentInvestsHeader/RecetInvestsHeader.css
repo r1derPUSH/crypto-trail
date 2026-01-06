@@ -3,6 +3,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
+  padding-top: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(60, 74, 140, 0.45) 0%,
+    rgba(45, 57, 110, 0.55) 100%
+  );
 }
 
 .main-span-recent-invests {
@@ -10,9 +18,11 @@
   font-size: 1rem;
   color: #fff;
   font-weight: 100;
+  margin-left: 3rem;
 }
 
 .small-span-recent-invests {
+  margin-right: 3rem;
   cursor: pointer;
   color: #ffffffa3;
   border: none;
