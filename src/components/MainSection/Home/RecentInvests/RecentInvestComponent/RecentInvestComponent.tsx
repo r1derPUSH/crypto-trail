@@ -1,18 +1,9 @@
-// import type { Invest } from "../../../../../types/invests";
-
-// ["name"]: tokentName,
-//       ["buyPrice"]: currentPrice,
-//       ["targetPrice"]: targetPrice,
-//       ["targetPriceInPercents"]: targetPriceInPercents,
-//       ["targetProfit"]: profit,
-//       ["totalValue"]: totalValue,
-
 function RecentInvestComponent({ invests }: any) {
   console.log(123);
   return (
     <>
       {invests.map((item: any) => (
-        <div>
+        <div key={item.id}>
           <div className="name">
             <span>Name:</span>
             <span>{item.name}</span>
