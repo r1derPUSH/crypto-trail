@@ -44,6 +44,17 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
   const [totalValue, setTotalValue] = useState(0);
   const [profit, setProfit] = useState(0);
 
+  const investCurrentToken = () => {
+    tokenInfo.setInvests({
+      ["name"]: tokentName,
+      ["buyPrice"]: currentPrice,
+      ["targetPrice"]: targetPrice,
+      ["targetPriceInPercents"]: targetPriceInPercents,
+      ["targetProfit"]: profit,
+      ["totalValue"]: totalValue,
+    });
+  };
+
   return (
     <div>
       <Header />
@@ -389,7 +400,7 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
                     </div>
 
                     {/* invest button */}
-                    <button>Invest</button>
+                    <button onClick={investCurrentToken}>Invest</button>
                   </div>
                 </div>
               </div>

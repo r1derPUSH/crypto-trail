@@ -3,13 +3,13 @@ import IncomeSection from "./IncomeSection/IncomeSection";
 import InvestButtons from "./InvestFunctional/InvestButtons";
 import RecentInvests from "./RecentInvests/RecentInvests";
 
-function Home() {
+function Home({ invests }: any) {
   return (
     <>
       <Header />
       <IncomeSection />
       <InvestButtons />
-      <RecentInvests />
+      <RecentInvests invests={invests} />
     </>
   );
 }
