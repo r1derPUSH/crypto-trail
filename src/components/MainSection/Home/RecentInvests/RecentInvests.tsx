@@ -1,3 +1,4 @@
+import RecentInvestComponent from "./RecentInvestComponent/RecentInvestComponent";
 import "./RecentInvests.css";
 import RecentInvestsHeader from "./RecentInvestsHeader/RecentInvestsHeader";
 
