@@ -1,7 +1,10 @@
 import "./RecentInvestComponent.css";
 
-function RecentInvestComponent({ invests }: any) {
-  console.log(123);
+function RecentInvestComponent({ invests, setInvests }: any) {
+  const closeCase = (id: number) => {
+    setInvests((prev: any[]) => prev.filter((item) => item.id !== id));
+  };
+
   return (
     <div className="recent-invests-container">
       {invests.map((item: any) => (
@@ -36,6 +39,7 @@ function RecentInvestComponent({ invests }: any) {
             {/* here i want to add circle with progress of profit */}
             <span>8% / 100%</span>
           </div>
+          <button onClick={() => closeCase(item.id)}> Close Case </button>
         </div>
       ))}
     </div>
