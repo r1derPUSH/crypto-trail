@@ -1,0 +1,72 @@
+/* container */
+.recent-invests-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10rem;
+}
+
+.recent-invest-card {
+  width: 90%;
+  background: linear-gradient(145deg, #2b355f, #232c4e);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  color: #eaf0ff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* rows */
+.recent-invest-card > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* labels */
+.recent-invest-card span:first-child {
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+/* name */
+.name span:last-child {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* values */
+.start-value span:nth-child(2),
+.current-value span:nth-child(2),
+.targetProfit span:nth-child(2) {
+  font-weight: 600;
+}
+
+/* profit */
+.current-profit-loss span:nth-child(2),
+.current-profit-loss span:nth-child(3) {
+  color: #45f2a7;
+  font-weight: 600;
+}
+
+/* negative profit (на майбутнє) */
+.negative {
+  color: #ff6b6b !important;
+}
+
+/* target */
+.targetProfit {
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* progress placeholder */
+.targetProfit span:last-child {
+  margin-left: auto;
+  font-size: 12px;
+  opacity: 0.7;
+}

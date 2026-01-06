@@ -9,4 +9,5 @@ export type TokenInfo = {
   market_cap: number;
   priceChange24H: number;
   price_change_24H_in_percentage: number;
+  setInvests: any;
 };

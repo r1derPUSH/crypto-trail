@@ -2,10 +2,10 @@ import "./mainSection.css";
 import Home from "./Home/Home";
 import Footer from "./Footer/Footer";
 
-function MainSection() {
+function MainSection({ invests }: any) {
   return (
     <>
-      <Home />
+      <Home invests={invests} />
       <Footer />
     </>
   );

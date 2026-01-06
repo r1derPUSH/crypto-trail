@@ -20,6 +20,7 @@ function MainComponent() {
   const [login, setLogin] = useState("");
   const [userAvatar, setUserAvatar] = useState<string | null>(null);
   const [registerDate, setRegisterDate] = useState<string | null>(null);
+  const [invests, setInvests] = useState([]);
 
   const [authChecked, setAuthChecked] = useState(false);
 
@@ -35,13 +36,11 @@ function MainComponent() {
       setIsRegistered(true);
     }
 
-    // ⬅️ КЛЮЧОВИЙ МОМЕНТ
     setAuthChecked(true);
   }, []);
 
-  // ❗ ПОКИ НЕ ВІДНОВИЛИ AUTH — НІЧОГО НЕ РЕНДЕРИМО
   if (!authChecked) {
-    return null; // або Loader
+    return null;
   }
 
   return (
@@ -49,19 +48,17 @@ function MainComponent() {
       <ScrollToTop />
 
       <Routes>
-        {/* ROOT */}
         <Route
           path="/"
           element={
             isRegistered ? (
-              <MainSection />
+              <MainSection invests={invests} />
             ) : (
               <Navigate to="/login-page-section" replace />
             )
           }
         />
 
-        {/* LOGIN — ЗАВЖДИ ДОСТУПНИЙ */}
         <Route
           path="/login-page-section"
           element={
@@ -79,7 +76,6 @@ function MainComponent() {
           }
         />
 
-        {/* PROTECTED */}
         <Route
           path="/wallet-section"
           element={
@@ -124,7 +120,7 @@ function MainComponent() {
           path="/invest-unique-token"
           element={
             isRegistered && tokenInfo ? (
-              <InvestToken tokenInfo={tokenInfo} />
+              <InvestToken tokenInfo={tokenInfo} setInvests={setInvests} />
             ) : (
               <Navigate to="/login-page-section" />
             )
