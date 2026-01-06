@@ -35,13 +35,11 @@ function MainComponent() {
       setIsRegistered(true);
     }
 
-    // ⬅️ КЛЮЧОВИЙ МОМЕНТ
     setAuthChecked(true);
   }, []);
 
-  // ❗ ПОКИ НЕ ВІДНОВИЛИ AUTH — НІЧОГО НЕ РЕНДЕРИМО
   if (!authChecked) {
-    return null; // або Loader
+    return null;
   }
 
   return (
@@ -49,7 +47,6 @@ function MainComponent() {
       <ScrollToTop />
 
       <Routes>
-        {/* ROOT */}
         <Route
           path="/"
           element={
@@ -61,7 +58,6 @@ function MainComponent() {
           }
         />
 
-        {/* LOGIN — ЗАВЖДИ ДОСТУПНИЙ */}
         <Route
           path="/login-page-section"
           element={
@@ -79,7 +75,6 @@ function MainComponent() {
           }
         />
 
-        {/* PROTECTED */}
         <Route
           path="/wallet-section"
           element={

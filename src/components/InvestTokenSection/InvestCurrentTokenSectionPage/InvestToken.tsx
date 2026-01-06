@@ -6,7 +6,7 @@ import Header from "../../MainSection/Home/Header/Header";
 
 function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
   const [tokenValue, setTokenValue] = useState("");
-  const [USDValue, setUSDValue] = useState(""); // for dbnc
+  const [USDValue, setUSDValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -123,7 +123,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
                 <span>Token Price: {currentPrice} $</span>
               </div>
             </div>
-
             <div className="advanced-section-multipliers">
               <div className="flex-target-price">
                 <div className="target-price">
@@ -388,36 +387,34 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
                         {profit.toFixed(2)}$ ({targetPriceInPercents}%)
                       </span>
                     </div>
+
+                    {/* invest button */}
+                    <button>Invest</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div className="other-token-info">
           <div className="token-stat-card">
             <span className="token-stat-title">ATH:</span>
             <span className="token-stat-value">{tokenInfo.ath} $</span>
           </div>
-
           <div className="token-stat-card">
             <span className="token-stat-title">Market Cap:</span>
             <span className="token-stat-value">
               {(tokenInfo.market_cap / 1e9).toFixed(1)} M $
             </span>
           </div>
-
           <div className="token-stat-card">
             <span className="token-stat-title">ATH 24H:</span>
             <span className="token-stat-value">{tokenInfo.ath_today} $</span>
           </div>
-
           <div className="token-stat-card">
             <span className="token-stat-title">ATL 24H:</span>
             <span className="token-stat-value">{tokenInfo.atl_today} $</span>
           </div>
-
           <div className="token-stat-card">
             <span className="token-stat-title">Price Change 24H:</span>
             <span
@@ -430,7 +427,6 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
               {tokenInfo.priceChange24H.toFixed(2)} $
             </span>
           </div>
-
           <div className="token-stat-card">
             <span className="token-stat-title">Price Change 24H %:</span>
             <span
