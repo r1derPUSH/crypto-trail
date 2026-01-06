@@ -7,7 +7,7 @@ function RecentInvests({ invests }: any) {
     <div className="recent-invests-container">
       <div className="recent-invests-box-child">
         <RecentInvestsHeader />
-        <RecentInvestComponent />
+        <RecentInvestComponent invests={invests} />
       </div>
     </div>
   );

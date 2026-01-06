@@ -4,7 +4,13 @@ import { useState, useRef } from "react";
 import type { TokenInfo } from "../../../types/tokenInfo";
 import Header from "../../MainSection/Home/Header/Header";
 
-function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
+function InvestToken({
+  tokenInfo,
+  setInvests,
+}: {
+  tokenInfo: TokenInfo;
+  setInvests: React.Dispatch<React.SetStateAction<any[]>>;
+}) {
   const [tokenValue, setTokenValue] = useState("");
   const [USDValue, setUSDValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
@@ -45,14 +51,18 @@ function InvestToken({ tokenInfo }: { tokenInfo: TokenInfo }) {
   const [profit, setProfit] = useState(0);
 
   const investCurrentToken = () => {
-    tokenInfo.setInvests({
-      ["name"]: tokentName,
-      ["buyPrice"]: currentPrice,
-      ["targetPrice"]: targetPrice,
-      ["targetPriceInPercents"]: targetPriceInPercents,
-      ["targetProfit"]: profit,
-      ["totalValue"]: totalValue,
-    });
+    setInvests((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        name: tokentName,
+        buyPrice: currentPrice,
+        targetPrice,
+        targetPriceInPercents,
+        targetProfit: profit,
+        totalValue,
+      },
+    ]);
   };
 
   return (

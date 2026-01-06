@@ -1,36 +1,51 @@
-function RecentInvestComponent() {
+// import type { Invest } from "../../../../../types/invests";
+
+// ["name"]: tokentName,
+//       ["buyPrice"]: currentPrice,
+//       ["targetPrice"]: targetPrice,
+//       ["targetPriceInPercents"]: targetPriceInPercents,
+//       ["targetProfit"]: profit,
+//       ["totalValue"]: totalValue,
+
+function RecentInvestComponent({ invests }: any) {
+  console.log(123);
   return (
-    <div>
-      <div className="name">
-        <span>Name:</span>
-        <span>BTC</span>
-      </div>
-      <div className="start-value">
-        <span>Start Value:</span>
-        <span>872$</span>
-        <span>Buy Price:</span>
-        <span>95402.4$</span>
-      </div>
-      <div className="current-value">
-        <span>Current Value: </span>
-        <span>892.5$ </span>
-        <span>Current Price: </span>
-        <span>96002.5$ </span>
-      </div>
-      <div className="current-profit-loss">
-        <span>Current Profit/Loss:</span>
-        <span>+20.5$</span>
-        <span>+2.5%</span>
-      </div>
-      <div className="targetProfit">
-        <span> Target Price: </span>
-        <span> 101500$ </span>
-        <span> Target Profit: </span>
-        <span> +700$ </span>
-        {/* here i want to add circle with progress of profit */}
-        <span>8% / 100%</span>
-      </div>
-    </div>
+    <>
+      {invests.map((item: any) => (
+        <div>
+          <div className="name">
+            <span>Name:</span>
+            <span>{item.name}</span>
+          </div>
+          <div className="start-value">
+            <span>Start Value:</span>
+            <span>{item.totalValue}$</span>
+            <span>Buy Price:</span>
+            <span>{item.buyPrice}$</span>
+          </div>
+          <div className="current-value">
+            <span>Current Value: </span>
+            <span>892.5$ </span>
+            <span>Current Price: </span>
+            <span>96002.5$ </span>
+          </div>
+          <div className="current-profit-loss">
+            <span>Current Profit/Loss:</span>
+            <span>+20.5$</span>
+            <span>+2.5%</span>
+          </div>
+          <div className="targetProfit">
+            <span> Target Price: </span>
+            <span> {item.targetPrice}$ </span>
+            <span> +{item.targetPriceInPercents}% </span>
+            <span> Target Profit: </span>
+            <span> +{item.targetProfit}$ </span>
+            {/* here i want to add circle with progress of profit */}
+            <span>8% / 100%</span>
+          </div>
+        </div>
+      ))}
+    </>
   );
 }
 
