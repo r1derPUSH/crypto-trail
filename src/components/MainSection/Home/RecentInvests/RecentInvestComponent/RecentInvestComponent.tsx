@@ -10,8 +10,13 @@ function RecentInvestComponent({ invests, setInvests }: any) {
       {invests.map((item: any) => (
         <div key={item.id} className="recent-invest-card">
           <div className="name">
-            <span>Name:</span>
-            <span>{item.name}</span>
+            <div className="flex-name-container">
+              <span>Name:</span>
+              <div className="flex-img-name-container">
+                <img src={item.tokenImage} alt="img-coin" />
+                <span>{item.name}</span>
+              </div>
+            </div>
           </div>
           <div className="start-value">
             <span>Start Value:</span>
@@ -39,9 +44,11 @@ function RecentInvestComponent({ invests, setInvests }: any) {
             {/* here i want to add circle with progress of profit */}
             <span>8% / 100%</span>
           </div>
-          <button className="btn-close" onClick={() => closeCase(item.id)}>
-            Close Case
-          </button>
+          <div className="close-case-container">
+            <button className="btn-close" onClick={() => closeCase(item.id)}>
+              Close Case
+            </button>
+          </div>
         </div>
       ))}
     </div>
