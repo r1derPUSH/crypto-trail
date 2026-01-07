@@ -410,7 +410,9 @@ function InvestToken({
                     </div>
 
                     {/* invest button */}
-                    <button onClick={investCurrentToken}>Invest</button>
+                    <button className="btn-invest" onClick={investCurrentToken}>
+                      Invest
+                    </button>
                   </div>
                 </div>
               </div>

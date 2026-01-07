@@ -39,7 +39,9 @@ function RecentInvestComponent({ invests, setInvests }: any) {
             {/* here i want to add circle with progress of profit */}
             <span>8% / 100%</span>
           </div>
-          <button onClick={() => closeCase(item.id)}> Close Case </button>
+          <button className="btn-close" onClick={() => closeCase(item.id)}>
+            Close Case
+          </button>
         </div>
       ))}
     </div>
