@@ -1,5 +1,4 @@
 import AvatarSection from "./AvatarSection/AvatarSection";
-import SearchBar from "./SearchBar/SearchBar";
 import ChangeTheme from "./ChangeTheme/ChangeTheme";
 import "./Header.css";
 

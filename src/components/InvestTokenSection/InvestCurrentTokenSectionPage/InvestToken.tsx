@@ -14,6 +14,7 @@ function InvestToken({
   const [tokenValue, setTokenValue] = useState("");
   const [USDValue, setUSDValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
+  const [isInvesting, setIsInvesting] = useState(false);
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -51,6 +52,10 @@ function InvestToken({
   const [profit, setProfit] = useState(0);
 
   const investCurrentToken = () => {
+    if (isInvesting) return;
+
+    setIsInvesting(true);
+
     setInvests((prev) => [
       ...prev,
       {
@@ -63,6 +68,10 @@ function InvestToken({
         totalValue,
       },
     ]);
+
+    setTimeout(() => {
+      setIsInvesting(false);
+    }, 900);
   };
 
   return (
@@ -385,13 +394,12 @@ function InvestToken({
                 </div>
               </div>
 
-              <div className="advanced-results">
-                <div className="advanced-res-header">
-                  <span>If price reaches {targetPrice}$ </span>
-                </div>
-
+              <div className="flex-container-advanced-results">
                 <div className="advanced-res-profit">
                   <div className="advanced-total-invest">
+                    <div className="advanced-res-header">
+                      <span>If price reaches {targetPrice}$ </span>
+                    </div>
                     <span>Total Value: {totalValue.toFixed(1)} $ </span>
                     <div className="flex-profit-spans">
                       <span className="profit-span">Profit/Loss:</span>
@@ -410,8 +418,12 @@ function InvestToken({
                     </div>
 
                     {/* invest button */}
-                    <button className="btn-invest" onClick={investCurrentToken}>
-                      Invest
+                    <button
+                      className={`btn-invest ${isInvesting ? "loading" : ""}`}
+                      onClick={investCurrentToken}
+                      disabled={isInvesting}
+                    >
+                      {isInvesting ? <span className="loader" /> : "Invest"}
                     </button>
                   </div>
                 </div>
