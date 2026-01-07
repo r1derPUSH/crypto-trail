@@ -169,6 +169,13 @@
 
 /* close-btn */
 
+.close-case-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
 .btn-close {
   padding: 8px 18px;
   border-radius: 12px;
@@ -203,4 +210,12 @@
 
 .btn-close:active {
   transform: translateY(1px);
+}
+
+@media (max-width: 650px) {
+  .name img {
+    width: 4vw;
+    height: 4vw;
+    margin-right: 0.5rem;
+  }
 }
