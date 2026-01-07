@@ -52,7 +52,7 @@ function MainComponent() {
           path="/"
           element={
             isRegistered ? (
-              <MainSection invests={invests} />
+              <MainSection invests={invests} setInvests={setInvests} />
             ) : (
               <Navigate to="/login-page-section" replace />
             )
