@@ -66,6 +66,7 @@ function InvestToken({
         targetPriceInPercents,
         targetProfit: profit,
         totalValue,
+        tokenImage: tokenInfo.image,
       },
     ]);
 
