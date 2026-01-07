@@ -8,7 +8,6 @@ function Header() {
     <div className="header-container">
       <AvatarSection />
       <div className="icons-container">
-        <SearchBar />
         <ChangeTheme />
       </div>
     </div>
