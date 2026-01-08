@@ -1,14 +1,29 @@
 import "./HistoryItem.css";
 import Footer from "../../MainSection/Footer/Footer";
 import Header from "../../MainSection/Home/Header/Header";
+import { useCoins } from "../../../hooks/useCoins";
 
 function HistoryItem({ invests, setInvests }: any) {
+  const { coins } = useCoins();
+
+  const findCoin = (name: string) =>
+    coins.find((coin) => coin.name.toLowerCase() === name.toLowerCase());
+
   return (
     <div className="container">
       <Header />
-      {invests.map((item: any) => (
-        <>
-          <div className="invest-details">
+
+      {invests.map((item: any) => {
+        const coin = findCoin(item.name);
+
+        const currentPrice = coin?.current_price ?? item.buyPrice;
+
+        const multiplier = currentPrice / item.buyPrice;
+        const currentValue = item.totalValue * multiplier;
+        const currentProfit = currentValue - item.totalValue;
+
+        return (
+          <div key={item.id} className="invest-details">
             <div className="top-row">
               <div className="token-info">
                 <img src={item.tokenImage} alt={item.name} />
@@ -27,10 +42,11 @@ function HistoryItem({ invests, setInvests }: any) {
               </button>
             </div>
 
+            {/* ✅ LIVE CURRENT PROFIT */}
             <div className="current-profit">
-              <span>
-                {item.targetProfit >= 0 ? "+" : ""}
-                {item.targetProfit.toFixed(2)}$
+              <span className={currentProfit >= 0 ? "positive" : "negative"}>
+                {currentProfit >= 0 ? "+" : ""}
+                {currentProfit.toFixed(2)}$
               </span>
             </div>
 
@@ -38,8 +54,9 @@ function HistoryItem({ invests, setInvests }: any) {
               <span>{item.time}</span>
             </div>
           </div>
-        </>
-      ))}
+        );
+      })}
+
       <Footer />
     </div>
   );

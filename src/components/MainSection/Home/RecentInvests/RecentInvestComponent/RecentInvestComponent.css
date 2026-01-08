@@ -1,5 +1,6 @@
 /* container */
 .recent-invests-container {
+  /* text-align: center; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +9,14 @@
 }
 
 .recent-invest-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 3px solid black;
+  text-align: center;
   width: 90%;
+  /* text-align: center; */
   background: linear-gradient(145deg, #2b355f, #232c4e);
   border-radius: 16px;
   padding: 16px 20px;
@@ -19,6 +27,8 @@
 
 /* rows */
 .recent-invest-card > div {
+  text-align: center;
+  /* text-align: center; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -29,6 +39,7 @@
 
 /* labels */
 .recent-invest-card span:first-child {
+  text-align: center;
   opacity: 0.6;
   font-weight: 500;
 }
@@ -89,7 +100,7 @@
 
 /* progress placeholder */
 .targetProfit span:last-child {
-  margin-left: auto;
+  /* margin-left: auto; */
   font-size: 12px;
   opacity: 0.7;
 }
@@ -210,6 +221,33 @@
 
 .btn-close:active {
   transform: translateY(1px);
+}
+
+/* updating animation styles */
+
+/* === LIVE UPDATE ANIMATION === */
+.live-update {
+  animation: valuePulse 0.6s ease;
+}
+
+@keyframes valuePulse {
+  0% {
+    transform: translateY(2px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* COLORS */
+.positive {
+  color: #2af598;
+}
+
+.negative {
+  color: #ff6b6b;
 }
 
 @media (max-width: 650px) {

@@ -103,3 +103,20 @@
 .delete-btn:active {
   transform: scale(0.95);
 }
+
+/* styles for profit/loss */
+
+.current-profit span {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.positive {
+  color: #2af598;
+  text-shadow: 0 0 12px rgba(42, 245, 152, 0.4);
+}
+
+.negative {
+  color: #ff6b6b;
+  text-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
+}
