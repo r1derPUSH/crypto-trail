@@ -1,10 +1,10 @@
 import HistoryItem from "../HistoryItem/HistoryItem";
 import "./RecentInvestsHistory.css";
 
-function RecentInvestsHistory() {
+function RecentInvestsHistory({ invests, setInvests }: any) {
   return (
     <div>
-      <HistoryItem />
+      <HistoryItem invests={invests} setInvests={setInvests} />
     </div>
   );
 }

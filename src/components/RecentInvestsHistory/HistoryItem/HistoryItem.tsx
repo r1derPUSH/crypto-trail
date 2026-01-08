@@ -3,24 +3,31 @@ import "./HistoryItem.css";
 import Footer from "../../MainSection/Footer/Footer";
 import Header from "../../MainSection/Home/Header/Header";
 
-function HistoryItem() {
+function HistoryItem({ invests, setInvests }: any) {
   const navigate = useNavigate();
 
   return (
     <>
       <Header />
-      <div className="invest-details">
-        <div className="name">
-          <span>BTC</span>
-          <img src="" alt="img" />
-        </div>
-        <div className="current-profit">
-          <span>+74.5$</span>
-        </div>
-        <div className="creation-date">
-          <span>08.02.2026 | 16:42</span>
-        </div>
-      </div>
+      {invests.map((item: any) => (
+        <>
+          <div className="invest-details">
+            <div className="name">
+              <span>{item.name}</span>
+              <img src={item.tokenImage} alt="img" />
+            </div>
+            <div className="current-profit">
+              <span>+74.5$</span>
+            </div>
+            <div className="creation-date">
+              <span>{item.time}</span>
+            </div>
+          </div>
+          <div className="delete-button">
+            <button></button>
+          </div>
+        </>
+      ))}
       <Footer />
     </>
   );

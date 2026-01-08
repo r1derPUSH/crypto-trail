@@ -63,7 +63,9 @@ function MainComponent() {
 
         <Route
           path="/recent-invests-history"
-          element={<RecentInvestsHistory />}
+          element={
+            <RecentInvestsHistory invests={invests} setInvests={setInvests} />
+          }
         ></Route>
 
         <Route
