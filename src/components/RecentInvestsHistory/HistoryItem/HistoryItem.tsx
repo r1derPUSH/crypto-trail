@@ -1,35 +1,47 @@
-import { useNavigate } from "react-router-dom";
 import "./HistoryItem.css";
 import Footer from "../../MainSection/Footer/Footer";
 import Header from "../../MainSection/Home/Header/Header";
 
 function HistoryItem({ invests, setInvests }: any) {
-  const navigate = useNavigate();
-
   return (
-    <>
+    <div className="container">
       <Header />
       {invests.map((item: any) => (
         <>
           <div className="invest-details">
-            <div className="name">
-              <span>{item.name}</span>
-              <img src={item.tokenImage} alt="img" />
+            <div className="top-row">
+              <div className="token-info">
+                <img src={item.tokenImage} alt={item.name} />
+                <span className="token-name">{item.name}</span>
+              </div>
+
+              <button
+                className="delete-btn"
+                onClick={() =>
+                  setInvests((prev: any) =>
+                    prev.filter((it: any) => it.id !== item.id)
+                  )
+                }
+              >
+                ✕
+              </button>
             </div>
+
             <div className="current-profit">
-              <span>+74.5$</span>
+              <span>
+                {item.targetProfit >= 0 ? "+" : ""}
+                {item.targetProfit.toFixed(2)}$
+              </span>
             </div>
+
             <div className="creation-date">
               <span>{item.time}</span>
             </div>
           </div>
-          <div className="delete-button">
-            <button></button>
-          </div>
         </>
       ))}
       <Footer />
-    </>
+    </div>
   );
 }
 

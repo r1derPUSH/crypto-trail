@@ -81,6 +81,10 @@ function InvestToken({
         time: formattedTime,
       },
     ]);
+
+    setTimeout(() => {
+      setIsInvesting(false);
+    }, 800);
   };
 
   return (
