@@ -12,6 +12,8 @@ import ConvertSectionHistory from "./components/ConvertSectionHistory/ConvertSec
 import ScrollToTop from "./components/CustomComponents/ScrollToTop";
 
 import type { TokenInfo } from "./types/tokenInfo";
+import RecentInvests from "./components/RecentInvestsHistory/HistoryParent/RecentInvestsHistory";
+import RecentInvestsHistory from "./components/RecentInvestsHistory/HistoryParent/RecentInvestsHistory";
 
 function MainComponent() {
   const [tokenInfo, setTokenInfo] = useState<TokenInfo | null>(null);
@@ -58,6 +60,13 @@ function MainComponent() {
             )
           }
         />
+
+        <Route
+          path="/recent-invests-history"
+          element={
+            <RecentInvestsHistory invests={invests} setInvests={setInvests} />
+          }
+        ></Route>
 
         <Route
           path="/login-page-section"

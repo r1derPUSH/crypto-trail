@@ -56,6 +56,17 @@ function InvestToken({
 
     setIsInvesting(true);
 
+    const now = new Date();
+
+    const formattedTime = `${now.getDate().toString().padStart(2, "0")}.${(
+      now.getMonth() + 1
+    )
+      .toString()
+      .padStart(2, "0")}.${now.getFullYear()} | ${now
+      .getHours()
+      .toString()
+      .padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")}`;
+
     setInvests((prev) => [
       ...prev,
       {
@@ -67,12 +78,13 @@ function InvestToken({
         targetProfit: profit,
         totalValue,
         tokenImage: tokenInfo.image,
+        time: formattedTime,
       },
     ]);
 
     setTimeout(() => {
       setIsInvesting(false);
-    }, 900);
+    }, 800);
   };
 
   return (

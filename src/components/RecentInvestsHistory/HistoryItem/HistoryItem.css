@@ -1,0 +1,122 @@
+.container:last-child {
+  margin-bottom: 20rem;
+}
+
+.invest-details {
+  max-width: 440px;
+  margin: 2rem auto 40px;
+  padding: 26px 26px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(42, 46, 90, 0.95),
+    rgba(25, 28, 60, 0.95)
+  );
+
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.invest-details:last-child {
+  margin-bottom: 50rem;
+}
+
+/* === TOP ROW === */
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* === TOKEN INFO === */
+.token-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.token-info img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.token-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+}
+
+/* === PROFIT === */
+.current-profit span {
+  font-size: 36px;
+  font-weight: 800;
+
+  background: linear-gradient(90deg, #2af598, #00e3ae);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 14px rgba(42, 245, 152, 0.4);
+}
+
+/* === DATE === */
+.creation-date span {
+  font-size: 14px;
+  color: #9ea3d8;
+  opacity: 0.9;
+}
+
+/* === DELETE BUTTON === */
+.delete-btn {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255, 80, 80, 0.15);
+  color: #ff6b6b;
+  font-size: 16px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: rgba(255, 80, 80, 0.3);
+  transform: scale(1.05);
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+}
+
+/* styles for profit/loss */
+
+.current-profit span {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.positive {
+  color: #2af598;
+  text-shadow: 0 0 12px rgba(42, 245, 152, 0.4);
+}
+
+.negative {
+  color: #ff6b6b;
+  text-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
+}
