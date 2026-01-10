@@ -3,6 +3,7 @@ import Footer from "../../MainSection/Footer/Footer";
 import { useState, useRef } from "react";
 import type { TokenInfo } from "../../../types/tokenInfo";
 import Header from "../../MainSection/Home/Header/Header";
+import { useNavigate } from "react-router-dom";
 
 function InvestToken({
   tokenInfo,
@@ -11,6 +12,10 @@ function InvestToken({
   tokenInfo: TokenInfo;
   setInvests: React.Dispatch<React.SetStateAction<any[]>>;
 }) {
+  const navigate = useNavigate();
+
+  const [order, setOrder] = useState(true);
+
   const [tokenValue, setTokenValue] = useState("");
   const [USDValue, setUSDValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
@@ -48,56 +53,48 @@ function InvestToken({
   const currentPrice = tokenInfo.price;
   const [targetPrice, setTargetPrice] = useState("");
   const [targetPriceInPercents, setTargetPriceInPercents] = useState("");
+  const [totalValue, setTotalValue] = useState(0);
+  const [profit, setProfit] = useState(0);
 
   const investCurrentToken = () => {
     if (isInvesting) return;
 
+    const investedValue = Number(USDValue);
+    const tokenAmount = investedValue / currentPrice;
+
     setIsInvesting(true);
-
-    const now = new Date();
-
-    const formattedTime = `${now.getDate().toString().padStart(2, "0")}.${(
-      now.getMonth() + 1
-    )
-      .toString()
-      .padStart(2, "0")}.${now.getFullYear()} | ${now
-      .getHours()
-      .toString()
-      .padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")}`;
 
     setInvests((prev) => [
       ...prev,
       {
         id: Date.now(),
         name: tokentName,
-        investedValue: Number(USDValue),
-        buyPrice: currentPrice,
-        tokenAmount: Number(USDValue) / currentPrice,
-        targetPrice: Number(targetPrice),
-        targetPriceInPercents,
+        investedValue,
+        tokenAmount,
+        buyPrice: Number(currentPrice),
+        targetPrice: Number(targetPrice) || 0,
+        targetPriceInPercents: Number(targetPriceInPercents) || 0,
         tokenImage: tokenInfo.image,
-        time: formattedTime,
       },
     ]);
 
     setTimeout(() => {
       setIsInvesting(false);
-    }, 800);
+    }, 900);
   };
-
-  const investedValue = Number(USDValue) || 0;
-  const tokenAmountPreview =
-    investedValue > 0 ? investedValue / currentPrice : 0;
-
-  const previewTargetValue =
-    targetPrice && investedValue ? tokenAmountPreview * Number(targetPrice) : 0;
-
-  const previewProfit = previewTargetValue - investedValue;
 
   return (
     <div>
       <Header />
       <div className="token-invest-container">
+        <div className="back-icon-container">
+          <button
+            onClick={() => navigate("/invest-page-section")}
+            className="back-icon"
+          >
+            ←
+          </button>
+        </div>
         <div className="header">
           <div className="first-flex-header">
             <div className="img-flex-section-token">
@@ -113,39 +110,100 @@ function InvestToken({
           </div>
         </div>
         <div className="invest-token-functional">
-          <div className="input-wrapper">
-            <span className="input-label">You Invest (USD)</span>
+          <div className="invest-token-functional">
+            {order ? (
+              <>
+                {/* USD INPUT */}
+                <div className="input-wrapper">
+                  <span className="input-label">You Invest (USD)</span>
 
-            <div className="crypto-input-box">
-              <input
-                type="number"
-                onChange={handleChangeUSD}
-                placeholder="0.00"
-                value={USDValue}
-                className="crypto-input-field"
-              />
+                  <div className="crypto-input-box">
+                    <input
+                      type="number"
+                      onChange={handleChangeUSD}
+                      placeholder="0.00"
+                      value={USDValue}
+                      className="crypto-input-field"
+                    />
+                    <div className="crypto-input-token">$</div>
+                  </div>
+                </div>
 
-              <div className="crypto-input-token">$</div>
-            </div>
-          </div>
-          <span className="input-arrow">↕</span>
-          <div className="input-wrapper">
-            <span className="input-label">You Recieve</span>
+                {/* SWAP BUTTON */}
+                <span
+                  className="input-arrow"
+                  onClick={() => setOrder((prev) => !prev)}
+                >
+                  ↕
+                </span>
 
-            <div className="crypto-input-box">
-              <input
-                type="number"
-                onChange={handleChangeToken}
-                placeholder="0.00"
-                value={tokenValue}
-                className="crypto-input-field"
-              />
+                {/* TOKEN INPUT */}
+                <div className="input-wrapper">
+                  <span className="input-label">You Recieve</span>
 
-              <div className="crypto-input-token">
-                <img src={tokenInfo.image} alt="" />
-                {tokenInfo.shortName.toUpperCase()}
-              </div>
-            </div>
+                  <div className="crypto-input-box">
+                    <input
+                      type="number"
+                      onChange={handleChangeToken}
+                      placeholder="0.00"
+                      value={tokenValue}
+                      className="crypto-input-field"
+                    />
+
+                    <div className="crypto-input-token">
+                      <img src={tokenInfo.image} alt="" />
+                      {tokenInfo.shortName.toUpperCase()}
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* TOKEN INPUT */}
+                <div className="input-wrapper">
+                  <span className="input-label">You Recieve</span>
+
+                  <div className="crypto-input-box">
+                    <input
+                      type="number"
+                      onChange={handleChangeToken}
+                      placeholder="0.00"
+                      value={tokenValue}
+                      className="crypto-input-field"
+                    />
+
+                    <div className="crypto-input-token">
+                      <img src={tokenInfo.image} alt="" />
+                      {tokenInfo.shortName.toUpperCase()}
+                    </div>
+                  </div>
+                </div>
+
+                {/* SWAP BUTTON */}
+                <span
+                  className="input-arrow"
+                  onClick={() => setOrder((prev) => !prev)}
+                >
+                  ↕
+                </span>
+
+                {/* USD INPUT */}
+                <div className="input-wrapper">
+                  <span className="input-label">You Invest (USD)</span>
+
+                  <div className="crypto-input-box">
+                    <input
+                      type="number"
+                      onChange={handleChangeUSD}
+                      placeholder="0.00"
+                      value={USDValue}
+                      className="crypto-input-field"
+                    />
+                    <div className="crypto-input-token">$</div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
         <div
@@ -197,6 +255,12 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
+
+                          const newTotalValue = Number(USDValue) * 0.7;
+                          setTotalValue(newTotalValue);
+
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
                         }}
                       >
                         x0.7 (-30%)
@@ -214,6 +278,8 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
+                          setTotalValue(Number(USDValue));
+                          setProfit(0);
                         }}
                       >
                         x1
@@ -233,6 +299,12 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
+
+                          const newTotalValue = Number(USDValue) * 1.05;
+                          setTotalValue(newTotalValue);
+
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
                         }}
                       >
                         x1.05 (5%)
@@ -250,6 +322,12 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
+
+                          const newTotalValue = Number(USDValue) * 1.2;
+                          setTotalValue(newTotalValue);
+
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
                         }}
                       >
                         x1.2 (20%)
@@ -271,6 +349,12 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
+
+                          const newTotalValue = Number(USDValue) * 1.5;
+                          setTotalValue(newTotalValue);
+
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
                         }}
                       >
                         x1.5 (50%)
@@ -288,6 +372,12 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
+
+                          const newTotalValue = Number(USDValue) * 2;
+                          setTotalValue(newTotalValue);
+
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
                         }}
                       >
                         x2 (100%)
@@ -307,6 +397,12 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
+
+                          const newTotalValue = Number(USDValue) * 3;
+                          setTotalValue(newTotalValue);
+
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
                         }}
                       >
                         x3 (150%)
@@ -324,6 +420,12 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
+
+                          const newTotalValue = Number(USDValue) * 10;
+                          setTotalValue(newTotalValue);
+
+                          const newProfit = newTotalValue - Number(USDValue);
+                          setProfit(newProfit);
                         }}
                       >
                         x10 (500%)
@@ -354,6 +456,17 @@ function InvestToken({
                         100
                       ).toFixed(2);
                       setTargetPriceInPercents(percent);
+
+                      // MULTIPLIER
+                      const multiplier = Number(newPrice) / currentPrice;
+
+                      // TOTAL VALUE
+                      const newTotalValue = Number(USDValue) * multiplier;
+                      setTotalValue(newTotalValue);
+
+                      // PROFIT
+                      const newProfit = newTotalValue - Number(USDValue);
+                      setProfit(newProfit);
                     }}
                   />
                 </div>
@@ -365,19 +478,20 @@ function InvestToken({
                     <div className="advanced-res-header">
                       <span>If price reaches {targetPrice}$ </span>
                     </div>
-                    <span>Total Value: {previewTargetValue.toFixed(2)} $ </span>
+                    <span>Total Value: {totalValue.toFixed(1)} $ </span>
                     <div className="flex-profit-spans">
+                      <span className="profit-span">Profit/Loss:</span>
                       <span
                         className={
-                          previewProfit > 0
+                          Number(targetPriceInPercents) > 0
                             ? "positive"
-                            : previewProfit < 0
+                            : Number(targetPriceInPercents) < 0
                             ? "negative"
                             : "neutral"
                         }
                       >
-                        {previewProfit >= 0 ? "+" : ""}
-                        {previewProfit.toFixed(2)}$ ({targetPriceInPercents}%)
+                        {profit >= 0 ? "+" : ""}
+                        {profit.toFixed(2)}$ ({targetPriceInPercents}%)
                       </span>
                     </div>
 
