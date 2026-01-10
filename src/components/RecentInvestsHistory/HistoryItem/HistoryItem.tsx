@@ -1,7 +1,7 @@
 import "./HistoryItem.css";
 import Footer from "../../MainSection/Footer/Footer";
 import Header from "../../MainSection/Home/Header/Header";
-import { useCoins } from "../../../hooks/useCoins";
+import { useCoins } from "../../../context/CoinsContext";
 
 function HistoryItem({ invests, setInvests }: any) {
   const { coins } = useCoins();

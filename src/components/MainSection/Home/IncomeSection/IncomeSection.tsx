@@ -1,22 +1,14 @@
 import "./IncomeSection.css";
-import { useCoins } from "../../../../hooks/useCoins";
+import { useCoins } from "../../../../context/CoinsContext";
 
-function IncomeSection({ invests }: any) {
+function IncomeSection({ invests, totalPnL }: any) {
   const { coins } = useCoins();
 
-  const livePnL = invests.reduce((sum, i) => {
+  const floatingPnL = invests.reduce((sum, i) => {
     const coin = coins.find((c) => c.name === i.name);
     if (!coin) return sum;
 
-    if (
-      typeof i.tokenAmount !== "number" ||
-      typeof i.investedValue !== "number"
-    ) {
-      return sum;
-    }
-
-    const currentValue = i.tokenAmount * coin.current_price;
-    return sum + (currentValue - i.investedValue);
+    return sum + (i.tokenAmount * coin.current_price - i.investedValue);
   }, 0);
 
   const currentInvests = invests.reduce((sum, i) => {
@@ -34,10 +26,16 @@ function IncomeSection({ invests }: any) {
         </div>
 
         <div>
+          <span>Floating PnL</span>
+          <span className={floatingPnL >= 0 ? "positive" : "negative"}>
+            {floatingPnL.toFixed(2)}$
+          </span>
+        </div>
+
+        <div>
           <span>Total PnL</span>
-          <span className={livePnL >= 0 ? "positive" : "negative"}>
-            {livePnL >= 0 ? "+" : ""}
-            {livePnL.toFixed(2)}$
+          <span className={totalPnL >= 0 ? "positive" : "negative"}>
+            {totalPnL.toFixed(2)}$
           </span>
         </div>
       </div>
