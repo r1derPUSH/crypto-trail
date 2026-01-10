@@ -2,12 +2,16 @@ import RecentInvestComponent from "./RecentInvestComponent/RecentInvestComponent
 import "./RecentInvests.css";
 import RecentInvestsHeader from "./RecentInvestsHeader/RecentInvestsHeader";
 
-function RecentInvests({ invests, setInvests }: any) {
+function RecentInvests({ invests, setInvests, setTotalPnL }: any) {
   return (
     <div className="recent-invests-container">
       <div className="recent-invests-box-child">
         <RecentInvestsHeader />
-        <RecentInvestComponent invests={invests} setInvests={setInvests} />
+        <RecentInvestComponent
+          invests={invests}
+          setInvests={setInvests}
+          setTotalPnL={setTotalPnL}
+        />
       </div>
     </div>
   );
