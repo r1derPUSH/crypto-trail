@@ -6,15 +6,15 @@ function IncomeSection({ invests, totalPnL }: any) {
 
   const floatingPnL = invests.reduce((sum, i) => {
     const coin = coins.find((c) => c.name === i.name);
-    if (!coin) return sum;
-
-    return sum + (i.tokenAmount * coin.current_price - i.investedValue);
+    const price = coin?.current_price ?? i.buyPrice;
+    return sum + (i.tokenAmount * price - i.investedValue);
   }, 0);
 
   const currentInvests = invests.reduce((sum, i) => {
     const coin = coins.find((c) => c.name === i.name);
-    if (!coin || typeof i.tokenAmount !== "number") return sum;
-    return sum + i.tokenAmount * coin.current_price;
+    if (typeof i.tokenAmount !== "number") return sum;
+    const price = coin?.current_price ?? i.buyPrice;
+    return sum + i.tokenAmount * price;
   }, 0);
 
   return (
