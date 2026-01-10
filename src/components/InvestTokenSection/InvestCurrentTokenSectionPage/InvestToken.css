@@ -1,3 +1,30 @@
+/* back icon */
+
+.back-icon-container {
+  width: 100%;
+  display: flex;
+}
+
+.back-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 20px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-icon:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(-3px);
+}
+
 /* ============================
    MAIN TOKEN CONTAINER
 ============================ */
