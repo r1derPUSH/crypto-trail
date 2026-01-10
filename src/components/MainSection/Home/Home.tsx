@@ -3,11 +3,11 @@ import IncomeSection from "./IncomeSection/IncomeSection";
 import InvestButtons from "./InvestFunctional/InvestButtons";
 import RecentInvests from "./RecentInvests/RecentInvests";
 
-function Home({ invests, setInvests, livePnL, setTotalPnL }: any) {
+function Home({ invests, setInvests, livePnL, totalPnL, setTotalPnL }: any) {
   return (
     <>
       <Header />
-      <IncomeSection invests={invests} livePnL={livePnL} />
+      <IncomeSection invests={invests} livePnL={livePnL} totalPnL={totalPnL} />
       <InvestButtons />
       <RecentInvests
         invests={invests}

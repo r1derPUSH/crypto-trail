@@ -5,7 +5,7 @@ import SwapFrom from "../SwapMenu/SwapFrom/SwapFrom";
 import SwapTo from "../SwapMenu/SwapTo/SwapTo";
 import { useState, useEffect } from "react";
 import Footer from "../../MainSection/Footer/Footer";
-import { useCoins } from "../../../hooks/useCoins";
+import { useCoins } from "../../../context/CoinsContext";
 import { addSwapToHistory } from "../../../functions/swapHistoryFn";
 import Header from "../../MainSection/Home/Header/Header";
 

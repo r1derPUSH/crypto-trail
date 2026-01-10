@@ -1,5 +1,5 @@
 import "./RecentInvestComponent.css";
-import { useCoins } from "../../../../../hooks/useCoins";
+import { useCoins } from "../../../../../context/CoinsContext";
 
 function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
   const { coins } = useCoins();

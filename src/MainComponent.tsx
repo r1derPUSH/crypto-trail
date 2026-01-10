@@ -13,7 +13,7 @@ import ScrollToTop from "./components/CustomComponents/ScrollToTop";
 
 import type { TokenInfo } from "./types/tokenInfo";
 import RecentInvestsHistory from "./components/RecentInvestsHistory/HistoryParent/RecentInvestsHistory";
-import { useCoins } from "./hooks/useCoins";
+import { useCoins } from "./context/CoinsContext";
 
 function MainComponent() {
   const { coins } = useCoins();
@@ -73,6 +73,7 @@ function MainComponent() {
                 invests={invests}
                 setInvests={setInvests}
                 livePnL={livePnL}
+                totalPnL={totalPnL}
                 setTotalPnL={setTotalPnL}
               />
             ) : (
