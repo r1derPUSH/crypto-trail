@@ -8,9 +8,11 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
     const coin = findCoin(item.name);
     const currentPrice = coin?.current_price ?? item.buyPrice;
 
-    const multiplier = currentPrice / item.buyPrice;
-    const currentValue = item.totalValue * multiplier;
-    const currentProfit = currentValue - item.totalValue;
+    const investedValue = item.investedValue;
+    const tokenAmount = item.tokenAmount;
+
+    const currentValue = tokenAmount * currentPrice;
+    const currentProfit = currentValue - investedValue;
 
     setTotalPnL((prev: any) => prev + currentProfit);
 
@@ -96,7 +98,7 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
               <span>+{item.targetPriceInPercents}%</span>
 
               <span>Target Profit:</span>
-              <span>+{item.targetProfit.toFixed(2)}$</span>
+              <span>+{targetProfit.toFixed(2)}$</span>
             </div>
 
             <div className="close-case-container">

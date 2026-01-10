@@ -48,8 +48,6 @@ function InvestToken({
   const currentPrice = tokenInfo.price;
   const [targetPrice, setTargetPrice] = useState("");
   const [targetPriceInPercents, setTargetPriceInPercents] = useState("");
-  const [totalValue, setTotalValue] = useState(0);
-  const [profit, setProfit] = useState(0);
 
   const investCurrentToken = () => {
     if (isInvesting) return;
@@ -72,11 +70,11 @@ function InvestToken({
       {
         id: Date.now(),
         name: tokentName,
+        investedValue: Number(USDValue),
         buyPrice: currentPrice,
-        targetPrice,
+        tokenAmount: Number(USDValue) / currentPrice,
+        targetPrice: Number(targetPrice),
         targetPriceInPercents,
-        targetProfit: profit,
-        totalValue,
         tokenImage: tokenInfo.image,
         time: formattedTime,
       },
@@ -86,6 +84,15 @@ function InvestToken({
       setIsInvesting(false);
     }, 800);
   };
+
+  const investedValue = Number(USDValue) || 0;
+  const tokenAmountPreview =
+    investedValue > 0 ? investedValue / currentPrice : 0;
+
+  const previewTargetValue =
+    targetPrice && investedValue ? tokenAmountPreview * Number(targetPrice) : 0;
+
+  const previewProfit = previewTargetValue - investedValue;
 
   return (
     <div>
@@ -190,12 +197,6 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 0.7;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
                         }}
                       >
                         x0.7 (-30%)
@@ -213,8 +214,6 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
-                          setTotalValue(Number(USDValue));
-                          setProfit(0);
                         }}
                       >
                         x1
@@ -234,12 +233,6 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 1.05;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
                         }}
                       >
                         x1.05 (5%)
@@ -257,12 +250,6 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 1.2;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
                         }}
                       >
                         x1.2 (20%)
@@ -284,12 +271,6 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 1.5;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
                         }}
                       >
                         x1.5 (50%)
@@ -307,12 +288,6 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 2;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
                         }}
                       >
                         x2 (100%)
@@ -332,12 +307,6 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 3;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
                         }}
                       >
                         x3 (150%)
@@ -355,12 +324,6 @@ function InvestToken({
                           ).toFixed(2);
 
                           setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 10;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
                         }}
                       >
                         x10 (500%)
@@ -391,17 +354,6 @@ function InvestToken({
                         100
                       ).toFixed(2);
                       setTargetPriceInPercents(percent);
-
-                      // MULTIPLIER
-                      const multiplier = Number(newPrice) / currentPrice;
-
-                      // TOTAL VALUE
-                      const newTotalValue = Number(USDValue) * multiplier;
-                      setTotalValue(newTotalValue);
-
-                      // PROFIT
-                      const newProfit = newTotalValue - Number(USDValue);
-                      setProfit(newProfit);
                     }}
                   />
                 </div>
@@ -413,20 +365,19 @@ function InvestToken({
                     <div className="advanced-res-header">
                       <span>If price reaches {targetPrice}$ </span>
                     </div>
-                    <span>Total Value: {totalValue.toFixed(1)} $ </span>
+                    <span>Total Value: {previewTargetValue.toFixed(2)} $ </span>
                     <div className="flex-profit-spans">
-                      <span className="profit-span">Profit/Loss:</span>
                       <span
                         className={
-                          Number(targetPriceInPercents) > 0
+                          previewProfit > 0
                             ? "positive"
-                            : Number(targetPriceInPercents) < 0
+                            : previewProfit < 0
                             ? "negative"
                             : "neutral"
                         }
                       >
-                        {profit >= 0 ? "+" : ""}
-                        {profit.toFixed(2)}$ ({targetPriceInPercents}%)
+                        {previewProfit >= 0 ? "+" : ""}
+                        {previewProfit.toFixed(2)}$ ({targetPriceInPercents}%)
                       </span>
                     </div>
 
