@@ -24,22 +24,34 @@ function MainComponent() {
   const [login, setLogin] = useState("");
   const [userAvatar, setUserAvatar] = useState<string | null>(null);
   const [registerDate, setRegisterDate] = useState<string | null>(null);
-  const [invests, setInvests] = useState([]);
-  const [totalPnL, setTotalPnL] = useState(0);
-
+  const [invests, setInvests] = useState<any[]>(() => {
+    const saved = localStorage.getItem("invests");
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [totalPnL, setTotalPnL] = useState<number>(() => {
+    const saved = localStorage.getItem("totalPnL");
+    return saved ? Number(saved) : 0;
+  });
   const livePnL = invests.reduce((sum: number, item: any) => {
     const coin = coins.find(
       (c) => c.name.toLowerCase() === item.name.toLowerCase()
     );
 
     const currentPrice = coin?.current_price ?? item.buyPrice;
-    const multiplier = currentPrice / item.buyPrice;
-    const currentValue = item.totalValue * multiplier;
+    const currentValue = item.tokenAmount * currentPrice;
 
-    return sum + (currentValue - item.totalValue);
+    return sum + (currentValue - item.investedValue);
   }, 0);
 
   const [authChecked, setAuthChecked] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("invests", JSON.stringify(invests));
+  }, [invests]);
+
+  useEffect(() => {
+    localStorage.setItem("totalPnL", totalPnL.toString());
+  }, [totalPnL]);
 
   useEffect(() => {
     const user = localStorage.getItem("user");
