@@ -38,10 +38,9 @@ function MainComponent() {
     );
 
     const currentPrice = coin?.current_price ?? item.buyPrice;
-    const multiplier = currentPrice / item.buyPrice;
-    const currentValue = item.totalValue * multiplier;
+    const currentValue = item.tokenAmount * currentPrice;
 
-    return sum + (currentValue - item.totalValue);
+    return sum + (currentValue - item.investedValue);
   }, 0);
 
   const [authChecked, setAuthChecked] = useState(false);
