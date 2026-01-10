@@ -15,12 +15,20 @@ function HistoryItem({ invests, setInvests }: any) {
 
       {invests.map((item: any) => {
         const coin = findCoin(item.name);
-
         const currentPrice = coin?.current_price ?? item.buyPrice;
 
-        const multiplier = currentPrice / item.buyPrice;
-        const currentValue = item.totalValue * multiplier;
-        const currentProfit = currentValue - item.totalValue;
+        const investedValue = item.investedValue;
+        const tokenAmount = item.tokenAmount;
+
+        if (
+          typeof investedValue !== "number" ||
+          typeof tokenAmount !== "number"
+        ) {
+          return null;
+        }
+
+        const currentValue = tokenAmount * currentPrice;
+        const currentProfit = currentValue - investedValue;
 
         return (
           <div key={item.id} className="invest-details">
@@ -42,7 +50,6 @@ function HistoryItem({ invests, setInvests }: any) {
               </button>
             </div>
 
-            {/* ✅ LIVE CURRENT PROFIT */}
             <div className="current-profit">
               <span className={currentProfit >= 0 ? "positive" : "negative"}>
                 {currentProfit >= 0 ? "+" : ""}

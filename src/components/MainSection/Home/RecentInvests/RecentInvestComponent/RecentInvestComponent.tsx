@@ -1,11 +1,22 @@
 import "./RecentInvestComponent.css";
 import { useCoins } from "../../../../../hooks/useCoins";
 
-function RecentInvestComponent({ invests, setInvests }: any) {
+function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
   const { coins } = useCoins();
 
-  const closeCase = (id: number) => {
-    setInvests((prev: any[]) => prev.filter((item) => item.id !== id));
+  const closeCase = (item: any) => {
+    const coin = findCoin(item.name);
+    const currentPrice = coin?.current_price ?? item.buyPrice;
+
+    const investedValue = item.investedValue;
+    const tokenAmount = item.tokenAmount;
+
+    const currentValue = tokenAmount * currentPrice;
+    const currentProfit = currentValue - investedValue;
+
+    setTotalPnL((prev: any) => prev + currentProfit);
+
+    setInvests((prev: any) => prev.filter((i: any) => i.id !== item.id));
   };
 
   const findCoin = (name: string) =>
@@ -18,10 +29,15 @@ function RecentInvestComponent({ invests, setInvests }: any) {
 
         const currentPrice = coin?.current_price ?? item.buyPrice;
 
-        const multiplier = currentPrice / item.buyPrice;
-        const currentValue = item.totalValue * multiplier;
-        const currentProfit = currentValue - item.totalValue;
-        const currentPercent = (currentProfit / item.totalValue) * 100;
+        const investedValue = item.investedValue;
+        const tokenAmount = item.tokenAmount;
+
+        const currentValue = tokenAmount * currentPrice;
+        const currentProfit = currentValue - investedValue;
+        const currentPercent = (currentProfit / investedValue) * 100;
+
+        const targetValue = item.tokenAmount * item.targetPrice;
+        const targetProfit = targetValue - item.investedValue;
 
         const progressToTarget = Math.min(
           (currentPrice / item.targetPrice) * 100,
@@ -42,7 +58,7 @@ function RecentInvestComponent({ invests, setInvests }: any) {
 
             <div className="start-value">
               <span>Start Value:</span>
-              <span>{item.totalValue.toFixed(2)}$</span>
+              <span>{item.investedValue.toFixed(2)}$</span>
               <span>Buy Price:</span>
               <span>{item.buyPrice}$</span>
             </div>
@@ -82,11 +98,11 @@ function RecentInvestComponent({ invests, setInvests }: any) {
               <span>+{item.targetPriceInPercents}%</span>
 
               <span>Target Profit:</span>
-              <span>+{item.targetProfit.toFixed(2)}$</span>
+              <span>+{targetProfit.toFixed(2)}$</span>
             </div>
 
             <div className="close-case-container">
-              <button className="btn-close" onClick={() => closeCase(item.id)}>
+              <button className="btn-close" onClick={() => closeCase(item)}>
                 Close Case
               </button>
             </div>

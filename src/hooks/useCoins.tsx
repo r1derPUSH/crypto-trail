@@ -18,7 +18,7 @@ export function useCoins() {
 
   useEffect(() => {
     getData();
-    const interval = setInterval(getData, 4000);
+    const interval = setInterval(getData, 35000);
     return () => clearInterval(interval);
   }, []);
 

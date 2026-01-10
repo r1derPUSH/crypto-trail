@@ -12,10 +12,12 @@ import ConvertSectionHistory from "./components/ConvertSectionHistory/ConvertSec
 import ScrollToTop from "./components/CustomComponents/ScrollToTop";
 
 import type { TokenInfo } from "./types/tokenInfo";
-import RecentInvests from "./components/RecentInvestsHistory/HistoryParent/RecentInvestsHistory";
 import RecentInvestsHistory from "./components/RecentInvestsHistory/HistoryParent/RecentInvestsHistory";
+import { useCoins } from "./hooks/useCoins";
 
 function MainComponent() {
+  const { coins } = useCoins();
+
   const [tokenInfo, setTokenInfo] = useState<TokenInfo | null>(null);
 
   const [isRegistered, setIsRegistered] = useState(false);
@@ -23,6 +25,19 @@ function MainComponent() {
   const [userAvatar, setUserAvatar] = useState<string | null>(null);
   const [registerDate, setRegisterDate] = useState<string | null>(null);
   const [invests, setInvests] = useState([]);
+  const [totalPnL, setTotalPnL] = useState(0);
+
+  const livePnL = invests.reduce((sum: number, item: any) => {
+    const coin = coins.find(
+      (c) => c.name.toLowerCase() === item.name.toLowerCase()
+    );
+
+    const currentPrice = coin?.current_price ?? item.buyPrice;
+    const multiplier = currentPrice / item.buyPrice;
+    const currentValue = item.totalValue * multiplier;
+
+    return sum + (currentValue - item.totalValue);
+  }, 0);
 
   const [authChecked, setAuthChecked] = useState(false);
 
@@ -54,7 +69,12 @@ function MainComponent() {
           path="/"
           element={
             isRegistered ? (
-              <MainSection invests={invests} setInvests={setInvests} />
+              <MainSection
+                invests={invests}
+                setInvests={setInvests}
+                livePnL={livePnL}
+                setTotalPnL={setTotalPnL}
+              />
             ) : (
               <Navigate to="/login-page-section" replace />
             )
@@ -64,7 +84,11 @@ function MainComponent() {
         <Route
           path="/recent-invests-history"
           element={
-            <RecentInvestsHistory invests={invests} setInvests={setInvests} />
+            <RecentInvestsHistory
+              invests={invests}
+              setInvests={setInvests}
+              setTotalPnL={setTotalPnL}
+            />
           }
         ></Route>
 

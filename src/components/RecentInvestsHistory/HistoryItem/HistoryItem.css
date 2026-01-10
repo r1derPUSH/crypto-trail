@@ -106,9 +106,11 @@
 
 /* styles for profit/loss */
 
-.current-profit span {
-  font-size: 34px;
-  font-weight: 800;
+.current-profit .negative {
+  background: linear-gradient(90deg, #ff6b6b, #ff9b9b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
 }
 
 .positive {
