@@ -2,19 +2,15 @@ import "./InvestPage.css";
 import crystalImg from "./imgs/crystal-invest.png";
 import CoinHolder from "./CoinHolder/CoinHolder";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "../../MainSection/Footer/Footer";
-import type { Data } from "../../../types/data";
 import Header from "../../MainSection/Home/Header/Header";
+import { useCoins } from "../../../context/CoinsContext";
 
 function InvestPage({ setTokenInfo }: { setTokenInfo: any }) {
-  const [data, setData] = useState<Data[]>([]);
+  const { coins } = useCoins();
   const [search, setSearch] = useState("");
   const navigation = useNavigate();
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   const handleNavigateHome = () => {
     navigation("/");
@@ -24,28 +20,9 @@ function InvestPage({ setTokenInfo }: { setTokenInfo: any }) {
     navigation("/wallet-section");
   };
 
-  async function getData() {
-    try {
-      const res = await fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
-      );
-      const response = await res.json();
-      setData(response);
-      console.log(response);
-    } catch (err) {
-      console.error(`ERROR: ${err}`);
-    }
-  }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      getData();
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const filtered = data.filter((item) => item.symbol.includes(search));
+  const filtered = coins.filter((item) =>
+    item.symbol.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <>
