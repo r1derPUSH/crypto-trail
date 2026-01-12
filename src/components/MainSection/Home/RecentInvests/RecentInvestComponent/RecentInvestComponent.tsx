@@ -35,6 +35,13 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
         const tokenAmount = item.tokenAmount;
 
         const currentValue = tokenAmount * currentPrice;
+
+        if (currentValue <= 0) {
+          setTotalPnL((prev: number) => prev - investedValue);
+          setInvests((prev: any[]) => prev.filter((i) => i.id !== item.id));
+          return null;
+        }
+
         const currentProfit = currentValue - investedValue;
         const currentPercent = (currentProfit / investedValue) * 100;
 
