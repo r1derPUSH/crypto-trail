@@ -29,6 +29,8 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
 
         const currentPrice = coin?.current_price ?? item.buyPrice;
 
+        const isTargetReached = currentPrice >= item.targetPrice;
+
         const investedValue = item.investedValue;
         const tokenAmount = item.tokenAmount;
 
@@ -96,14 +98,22 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
               <span>Target Price:</span>
               <span>{item.targetPrice}$</span>
               <span>+{item.targetPriceInPercents}%</span>
-
-              <span>Target Profit:</span>
-              <span>+{targetProfit.toFixed(2)}$</span>
+              {isTargetReached ? (
+                <span className="target-reached">🎯 Target reached</span>
+              ) : (
+                <>
+                  <span>Target Profit:</span>
+                  <span>+{targetProfit.toFixed(2)}$</span>
+                </>
+              )}
             </div>
 
             <div className="close-case-container">
-              <button className="btn-close" onClick={() => closeCase(item)}>
-                Close Case
+              <button
+                className={`btn-close ${isTargetReached ? "target" : ""}`}
+                onClick={() => closeCase(item)}
+              >
+                {isTargetReached ? "Close & Take Profit" : "Close Case"}
               </button>
             </div>
           </div>
