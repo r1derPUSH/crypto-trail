@@ -76,7 +76,14 @@
 }
 
 /* === RESPONSIVE === */
-@media (max-width: 900px) {
+
+@media (max-width: 1040px) {
+  .summary-card {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 1000px) {
   .summary-card {
     grid-template-columns: 1fr;
     gap: 24px;
