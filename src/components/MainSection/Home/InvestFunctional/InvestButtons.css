@@ -5,26 +5,86 @@
   align-items: center;
 }
 
+/* ===== BASE BUTTON STYLE ===== */
 .invest-functional-container button {
   cursor: pointer;
   border: none;
-  border-radius: 1.5rem;
+  border-radius: 1.6rem;
   color: white;
   font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(42, 60, 140, 0.3);
+  backdrop-filter: blur(14px);
+  transition: all 0.35s ease;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
+/* hover — легкий неон */
 .invest-functional-container button:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 0 18px rgba(62, 92, 227, 0.5);
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 18px 45px rgba(80, 120, 255, 0.35);
 }
 
 .invest-functional-container button:active {
   transform: scale(0.97);
-  box-shadow: 0 0 10px rgba(62, 92, 227, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
+/* ===== DIFFERENT TONES ===== */
+
+/* INVEST */
+.invest-functional-container button:nth-child(1) {
+  background: linear-gradient(
+    135deg,
+    rgba(70, 100, 255, 0.35),
+    rgba(40, 60, 160, 0.55)
+  );
+}
+
+/* CONVERT */
+.invest-functional-container button:nth-child(2) {
+  background: linear-gradient(
+    135deg,
+    rgba(110, 90, 255, 0.35),
+    rgba(70, 60, 170, 0.55)
+  );
+}
+
+/* HELP */
+.invest-functional-container button:nth-child(3) {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 120, 190, 0.3),
+    rgba(170, 70, 130, 0.55)
+  );
+}
+
+/* ===== INNER ICON HOLDER ===== */
+.invest-functional-container button div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.invest-functional-container button div img {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+}
+
+/* ===== TEXT ===== */
+.invest-functional-container span {
+  margin-top: 0.6rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  opacity: 0.9;
+}
+
+/* ===== RESPONSIVE (залишаємо твою логіку) ===== */
 @media (max-height: 600px) {
   .invest-functional-container button {
     height: 20vh;
@@ -33,7 +93,6 @@
 
 @media (max-width: 2520px) {
   .invest-functional-container button {
-    cursor: pointer;
     width: 25vw;
     height: 14vh;
   }
