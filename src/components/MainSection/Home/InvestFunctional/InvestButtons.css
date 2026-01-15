@@ -1,93 +1,150 @@
+/* ======================================================
+   INVEST BUTTONS — BASE LAYOUT
+   ====================================================== */
+
 .invest-functional-container {
   margin-top: 3rem;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 2.4rem;
+}
+
+/* ======================================================
+   BASE BUTTON
+   відповідає ТІЛЬКИ за:
+   - форму
+   - розміри
+   - анімації
+   - поведінку
+   ====================================================== */
+
+.invest-functional-container button {
+  position: relative; /* потрібно для ::before неону */
+
+  cursor: pointer;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 0.8rem 1.8rem;
+  height: 3.7rem;
+  min-width: 11rem;
+
+  border-radius: 999px;
+  color: white;
+
+  /* glass effect */
+  backdrop-filter: blur(14px);
+
+  /* базова глибина (НЕ КОЛЬОРОВА) */
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 10px 26px rgba(0, 0, 0, 0.55);
+
+  /* преміум-анімація */
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .invest-functional-container button {
-  cursor: pointer;
-  border: none;
-  border-radius: 1.5rem;
-  color: white;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(42, 60, 140, 0.3);
+  /* було */
+  /* transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), ... */
+
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* hover — МʼЯКІШИЙ ПІДЙОМ */
 .invest-functional-container button:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 0 18px rgba(62, 92, 227, 0.5);
+  transform: translateY(-4px);
 }
 
+/* active — натиск */
 .invest-functional-container button:active {
-  transform: scale(0.97);
-  box-shadow: 0 0 10px rgba(62, 92, 227, 0.3);
+  transform: scale(0.94);
+  transition-duration: 0.18s;
 }
 
-@media (max-height: 600px) {
-  .invest-functional-container button {
-    height: 20vh;
-  }
+/* ======================================================
+   ICON HOLDER
+   тільки форма + розмір
+   ====================================================== */
+
+.invest-functional-container button .img-holder,
+.invest-functional-container button .img-holder-convert,
+.invest-functional-container button .img-holder-help {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.14);
 }
 
-@media (max-width: 2520px) {
-  .invest-functional-container button {
-    cursor: pointer;
-    width: 25vw;
-    height: 14vh;
-  }
-  .invest-functional-container button div {
-    width: 12vw;
-    height: 8vh;
-  }
-  .invest-functional-container button div img {
-    width: 2.5vw;
-    height: 2.5vw;
-  }
+/* тонка внутрішня лінія */
+.invest-functional-container button .img-holder::after,
+.invest-functional-container button .img-holder-convert::after,
+.invest-functional-container button .img-holder-help::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  opacity: 0.6;
 }
 
-@media (max-width: 1200px) and (max-height: 500px) {
-  .invest-functional-container button {
-    width: 22vw;
-    height: 10vw;
-  }
-  .invest-functional-container button div {
-    width: 6vw;
-    height: 6vw;
-  }
-  .invest-functional-container button div img {
-    width: 4vw;
-    height: 4vw;
+/* іконка */
+.invest-functional-container button img {
+  width: 1.2rem;
+  height: 1.2rem;
+
+  object-fit: contain;
+}
+
+/* ======================================================
+   TEXT
+   ====================================================== */
+
+.invest-functional-container button span {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 1100px) {
+  .invest-functional-container {
+    gap: 1.8rem;
   }
 }
 
 @media (max-width: 900px) {
+  .invest-functional-container {
+    flex-direction: column;
+  }
+
   .invest-functional-container button {
-    width: 22vw;
-    height: 15vw;
-  }
-  .invest-functional-container button div {
-    width: 8vw;
-    height: 8vw;
-  }
-  .invest-functional-container button div img {
-    width: 4vw;
-    height: 4vw;
+    min-width: 14rem;
+    height: 3.6rem;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
   .invest-functional-container button {
-    width: 25vw;
-    height: 25vw;
-  }
-  .invest-functional-container button div {
-    width: 10vw;
-    height: 10vw;
-  }
-  .invest-functional-container button div img {
-    width: 6vw;
-    height: 6vw;
+    width: 80%;
+    min-width: unset;
   }
 }
