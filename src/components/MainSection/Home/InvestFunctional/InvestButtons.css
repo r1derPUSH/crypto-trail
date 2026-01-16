@@ -41,19 +41,23 @@
   backdrop-filter: blur(14px);
 
   /* базова глибина (НЕ КОЛЬОРОВА) */
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22),
     0 10px 26px rgba(0, 0, 0, 0.55);
 
   /* преміум-анімація */
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* ===== BASE BUTTON STYLE ===== */
 .invest-functional-container button {
   /* було */
   /* transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), ... */
 
-  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
