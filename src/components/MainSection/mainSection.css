@@ -4,6 +4,7 @@
 
 body {
   background-attachment: fixed;
+  color: white;
 }
 
 body.dark-theme {
