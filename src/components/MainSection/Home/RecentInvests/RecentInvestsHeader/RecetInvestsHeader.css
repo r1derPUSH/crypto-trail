@@ -22,7 +22,8 @@
 }
 
 .small-span-recent-invests {
-  margin-right: 3rem;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
   cursor: pointer;
   color: #ffffffa3;
   border: none;
@@ -30,4 +31,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 400px) {
+  .main-span-recent-invests {
+    margin-left: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .small-span-recent-invests {
+    font-size: 0.7rem;
+  }
 }

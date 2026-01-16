@@ -101,7 +101,6 @@
 /* progress placeholder */
 .targetProfit span:last-child {
   /* margin-left: auto; */
-  font-size: 12px;
   opacity: 0.7;
 }
 
@@ -123,7 +122,8 @@
   font-size: 13px;
   font-weight: 600;
 
-  box-shadow: inset 0 0 0 rgba(255, 255, 255, 0),
+  box-shadow:
+    inset 0 0 0 rgba(255, 255, 255, 0),
     0 4px 12px rgba(255, 107, 107, 0.15);
 
   transition: all 0.2s ease;
@@ -158,7 +158,8 @@
   font-size: 13px;
   font-weight: 600;
 
-  box-shadow: inset 0 0 0 rgba(255, 255, 255, 0),
+  box-shadow:
+    inset 0 0 0 rgba(255, 255, 255, 0),
     0 4px 12px rgba(255, 107, 107, 0.15);
 
   transition: all 0.2s ease;
@@ -203,7 +204,8 @@
   font-size: 13px;
   font-weight: 600;
 
-  box-shadow: inset 0 0 0 rgba(255, 255, 255, 0),
+  box-shadow:
+    inset 0 0 0 rgba(255, 255, 255, 0),
     0 4px 12px rgba(255, 107, 107, 0.15);
 
   transition: all 0.2s ease;
@@ -224,6 +226,12 @@
 }
 
 /* updating animation styles */
+
+/* .value-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+} */
 
 /* === LIVE UPDATE ANIMATION === */
 .live-update {
@@ -250,10 +258,79 @@
   color: #ff6b6b;
 }
 
+.tp-span-in-usd {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 @media (max-width: 650px) {
+  .recent-invest-card span {
+    font-size: 0.8rem;
+  }
+
   .name img {
     width: 4vw;
     height: 4vw;
     margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .recent-invest-card span {
+    font-size: 0.5rem;
+  }
+
+  .targetProfit {
+    text-align: center;
+  }
+}
+
+.targetProfit {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* item */
+.tp-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* labels / values */
+.tp-label {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.tp-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* full width row */
+.tp-full {
+  grid-column: 1 / -1;
+}
+
+/* target reached */
+.target-reached {
+  color: #ffd166;
+  font-weight: 600;
+}
+
+/* mobile: 2 columns */
+@media (max-width: 550px) {
+  .targetProfit {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tp-full {
+    grid-column: 1 / -1;
   }
 }

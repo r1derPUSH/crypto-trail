@@ -50,7 +50,7 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
 
         const progressToTarget = Math.min(
           (currentPrice / item.targetPrice) * 100,
-          100
+          100,
         );
 
         return (
@@ -102,16 +102,27 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
             </div>
 
             <div className="targetProfit">
-              <span>Target Price:</span>
-              <span>{item.targetPrice}$</span>
-              <span>+{item.targetPriceInPercents}%</span>
+              <div className="tp-item">
+                <span className="tp-label">Target Price</span>
+                <span className="tp-value">{item.targetPrice}$</span>
+              </div>
+
+              <div className="tp-item">
+                <span className="tp-label">Target %</span>
+                <span className="tp-value">+{item.targetPriceInPercents}%</span>
+              </div>
+
               {isTargetReached ? (
-                <span className="target-reached">🎯 Target reached</span>
+                <div className="tp-item tp-full">
+                  <span className="target-reached">🎯 Target reached</span>
+                </div>
               ) : (
-                <>
-                  <span>Target Profit:</span>
-                  <span>+{targetProfit.toFixed(2)}$</span>
-                </>
+                <div className="tp-item tp-full">
+                  <span className="tp-label">Target Profit</span>
+                  <span className="tp-value tp-span-in-usd">
+                    +{targetProfit.toFixed(2)}$
+                  </span>
+                </div>
               )}
             </div>
 
