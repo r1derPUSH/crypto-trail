@@ -52,19 +52,33 @@
   border-radius: 10px;
 }
 
-/* section for username */
+/* icon animation */
+
+.button-arrow-right:hover {
+  transform: scale(1.08);
+}
+
+/* active — легкий press */
+.button-arrow-right:active {
+  transform: scale(0.95);
+}
+
+/* ICON */
+.arrow-right-icon {
+  font-size: 1.6rem;
+}
 
 @media (max-width: 2200px) {
   .username {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
   }
 }
 
 @media (max-width: 1170px) {
   .username {
     font-size: 0.8rem;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
   }
   .avatar-container {
     width: 30vw;
@@ -81,7 +95,7 @@
 @media (max-width: 800px) {
   .username {
     font-size: 0.7rem;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
   }
   .avatar-container {
     width: 40vw;
@@ -103,8 +117,8 @@
   }
 }
 
-@media (max-width: 310px) {
+@media (max-width: 410px) {
   .username {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
   }
 }

@@ -15,7 +15,8 @@
 
   background: linear-gradient(135deg, #2c3570 0%, #1c234d 45%, #141a3a 100%);
 
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45),
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
   backdrop-filter: blur(14px);
@@ -65,7 +66,9 @@
 
 /* === HOVER EFFECT === */
 .summary-card > div {
-  transition: transform 0.25s ease, background 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
   padding: 18px;
   border-radius: 16px;
 }
@@ -83,7 +86,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   .summary-card {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -101,6 +104,6 @@
   }
 
   .summary-card span:last-child {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
