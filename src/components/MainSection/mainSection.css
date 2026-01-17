@@ -4,6 +4,8 @@
 
 body {
   background-attachment: fixed;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
 }
 
 body.dark-theme {

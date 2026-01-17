@@ -202,6 +202,15 @@
   margin-top: 1px;
 }
 
+.convert-header-section {
+  margin-right: 10rem;
+}
+
+.convert-header-section img {
+  width: 25vw;
+  height: 18vw;
+}
+
 @keyframes pop {
   0% {
     transform: scale(0.3);
@@ -229,12 +238,20 @@
   }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1250px) {
   .convert-section {
     width: 80vw;
   }
   .flex-container-convert-page {
     flex-direction: column;
+  }
+
+  .convert-header-section span {
+    font-size: 3rem;
+  }
+
+  .convert-header-section {
+    margin: 0 0 1rem 0;
   }
   .convert-btn {
     margin-left: 0;
@@ -256,5 +273,16 @@
 
   .flex-convert-and-history-buttons-container button {
     margin: 1rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .convert-header-section img {
+    width: 40vw;
+    height: 30vw;
+  }
+
+  .convert-header-section span {
+    font-size: 2.2rem;
   }
 }
