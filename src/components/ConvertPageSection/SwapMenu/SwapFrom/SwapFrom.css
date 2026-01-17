@@ -229,13 +229,15 @@
   }
 }
 
-@media (max-width: 450px) {
-  .input-price-container {
-    margin-right: -12rem;
+@media (max-width: 900px) {
+  .dropbox-of-coins {
+    width: auto;
+    height: auto;
+    padding: 0.4rem 0.8rem;
   }
 
-  .input-price-flexbox {
-    width: 80vw;
+  .dropbox-menu-inactive span {
+    margin: 0 0.4rem;
   }
 }
 
@@ -251,11 +253,12 @@
     height: auto;
     padding: 0.4rem 0.8rem;
   }
-
-  .dropbox-menu-inactive span {
-    margin: 0 0.4rem;
-  }
 }
+
+@media (max-width: 450px) {
+  .input-price-container {
+    margin-right: -12rem;
+  }
 
 @media (max-width: 1150px) and (min-width: 1050px) {
   .dropbox-menu-inactive {
