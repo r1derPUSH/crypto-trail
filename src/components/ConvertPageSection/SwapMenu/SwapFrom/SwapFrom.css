@@ -223,16 +223,6 @@
   }
 }
 
-@media (max-width: 450px) {
-  .input-price-container {
-    margin-right: -12rem;
-  }
-
-  .input-price-flexbox {
-    width: 80vw;
-  }
-}
-
 @media (max-width: 900px) {
   .dropbox-of-coins {
     width: auto;
@@ -244,6 +234,19 @@
     margin: 0 0.4rem;
   }
 }
+
+@media (max-width: 900px) {
+  .dropbox-of-coins {
+    width: auto;
+    height: auto;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .input-price-container {
+    margin-right: -12rem;
+  }
 
 @media (max-width: 1260px) {
   .modal {
