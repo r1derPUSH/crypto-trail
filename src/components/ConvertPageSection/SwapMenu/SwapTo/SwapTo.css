@@ -388,3 +388,73 @@
     font-size: 0.5rem;
   }
 }
+
+@media (max-width: 700px) {
+  /* число */
+  .input-price-container input {
+    font-size: 1.3rem;
+  }
+
+  /* From / To */
+  .from-span-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* $ price */
+  .price-in-usd {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  /* токен кнопка */
+  .dropbox-menu-inactive {
+    padding: 0.15rem 0.4rem;
+    margin-right: 0; /* 🔥 важливо */
+  }
+
+  .dropbox-menu-inactive span {
+    font-size: 0.85rem;
+    margin: 0 0.3rem;
+  }
+
+  /* іконка токена */
+  .coin-img {
+    width: 3vh;
+    height: 3vh;
+  }
+}
+
+@media (max-width: 450px) {
+  /* число */
+  .input-price-container input {
+    font-size: 1.05rem;
+  }
+
+  /* From / To */
+  .from-span-text {
+    font-size: 0.75rem;
+  }
+
+  /* $ price */
+  .price-in-usd {
+    font-size: 0.7rem;
+  }
+
+  /* токен кнопка */
+  .dropbox-menu-inactive {
+    padding: 0.1rem 0.3rem;
+    border-radius: 18px;
+  }
+
+  .dropbox-menu-inactive span {
+    font-size: 0.7rem;
+    margin: 0 0.25rem;
+  }
+
+  /* іконка токена */
+  .coin-img {
+    width: 2.4vh;
+    height: 2.4vh;
+  }
+}
