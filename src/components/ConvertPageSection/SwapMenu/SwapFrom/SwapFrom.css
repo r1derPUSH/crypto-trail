@@ -259,10 +259,10 @@
   .input-price-container {
     margin-right: -12rem;
   }
-
-@media (max-width: 1150px) and (min-width: 1050px) {
-  .dropbox-menu-inactive {
-    width: 14.5vw;
+}
+@media (max-width: 1260px) {
+  .modal {
+    width: 50vw;
   }
 }
 
@@ -430,6 +430,109 @@
 @media (max-width: 450px) {
   .swap-container .from-amount-input {
     max-width: 110px;
+  }
+}
+
+@media (max-width: 350px) {
+  .swap-container .from-amount-input {
+    max-width: 60px;
+  }
+}
+
+/* ===== INPUT ELLIPSIS AFTER 70% WIDTH ===== */
+
+.input-price-flexbox {
+  width: 100%;
+  min-width: 0;
+}
+
+.input-price-container input {
+  display: block;
+
+  /* 👇 ключ */
+  max-width: 70%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  .input-price-container input {
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 450px) {
+  .input-price-container input {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 700px) {
+  .input-price-container input {
+    font-size: 1.3rem;
+  }
+
+  .from-span-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .price-in-usd {
+    font-size: 0.85rem;
+  }
+
+  .coin-img {
+    width: 3vh;
+    height: 3vh;
+  }
+
+  .dropbox-menu-inactive span {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .input-price-container input {
+    font-size: 1.05rem;
+  }
+
+  .from-span-text {
+    font-size: 0.75rem;
+  }
+
+  .price-in-usd {
+    font-size: 0.7rem;
+  }
+
+  .coin-img {
+    width: 2.4vh;
+    height: 2.4vh;
+  }
+
+  .dropbox-menu-inactive span {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .swap-container .from-amount-input {
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 650px) {
+  .swap-container .from-amount-input {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 450px) {
+  .swap-container .from-amount-input {
+    max-width: 100px;
   }
 }
 
