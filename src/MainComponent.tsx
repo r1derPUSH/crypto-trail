@@ -34,7 +34,7 @@ function MainComponent() {
   });
   const livePnL = invests.reduce((sum: number, item: any) => {
     const coin = coins.find(
-      (c) => c.name.toLowerCase() === item.name.toLowerCase()
+      (c) => c.name.toLowerCase() === item.name.toLowerCase(),
     );
 
     const currentPrice = coin?.current_price ?? item.buyPrice;
@@ -55,11 +55,12 @@ function MainComponent() {
 
   useEffect(() => {
     const user = localStorage.getItem("user");
-    const isSignedIn = sessionStorage.getItem("isSignedIn");
+    const isSignedIn = localStorage.getItem("isSignedIn");
 
     if (user && isSignedIn === "true") {
       const parsedUser = JSON.parse(user);
-      setLogin(parsedUser.email);
+
+      setLogin(parsedUser.username);
       setUserAvatar(parsedUser.avatar);
       setRegisterDate(parsedUser.registerDate);
       setIsRegistered(true);

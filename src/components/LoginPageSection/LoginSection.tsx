@@ -89,40 +89,46 @@ function LoginSection({
 
     if (!PASSWORD_REGEX.test(passwordValue)) {
       showFloatingError(
-        "Password must be at least 8 characters and contain a letter and a number"
+        "Password must be at least 8 characters and contain a letter and a number",
       );
       isValid = false;
     }
 
     if (!isValid) return;
 
-    setLogin(emailValue);
-    setPassword(passwordValue);
-
     const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+
+    const username = emailValue.slice(0, emailValue.indexOf("@"));
+
+    const registerDate = new Date().toLocaleDateString();
 
     const userData = {
       email: emailValue,
+      username,
       avatar: randomAvatar,
-      registerDate: new Date().toLocaleDateString(),
+      registerDate,
     };
 
     localStorage.setItem("user", JSON.stringify(userData));
-    sessionStorage.setItem("isSignedIn", "true");
+    localStorage.setItem("isSignedIn", "true");
 
+    setLogin(username);
     setUserAvatar(randomAvatar);
-    setRegisterDate(new Date().toLocaleDateString());
-
+    setRegisterDate(registerDate);
     setIsRegistered(true);
   };
 
   const logOut = () => {
     setIsRegistered(false);
+
     localStorage.removeItem("user");
+    localStorage.removeItem("isSignedIn");
+
     setEmailValue("");
     setPasswordValue("");
+    setUserAvatar(null);
+    setRegisterDate(null);
   };
-
   return (
     <div className="login-parent-box">
       {!isRegistered ? (
@@ -174,8 +180,7 @@ function LoginSection({
               alt="User avatar"
               className="profile-avatar"
             />
-
-            <h3 className="profile-email">{emailValue || login}</h3>
+            <h3 className="profile-email">{login}</h3>
 
             <div className="profile-info">
               <span>
