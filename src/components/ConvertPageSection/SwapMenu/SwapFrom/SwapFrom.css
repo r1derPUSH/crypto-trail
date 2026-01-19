@@ -241,6 +241,12 @@
   }
 }
 
+@media (max-width: 670px) {
+  .input-price-flexbox {
+    width: 40vw;
+  }
+}
+
 @media (max-width: 900px) {
   .dropbox-of-coins {
     width: auto;
@@ -257,144 +263,6 @@
 @media (max-width: 1260px) {
   .modal {
     width: 50vw;
-  }
-
-  .pair-symbol {
-    margin-bottom: 5px;
-  }
-}
-
-@media (max-width: 1110px) {
-  .modal {
-    width: 70vw;
-  }
-
-  .pair-symbol {
-    margin-bottom: 5px;
-  }
-}
-
-@media (max-width: 800px) {
-  .modal {
-    width: 85vw;
-  }
-
-  .pair-symbol {
-    margin-bottom: 5px;
-  }
-}
-
-@media (max-width: 670px) {
-  .modal {
-    width: 75vw;
-  }
-
-  .pair-symbol {
-    margin-bottom: 5px;
-  }
-
-  .token-container span {
-    font-size: 0.4rem;
-  }
-  .token-container div {
-    font-size: 0.7rem;
-  }
-}
-@media (max-width: 600px) {
-  .modal {
-    width: 95vw;
-  }
-
-  .pair-symbol {
-    margin-bottom: 5px;
-  }
-
-  .token-container span {
-    font-size: 0.5rem;
-  }
-  .token-container div {
-    font-size: 0.7rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .token-container {
-    width: 95%;
-    margin-right: 0;
-    margin-left: 0.5rem;
-  }
-  .pair-row {
-    width: 92%;
-    padding: 1rem;
-  }
-  .pair-symbol {
-    margin-bottom: 6px;
-  }
-  .token-container span {
-    font-size: 0.5rem;
-  }
-  .token-container div {
-    font-size: 0.7rem;
-  }
-}
-
-@media (max-width: 475px) {
-  .token-container {
-    width: 90%;
-    margin-right: 0;
-    margin-left: 1rem;
-    padding: 0.2rem;
-  }
-  .pair-row {
-    width: 95%;
-    padding: 0.5rem;
-  }
-  .token-container span {
-    font-size: 0.4rem;
-  }
-  .token-container div {
-    font-size: 0.5rem;
-  }
-
-  .pair-symbol {
-    margin-bottom: 5px;
-  }
-}
-
-@media (max-width: 440px) {
-  .token-container {
-    width: 95%;
-    margin-right: 0;
-    margin-left: 1rem;
-    padding: 0.2rem;
-  }
-
-  .pair-row {
-    width: 100%;
-    padding: 0.5rem;
-    justify-content: space-around;
-    padding-right: 3rem;
-    display: flex;
-    align-items: center;
-  }
-
-  .pair-symbol {
-    margin-bottom: 5px;
-  }
-
-  .pair-row div {
-    margin-right: -50px;
-  }
-
-  .pair-funding {
-    display: none;
-  }
-
-  .token-container span {
-    font-size: 0.4rem;
-  }
-  .token-container div {
-    font-size: 0.5rem;
   }
 }
 
@@ -465,6 +333,109 @@
   .coin-img {
     width: 2.4vh;
     height: 2.4vh;
+  }
+}
+
+/* ===== INPUT ELLIPSIS AFTER 70% WIDTH ===== */
+
+.input-price-flexbox {
+  width: 100%;
+  min-width: 0;
+}
+
+.input-price-container input {
+  display: block;
+
+  /* 👇 ключ */
+  max-width: 70%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  .input-price-container input {
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 450px) {
+  .input-price-container input {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 700px) {
+  .input-price-container input {
+    font-size: 1.3rem;
+  }
+
+  .from-span-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .price-in-usd {
+    font-size: 0.85rem;
+  }
+
+  .coin-img {
+    width: 3vh;
+    height: 3vh;
+  }
+
+  .dropbox-menu-inactive span {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .input-price-container input {
+    font-size: 1.05rem;
+  }
+
+  .from-span-text {
+    font-size: 0.75rem;
+  }
+
+  .price-in-usd {
+    font-size: 0.7rem;
+  }
+
+  .coin-img {
+    width: 2.4vh;
+    height: 2.4vh;
+  }
+
+  .dropbox-menu-inactive span {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .swap-container .from-amount-input {
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 650px) {
+  .swap-container .from-amount-input {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 450px) {
+  .swap-container .from-amount-input {
+    max-width: 110px;
+  }
+}
+
+@media (max-width: 350px) {
+  .swap-container .from-amount-input {
+    max-width: 60px;
   }
 }
 
