@@ -43,6 +43,15 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.username {
+  max-width: 140px; /* 👈 підбери під дизайн */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  display: inline-block;
+}
+
 /* section for user-img */
 
 .user-img {

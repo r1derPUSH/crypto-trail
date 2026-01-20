@@ -139,20 +139,24 @@ function LoginSection({
 
           <div className="login-fields">
             <input
+              className="login-input"
               value={emailValue}
               onChange={handleChangeEmailValue}
               type="email"
               placeholder="Email"
+              max={30}
             />
 
             <div className="line"></div>
 
             <div className="password-input-wrapper">
               <input
+                className="password-input"
                 value={passwordValue}
                 onChange={handleChangePasswordValue}
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
+                maxLength={16}
               />
 
               <button
