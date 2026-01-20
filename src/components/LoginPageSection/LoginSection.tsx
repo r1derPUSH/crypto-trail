@@ -37,7 +37,6 @@ function LoginSection({
   isRegistered,
   setIsRegistered,
   setLogin,
-  setPassword,
   registerDate,
   userAvatar,
   setRegisterDate,
