@@ -84,7 +84,7 @@ function InvestToken({
   };
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Header />
       <div className="token-invest-container">
         <div className="back-icon-container">
@@ -245,7 +245,7 @@ function InvestToken({
                       <button
                         onClick={() => {
                           const newPrice = (Number(currentPrice) * 0.7).toFixed(
-                            1
+                            1,
                           );
                           setTargetPrice(newPrice);
 
@@ -268,7 +268,7 @@ function InvestToken({
                       <button
                         onClick={() => {
                           const newPrice = (Number(currentPrice) * 1).toFixed(
-                            1
+                            1,
                           );
                           setTargetPrice(newPrice);
 
@@ -312,7 +312,7 @@ function InvestToken({
                       <button
                         onClick={() => {
                           const newPrice = (Number(currentPrice) * 1.2).toFixed(
-                            1
+                            1,
                           );
                           setTargetPrice(newPrice);
 
@@ -339,7 +339,7 @@ function InvestToken({
                       <button
                         onClick={() => {
                           const newPrice = (Number(currentPrice) * 1.5).toFixed(
-                            1
+                            1,
                           );
                           setTargetPrice(newPrice);
 
@@ -362,7 +362,7 @@ function InvestToken({
                       <button
                         onClick={() => {
                           const newPrice = (Number(currentPrice) * 2).toFixed(
-                            1
+                            1,
                           );
                           setTargetPrice(newPrice);
 
@@ -387,7 +387,7 @@ function InvestToken({
                       <button
                         onClick={() => {
                           const newPrice = (Number(currentPrice) * 3).toFixed(
-                            1
+                            1,
                           );
                           setTargetPrice(newPrice);
 
@@ -410,7 +410,7 @@ function InvestToken({
                       <button
                         onClick={() => {
                           const newPrice = (Number(currentPrice) * 10).toFixed(
-                            1
+                            1,
                           );
                           setTargetPrice(newPrice);
 
@@ -440,8 +440,8 @@ function InvestToken({
                       Number(targetPriceInPercents) > 0
                         ? "positive"
                         : Number(targetPriceInPercents) < 0
-                        ? "negative"
-                        : ""
+                          ? "negative"
+                          : ""
                     }`}
                     type="number"
                     value={targetPrice}
@@ -486,8 +486,8 @@ function InvestToken({
                           Number(targetPriceInPercents) > 0
                             ? "positive"
                             : Number(targetPriceInPercents) < 0
-                            ? "negative"
-                            : "neutral"
+                              ? "negative"
+                              : "neutral"
                         }
                       >
                         {profit >= 0 ? "+" : ""}
