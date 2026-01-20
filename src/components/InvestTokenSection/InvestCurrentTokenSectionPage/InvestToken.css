@@ -32,13 +32,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 75vw;
+  width: 70vw;
   margin: 3rem auto;
   padding: 3rem;
   border-radius: 28px;
   margin-bottom: 10rem;
   background: radial-gradient(circle at 30% 20%, #232b69, #0f1129 70%);
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.45), 0 0 80px rgba(81, 134, 255, 0.18);
+  box-shadow:
+    0 0 25px rgba(0, 0, 0, 0.45),
+    0 0 80px rgba(81, 134, 255, 0.18);
   color: #e4e9ff;
   backdrop-filter: blur(10px);
   animation: fadeIn 0.5s ease;
@@ -274,6 +276,15 @@
   color: #e8ecff;
   width: 100%;
   padding-right: 1rem;
+  width: 100%;
+  max-width: 100%;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  direction: ltr; /* важливо для чисел */
+  text-align: left; /* або right, якщо хочеш */
 }
 
 .crypto-input-field::placeholder {
@@ -316,15 +327,14 @@
   flex-direction: column;
   gap: 2rem;
   border-radius: 1.8rem;
-  background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.03),
-      rgba(30, 35, 60, 0.1)
-    ),
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(30, 35, 60, 0.1)),
     rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(0.8rem);
   border: 0.1rem solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 0 3rem rgba(80, 120, 255, 0.15), 0 0 2rem rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 0 3rem rgba(80, 120, 255, 0.15),
+    0 0 2rem rgba(0, 0, 0, 0.4);
   max-height: 0;
   opacity: 0;
   transform: translateY(1.2rem);
@@ -375,7 +385,9 @@
 /* Slight hover 3D lift */
 .advanced-invest-token-container:hover {
   transform: translateY(-0.02rem) scale(1.005);
-  box-shadow: 0 0 4rem rgba(90, 130, 255, 0.25), 0 0 2.5rem rgba(0, 0, 0, 0.55);
+  box-shadow:
+    0 0 4rem rgba(90, 130, 255, 0.25),
+    0 0 2.5rem rgba(0, 0, 0, 0.55);
 }
 
 /* === HEADER === */
@@ -470,7 +482,10 @@
   color: #dce6ff;
   border: 0.05rem solid rgba(120, 150, 255, 0.2);
   cursor: pointer;
-  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 /* MAGNETIC HOVER */
@@ -548,7 +563,8 @@
 .advanced-total-invest .profit {
   color: #5aff9e;
   font-weight: 700;
-  text-shadow: 0 0 0.6rem rgba(95, 255, 170, 0.6),
+  text-shadow:
+    0 0 0.6rem rgba(95, 255, 170, 0.6),
     0 0 1.6rem rgba(95, 255, 170, 0.45);
 }
 
@@ -556,7 +572,8 @@
 .advanced-total-invest .loss {
   color: #ff6d6d;
   font-weight: 700;
-  text-shadow: 0 0 0.6rem rgba(255, 110, 110, 0.6),
+  text-shadow:
+    0 0 0.6rem rgba(255, 110, 110, 0.6),
     0 0 1.6rem rgba(255, 110, 110, 0.45);
 }
 
@@ -576,7 +593,8 @@
 /* POSITIVE (GREEN) */
 .positive {
   color: #6dffb8;
-  text-shadow: 0 0 0.35rem rgba(80, 255, 170, 0.6),
+  text-shadow:
+    0 0 0.35rem rgba(80, 255, 170, 0.6),
     0 0 1rem rgba(100, 255, 200, 0.5);
   font-weight: 700;
 }
@@ -584,7 +602,8 @@
 /* NEGATIVE (RED) */
 .negative {
   color: #ff6b6b;
-  text-shadow: 0 0 0.35rem rgba(255, 120, 120, 0.7),
+  text-shadow:
+    0 0 0.35rem rgba(255, 120, 120, 0.7),
     0 0 1rem rgba(255, 100, 100, 0.5);
   font-weight: 700;
 }
@@ -598,18 +617,22 @@
 
 /* BOX SHADOW FOR SECTION */
 .green-shadow {
-  box-shadow: 0 0 2rem rgba(80, 255, 170, 0.25),
+  box-shadow:
+    0 0 2rem rgba(80, 255, 170, 0.25),
     0 0 4rem rgba(80, 255, 170, 0.15);
   transition: 0.35s ease;
 }
 
 .red-shadow {
-  box-shadow: 0 0 2rem rgba(255, 80, 80, 0.25), 0 0 4rem rgba(255, 80, 80, 0.15);
+  box-shadow:
+    0 0 2rem rgba(255, 80, 80, 0.25),
+    0 0 4rem rgba(255, 80, 80, 0.15);
   transition: 0.35s ease;
 }
 
 .blue-shadow {
-  box-shadow: 0 0 2rem rgba(120, 150, 255, 0.18),
+  box-shadow:
+    0 0 2rem rgba(120, 150, 255, 0.18),
     0 0 4rem rgba(120, 150, 255, 0.1);
   transition: 0.35s ease;
 }
@@ -636,14 +659,16 @@
 .advanced-input-multiplier-by-amount.positive {
   text-shadow: none;
   outline-color: rgba(80, 255, 170, 0.8);
-  box-shadow: 0 0 0.6rem rgba(80, 255, 170, 0.5),
+  box-shadow:
+    0 0 0.6rem rgba(80, 255, 170, 0.5),
     0 0 1.4rem rgba(80, 255, 170, 0.3);
 }
 
 .advanced-input-multiplier-by-amount.negative {
   text-shadow: none;
   outline-color: rgba(255, 90, 90, 0.8);
-  box-shadow: 0 0 0.6rem rgba(255, 90, 90, 0.5),
+  box-shadow:
+    0 0 0.6rem rgba(255, 90, 90, 0.5),
     0 0 1.4rem rgba(255, 90, 90, 0.3);
 }
 
@@ -683,7 +708,8 @@
   font-weight: 700;
   letter-spacing: 0.2px;
 
-  box-shadow: 0 8px 25px rgba(46, 216, 167, 0.35),
+  box-shadow:
+    0 8px 25px rgba(46, 216, 167, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 
   transition: all 0.2s ease;
@@ -691,7 +717,8 @@
 
 .btn-invest:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(46, 216, 167, 0.5),
+  box-shadow:
+    0 12px 30px rgba(46, 216, 167, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 

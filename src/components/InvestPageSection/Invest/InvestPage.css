@@ -13,6 +13,11 @@
   flex-direction: column;
 }
 
+.invest-header img {
+  width: 20vw;
+  height: 15vw;
+}
+
 .main-invest-text {
   font-size: 3rem;
   font-weight: 400;
@@ -43,7 +48,8 @@
   font-family: "Quicksand", sans-serif;
   letter-spacing: 0.5px;
 
-  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.1),
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.1),
     0 0 10px rgba(0, 102, 255, 0.15);
   transition: all 0.25s ease-in-out;
 }
@@ -61,7 +67,8 @@
 .search-coin-input:hover,
 .search-coin-input:focus {
   background: linear-gradient(145deg, #123873, #0b2956);
-  box-shadow: 0 0 18px rgba(0, 140, 255, 0.35),
+  box-shadow:
+    0 0 18px rgba(0, 140, 255, 0.35),
     inset 0 0 4px rgba(255, 255, 255, 0.1);
   transform: scale(1.02);
 }
@@ -116,7 +123,8 @@
   opacity: 0.85;
 
   transition: all 0.25s ease-in-out;
-  box-shadow: inset 0 0 8px rgba(0, 140, 255, 0.1),
+  box-shadow:
+    inset 0 0 8px rgba(0, 140, 255, 0.1),
     0 0 10px rgba(0, 102, 255, 0.15);
 }
 
@@ -145,7 +153,8 @@
   cursor: pointer;
 
   transition: all 0.25s ease-in-out;
-  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1),
+  box-shadow:
+    inset 0 0 6px rgba(255, 255, 255, 0.1),
     0 0 12px rgba(0, 255, 200, 0.35);
 }
 
@@ -170,7 +179,8 @@
   background: radial-gradient(circle at top left, #0c1d3a, #06132a 80%);
   border: 1px solid rgba(0, 140, 255, 0.2);
   border-radius: 20px;
-  box-shadow: inset 0 0 10px rgba(0, 140, 255, 0.1),
+  box-shadow:
+    inset 0 0 10px rgba(0, 140, 255, 0.1),
     0 0 20px rgba(0, 140, 255, 0.25);
   padding: 2rem;
   width: 80vw;
@@ -181,4 +191,19 @@
 
 .coins-holder:hover {
   box-shadow: 0 0 35px rgba(0, 153, 255, 0.35);
+}
+
+@media (max-width: 500px) {
+  .invest-header img {
+    width: 35vw;
+    height: 25vw;
+  }
+
+  .invest-header span {
+    font-size: 1.3rem;
+  }
+
+  .main-invest-text {
+    margin-bottom: 0.5rem;
+  }
 }
