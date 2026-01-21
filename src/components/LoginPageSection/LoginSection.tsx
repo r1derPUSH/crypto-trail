@@ -144,7 +144,7 @@ function LoginSection({
               onChange={handleChangeEmailValue}
               type="email"
               placeholder="Email"
-              max={30}
+              maxLength={33}
             />
 
             <div className="line"></div>
@@ -156,7 +156,7 @@ function LoginSection({
                 onChange={handleChangePasswordValue}
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                maxLength={16}
+                maxLength={20}
               />
 
               <button
