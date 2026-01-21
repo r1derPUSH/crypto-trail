@@ -334,3 +334,28 @@
     grid-column: 1 / -1;
   }
 }
+
+.close-all-btn {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #cfd6ff;
+  background: transparent;
+
+  border: 1px solid rgba(140, 160, 255, 0.35);
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.close-all-btn:hover {
+  background: rgba(120, 140, 255, 0.12);
+  color: #ffffff;
+}
+
+.close-all-btn:active {
+  background: rgba(120, 140, 255, 0.18);
+}

@@ -42,7 +42,11 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
 
   return (
     <div className="recent-invests-container">
-      <button onClick={closeAllCases}>Close All Cases</button>
+      {invests.length > 0 && (
+        <button className="close-all-btn" onClick={closeAllCases}>
+          Close All Cases
+        </button>
+      )}
 
       {invests.map((item: any) => {
         const coin = findCoin(item.name);
