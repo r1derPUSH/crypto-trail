@@ -19,11 +19,31 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
     setInvests((prev: any) => prev.filter((i: any) => i.id !== item.id));
   };
 
+  const closeAllCases = () => {
+    let totalProfit = 0;
+
+    for (const item of invests) {
+      const coin = findCoin(item.name);
+      const currentPrice = coin?.current_price ?? item.buyPrice;
+      const investedValue = item.investedValue;
+      const tokenAmount = item.tokenAmount;
+
+      const currentValue = tokenAmount * currentPrice;
+      const currentProfit = currentValue - investedValue;
+      totalProfit += currentProfit;
+    }
+
+    setTotalPnL((prev: any) => prev + totalProfit);
+    setInvests([]);
+  };
+
   const findCoin = (name: string) =>
     coins.find((coin) => coin.name.toLowerCase() === name.toLowerCase());
 
   return (
     <div className="recent-invests-container">
+      <button onClick={closeAllCases}>Close All Cases</button>
+
       {invests.map((item: any) => {
         const coin = findCoin(item.name);
 
