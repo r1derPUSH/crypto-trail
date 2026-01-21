@@ -544,9 +544,8 @@ input {
     width: 92vw;
   }
 
-  .login-input,
-  .password-input {
-    font-size: 0.6rem;
+  input {
+    font-size: 1500px;
   }
 }
 
@@ -555,8 +554,17 @@ input {
   .password-input {
     font-size: 0.6rem;
   }
+
+  .line {
+    margin-left: 1.6rem;
+  }
 }
 
+@media (max-width: 350px) {
+  .line {
+    margin-left: 1.3rem;
+  }
+}
 /* fix inputs */
 
 /* === FINAL STABLE INPUT COLOR === */
@@ -579,4 +587,12 @@ input {
   box-shadow: 0 0 0 1000px #2c3056 inset !important;
 
   transition: background-color 9999s ease-in-out 0s;
+}
+
+@media (max-width: 400px) {
+  .password-input-wrapper .password-input,
+  .login-fields .login-input {
+    font-size: 0.7rem;
+    letter-spacing: 0.3px; /* зменшуємо, щоб влізало більше */
+  }
 }
