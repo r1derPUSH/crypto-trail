@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import type { TokenInfo } from "../../../types/tokenInfo";
 import Header from "../../MainSection/Home/Header/Header";
 import { useNavigate } from "react-router-dom";
+import { formatPrice } from "../../../functions/format";
 
 function InvestToken({
   tokenInfo,
@@ -51,7 +52,7 @@ function InvestToken({
 
   const tokentName = tokenInfo.name;
   const currentPrice = tokenInfo.price;
-  const [targetPrice, setTargetPrice] = useState("");
+  const [targetPrice, setTargetPrice] = useState<number | null>(null);
   const [targetPriceInPercents, setTargetPriceInPercents] = useState("");
   const [totalValue, setTotalValue] = useState(0);
   const [profit, setProfit] = useState(0);
@@ -106,7 +107,7 @@ function InvestToken({
             <span className="token-name-span">{tokentName}</span>
           </div>
           <div className="second-flex-header">
-            <span>{currentPrice}$</span>
+            <span>{formatPrice(currentPrice)} $</span>
           </div>
         </div>
         <div className="invest-token-functional">
@@ -235,7 +236,9 @@ function InvestToken({
               <div className="flex-target-price">
                 <div className="target-price">
                   <span>Target: </span>
-                  <span>{targetPrice} $</span>
+                  <span>
+                    {targetPrice !== null ? formatPrice(targetPrice) : "0"} $
+                  </span>
                 </div>
               </div>
               <div className="advanced-multipliers">
@@ -244,9 +247,7 @@ function InvestToken({
                     <div className="first-section-of-multipliers-first-part">
                       <button
                         onClick={() => {
-                          const newPrice = (Number(currentPrice) * 0.7).toFixed(
-                            1,
-                          );
+                          const newPrice = Number(currentPrice) * 0.7;
                           setTargetPrice(newPrice);
 
                           const percent = (
@@ -267,9 +268,7 @@ function InvestToken({
                       </button>
                       <button
                         onClick={() => {
-                          const newPrice = (Number(currentPrice) * 1).toFixed(
-                            1,
-                          );
+                          const newPrice = Number(currentPrice);
                           setTargetPrice(newPrice);
 
                           const percent = (
@@ -288,9 +287,7 @@ function InvestToken({
                     <div className="first-section-of-multipliers-second-part">
                       <button
                         onClick={() => {
-                          const newPrice = (
-                            Number(currentPrice) * 1.05
-                          ).toFixed(1);
+                          const newPrice = Number(currentPrice) * 1.05;
                           setTargetPrice(newPrice);
 
                           const percent = (
@@ -311,11 +308,8 @@ function InvestToken({
                       </button>
                       <button
                         onClick={() => {
-                          const newPrice = (Number(currentPrice) * 1.2).toFixed(
-                            1,
-                          );
+                          const newPrice = Number(currentPrice) * 1.2;
                           setTargetPrice(newPrice);
-
                           const percent = (
                             ((Number(newPrice) - currentPrice) / currentPrice) *
                             100
@@ -338,11 +332,8 @@ function InvestToken({
                     <div className="second-section-of-multipliers-first-part">
                       <button
                         onClick={() => {
-                          const newPrice = (Number(currentPrice) * 1.5).toFixed(
-                            1,
-                          );
+                          const newPrice = Number(currentPrice) * 1.5;
                           setTargetPrice(newPrice);
-
                           const percent = (
                             ((Number(newPrice) - currentPrice) / currentPrice) *
                             100
@@ -361,9 +352,7 @@ function InvestToken({
                       </button>
                       <button
                         onClick={() => {
-                          const newPrice = (Number(currentPrice) * 2).toFixed(
-                            1,
-                          );
+                          const newPrice = Number(currentPrice) * 2;
                           setTargetPrice(newPrice);
 
                           const percent = (
@@ -386,9 +375,7 @@ function InvestToken({
                     <div className="second-section-of-multipliers-second-part">
                       <button
                         onClick={() => {
-                          const newPrice = (Number(currentPrice) * 3).toFixed(
-                            1,
-                          );
+                          const newPrice = Number(currentPrice) * 3;
                           setTargetPrice(newPrice);
 
                           const percent = (
@@ -409,9 +396,7 @@ function InvestToken({
                       </button>
                       <button
                         onClick={() => {
-                          const newPrice = (Number(currentPrice) * 10).toFixed(
-                            1,
-                          );
+                          const newPrice = Number(currentPrice) * 10;
                           setTargetPrice(newPrice);
 
                           const percent = (
@@ -444,11 +429,17 @@ function InvestToken({
                           : ""
                     }`}
                     type="number"
-                    value={targetPrice}
+                    value={
+                      targetPrice !== null
+                        ? targetPrice < 1
+                          ? Number(targetPrice.toFixed(6))
+                          : Number(targetPrice.toFixed(2))
+                        : ""
+                    }
                     placeholder="Enter future price"
                     onChange={(e) => {
-                      const newPrice = e.target.value;
-                      setTargetPrice(newPrice);
+                      const newPrice = Number(e.target.value);
+                      setTargetPrice(isNaN(newPrice) ? null : newPrice);
 
                       // % CHANGE
                       const percent = (
@@ -476,9 +467,11 @@ function InvestToken({
                 <div className="advanced-res-profit">
                   <div className="advanced-total-invest">
                     <div className="advanced-res-header">
-                      <span>If price reaches {targetPrice}$ </span>
+                      <span>
+                        {targetPrice !== null ? formatPrice(targetPrice) : "0"}$
+                      </span>
                     </div>
-                    <span>Total Value: {totalValue.toFixed(1)} $ </span>
+                    <span>Total Value: {formatPrice(totalValue)} $</span>
                     <div className="flex-profit-spans">
                       <span className="profit-span">Profit/Loss:</span>
                       <span
