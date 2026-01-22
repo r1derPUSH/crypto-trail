@@ -32,6 +32,14 @@ function MainComponent() {
     const saved = localStorage.getItem("totalPnL");
     return saved ? Number(saved) : 0;
   });
+
+  const resetTotalPnL = () => {
+    if (!confirm("Reset total PnL?")) return;
+
+    setTotalPnL(0);
+    localStorage.setItem("totalPnL", "0");
+  };
+
   const livePnL = invests.reduce((sum: number, item: any) => {
     const coin = coins.find(
       (c) => c.name.toLowerCase() === item.name.toLowerCase(),
@@ -88,6 +96,7 @@ function MainComponent() {
                 livePnL={livePnL}
                 totalPnL={totalPnL}
                 setTotalPnL={setTotalPnL}
+                resetTotalPnL={resetTotalPnL}
               />
             ) : (
               <Navigate to="/login-page-section" replace />

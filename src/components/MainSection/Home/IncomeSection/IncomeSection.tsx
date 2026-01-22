@@ -1,7 +1,7 @@
 import "./IncomeSection.css";
 import { useCoins } from "../../../../context/CoinsContext";
 
-function IncomeSection({ invests, totalPnL }: any) {
+function IncomeSection({ invests, totalPnL, resetTotalPnL }: any) {
   const { coins } = useCoins();
 
   const floatingPnL = invests.reduce((sum, i) => {
@@ -32,8 +32,18 @@ function IncomeSection({ invests, totalPnL }: any) {
           </span>
         </div>
 
-        <div>
-          <span>Total PnL</span>
+        <div className="total-pnl-box">
+          <div className="total-pnl-header">
+            <span>Total PnL</span>
+            <button
+              className="reset-btn"
+              onClick={resetTotalPnL}
+              title="Reset Total PnL"
+            >
+              ⟲
+            </button>
+          </div>
+
           <span className={totalPnL >= 0 ? "positive" : "negative"}>
             {totalPnL.toFixed(2)}$
           </span>
