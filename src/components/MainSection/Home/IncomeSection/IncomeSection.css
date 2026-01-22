@@ -107,3 +107,40 @@
     font-size: 1.5rem;
   }
 }
+
+.total-pnl-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.reset-btn {
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  /* font-size: 14px; */
+  padding: 2px;
+  transition: 0.25s ease;
+}
+
+/* .summary-card span:last-child {
+  font-variant-numeric: tabular-nums;
+} */
+
+.reset-btn:hover {
+  color: #ff6b6b;
+  transform: rotate(-180deg) scale(1.1);
+}
+
+.summary-card > div > span:first-child,
+.total-pnl-header {
+  min-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

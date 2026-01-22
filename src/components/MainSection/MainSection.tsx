@@ -8,6 +8,7 @@ function MainSection({
   livePnL,
   totalPnL,
   setTotalPnL,
+  resetTotalPnL,
 }: any) {
   return (
     <>
@@ -17,6 +18,7 @@ function MainSection({
         livePnL={livePnL}
         totalPnL={totalPnL}
         setTotalPnL={setTotalPnL}
+        resetTotalPnL={resetTotalPnL}
       />
       <Footer />
     </>
