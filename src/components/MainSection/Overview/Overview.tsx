@@ -34,7 +34,20 @@ function Overview() {
 
         {/* HISTORY PREVIEW */}
         <div className="wallet-history">
-          <span className="wallet-history-title">History of invests</span>
+          <div className="wallet-header-flex">
+            <span className="wallet-history-title">History of invests</span>
+            {investHistory.length > 0 && (
+              <button
+                className="wallet-history-reset"
+                onClick={() => {
+                  localStorage.removeItem("investHistory");
+                  window.location.reload();
+                }}
+              >
+                Reset
+              </button>
+            )}
+          </div>
 
           {investHistory.length === 0 && (
             <span className="wallet-history-empty">No closed invests yet</span>
