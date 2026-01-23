@@ -5,40 +5,104 @@ import Header from "../Home/Header/Header";
 
 function Overview() {
   const navigate = useNavigate();
-  const handleNavigate = (url: string) => {
-    navigate(url);
-  };
+
+  const investHistory = JSON.parse(
+    localStorage.getItem("investHistory") || "[]",
+  );
 
   return (
     <>
       <Header />
+
       <div className="wallet-container">
+        {/* BALANCE */}
         <div className="wallet-header">
           <span>Balance</span>
           <span>$1,257.98</span>
         </div>
+
+        {/* ACTION BUTTONS */}
         <div className="wallet-buttons">
-          <button onClick={() => handleNavigate("/invest-page-section")}>
+          <button onClick={() => navigate("/invest-page-section")}>
             Invest
           </button>
-          <button onClick={() => handleNavigate("/convert-page-section")}>
+          <button onClick={() => navigate("/convert-page-section")}>
             Convert
           </button>
           <button>Check PNL</button>
         </div>
-        <div className="user-invests">
-          <div className="token-invest-position">
-            <span>ETH</span>
-            <span>PNL</span>
-          </div>
+
+        {/* HISTORY PREVIEW */}
+        <div className="wallet-history">
+          <span className="wallet-history-title">History of invests</span>
+
+          {investHistory.length === 0 && (
+            <span className="wallet-history-empty">No closed invests yet</span>
+          )}
+
+          {investHistory.slice(0, 5).map((item: any) => (
+            <div key={item.id} className="wallet-history-row">
+              {/* LEFT */}
+              <div className="wallet-history-token">
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="wallet-history-token-img"
+                />
+
+                <div className="wallet-history-token-info">
+                  <span className="wallet-history-token-name">{item.name}</span>
+                  <span className="wallet-history-token-date">
+                    {item.closedAt
+                      ? new Date(item.closedAt).toLocaleDateString()
+                      : ""}
+                  </span>
+                </div>
+              </div>
+
+              {/* RIGHT */}
+              <div className="wallet-history-pnl">
+                <span
+                  className={`wallet-history-profit ${
+                    item.profit >= 0 ? "positive" : "negative"
+                  }`}
+                >
+                  {item.profit >= 0 ? "+" : ""}
+                  {item.profit.toFixed(2)}$
+                </span>
+
+                <span
+                  className={`wallet-history-percent ${
+                    item.percent >= 0 ? "positive" : "negative"
+                  }`}
+                >
+                  {item.percent >= 0 ? "+" : ""}
+                  {item.percent.toFixed(2)}%
+                </span>
+              </div>
+            </div>
+          ))}
+
+          {/* SEE MORE */}
+          {investHistory.length > 5 && (
+            <button
+              className="wallet-history-see-more"
+              onClick={() => navigate("/history")}
+            >
+              See more →
+            </button>
+          )}
         </div>
+
+        {/* BACK */}
         <div className="flexbox-for-back-to-home-btb">
-          <button className="back-home-btn" onClick={() => handleNavigate("/")}>
+          <button className="back-home-btn" onClick={() => navigate("/")}>
             Back to Home
           </button>
         </div>
       </div>
-      <div className="margin"></div>
+
+      <div className="margin" />
       <Footer />
     </>
   );

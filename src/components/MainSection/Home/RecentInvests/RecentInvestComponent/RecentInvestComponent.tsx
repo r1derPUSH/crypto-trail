@@ -4,15 +4,39 @@ import { useCoins } from "../../../../../context/CoinsContext";
 function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
   const { coins } = useCoins();
 
+  const saveToHistory = (historyItem: any) => {
+    const prev = JSON.parse(localStorage.getItem("investHistory") || "[]");
+    localStorage.setItem(
+      "investHistory",
+      JSON.stringify([historyItem, ...prev]),
+    );
+  };
+
   const closeCase = (item: any) => {
     const coin = findCoin(item.name);
     const currentPrice = coin?.current_price ?? item.buyPrice;
+
+    const img = coin?.image;
 
     const investedValue = item.investedValue;
     const tokenAmount = item.tokenAmount;
 
     const currentValue = tokenAmount * currentPrice;
     const currentProfit = currentValue - investedValue;
+    const percent = (currentProfit / investedValue) * 100;
+
+    saveToHistory({
+      id: item.id,
+      name: item.name,
+      investedValue,
+      closedValue: currentValue,
+      profit: currentProfit,
+      percent,
+      img,
+      openedAt: item.openedAt ?? null,
+      closedAt: Date.now(),
+      status: currentProfit >= 0 ? "profit" : "loss",
+    });
 
     setTotalPnL((prev: any) => prev + currentProfit);
 
@@ -20,20 +44,45 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
   };
 
   const closeAllCases = () => {
+    const prevHistory = JSON.parse(
+      localStorage.getItem("investHistory") || "[]",
+    );
+
     let totalProfit = 0;
+    const newHistory = [];
 
     for (const item of invests) {
       const coin = findCoin(item.name);
       const currentPrice = coin?.current_price ?? item.buyPrice;
-      const investedValue = item.investedValue;
-      const tokenAmount = item.tokenAmount;
 
-      const currentValue = tokenAmount * currentPrice;
-      const currentProfit = currentValue - investedValue;
+      const img = coin?.image;
+
+      const currentValue = item.tokenAmount * currentPrice;
+      const currentProfit = currentValue - item.investedValue;
+      const percent = (currentProfit / item.investedValue) * 100;
+
       totalProfit += currentProfit;
+
+      newHistory.push({
+        id: item.id,
+        name: item.name,
+        investedValue: item.investedValue,
+        closedValue: currentValue,
+        profit: currentProfit,
+        percent,
+        img,
+        openedAt: item.openedAt ?? null,
+        closedAt: Date.now(),
+        status: currentProfit >= 0 ? "profit" : "loss",
+      });
     }
 
-    setTotalPnL((prev: any) => prev + totalProfit);
+    localStorage.setItem(
+      "investHistory",
+      JSON.stringify([...newHistory, ...prevHistory]),
+    );
+
+    setTotalPnL((prev: number) => prev + totalProfit);
     setInvests([]);
   };
 
@@ -60,11 +109,11 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
 
         const currentValue = tokenAmount * currentPrice;
 
-        if (currentValue <= 0) {
-          setTotalPnL((prev: number) => prev - investedValue);
-          setInvests((prev: any[]) => prev.filter((i) => i.id !== item.id));
-          return null;
-        }
+        // if (currentValue <= 0) {
+        //   setTotalPnL((prev: number) => prev - investedValue);
+        //   setInvests((prev: any[]) => prev.filter((i) => i.id !== item.id));
+        //   return null;
+        // }
 
         const currentProfit = currentValue - investedValue;
         const currentPercent = (currentProfit / investedValue) * 100;

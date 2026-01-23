@@ -11,7 +11,9 @@
   flex-direction: column;
   justify-content: center;
   background: radial-gradient(circle at 30% 20%, #232b69, #0f1129 70%);
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.45), 0 0 50px rgba(81, 134, 255, 0.18);
+  box-shadow:
+    0 0 25px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(81, 134, 255, 0.18);
   color: #e4e9ff;
   font-family: "Ubuntu", sans-serif;
   animation: fadeIn 0.5s ease;
@@ -168,4 +170,71 @@
     height: 5vh;
     font-size: 0.8rem;
   }
+}
+
+.wallet-history {
+  margin-top: 16px;
+}
+
+.wallet-history-title {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.wallet-history-empty {
+  font-size: 13px;
+  opacity: 0.4;
+}
+
+.wallet-history-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wallet-history-token {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wallet-history-token-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.wallet-history-token-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.wallet-history-token-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.wallet-history-token-date {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.wallet-history-pnl {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.wallet-history-profit {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.wallet-history-percent {
+  font-size: 12px;
+  opacity: 0.7;
 }
