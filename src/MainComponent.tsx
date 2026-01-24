@@ -14,6 +14,7 @@ import ScrollToTop from "./components/CustomComponents/ScrollToTop";
 import type { TokenInfo } from "./types/tokenInfo";
 import RecentInvestsHistory from "./components/RecentInvestsHistory/HistoryParent/RecentInvestsHistory";
 import { useCoins } from "./context/CoinsContext";
+import WalletHistory from "./components/WalletHistorySection/WalletHistory";
 
 function MainComponent() {
   const { coins } = useCoins();
@@ -103,6 +104,8 @@ function MainComponent() {
             )
           }
         />
+
+        <Route path="/wallet-history" element={<WalletHistory />}></Route>
 
         <Route
           path="/recent-invests-history"

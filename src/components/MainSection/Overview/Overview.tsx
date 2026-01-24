@@ -100,7 +100,7 @@ function Overview() {
           {investHistory.length > 5 && (
             <button
               className="wallet-history-see-more"
-              onClick={() => navigate("/history")}
+              onClick={() => navigate("/wallet-history")}
             >
               See more →
             </button>
