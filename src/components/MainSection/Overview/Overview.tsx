@@ -33,7 +33,7 @@ function Overview() {
           <button onClick={() => navigate("/convert-page-section")}>
             Convert
           </button>
-          <button>Check PNL</button>
+          <button onClick={() => navigate("/")}>Check PNL</button>
         </div>
 
         {/* HISTORY PREVIEW */}
