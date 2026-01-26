@@ -1,5 +1,6 @@
 import "./RecentInvestComponent.css";
 import { useCoins } from "../../../../../context/CoinsContext";
+import { formatPrice } from "../../../../../functions/format";
 
 function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
   const { coins } = useCoins();
@@ -177,7 +178,9 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
             <div className="targetProfit">
               <div className="tp-item">
                 <span className="tp-label">Target Price</span>
-                <span className="tp-value">{item.targetPrice}$</span>
+                <span className="tp-value">
+                  {formatPrice(item.targetPrice)}$
+                </span>
               </div>
 
               <div className="tp-item">
@@ -193,7 +196,7 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
                 <div className="tp-item tp-full">
                   <span className="tp-label">Target Profit</span>
                   <span className="tp-value tp-span-in-usd">
-                    +{targetProfit.toFixed(2)}$
+                    +{formatPrice(targetProfit)}$
                   </span>
                 </div>
               )}
