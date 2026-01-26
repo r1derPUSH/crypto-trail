@@ -10,6 +10,8 @@ function Overview() {
     localStorage.getItem("investHistory") || "[]",
   );
 
+  const totalPnL = Number(localStorage.getItem("totalPnL") || 0);
+
   return (
     <>
       <Header />
@@ -18,7 +20,9 @@ function Overview() {
         {/* BALANCE */}
         <div className="wallet-header">
           <span>Balance</span>
-          <span>$1,257.98</span>
+          <span className={totalPnL >= 0 ? "positive" : "negative"}>
+            {totalPnL.toFixed(2)} $
+          </span>
         </div>
 
         {/* ACTION BUTTONS */}
