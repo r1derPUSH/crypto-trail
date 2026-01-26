@@ -122,10 +122,10 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
         const targetValue = item.tokenAmount * item.targetPrice;
         const targetProfit = targetValue - item.investedValue;
 
-        const progressToTarget = Math.min(
-          (currentPrice / item.targetPrice) * 100,
-          100,
-        );
+        // const progressToTarget = Math.min(
+        //   (currentPrice / item.targetPrice) * 100,
+        //   100,
+        // );
 
         return (
           <div key={item.id} className="recent-invest-card">
