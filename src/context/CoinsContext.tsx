@@ -30,7 +30,7 @@ export function CoinsProvider({ children }: { children: ReactNode }) {
         }
 
         const res = await fetch(
-          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd",
         );
 
         if (!res.ok) throw new Error("Fetch failed");
@@ -39,8 +39,10 @@ export function CoinsProvider({ children }: { children: ReactNode }) {
 
         if (!isMounted) return;
 
-        setCoins(data);
-        localStorage.setItem("coins_cache", JSON.stringify(data));
+        const filtered = data.filter((coin) => coin.symbol.length <= 5);
+
+        setCoins(filtered);
+        localStorage.setItem("coins_cache", JSON.stringify(filtered));
         localStorage.setItem("coins_cache_time", Date.now().toString());
       } catch (err) {
         console.error("Coins fetch error:", err);
