@@ -19,6 +19,8 @@ import WalletHistory from "./components/WalletHistorySection/WalletHistory";
 function MainComponent() {
   const { coins } = useCoins();
 
+  console.log(coins);
+
   const [tokenInfo, setTokenInfo] = useState<TokenInfo | null>(null);
 
   const [isRegistered, setIsRegistered] = useState(false);
