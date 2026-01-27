@@ -8,7 +8,7 @@ export function getSwapHistory(): SwapHistoryItem[] {
 }
 
 export function addSwapToHistory(
-  item: Omit<SwapHistoryItem, "id">
+  item: Omit<SwapHistoryItem, "id">,
 ): SwapHistoryItem[] {
   const history = getSwapHistory();
 

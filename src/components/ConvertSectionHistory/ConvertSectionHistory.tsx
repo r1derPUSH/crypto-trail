@@ -4,13 +4,13 @@ import type { SwapHistoryItem } from "../../types/swapHistory";
 import {
   getSwapHistory,
   removeSwapFromHistory,
+  clearSwapHistory,
 } from "../../functions/swapHistoryFn";
 import HistoryItem from "./HistoryOfSwapsItem/HistoryItem";
 import { useNavigate } from "react-router-dom";
 
 function ConvertSectionHistory() {
   const [history, setHistory] = useState<SwapHistoryItem[]>([]);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +19,15 @@ function ConvertSectionHistory() {
 
   const handleRemove = (id: string) => {
     setHistory(removeSwapFromHistory(id));
+  };
+
+  const handleClearHistory = () => {
+    if (!history.length) return;
+
+    const confirmed = window.confirm("Clear all swap history?");
+    if (!confirmed) return;
+
+    setHistory(clearSwapHistory());
   };
 
   return (
@@ -37,6 +46,15 @@ function ConvertSectionHistory() {
           onRemove={handleRemove}
         />
       ))}
+
+      {history.length > 0 && (
+        <div className="clear-history-container">
+          <button onClick={handleClearHistory} className="clear-history-btn">
+            Clear History
+          </button>
+        </div>
+      )}
+
       <div className="back-to-home-container">
         <button onClick={() => navigate("/")} className="back-to-home-btn">
           Back To Home
