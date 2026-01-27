@@ -84,6 +84,13 @@ function LoginSection({
     if (!EMAIL_REGEX.test(emailValue)) {
       showFloatingError("Invalid email format");
       isValid = false;
+    } else {
+      const [localPart] = emailValue.split("@");
+
+      if (localPart.length < 3) {
+        showFloatingError("Email name must be at least 3 characters");
+        isValid = false;
+      }
     }
 
     if (!PASSWORD_REGEX.test(passwordValue)) {
