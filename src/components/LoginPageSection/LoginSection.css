@@ -598,3 +598,9 @@ input {
     width: 60vw;
   }
 }
+@media (max-width: 400px) {
+  .password-eye-btn {
+    right: 0rem;
+    font-size: 1rem;
+  }
+}
