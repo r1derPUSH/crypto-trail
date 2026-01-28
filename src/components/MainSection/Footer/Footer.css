@@ -31,3 +31,13 @@
     height: 20vh;
   }
 }
+
+@media (min-width: 1000px) and (min-height: 1700px) {
+  .footer button:first-child {
+    height: 5vh;
+  }
+
+  .footer button:last-child {
+    height: 5vh;
+  }
+}
