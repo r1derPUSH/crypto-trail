@@ -95,7 +95,7 @@ function LoginSection({
 
     if (!PASSWORD_REGEX.test(passwordValue)) {
       showFloatingError(
-        "Password must be at least 8 characters and contain a letter and a number",
+        "Password must be at least 8 characters and include upper & lower case letters, a number, and a special symbol",
       );
       isValid = false;
     }
