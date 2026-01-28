@@ -131,3 +131,9 @@
     margin-left: 0.5rem;
   }
 }
+
+@media (max-width: 1200px) and (max-height: 2000px) {
+  .avatar-container {
+    height: 4vh;
+  }
+}
