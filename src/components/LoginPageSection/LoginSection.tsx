@@ -163,7 +163,7 @@ function LoginSection({
                 onChange={handleChangePasswordValue}
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                maxLength={20}
+                maxLength={15}
               />
 
               <button
