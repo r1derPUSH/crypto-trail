@@ -4,5 +4,5 @@ export type Coin = {
   name: string;
   image: string;
   current_price: number;
-  setToPrice: any;
+  price_change_percentage_24h: number;
 };
