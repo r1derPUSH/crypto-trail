@@ -25,22 +25,17 @@
 }
 
 .pair-icon {
-  width: 32px;
-  height: 32px;
   min-width: 32px;
   min-height: 32px;
   object-fit: contain;
+  height: 1.3rem;
+  width: 1.3rem;
+  border-radius: 50%;
 }
 
 .star {
   color: #f5c542;
   font-size: 1rem;
-}
-
-.pair-icon {
-  height: 1.3rem;
-  width: 1.3rem;
-  border-radius: 50%;
 }
 
 /* text */
@@ -59,7 +54,7 @@
   color: #e4e6f1;
 }
 
-/* RIGHT BLOCKS */
+/* right blocks */
 .pair-last-price,
 .pair-change,
 .pair-funding {

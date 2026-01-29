@@ -1,23 +1,27 @@
-import "./SwapTo.css";
-import { useState } from "react";
+// react
+import { useEffect, useMemo, useState } from "react";
+
+// ui / icons
 import { FaAngleDown } from "react-icons/fa";
-import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
+
+// components
 import TokenContainer from "../SwapFrom/TokenContainer/TokenContainer";
+
+// assets & styles
+import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
+import "./SwapTo.css";
+
+// types
 import type { Coin } from "../../../../types/coin";
-import { useEffect } from "react";
-import { useMemo } from "react";
-import type { Symbol } from "../../../../types/symbol";
 
 function SwapTo({
   coins,
   inputValueTo,
   setInputValueTo,
-  setInputValue,
   toToken,
   setToToken,
   toImage,
   setToImage,
-  fromPrice,
   toPrice,
   setToPrice,
   setActiveSide,
@@ -31,7 +35,7 @@ function SwapTo({
   toImage: string;
   setToImage: (v: string) => void;
   fromPrice: number;
-  setActiveSide: any;
+  setActiveSide: (side: "from" | "to") => void;
   toPrice: number;
   setToPrice: React.Dispatch<React.SetStateAction<number>>;
 }) {
@@ -39,9 +43,7 @@ function SwapTo({
   const [search, setSearch] = useState("");
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
-    return coins.filter((item: Symbol) =>
-      item.symbol.toLowerCase().includes(q)
-    );
+    return coins.filter((item: Coin) => item.symbol.toLowerCase().includes(q));
   }, [coins, search]);
 
   useEffect(() => {
@@ -66,7 +68,7 @@ function SwapTo({
     setIsOpen((prev) => !prev);
   };
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
@@ -122,9 +124,9 @@ function SwapTo({
                 <div className="recent-coins"></div>
               </div>
               <div className="token-list">
-                {filtered.map((item: any) => (
+                {filtered.map((item: Coin) => (
                   <TokenContainer
-                    key={item.id ?? item.symbol} // ← ВАЖЛИВО
+                    key={item.id ?? item.symbol}
                     image={item.image}
                     symbol={item.symbol}
                     current_price={item.current_price}

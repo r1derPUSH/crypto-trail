@@ -1,13 +1,25 @@
-import "./ConvertPage.css";
-import swapImg from "./imgs/swap-img.png";
+// react
+import { useEffect, useState } from "react";
+
+// router
 import { useNavigate } from "react-router-dom";
-import SwapFrom from "../SwapMenu/SwapFrom/SwapFrom";
-import SwapTo from "../SwapMenu/SwapTo/SwapTo";
-import { useState, useEffect } from "react";
-import Footer from "../../MainSection/Footer/Footer";
+
+// context / logic
 import { useCoins } from "../../../context/CoinsContext";
 import { addSwapToHistory } from "../../../functions/swapHistoryFn";
+
+// layout
 import Header from "../../MainSection/Home/Header/Header";
+import Footer from "../../MainSection/Footer/Footer";
+
+// ui
+import SwapFrom from "../SwapMenu/SwapFrom/SwapFrom";
+import SwapTo from "../SwapMenu/SwapTo/SwapTo";
+
+// assets & styles
+import { getCurrentDateTime } from "../../../functions/currentTime";
+import swapImg from "./imgs/swap-img.png";
+import "./ConvertPage.css";
 
 const IMG_DEFAULT =
   "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661";
@@ -15,13 +27,12 @@ const IMG_DEFAULT =
 function ConvertPage() {
   const { coins } = useCoins();
   const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState<string>("");
-  const [inputValueTo, setInputValueTo] = useState<string>("");
+  // input values
+  const [inputValue, setInputValue] = useState("");
+  const [inputValueTo, setInputValueTo] = useState("");
+
+  // ui state
   const [order, setOrder] = useState(true);
-
-  const [timeOfSwap, setTimeOfSwap] = useState("");
-  const [isSwapped, setIsSwapped] = useState(false);
-
   const [activeSide, setActiveSide] = useState<"from" | "to">("from");
 
   // # 1
@@ -60,24 +71,6 @@ function ConvertPage() {
     }
   }, [inputValue, inputValueTo, fromPrice, toPrice, activeSide]);
 
-  function getCurrentDateTime() {
-    const now = new Date();
-
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const day = String(now.getDate()).padStart(2, "0");
-    const year = now.getFullYear();
-
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
-
-    return `${month}.${day}.${year} | ${hours}:${minutes}`;
-  }
-
-  useEffect(() => {
-    setTimeOfSwap(getCurrentDateTime());
-    console.log(timeOfSwap);
-  }, [isSwapped]);
-
   const handleNavigateHome = () => {
     navigate("/");
   };
@@ -86,11 +79,15 @@ function ConvertPage() {
     navigate("/wallet-section");
   };
 
+  const handleSwapOrder = () => {
+    setOrder((prev) => !prev);
+    setActiveSide((prev) => (prev === "from" ? "to" : "from"));
+  };
+
   const [state, setState] = useState<"idle" | "loading" | "success">("idle");
 
   const handleSwap = () => {
     if (state !== "idle") return;
-    setIsSwapped((prev) => !prev);
     setState("loading");
     setTimeout(() => {
       setState("success");
@@ -138,13 +135,7 @@ function ConvertPage() {
                   setActiveSide={setActiveSide}
                 />
 
-                <div
-                  className="swap-btn"
-                  onClick={() => {
-                    setOrder((prev) => !prev);
-                    setActiveSide((prev) => (prev === "from" ? "to" : "from"));
-                  }}
-                >
+                <div className="swap-btn" onClick={handleSwapOrder}>
                   ⇅
                 </div>
 
@@ -180,13 +171,7 @@ function ConvertPage() {
                   setActiveSide={setActiveSide}
                 />
 
-                <div
-                  className="swap-btn"
-                  onClick={() => {
-                    setOrder((prev) => !prev);
-                    setActiveSide((prev) => (prev === "from" ? "to" : "from"));
-                  }}
-                >
+                <div className="swap-btn" onClick={handleSwapOrder}>
                   ⇅
                 </div>
 

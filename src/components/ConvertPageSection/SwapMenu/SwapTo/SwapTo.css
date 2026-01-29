@@ -84,7 +84,7 @@
   position: absolute;
 }
 
-/* ===== OVERLAY ===== */
+/* overlay */
 .overlay {
   position: fixed;
   inset: 0;
@@ -96,7 +96,7 @@
   z-index: 9999;
 }
 
-/* ===== MODAL ===== */
+/* modal */
 .modal {
   width: 45vw;
   height: 75vh;
@@ -133,7 +133,7 @@
   }
 }
 
-/* ===== HEADER ===== */
+/* header */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -156,7 +156,7 @@
   color: #fff;
 }
 
-/* ===== SEARCH FIELD ===== */
+/* search field */
 .search {
   width: 90%;
   padding: 0.7rem 1rem;
@@ -172,7 +172,7 @@
   color: #6d6d6d;
 }
 
-/* ===== TOKEN LIST ===== */
+/* token list */
 .token-list {
   overflow-y: auto;
   flex-grow: 1;
@@ -192,7 +192,7 @@
   margin-bottom: 7px;
 }
 
-/* ===== TOKEN ITEM ===== */
+/* token item */
 .token-container {
   display: flex;
   align-items: center;
@@ -390,7 +390,6 @@
 }
 
 @media (max-width: 700px) {
-  /* число */
   .input-price-container input {
     font-size: 1.3rem;
   }
@@ -407,10 +406,9 @@
     margin-top: 0.5rem;
   }
 
-  /* токен кнопка */
   .dropbox-menu-inactive {
     padding: 0.15rem 0.4rem;
-    margin-right: 0; /* 🔥 важливо */
+    margin-right: 0;
   }
 
   .dropbox-menu-inactive span {
@@ -418,7 +416,6 @@
     margin: 0 0.3rem;
   }
 
-  /* іконка токена */
   .coin-img {
     width: 3vh;
     height: 3vh;
@@ -426,7 +423,6 @@
 }
 
 @media (max-width: 450px) {
-  /* число */
   .input-price-container input {
     font-size: 1.05rem;
   }
@@ -441,7 +437,6 @@
     font-size: 0.7rem;
   }
 
-  /* токен кнопка */
   .dropbox-menu-inactive {
     padding: 0.1rem 0.3rem;
     border-radius: 18px;
@@ -452,7 +447,6 @@
     margin: 0 0.25rem;
   }
 
-  /* іконка токена */
   .coin-img {
     width: 2.4vh;
     height: 2.4vh;

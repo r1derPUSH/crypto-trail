@@ -11,14 +11,12 @@ function SwapFrom({
   coins,
   inputValue,
   setInputValue,
-  setInputValueTo,
   fromToken,
   setFromToken,
   fromImage,
   setFromImage,
   setFromPrice,
   fromPrice,
-  toPrice,
   setActiveSide,
 }: {
   coins: Coin[];
@@ -38,7 +36,7 @@ function SwapFrom({
   const [search, setSearch] = useState("");
 
   const filtered = coins.filter((item: Symbol) =>
-    item.symbol.toLowerCase().includes(search.toLowerCase())
+    item.symbol.toLowerCase().includes(search.toLowerCase()),
   );
 
   useEffect(() => {
