@@ -1,17 +1,5 @@
 import "./TokenContainer.css";
-
-type TokenContainerProps = {
-  image: string;
-  symbol: string;
-  current_price: number | null;
-  price_change_percentage_24h: number | null;
-
-  setIsOpen: (v: boolean) => void;
-  setToken: (symbol: string) => void;
-  setImage: (img: string) => void;
-  setFromPrice?: (price: number) => void;
-  setPrice: any;
-};
+import type { TokenContainerProps } from "../../../../../types/tokenContainerProps";
 
 function TokenContainer({
   image,
@@ -27,7 +15,7 @@ function TokenContainer({
     setToken(symbol);
     setImage(image);
 
-    if (setPrice && current_price !== null) {
+    if (current_price !== null) {
       setPrice(current_price);
     }
 

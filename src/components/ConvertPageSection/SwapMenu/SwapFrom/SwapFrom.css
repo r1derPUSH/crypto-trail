@@ -12,8 +12,8 @@
   box-sizing: border-box;
 }
 .input-price-container {
-  flex: 1 1 auto; /* 🔥 займає весь вільний простір */
-  min-width: 0; /* 🔥 дозволяє ellipsis */
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
 }
 
@@ -49,12 +49,8 @@
   opacity: 0.5;
 }
 
-.dropbox-of-coins-container {
-  /* margin-right: -100rem; */
-}
-
 .dropbox-menu-inactive {
-  flex-shrink: 0; /* 🔥 НІКОЛИ не стискається */
+  flex-shrink: 0;
   background-color: #131313;
   border: 1px solid #393939;
   border-radius: 25px;
@@ -94,7 +90,6 @@
   position: absolute;
 }
 
-/* ===== OVERLAY ===== */
 .overlay {
   position: fixed;
   inset: 0;
@@ -106,7 +101,6 @@
   z-index: 9999;
 }
 
-/* ===== MODAL ===== */
 .modal {
   width: 50vw;
   height: 75vh;
@@ -128,7 +122,6 @@
   }
 }
 
-/* ===== HEADER ===== */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -151,7 +144,6 @@
   color: #fff;
 }
 
-/* ===== SEARCH FIELD ===== */
 .search {
   width: 90%;
   padding: 0.7rem 1rem;
@@ -167,12 +159,11 @@
   color: #6d6d6d;
 }
 
-/* ===== TOKEN LIST ===== */
 .token-list {
   width: 100%;
   max-height: 60vh;
   overflow-y: auto;
-  padding-right: 0.4rem; /* щоб було місце для скролу */
+  padding-right: 0.4rem;
   box-sizing: border-box;
 }
 
@@ -185,7 +176,6 @@
   border-radius: 6px;
 }
 
-/* ===== TOKEN ITEM ===== */
 .token-container {
   display: flex;
   align-items: center;
@@ -220,8 +210,6 @@
 }
 
 /* endpoint of dropbox-containings */
-
-/* media styles */
 
 @media (max-width: 580px) {
   .input-price-container {
@@ -267,27 +255,23 @@
 }
 
 @media (max-width: 700px) {
-  /* число */
   .input-price-container input {
     font-size: 1.3rem;
   }
 
-  /* From / To */
   .from-span-text {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
 
-  /* $ price */
   .price-in-usd {
     font-size: 0.85rem;
     margin-top: 0.5rem;
   }
 
-  /* токен кнопка */
   .dropbox-menu-inactive {
     padding: 0.15rem 0.4rem;
-    margin-right: 0; /* 🔥 важливо */
+    margin-right: 0;
   }
 
   .dropbox-menu-inactive span {
@@ -295,7 +279,6 @@
     margin: 0 0.3rem;
   }
 
-  /* іконка токена */
   .coin-img {
     width: 3vh;
     height: 3vh;
@@ -303,22 +286,18 @@
 }
 
 @media (max-width: 450px) {
-  /* число */
   .input-price-container input {
     font-size: 1.05rem;
   }
 
-  /* From / To */
   .from-span-text {
     font-size: 0.75rem;
   }
 
-  /* $ price */
   .price-in-usd {
     font-size: 0.7rem;
   }
 
-  /* токен кнопка */
   .dropbox-menu-inactive {
     padding: 0.1rem 0.3rem;
     border-radius: 18px;
@@ -329,14 +308,11 @@
     margin: 0 0.25rem;
   }
 
-  /* іконка токена */
   .coin-img {
     width: 2.4vh;
     height: 2.4vh;
   }
 }
-
-/* ===== INPUT ELLIPSIS AFTER 70% WIDTH ===== */
 
 .input-price-flexbox {
   width: 100%;
@@ -345,14 +321,10 @@
 
 .input-price-container input {
   display: block;
-
-  /* 👇 ключ */
   max-width: 70%;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
   box-sizing: border-box;
 }
 
@@ -439,8 +411,6 @@
   }
 }
 
-/* ===== INPUT ELLIPSIS AFTER 70% WIDTH ===== */
-
 .input-price-flexbox {
   width: 100%;
   min-width: 0;
@@ -448,14 +418,10 @@
 
 .input-price-container input {
   display: block;
-
-  /* 👇 ключ */
   max-width: 70%;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
   box-sizing: border-box;
 }
 
