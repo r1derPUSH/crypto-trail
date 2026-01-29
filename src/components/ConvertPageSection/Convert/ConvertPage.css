@@ -1,3 +1,5 @@
+/* convert page */
+
 .convert-page {
   color: white;
   display: flex;
@@ -13,30 +15,6 @@
   align-items: center;
   margin-top: 10rem;
   margin-bottom: 2rem;
-}
-
-.convert-header-section {
-  opacity: 0.8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  margin-right: 8rem;
-}
-
-.convert-header-section img {
-  width: 20vw;
-  height: 20vh;
-}
-
-.main-convert-text {
-  font-size: 4rem;
-}
-
-.sub-convert-text {
-  font-size: 3rem;
-  margin: 1rem;
 }
 
 .convert-section {
@@ -55,7 +33,33 @@
   margin: 3rem;
 }
 
-/* swap-button */
+/* header section */
+
+.convert-header-section {
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-right: 10rem;
+}
+
+.convert-header-section img {
+  width: 25vw;
+  height: 18vw;
+}
+
+.main-convert-text {
+  font-size: 4rem;
+}
+
+.sub-convert-text {
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+/* swap button */
 
 .swap-btn {
   width: 48px;
@@ -79,24 +83,47 @@
   transform: scale(1.07);
 }
 
-/* convert-loader functional */
+/* convert & history buttons */
+
+.flex-convert-and-history-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 28rem;
+}
+
+.flex-convert-and-history-buttons-container button {
+  margin: 2rem;
+}
+
+/* convert button */
 
 .convert-btn {
-  width: 15vw;
   height: 6vh;
-  border-radius: 14px;
+  border-radius: 12px;
   border: none;
-  background: linear-gradient(135deg, #4e8af7, #2d63d6);
-  color: white;
-  font-size: 20px;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.9rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
+  transition: 0.3s ease;
+  background: linear-gradient(90deg, #2a3c8c, #5b79e8);
+  color: #e6ecff;
+  box-shadow: 0 0 15px #5b79e855;
+}
+
+.convert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #5b79e8aa;
+  filter: brightness(1.2);
+}
+
+.convert-btn:active {
+  transform: translateY(1px);
+  filter: brightness(0.9);
 }
 
 .convert-btn.loading {
@@ -111,47 +138,10 @@
   cursor: default;
 }
 
-/* ========= Loader (круглий spinner) ========= */
+/* history button */
 
-.loader {
-  width: 26px;
-  height: 26px;
-  border: 3px solid rgba(255, 255, 255, 0.35);
-  border-top-color: white;
-  border-radius: 50%;
-  animation: spin 0.75s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* ========= Success Check ========= */
-
-.success-check {
-  font-size: 26px;
-  font-weight: bold;
-  animation: pop 0.25s ease forwards;
-}
-
-/* convert and history buttons */
-
-.flex-convert-and-history-buttons-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* width: 60vw; */
-  margin-left: 28rem;
-}
-
-.flex-convert-and-history-buttons-container button {
-  margin: 2rem;
-}
-
-.convert-btn {
-  background: linear-gradient(90deg, #2a3c8c, #5b79e8);
+.history-btn {
+  background: linear-gradient(90deg, #1e2a63, #3b4a9b);
   border: none;
   border-radius: 12px;
   color: #e6ecff;
@@ -160,38 +150,12 @@
   padding: 0.9rem 2.5rem;
   cursor: pointer;
   transition: 0.3s ease;
-  box-shadow: 0 0 15px #5b79e855;
-  height: 6vh;
-}
-
-.convert-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px #5b79e8aa;
-  filter: brightness(1.2);
-}
-
-.convert-btn:active {
-  transform: translateY(1px);
-  filter: brightness(0.9);
-}
-
-.history-btn {
-  background: linear-gradient(90deg, #1e2a63, #3b4a9b);
-  border: none;
-  border-radius: 12px; /* як convert */
-  color: #e6ecff;
-  font-size: 1.2rem; /* як convert */
-  font-weight: 600; /* як convert */
-  padding: 0.9rem 2.5rem; /* як convert */
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 0 12px #3b4a9b55; /* ніжніша тінь ніж у convert */
+  box-shadow: 0 0 12px #3b4a9b55;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
   height: 6vh;
-  margin-right: 0;
 }
 
 .history-btn:hover {
@@ -210,13 +174,29 @@
   margin-top: 1px;
 }
 
-.convert-header-section {
-  margin-right: 10rem;
+/* loader & success */
+
+.loader {
+  width: 26px;
+  height: 26px;
+  border: 3px solid rgba(255, 255, 255, 0.35);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
 }
 
-.convert-header-section img {
-  width: 25vw;
-  height: 18vw;
+.success-check {
+  font-size: 26px;
+  font-weight: bold;
+  animation: pop 0.25s ease forwards;
+}
+
+/* animations */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes pop {
@@ -230,75 +210,7 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .convert-section {
-    width: 50vw;
-  }
-
-  .flex-convert-and-history-buttons-container {
-    margin-left: 30rem;
-  }
-
-  .convert-header-section {
-    margin-right: 4rem;
-  }
-}
-
-@media (max-width: 1100px) {
-  .flex-convert-and-history-buttons-container {
-    margin-left: 29rem;
-  }
-}
-
-@media (max-width: 1250px) {
-  .convert-section {
-    width: 80vw;
-  }
-
-  .convert-header-section {
-    margin: 0;
-  }
-
-  .convert-header-section img {
-    width: 35vw;
-    height: 25vw;
-  }
-
-  .flex-container-convert-page {
-    flex-direction: column;
-  }
-
-  .convert-header-section span {
-    font-size: 3rem;
-  }
-
-  .convert-header-section {
-    margin: 0 0 1rem 0;
-  }
-  .convert-btn {
-    margin-left: 0;
-  }
-
-  .flex-convert-and-history-buttons-container {
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .convert-header-section img {
-    width: 35vw;
-    height: 25vw;
-  }
-
-  .convert-header-section span {
-    font-size: 2rem;
-  }
-
-  .convert-header-section {
-    margin-top: -5rem;
-  }
-}
-
+/* media queries */
 @media (max-width: 500px) {
   .convert-header-section span {
     font-size: 1.6rem;
@@ -319,6 +231,21 @@
   }
 }
 
+@media (max-width: 600px) {
+  .convert-header-section img {
+    width: 35vw;
+    height: 25vw;
+  }
+
+  .convert-header-section span {
+    font-size: 2rem;
+  }
+
+  .convert-header-section {
+    margin-top: -5rem;
+  }
+}
+
 @media (max-width: 850px) {
   .convert-header-section img {
     width: 40vw;
@@ -330,14 +257,61 @@
   }
 }
 
-@media (min-width: 1700px) and (min-height: 1000px) {
+@media (max-width: 1100px) {
   .flex-convert-and-history-buttons-container {
-    margin-left: 41rem;
+    margin-left: 29rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .convert-section {
+    width: 50vw;
+  }
+
+  .convert-header-section {
+    margin-right: 4rem;
+  }
+
+  .flex-convert-and-history-buttons-container {
+    margin-left: 30rem;
+  }
+}
+
+@media (max-width: 1250px) {
+  .convert-section {
+    width: 80vw;
+  }
+
+  .flex-container-convert-page {
+    flex-direction: column;
+  }
+
+  .convert-header-section {
+    margin: 0 0 1rem 0;
+  }
+
+  .convert-header-section img {
+    width: 35vw;
+    height: 25vw;
+  }
+
+  .convert-header-section span {
+    font-size: 3rem;
+  }
+
+  .flex-convert-and-history-buttons-container {
+    margin-left: 0;
   }
 }
 
 @media (min-width: 1250px) and (min-height: 500px) {
   .flex-convert-and-history-buttons-container {
     margin-left: 32rem;
+  }
+}
+
+@media (min-width: 1700px) and (min-height: 1000px) {
+  .flex-convert-and-history-buttons-container {
+    margin-left: 41rem;
   }
 }
