@@ -26,7 +26,6 @@
   transform: translateY(-2px);
 }
 
-/* трохи різниці між кнопками */
 .back-to-wallet-btn {
   background: linear-gradient(90deg, #2a3c8c, #5b79e8);
   border: none;
