@@ -1,7 +1,5 @@
 import "./AvatarSection.css";
-import { FiChevronRight } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import manExample from "../img/man-example.jpg";
 
 function AvatarSection() {
   const navigate = useNavigate();
@@ -26,20 +24,11 @@ function AvatarSection() {
 
   return (
     <div className="avatar-container">
-      <img className="user-img" src={user?.avatar} alt="User avatar" />
-
-      <span className="username">{user?.username ?? "Guest"}</span>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          handleNavigate();
-        }}
-        className="button-arrow-right"
-        aria-haspopup="menu"
-        aria-expanded={isOpen}
-      >
         <FiChevronRight className="arrow-right-icon" />
       </button>
+      <img className="user-img" src={manExample} alt="Avatar" />
+      <span className="username">username</span>
+      <FiChevronRight className="arrow-right-icon" />
     </div>
   );
 }

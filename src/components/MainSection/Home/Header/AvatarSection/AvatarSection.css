@@ -132,3 +132,12 @@
     height: 4vh;
   }
 }
+
+/* section for user-img */
+
+.user-img {
+  width: 5vh;
+  height: 5vh;
+  border: 1px solid rgb(68, 179, 249);
+  border-radius: 15px;
+}
