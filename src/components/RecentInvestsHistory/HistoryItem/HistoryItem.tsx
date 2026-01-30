@@ -2,8 +2,14 @@ import "./HistoryItem.css";
 import Footer from "../../MainSection/Footer/Footer";
 import Header from "../../MainSection/Home/Header/Header";
 import { useCoins } from "../../../context/CoinsContext";
+import type { InvestItem } from "../../../types/props";
 
-function HistoryItem({ invests, setInvests }: any) {
+type Props = {
+  invests: InvestItem[];
+  setInvests: React.Dispatch<React.SetStateAction<InvestItem[]>>;
+};
+
+function HistoryItem({ invests, setInvests }: Props) {
   const { coins } = useCoins();
 
   const findCoin = (name: string) =>
@@ -13,22 +19,12 @@ function HistoryItem({ invests, setInvests }: any) {
     <div className="container">
       <Header />
 
-      {invests.map((item: any) => {
+      {invests.map((item) => {
         const coin = findCoin(item.name);
         const currentPrice = coin?.current_price ?? item.buyPrice;
 
-        const investedValue = item.investedValue;
-        const tokenAmount = item.tokenAmount;
-
-        if (
-          typeof investedValue !== "number" ||
-          typeof tokenAmount !== "number"
-        ) {
-          return null;
-        }
-
-        const currentValue = tokenAmount * currentPrice;
-        const currentProfit = currentValue - investedValue;
+        const currentValue = item.tokenAmount * currentPrice;
+        const currentProfit = currentValue - item.investedValue;
 
         return (
           <div key={item.id} className="invest-details">
@@ -41,9 +37,7 @@ function HistoryItem({ invests, setInvests }: any) {
               <button
                 className="delete-btn"
                 onClick={() =>
-                  setInvests((prev: any) =>
-                    prev.filter((it: any) => it.id !== item.id)
-                  )
+                  setInvests((prev) => prev.filter((it) => it.id !== item.id))
                 }
               >
                 ✕
@@ -57,9 +51,11 @@ function HistoryItem({ invests, setInvests }: any) {
               </span>
             </div>
 
-            <div className="creation-date">
-              <span>{item.time}</span>
-            </div>
+            {item.time && (
+              <div className="creation-date">
+                <span>{item.time}</span>
+              </div>
+            )}
           </div>
         );
       })}

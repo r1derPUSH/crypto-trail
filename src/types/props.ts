@@ -8,6 +8,7 @@ export type InvestItem = {
   targetPriceInPercents: number;
   tokenImage: string;
   openedAt?: number;
+  time?: string;
 };
 
 export type InvestHistoryItem = {
