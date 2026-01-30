@@ -1,21 +1,28 @@
 import "./mainSection.css";
 import Home from "./Home/Home";
 import Footer from "./Footer/Footer";
+import type { InvestItem } from "../../types/props";
+
+type Props = {
+  invests: InvestItem[];
+  setInvests: React.Dispatch<React.SetStateAction<InvestItem[]>>;
+  totalPnL: number;
+  setTotalPnL: React.Dispatch<React.SetStateAction<number>>;
+  resetTotalPnL: () => void;
+};
 
 function MainSection({
   invests,
   setInvests,
-  livePnL,
   totalPnL,
   setTotalPnL,
   resetTotalPnL,
-}: any) {
+}: Props) {
   return (
     <>
       <Home
         invests={invests}
         setInvests={setInvests}
-        livePnL={livePnL}
         totalPnL={totalPnL}
         setTotalPnL={setTotalPnL}
         resetTotalPnL={resetTotalPnL}
