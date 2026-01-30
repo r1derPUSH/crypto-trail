@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import "./Overview.css";
 import Header from "../Home/Header/Header";
+import "./Overview.css";
 
 function Overview() {
   const navigate = useNavigate();
@@ -17,7 +17,6 @@ function Overview() {
       <Header />
 
       <div className="wallet-container">
-        {/* BALANCE */}
         <div className="wallet-header">
           <span>Balance</span>
           <span className={totalPnL >= 0 ? "positive" : "negative"}>
@@ -25,7 +24,6 @@ function Overview() {
           </span>
         </div>
 
-        {/* ACTION BUTTONS */}
         <div className="wallet-buttons">
           <button onClick={() => navigate("/invest-page-section")}>
             Invest
@@ -36,7 +34,6 @@ function Overview() {
           <button onClick={() => navigate("/")}>Check PNL</button>
         </div>
 
-        {/* HISTORY PREVIEW */}
         <div className="wallet-history">
           <div className="wallet-header-flex">
             <span className="wallet-history-title">History of invests</span>
@@ -59,7 +56,6 @@ function Overview() {
 
           {investHistory.slice(0, 5).map((item: any) => (
             <div key={item.id} className="wallet-history-row">
-              {/* LEFT */}
               <div className="wallet-history-token">
                 <img
                   src={item.img}
@@ -77,7 +73,6 @@ function Overview() {
                 </div>
               </div>
 
-              {/* RIGHT */}
               <div className="wallet-history-pnl">
                 <span
                   className={`wallet-history-profit ${
@@ -100,7 +95,6 @@ function Overview() {
             </div>
           ))}
 
-          {/* SEE MORE */}
           {investHistory.length > 5 && (
             <button
               className="wallet-history-see-more"
@@ -111,7 +105,6 @@ function Overview() {
           )}
         </div>
 
-        {/* BACK */}
         <div className="flexbox-for-back-to-home-btb">
           <button className="back-home-btn" onClick={() => navigate("/")}>
             Back to Home

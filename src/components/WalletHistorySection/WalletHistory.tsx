@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../MainSection/Home/Header/Header";
 import Footer from "../MainSection/Footer/Footer";
+import type { InvestHistoryItem } from "../../types/props";
 import "../MainSection/Overview/Overview.css";
 
 function WalletHistory() {
   const navigate = useNavigate();
 
-  const investHistory = JSON.parse(
+  const investHistory: InvestHistoryItem[] = JSON.parse(
     localStorage.getItem("investHistory") || "[]",
   );
 
@@ -15,7 +16,6 @@ function WalletHistory() {
       <Header />
 
       <div className="wallet-container">
-        {/* HEADER */}
         <div className="wallet-header-flex">
           <span className="wallet-history-title">History of invests</span>
 
@@ -32,15 +32,12 @@ function WalletHistory() {
           )}
         </div>
 
-        {/* EMPTY */}
         {investHistory.length === 0 && (
           <span className="wallet-history-empty">No closed invests yet</span>
         )}
 
-        {/* FULL HISTORY */}
-        {investHistory.map((item: any) => (
+        {investHistory.map((item) => (
           <div key={item.id} className="wallet-history-row">
-            {/* LEFT */}
             <div className="wallet-history-token">
               <img
                 src={item.img}
@@ -58,7 +55,6 @@ function WalletHistory() {
               </div>
             </div>
 
-            {/* RIGHT */}
             <div className="wallet-history-pnl">
               <span
                 className={`wallet-history-profit ${
@@ -81,7 +77,6 @@ function WalletHistory() {
           </div>
         ))}
 
-        {/* BACK */}
         <div className="flexbox-for-back-to-home-btb">
           <button className="back-home-btn" onClick={() => navigate(-1)}>
             Back

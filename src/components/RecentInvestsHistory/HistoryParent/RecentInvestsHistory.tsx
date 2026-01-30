@@ -1,5 +1,4 @@
 import HistoryItem from "../HistoryItem/HistoryItem";
-import "./RecentInvestsHistory.css";
 
 function RecentInvestsHistory({ invests, setInvests }: any) {
   return (

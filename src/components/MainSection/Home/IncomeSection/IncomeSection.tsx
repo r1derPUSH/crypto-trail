@@ -1,20 +1,27 @@
 import "./IncomeSection.css";
 import { useCoins } from "../../../../context/CoinsContext";
 
-function IncomeSection({ invests, totalPnL, resetTotalPnL }: any) {
+import type { InvestItem } from "../../../../types/props";
+
+type Props = {
+  invests: InvestItem[];
+  totalPnL: number;
+  resetTotalPnL: () => void;
+};
+
+function IncomeSection({ invests, totalPnL, resetTotalPnL }: Props) {
   const { coins } = useCoins();
 
-  const floatingPnL = invests.reduce((sum, i) => {
-    const coin = coins.find((c) => c.name === i.name);
-    const price = coin?.current_price ?? i.buyPrice;
-    return sum + (i.tokenAmount * price - i.investedValue);
+  const floatingPnL = invests.reduce((sum, item) => {
+    const coin = coins.find((c) => c.name === item.name);
+    const price = coin?.current_price ?? item.buyPrice;
+    return sum + (item.tokenAmount * price - item.investedValue);
   }, 0);
 
-  const currentInvests = invests.reduce((sum, i) => {
-    const coin = coins.find((c) => c.name === i.name);
-    if (typeof i.tokenAmount !== "number") return sum;
-    const price = coin?.current_price ?? i.buyPrice;
-    return sum + i.tokenAmount * price;
+  const currentInvests = invests.reduce((sum, item) => {
+    const coin = coins.find((c) => c.name === item.name);
+    const price = coin?.current_price ?? item.buyPrice;
+    return sum + item.tokenAmount * price;
   }, 0);
 
   return (

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import "./ConvertSectionHistory.css";
 import type { SwapHistoryItem } from "../../types/swapHistory";
+import { useNavigate } from "react-router-dom";
+import "./ConvertSectionHistory.css";
+import HistoryItem from "./HistoryOfSwapsItem/HistoryItem";
 import {
   getSwapHistory,
   removeSwapFromHistory,
   clearSwapHistory,
 } from "../../functions/swapHistoryFn";
-import HistoryItem from "./HistoryOfSwapsItem/HistoryItem";
-import { useNavigate } from "react-router-dom";
 
 function ConvertSectionHistory() {
   const [history, setHistory] = useState<SwapHistoryItem[]>([]);

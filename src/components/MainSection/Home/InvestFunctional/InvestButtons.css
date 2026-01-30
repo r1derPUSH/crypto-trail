@@ -1,7 +1,3 @@
-/* ======================================================
-   INVEST BUTTONS — BASE LAYOUT
-   ====================================================== */
-
 .invest-functional-container {
   margin-top: 3rem;
 
@@ -11,17 +7,8 @@
   gap: 2.4rem;
 }
 
-/* ======================================================
-   BASE BUTTON
-   відповідає ТІЛЬКИ за:
-   - форму
-   - розміри
-   - анімації
-   - поведінку
-   ====================================================== */
-
 .invest-functional-container button {
-  position: relative; /* потрібно для ::before неону */
+  position: relative;
 
   cursor: pointer;
   border: none;
@@ -37,45 +24,31 @@
   border-radius: 999px;
   color: white;
 
-  /* glass effect */
   backdrop-filter: blur(14px);
 
-  /* базова глибина (НЕ КОЛЬОРОВА) */
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.22),
     0 10px 26px rgba(0, 0, 0, 0.55);
 
-  /* преміум-анімація */
   transition:
     transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ===== BASE BUTTON STYLE ===== */
 .invest-functional-container button {
-  /* було */
-  /* transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), ... */
-
   transition:
     transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* hover — МʼЯКІШИЙ ПІДЙОМ */
 .invest-functional-container button:hover {
   transform: translateY(-4px);
 }
 
-/* active — натиск */
 .invest-functional-container button:active {
   transform: scale(0.94);
   transition-duration: 0.18s;
 }
-
-/* ======================================================
-   ICON HOLDER
-   тільки форма + розмір
-   ====================================================== */
 
 .invest-functional-container button .img-holder,
 .invest-functional-container button .img-holder-convert,
@@ -93,7 +66,6 @@
   background: rgba(255, 255, 255, 0.14);
 }
 
-/* тонка внутрішня лінія */
 .invest-functional-container button .img-holder::after,
 .invest-functional-container button .img-holder-convert::after,
 .invest-functional-container button .img-holder-help::after {
@@ -106,7 +78,6 @@
   opacity: 0.6;
 }
 
-/* іконка */
 .invest-functional-container button img {
   width: 1.2rem;
   height: 1.2rem;
@@ -114,20 +85,12 @@
   object-fit: contain;
 }
 
-/* ======================================================
-   TEXT
-   ====================================================== */
-
 .invest-functional-container button span {
   font-family: "Ubuntu", sans-serif;
   font-size: 1.05rem;
   font-weight: 400;
   letter-spacing: 0.4px;
 }
-
-/* ======================================================
-   RESPONSIVE
-   ====================================================== */
 
 @media (max-width: 1100px) {
   .invest-functional-container {

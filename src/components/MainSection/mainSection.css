@@ -34,8 +34,8 @@ body.light-theme {
   background: radial-gradient(
     circle at 30% 20%,
     #4b63c9 0%,
-    /* ↑ світліше */ #36428a 40%,
-    /* ↑ світліше */ #232a5f 100% /* ↑ світліше */
+    #36428a 40%,
+    #232a5f 100%
   );
 
   background-size: cover;

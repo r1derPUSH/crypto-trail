@@ -11,7 +11,7 @@ function AvatarSection() {
     avatar: string;
   } | null>(null);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const isOpen = false;
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");

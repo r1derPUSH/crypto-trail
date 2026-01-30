@@ -44,7 +44,7 @@
 }
 
 .username {
-  max-width: 140px; /* 👈 підбери під дизайн */
+  max-width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -67,12 +67,10 @@
   transform: scale(1.08);
 }
 
-/* active — легкий press */
 .button-arrow-right:active {
   transform: scale(0.95);
 }
 
-/* ICON */
 .arrow-right-icon {
   font-size: 1.6rem;
 }
@@ -80,14 +78,12 @@
 @media (max-width: 2200px) {
   .username {
     font-size: 1rem;
-    /* margin-bottom: 0.5rem; */
   }
 }
 
 @media (max-width: 1170px) {
   .username {
     font-size: 0.8rem;
-    /* margin-bottom: 0.5rem; */
   }
   .avatar-container {
     width: 30vw;
@@ -104,7 +100,6 @@
 @media (max-width: 800px) {
   .username {
     font-size: 0.7rem;
-    /* margin-bottom: 0.5rem; */
   }
   .avatar-container {
     width: 40vw;

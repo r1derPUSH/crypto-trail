@@ -1,4 +1,4 @@
-/* ===== CARD ===== */
+/* card */
 
 .history-item {
   width: min(92%, 1100px);
@@ -16,16 +16,19 @@
   gap: 0.6rem;
 
   animation: cardIn 0.45s ease forwards;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .history-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 0 1px rgba(91, 121, 232, 0.25),
+  box-shadow:
+    0 0 0 1px rgba(91, 121, 232, 0.25),
     0 18px 45px rgba(91, 121, 232, 0.35);
 }
 
-/* ===== MAIN ROW ===== */
+/* main row */
 
 .history-content {
   display: flex;
@@ -35,7 +38,7 @@
   flex-wrap: nowrap;
 }
 
-/* REMOVE BTN */
+/* remove btn */
 
 .remove-btn {
   background: transparent;
@@ -60,7 +63,7 @@
   transform: scale(0.97);
 }
 
-/* ===== TOKEN BLOCK ===== */
+/* token block */
 
 .history-token-block {
   display: flex;
@@ -105,7 +108,7 @@
   color: #4ade80;
 }
 
-/* ===== ARROW ===== */
+/* arrow */
 
 .history-divider {
   font-size: clamp(1.4rem, 2.5vw, 1.7rem);
@@ -113,7 +116,7 @@
   user-select: none;
 }
 
-/* ===== TIME ===== */
+/* time */
 
 .history-time {
   font-size: clamp(0.75rem, 1vw, 0.85rem);
@@ -121,7 +124,7 @@
   letter-spacing: 0.4px;
 }
 
-/* ===== ANIMATION ===== */
+/* animation */
 
 @keyframes cardIn {
   from {
@@ -134,7 +137,7 @@
   }
 }
 
-/* ===== MOBILE ===== */
+/* mobile */
 
 @media (max-width: 640px) {
   .history-content {

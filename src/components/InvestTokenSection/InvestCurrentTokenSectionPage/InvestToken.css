@@ -57,7 +57,7 @@
   }
 }
 
-/* HEADER SECTION */
+/* header section */
 
 .header {
   width: 100%;
@@ -106,9 +106,7 @@
   color: #a9c3ff;
 }
 
-/* ============================
-   TOKEN DESCRIPTION BLOCK
-============================ */
+/* token description block */
 
 .token-desc {
   margin-top: 1.5rem;
@@ -123,9 +121,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ============================
-   CONVERTER INPUTS
-============================ */
+/* converter inputs */
 
 .invest-token-functional {
   width: 100%;
@@ -158,13 +154,7 @@
   transform: scale(1.03);
 }
 
-/* ============================
-   TOKEN STATS (NEW USER-FRIENDLY VERSION)
-============================ */
-
-/* ============================
-   TOKEN STATS (PREMIUM GRID VERSION)
-============================ */
+/* token stats  */
 
 .other-token-info {
   margin-top: 3rem;
@@ -175,7 +165,8 @@
   padding: 0.5rem 0;
 }
 
-/* PREMIUM TILE CARD */
+/* premium tile card  */
+
 .token-stat-card {
   background: rgba(255, 255, 255, 0.05);
   padding: 1.4rem 1.2rem;
@@ -212,9 +203,7 @@
   color: transparent;
 }
 
-/* ============================
-   PRICE COLORS
-============================ */
+/* price colors  */
 
 .price-red {
   color: #ff5e6a !important;
@@ -226,9 +215,7 @@
   font-weight: 700;
 }
 
-/* ============================
-   PREMIUM INPUT BOXES
-============================ */
+/* premium input boxes  */
 
 .input-wrapper {
   display: flex;
@@ -283,8 +270,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 
-  direction: ltr; /* важливо для чисел */
-  text-align: left; /* або right, якщо хочеш */
+  direction: ltr;
+  text-align: left;
 }
 
 .crypto-input-field::placeholder {
@@ -307,7 +294,6 @@
   border-radius: 50%;
 }
 
-/* ARROW BETWEEN INPUTS */
 .input-arrow {
   cursor: pointer;
   font-size: 2rem;
@@ -318,7 +304,6 @@
 
 /* advanced-invest-section */
 
-/* === MAIN WRAPPER (WOW VERSION) === */
 .advanced-invest-token-container {
   width: 70vw;
   margin-top: 2rem;
@@ -390,7 +375,8 @@
     0 0 2.5rem rgba(0, 0, 0, 0.55);
 }
 
-/* === HEADER === */
+/* header  */
+
 .header-advanced-invest span {
   display: flex;
   justify-content: center;
@@ -403,7 +389,7 @@
   letter-spacing: 0.06rem;
 }
 
-/* === BASIC INFO === */
+/* basic info */
 .advanced-invest-info {
   display: flex;
   justify-content: center;
@@ -419,14 +405,13 @@
   opacity: 0.92;
 }
 
-/* === SECTION (big spacing) === */
+/* section */
 .advanced-section-multipliers {
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
 }
 
-/* === TARGET PRICE === */
 .flex-target-price {
   display: flex;
   justify-content: center;
@@ -449,7 +434,6 @@
   color: transparent;
 }
 
-/* === MULTIPLIERS BUTTON GRID === */
 .advanced-quick-multipliers {
   display: flex;
   justify-content: center;
@@ -488,14 +472,12 @@
     box-shadow 0.25s ease;
 }
 
-/* MAGNETIC HOVER */
 .advanced-quick-multipliers button:hover {
   background: rgba(75, 115, 255, 0.85);
   transform: translateY(-0.18rem) scale(1.05);
   box-shadow: 0 0 1.4rem rgba(75, 135, 255, 0.55);
 }
 
-/* === CUSTOM INPUT === */
 .advanced-input-multiplier-container {
   margin-top: 2rem;
   width: 100%;
@@ -522,7 +504,7 @@
   box-shadow: 0 0 1rem rgba(120, 160, 255, 0.4);
 }
 
-/* === RESULTS === */
+/* results */
 .advanced-results {
   padding-top: 1.6rem;
   border-top: 0.1rem solid rgba(255, 255, 255, 0.08);
@@ -533,7 +515,7 @@
   gap: 1.2rem;
 }
 
-/* RESULT HEADER */
+/* result header */
 .advanced-res-header {
   display: flex;
   justify-content: center;
@@ -547,7 +529,7 @@
   color: #e2e7ff;
 }
 
-/* TOTALS */
+/* totals */
 .advanced-total-invest {
   display: flex;
   flex-direction: column;
@@ -559,7 +541,7 @@
   opacity: 0.95;
 }
 
-/* PROFIT */
+/* profit */
 .advanced-total-invest .profit {
   color: #5aff9e;
   font-weight: 700;
@@ -568,7 +550,7 @@
     0 0 1.6rem rgba(95, 255, 170, 0.45);
 }
 
-/* LOSS */
+/* loss */
 .advanced-total-invest .loss {
   color: #ff6d6d;
   font-weight: 700;
@@ -577,7 +559,7 @@
     0 0 1.6rem rgba(255, 110, 110, 0.45);
 }
 
-/* === RESPONSIVE === */
+/* responsive */
 @media (max-width: 48rem) {
   .advanced-invest-token-container {
     padding: 1.6rem;
@@ -590,7 +572,7 @@
 
 /* endpoint of advanced-invest-section */
 
-/* POSITIVE (GREEN) */
+/* positive (green) */
 .positive {
   color: #6dffb8;
   text-shadow:
@@ -599,7 +581,7 @@
   font-weight: 700;
 }
 
-/* NEGATIVE (RED) */
+/* negative (red) */
 .negative {
   color: #ff6b6b;
   text-shadow:
@@ -608,14 +590,13 @@
   font-weight: 700;
 }
 
-/* NEUTRAL (BLUE) */
+/* neutral (blue) */
 .neutral {
   color: #dce4ff;
   opacity: 0.85;
   text-align: center;
 }
 
-/* BOX SHADOW FOR SECTION */
 .green-shadow {
   box-shadow:
     0 0 2rem rgba(80, 255, 170, 0.25),
@@ -638,7 +619,6 @@
 }
 
 .profit-span {
-  /* margin-right: 50px; */
   text-align: center;
 }
 
@@ -729,16 +709,12 @@
 
 /* loader */
 
-/* ============================
-   INVEST BUTTON LOADER
-============================ */
-
 .btn-invest.loading {
   pointer-events: none;
   opacity: 0.85;
 }
 
-/* SPINNER */
+/* spinner */
 .loader {
   width: 22px;
   height: 22px;
@@ -748,7 +724,6 @@
   animation: spin 0.8s linear infinite;
 }
 
-/* CENTER LOADER */
 .btn-invest {
   display: flex;
   align-items: center;
@@ -765,15 +740,12 @@
   }
 }
 
-/* ============================
-   ADVANCED RESULTS – SIMPLE & USER FRIENDLY
-============================ */
+/* advanced results  */
 
 .advanced-results {
   width: 70%;
   margin-top: 2rem;
   padding: 2rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -787,7 +759,7 @@
   align-items: center;
 }
 
-/* HEADER */
+/* header */
 .advanced-res-header span {
   font-size: 1.4rem;
   font-weight: 700;
@@ -795,14 +767,12 @@
   color: #f0f3ff;
 }
 
-/* CONTENT WRAPPER */
 .advanced-res-profit {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-/* RESULT CARD */
 .advanced-total-invest {
   width: 100%;
   max-width: 420px;
@@ -819,13 +789,11 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* TOTAL VALUE */
 .advanced-total-invest > span {
   font-size: 1.15rem;
   color: #cfd7ff;
 }
 
-/* PROFIT BLOCK */
 .flex-profit-spans {
   display: flex;
   flex-direction: column;
@@ -838,7 +806,6 @@
   opacity: 0.7;
 }
 
-/* PROFIT / LOSS VALUE */
 .positive,
 .negative,
 .neutral {
@@ -846,7 +813,6 @@
   font-weight: 800;
 }
 
-/* COLORS */
 .positive {
   color: #4dffb0;
 }
@@ -859,7 +825,7 @@
   color: #dce4ff;
 }
 
-/* BUTTON */
+/* button */
 .advanced-total-invest .btn-invest {
   margin-top: 1rem;
 }
