@@ -16,7 +16,8 @@
   border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.06);
 
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45),
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.45),
     inset 0 0 0 1px rgba(255, 255, 255, 0.02);
 
   display: flex;
@@ -28,14 +29,12 @@
   margin-bottom: 50rem;
 }
 
-/* === TOP ROW === */
 .top-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* === TOKEN INFO === */
 .token-info {
   display: flex;
   align-items: center;
@@ -55,7 +54,6 @@
   letter-spacing: 0.4px;
 }
 
-/* === PROFIT === */
 .current-profit span {
   font-size: 36px;
   font-weight: 800;
@@ -67,14 +65,12 @@
   text-shadow: 0 0 14px rgba(42, 245, 152, 0.4);
 }
 
-/* === DATE === */
 .creation-date span {
   font-size: 14px;
   color: #9ea3d8;
   opacity: 0.9;
 }
 
-/* === DELETE BUTTON === */
 .delete-btn {
   width: 34px;
   height: 34px;
