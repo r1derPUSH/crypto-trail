@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
 
 import "./AvatarSection.css";
-import manExample from "../img/man-example.jpg";
 
 function AvatarSection() {
   const navigate = useNavigate();
@@ -26,7 +25,7 @@ function AvatarSection() {
 
   return (
     <div className="avatar-container" onClick={handleNavigate}>
-      <img className="user-img" src={user?.avatar || manExample} alt="Avatar" />
+      <img className="user-img" src={user?.avatar} alt="Avatar" />
       <span className="username">{user?.username || "username"}</span>
       <FiChevronRight className="arrow-right-icon" />
     </div>
