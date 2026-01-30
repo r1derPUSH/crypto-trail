@@ -2,10 +2,41 @@ import "./RecentInvestComponent.css";
 import { useCoins } from "../../../../../context/CoinsContext";
 import { formatPrice } from "../../../../../functions/format";
 
-function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
+type InvestItem = {
+  id: number;
+  name: string;
+  investedValue: number;
+  tokenAmount: number;
+  buyPrice: number;
+  targetPrice: number;
+  targetPriceInPercents: number;
+  tokenImage: string;
+  openedAt?: number;
+};
+
+type InvestHistoryItem = {
+  id: number;
+  name: string;
+  investedValue: number;
+  closedValue: number;
+  profit: number;
+  percent: number;
+  img?: string;
+  openedAt: number | null;
+  closedAt: number;
+  status: "profit" | "loss";
+};
+
+type Props = {
+  invests: InvestItem[];
+  setInvests: React.Dispatch<React.SetStateAction<InvestItem[]>>;
+  setTotalPnL: React.Dispatch<React.SetStateAction<number>>;
+};
+
+function RecentInvestComponent({ invests, setInvests, setTotalPnL }: Props) {
   const { coins } = useCoins();
 
-  const saveToHistory = (historyItem: any) => {
+  const saveToHistory = (historyItem: InvestHistoryItem) => {
     const prev = JSON.parse(localStorage.getItem("investHistory") || "[]");
     localStorage.setItem(
       "investHistory",
@@ -13,7 +44,7 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
     );
   };
 
-  const closeCase = (item: any) => {
+  const closeCase = (item: InvestItem) => {
     const coin = findCoin(item.name);
     const currentPrice = coin?.current_price ?? item.buyPrice;
 
@@ -39,9 +70,9 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
       status: currentProfit >= 0 ? "profit" : "loss",
     });
 
-    setTotalPnL((prev: any) => prev + currentProfit);
+    setTotalPnL((prev) => prev + currentProfit);
 
-    setInvests((prev: any) => prev.filter((i: any) => i.id !== item.id));
+    setInvests((prev) => prev.filter((i) => i.id !== item.id));
   };
 
   const closeAllCases = () => {
@@ -50,7 +81,7 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
     );
 
     let totalProfit = 0;
-    const newHistory = [];
+    const newHistory: InvestHistoryItem[] = [];
 
     for (const item of invests) {
       const coin = findCoin(item.name);
@@ -60,8 +91,8 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
 
       const currentValue = item.tokenAmount * currentPrice;
       const currentProfit = currentValue - item.investedValue;
-      const percent = (currentProfit / item.investedValue) * 100;
-
+      const percent =
+        item.investedValue > 0 ? (currentProfit / item.investedValue) * 100 : 0;
       totalProfit += currentProfit;
 
       newHistory.push({
@@ -98,7 +129,7 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
         </button>
       )}
 
-      {invests.map((item: any) => {
+      {invests.map((item) => {
         const coin = findCoin(item.name);
 
         const currentPrice = coin?.current_price ?? item.buyPrice;
@@ -110,22 +141,11 @@ function RecentInvestComponent({ invests, setInvests, setTotalPnL }: any) {
 
         const currentValue = tokenAmount * currentPrice;
 
-        // if (currentValue <= 0) {
-        //   setTotalPnL((prev: number) => prev - investedValue);
-        //   setInvests((prev: any[]) => prev.filter((i) => i.id !== item.id));
-        //   return null;
-        // }
-
         const currentProfit = currentValue - investedValue;
         const currentPercent = (currentProfit / investedValue) * 100;
 
         const targetValue = item.tokenAmount * item.targetPrice;
         const targetProfit = targetValue - item.investedValue;
-
-        // const progressToTarget = Math.min(
-        //   (currentPrice / item.targetPrice) * 100,
-        //   100,
-        // );
 
         return (
           <div key={item.id} className="recent-invest-card">
