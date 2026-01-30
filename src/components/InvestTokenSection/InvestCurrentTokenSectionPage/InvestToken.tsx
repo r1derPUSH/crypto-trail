@@ -1,17 +1,17 @@
-import "./InvestToken.css";
-import Footer from "../../MainSection/Footer/Footer";
-import { useState, useRef } from "react";
-import type { TokenInfo } from "../../../types/tokenInfo";
-import Header from "../../MainSection/Home/Header/Header";
 import { useNavigate } from "react-router-dom";
 import { formatPrice } from "../../../functions/format";
+import { useState, useRef } from "react";
+import "./InvestToken.css";
+import Footer from "../../MainSection/Footer/Footer";
+import Header from "../../MainSection/Home/Header/Header";
+import type { TokenInfo } from "../../../types/tokenInfo";
 
 function InvestToken({
   tokenInfo,
   setInvests,
 }: {
   tokenInfo: TokenInfo;
-  setInvests: React.Dispatch<React.SetStateAction<any[]>>;
+  setInvests: React.Dispatch<React.SetStateAction<unknown[]>>;
 }) {
   const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ function InvestToken({
     setTokenValue(convertedPrice.toFixed(2).toString());
   };
 
-  const tokentName = tokenInfo.name;
+  const tokenName = tokenInfo.name;
   const currentPrice = tokenInfo.price;
   const [targetPrice, setTargetPrice] = useState<number | null>(null);
   const [targetPriceInPercents, setTargetPriceInPercents] = useState("");
@@ -69,7 +69,7 @@ function InvestToken({
       ...prev,
       {
         id: Date.now(),
-        name: tokentName,
+        name: tokenName,
         investedValue,
         tokenAmount,
         buyPrice: Number(currentPrice),
@@ -82,6 +82,19 @@ function InvestToken({
     setTimeout(() => {
       setIsInvesting(false);
     }, 900);
+  };
+
+  const recalcByTargetPrice = (newPrice: number) => {
+    const percent = ((newPrice - currentPrice) / currentPrice) * 100;
+
+    const multiplier = newPrice / currentPrice;
+    const newTotalValue = Number(USDValue) * multiplier;
+    const newProfit = newTotalValue - Number(USDValue);
+
+    setTargetPrice(newPrice);
+    setTargetPriceInPercents(percent.toFixed(2));
+    setTotalValue(newTotalValue);
+    setProfit(newProfit);
   };
 
   return (
@@ -99,12 +112,12 @@ function InvestToken({
         <div className="header">
           <div className="first-flex-header">
             <div className="img-flex-section-token">
-              <img src={tokenInfo.image} alt={tokentName} />
+              <img src={tokenInfo.image} alt={tokenName} />
               <h1 className="token-symbol-h1">
                 {tokenInfo.shortName.toUpperCase()}
               </h1>
             </div>
-            <span className="token-name-span">{tokentName}</span>
+            <span className="token-name-span">{tokenName}</span>
           </div>
           <div className="second-flex-header">
             <span>{formatPrice(currentPrice)} $</span>
@@ -227,7 +240,7 @@ function InvestToken({
               <div className="advanced-invest-info">
                 <span>Your investment: {USDValue} $</span>
                 <span>
-                  You will Recieve: {tokenValue} {tokentName.toUpperCase()}
+                  You will Recieve: {tokenValue} {tokenName.toUpperCase()}
                 </span>
                 <span>Token Price: {currentPrice} $</span>
               </div>
@@ -246,83 +259,24 @@ function InvestToken({
                   <div className="first-section-of-multipliers">
                     <div className="first-section-of-multipliers-first-part">
                       <button
-                        onClick={() => {
-                          const newPrice = Number(currentPrice) * 0.7;
-                          setTargetPrice(newPrice);
-
-                          const percent = (
-                            ((Number(newPrice) - currentPrice) / currentPrice) *
-                            100
-                          ).toFixed(2);
-
-                          setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 0.7;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
-                        }}
+                        onClick={() => recalcByTargetPrice(currentPrice * 0.7)}
                       >
                         x0.7 (-30%)
                       </button>
                       <button
-                        onClick={() => {
-                          const newPrice = Number(currentPrice);
-                          setTargetPrice(newPrice);
-
-                          const percent = (
-                            ((Number(newPrice) - currentPrice) / currentPrice) *
-                            100
-                          ).toFixed(2);
-
-                          setTargetPriceInPercents(percent);
-                          setTotalValue(Number(USDValue));
-                          setProfit(0);
-                        }}
+                        onClick={() => recalcByTargetPrice(currentPrice * 1)}
                       >
                         x1
                       </button>
                     </div>
                     <div className="first-section-of-multipliers-second-part">
                       <button
-                        onClick={() => {
-                          const newPrice = Number(currentPrice) * 1.05;
-                          setTargetPrice(newPrice);
-
-                          const percent = (
-                            ((Number(newPrice) - currentPrice) / currentPrice) *
-                            100
-                          ).toFixed(2);
-
-                          setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 1.05;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
-                        }}
+                        onClick={() => recalcByTargetPrice(currentPrice * 1.05)}
                       >
                         x1.05 (5%)
                       </button>
                       <button
-                        onClick={() => {
-                          const newPrice = Number(currentPrice) * 1.2;
-                          setTargetPrice(newPrice);
-                          const percent = (
-                            ((Number(newPrice) - currentPrice) / currentPrice) *
-                            100
-                          ).toFixed(2);
-
-                          setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 1.2;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
-                        }}
+                        onClick={() => recalcByTargetPrice(currentPrice * 1.2)}
                       >
                         x1.2 (20%)
                       </button>
@@ -331,87 +285,24 @@ function InvestToken({
                   <div className="second-section-of-multipliers">
                     <div className="second-section-of-multipliers-first-part">
                       <button
-                        onClick={() => {
-                          const newPrice = Number(currentPrice) * 1.5;
-                          setTargetPrice(newPrice);
-                          const percent = (
-                            ((Number(newPrice) - currentPrice) / currentPrice) *
-                            100
-                          ).toFixed(2);
-
-                          setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 1.5;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
-                        }}
+                        onClick={() => recalcByTargetPrice(currentPrice * 1.5)}
                       >
                         x1.5 (50%)
                       </button>
                       <button
-                        onClick={() => {
-                          const newPrice = Number(currentPrice) * 2;
-                          setTargetPrice(newPrice);
-
-                          const percent = (
-                            ((Number(newPrice) - currentPrice) / currentPrice) *
-                            100
-                          ).toFixed(2);
-
-                          setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 2;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
-                        }}
+                        onClick={() => recalcByTargetPrice(currentPrice * 2)}
                       >
                         x2 (100%)
                       </button>
                     </div>
                     <div className="second-section-of-multipliers-second-part">
                       <button
-                        onClick={() => {
-                          const newPrice = Number(currentPrice) * 3;
-                          setTargetPrice(newPrice);
-
-                          const percent = (
-                            ((Number(newPrice) - currentPrice) / currentPrice) *
-                            100
-                          ).toFixed(2);
-
-                          setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 3;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
-                        }}
+                        onClick={() => recalcByTargetPrice(currentPrice * 3)}
                       >
                         x3 (150%)
                       </button>
                       <button
-                        onClick={() => {
-                          const newPrice = Number(currentPrice) * 10;
-                          setTargetPrice(newPrice);
-
-                          const percent = (
-                            ((Number(newPrice) - currentPrice) / currentPrice) *
-                            100
-                          ).toFixed(2);
-
-                          setTargetPriceInPercents(percent);
-
-                          const newTotalValue = Number(USDValue) * 10;
-                          setTotalValue(newTotalValue);
-
-                          const newProfit = newTotalValue - Number(USDValue);
-                          setProfit(newProfit);
-                        }}
+                        onClick={() => recalcByTargetPrice(currentPrice * 10)}
                       >
                         x10 (500%)
                       </button>

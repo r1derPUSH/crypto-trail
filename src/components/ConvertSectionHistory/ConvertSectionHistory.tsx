@@ -3,7 +3,6 @@ import type { SwapHistoryItem } from "../../types/swapHistory";
 import { useNavigate } from "react-router-dom";
 import "./ConvertSectionHistory.css";
 import HistoryItem from "./HistoryOfSwapsItem/HistoryItem";
-
 import {
   getSwapHistory,
   removeSwapFromHistory,
