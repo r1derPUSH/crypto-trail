@@ -5,13 +5,14 @@ import "./InvestToken.css";
 import Footer from "../../MainSection/Footer/Footer";
 import Header from "../../MainSection/Home/Header/Header";
 import type { TokenInfo } from "../../../types/tokenInfo";
+import type { InvestItem } from "../../../types/props";
 
 function InvestToken({
   tokenInfo,
   setInvests,
 }: {
   tokenInfo: TokenInfo;
-  setInvests: React.Dispatch<React.SetStateAction<unknown[]>>;
+  setInvests: React.Dispatch<React.SetStateAction<InvestItem[]>>;
 }) {
   const navigate = useNavigate();
 

@@ -10,24 +10,20 @@ import Overview from "./components/MainSection/Overview/Overview";
 import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSectionPage/InvestToken";
 import ConvertSectionHistory from "./components/ConvertSectionHistory/ConvertSectionHistory";
 import ScrollToTop from "./components/CustomComponents/ScrollToTop";
+import WalletHistory from "./components/WalletHistorySection/WalletHistory";
+import RecentInvestsHistory from "./components/RecentInvestsHistory/HistoryParent/RecentInvestsHistory";
 
 import type { TokenInfo } from "./types/tokenInfo";
-import RecentInvestsHistory from "./components/RecentInvestsHistory/HistoryParent/RecentInvestsHistory";
-import { useCoins } from "./context/CoinsContext";
-import WalletHistory from "./components/WalletHistorySection/WalletHistory";
+import type { InvestItem } from "./types/props";
 
 function MainComponent() {
-  const { coins } = useCoins();
-
-  console.log(coins);
-
   const [tokenInfo, setTokenInfo] = useState<TokenInfo | null>(null);
 
   const [isRegistered, setIsRegistered] = useState(false);
   const [login, setLogin] = useState("");
   const [userAvatar, setUserAvatar] = useState<string | null>(null);
   const [registerDate, setRegisterDate] = useState<string | null>(null);
-  const [invests, setInvests] = useState<any[]>(() => {
+  const [invests, setInvests] = useState<InvestItem[]>(() => {
     const saved = localStorage.getItem("invests");
     return saved ? JSON.parse(saved) : [];
   });
@@ -42,17 +38,6 @@ function MainComponent() {
     setTotalPnL(0);
     localStorage.setItem("totalPnL", "0");
   };
-
-  const livePnL = invests.reduce((sum: number, item: any) => {
-    const coin = coins.find(
-      (c) => c.name.toLowerCase() === item.name.toLowerCase(),
-    );
-
-    const currentPrice = coin?.current_price ?? item.buyPrice;
-    const currentValue = item.tokenAmount * currentPrice;
-
-    return sum + (currentValue - item.investedValue);
-  }, 0);
 
   const [authChecked, setAuthChecked] = useState(false);
 
@@ -96,7 +81,6 @@ function MainComponent() {
               <MainSection
                 invests={invests}
                 setInvests={setInvests}
-                livePnL={livePnL}
                 totalPnL={totalPnL}
                 setTotalPnL={setTotalPnL}
                 resetTotalPnL={resetTotalPnL}

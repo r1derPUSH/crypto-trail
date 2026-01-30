@@ -1,10 +1,3 @@
-// ["name"]: tokentName,
-//       ["buyPrice"]: currentPrice,
-//       ["targetPrice"]: targetPrice,
-//       ["targetPriceInPercents"]: targetPriceInPercents,
-//       ["targetProfit"]: profit,
-//       ["totalValue"]: totalValue,
-
 export type Invest = {
   name: string;
   price: number | string;
