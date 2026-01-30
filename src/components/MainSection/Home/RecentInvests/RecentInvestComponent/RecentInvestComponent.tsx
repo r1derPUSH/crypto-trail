@@ -2,36 +2,9 @@ import "./RecentInvestComponent.css";
 import { useCoins } from "../../../../../context/CoinsContext";
 import { formatPrice } from "../../../../../functions/format";
 
-type InvestItem = {
-  id: number;
-  name: string;
-  investedValue: number;
-  tokenAmount: number;
-  buyPrice: number;
-  targetPrice: number;
-  targetPriceInPercents: number;
-  tokenImage: string;
-  openedAt?: number;
-};
-
-type InvestHistoryItem = {
-  id: number;
-  name: string;
-  investedValue: number;
-  closedValue: number;
-  profit: number;
-  percent: number;
-  img?: string;
-  openedAt: number | null;
-  closedAt: number;
-  status: "profit" | "loss";
-};
-
-type Props = {
-  invests: InvestItem[];
-  setInvests: React.Dispatch<React.SetStateAction<InvestItem[]>>;
-  setTotalPnL: React.Dispatch<React.SetStateAction<number>>;
-};
+import type { InvestHistoryItem } from "../../../../../types/props";
+import type { Props } from "../../../../../types/props";
+import type { InvestItem } from "../../../../../types/props";
 
 function RecentInvestComponent({ invests, setInvests, setTotalPnL }: Props) {
   const { coins } = useCoins();
