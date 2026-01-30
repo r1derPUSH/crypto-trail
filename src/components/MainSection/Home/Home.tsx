@@ -1,22 +1,29 @@
+import type { InvestItem } from "../../../types/props";
 import Header from "./Header/Header";
 import IncomeSection from "./IncomeSection/IncomeSection";
 import InvestButtons from "./InvestFunctional/InvestButtons";
 import RecentInvests from "./RecentInvests/RecentInvests";
 
+type HomeProps = {
+  invests: InvestItem[];
+  setInvests: React.Dispatch<React.SetStateAction<InvestItem[]>>;
+  totalPnL: number;
+  setTotalPnL: React.Dispatch<React.SetStateAction<number>>;
+  resetTotalPnL: () => void;
+};
+
 function Home({
   invests,
   setInvests,
-  livePnL,
   totalPnL,
   setTotalPnL,
   resetTotalPnL,
-}: any) {
+}: HomeProps) {
   return (
     <>
       <Header />
       <IncomeSection
         invests={invests}
-        livePnL={livePnL}
         totalPnL={totalPnL}
         resetTotalPnL={resetTotalPnL}
       />
