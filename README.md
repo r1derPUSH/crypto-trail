@@ -110,13 +110,13 @@ The project is configured for deployment on GitHub Pages using GitHub Actions.
 
 ## 🧭 Project Status
 
-# - Project is finished ✅
+- Project is finished ✅
 
 ## 👨‍💻 Author
 
-- - Crypto Trail
+Crypto Trail
 
-# Built by riderPUSH as a learning and portfolio project.
+- Built by riderPUSH as a learning and portfolio project.
 
 ## ⭐️ Support
 
