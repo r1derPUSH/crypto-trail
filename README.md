@@ -103,3 +103,22 @@ npm install
 # start development server
 npm run dev
 ```
+
+## 🌐 Deployment
+
+The project is configured for deployment on GitHub Pages using GitHub Actions.
+
+## 🧭 Project Status
+
+# - Project is finished ✅
+
+## 👨‍💻 Author
+
+- - Crypto Trail
+
+# Built by riderPUSH as a learning and portfolio project.
+
+## ⭐️ Support
+
+- If you like this project, consider giving it a ⭐️
+- Your support is greatly appreciated!
