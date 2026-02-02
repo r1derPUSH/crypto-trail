@@ -39,9 +39,16 @@ export function CoinsProvider({ children }: { children: ReactNode }) {
 
         if (!isMounted) return;
 
-        const filtered = data.filter((coin) => coin.symbol.length <= 5);
+        const filtered = data.filter(
+          (coin) =>
+            coin.symbol.length <= 5 &&
+            coin.id.length <= 15 &&
+            coin.name.length <= 15,
+        );
 
         setCoins(filtered);
+
+        console.log(filtered);
         localStorage.setItem("coins_cache", JSON.stringify(filtered));
         localStorage.setItem("coins_cache_time", Date.now().toString());
       } catch (err) {
