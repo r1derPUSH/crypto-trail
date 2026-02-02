@@ -1,6 +1,5 @@
 /* container */
 .recent-invests-container {
-  /* text-align: center; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +15,6 @@
   border: 3px solid black;
   text-align: center;
   width: 90%;
-  /* text-align: center; */
   background: linear-gradient(145deg, #2b355f, #232c4e);
   border-radius: 16px;
   padding: 16px 20px;
@@ -28,7 +26,6 @@
 /* rows */
 .recent-invest-card > div {
   text-align: center;
-  /* text-align: center; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -225,15 +222,6 @@
   transform: translateY(1px);
 }
 
-/* updating animation styles */
-
-/* .value-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-} */
-
-/* === LIVE UPDATE ANIMATION === */
 .live-update {
   animation: valuePulse 0.6s ease;
 }
@@ -249,7 +237,7 @@
   }
 }
 
-/* COLORS */
+/* colors */
 .positive {
   color: #2af598;
 }

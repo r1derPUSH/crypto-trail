@@ -4,6 +4,11 @@
 
 The project is **fully frontend-based** and does not rely on any external servers — all data is stored locally in the user’s browser.
 
+### 🚀 Try Crypto Trail
+
+Experience the app live:  
+👉 [Crypto Trail — Live Demo](https://r1derpush.github.io/crypto-trail/#/login-page-section)
+
 ---
 
 ## ✨ Features
