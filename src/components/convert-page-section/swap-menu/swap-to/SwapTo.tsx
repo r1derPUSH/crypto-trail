@@ -8,7 +8,7 @@ import { FaAngleDown } from "react-icons/fa";
 import TokenContainer from "../swap-from/token-container/TokenContainer";
 
 // assets & styles
-import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
+import ethereumImg from "../../convert/imgs/XTVCETH--600.png";
 import "./SwapTo.css";
 
 // types
