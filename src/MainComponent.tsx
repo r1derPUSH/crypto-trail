@@ -1,17 +1,17 @@
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import MainSection from "./components/MainSection/MainSection";
-import InvestPage from "./components/InvestPageSection/Invest/InvestPage";
-import ConvertPage from "./components/ConvertPageSection/Convert/ConvertPage";
-import HelpPageSection from "./components/HelpPageSection/Help/HelpPageSection";
-import LoginSection from "./components/LoginPageSection/LoginSection";
-import Overview from "./components/MainSection/Overview/Overview";
-import InvestToken from "./components/InvestTokenSection/InvestCurrentTokenSectionPage/InvestToken";
-import ConvertSectionHistory from "./components/ConvertSectionHistory/ConvertSectionHistory";
-import ScrollToTop from "./components/CustomComponents/ScrollToTop";
-import WalletHistory from "./components/WalletHistorySection/WalletHistory";
-import RecentInvestsHistory from "./components/RecentInvestsHistory/HistoryParent/RecentInvestsHistory";
+import MainSection from "./components/main-section/MainSection";
+import InvestPage from "./components/invest-page-section/invest/InvestPage";
+import ConvertPage from "./components/convert-page-section/convert/ConvertPage";
+import HelpPageSection from "./components/help-page-section/help/HelpPageSection";
+import LoginSection from "./components/login-page-section/LoginSection";
+import Overview from "./components/main-section/Overview/Overview";
+import InvestToken from "./components/invest-token-section/invest-current-token-section-page/InvestToken";
+import ConvertSectionHistory from "./components/convert-section-history/ConvertSectionHistory";
+import ScrollToTop from "./components/custom-components/ScrollToTop";
+import WalletHistory from "./components/wallet-history-section/WalletHistory";
+import RecentInvestsHistory from "./components/recent-invests-history/HistoryParent/RecentInvestsHistory";
 
 import type { TokenInfo } from "./types/tokenInfo";
 import type { InvestItem } from "./types/props";
