@@ -1,7 +1,7 @@
 import "./SwapFrom.css";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
-import ethereumImg from "../../Convert/imgs/XTVCETH--600.png";
+import ethereumImg from "../../convert/imgs/XTVCETH--600.png";
 import TokenContainer from "./token-container/TokenContainer";
 import type { Coin } from "../../../../types/coin";
 import { useEffect } from "react";
