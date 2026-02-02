@@ -1,4 +1,4 @@
-import HistoryItem from "../HistoryItem/HistoryItem";
+import HistoryItem from "../history-item/HistoryItem";
 
 function RecentInvestsHistory({ invests, setInvests }: any) {
   return (
