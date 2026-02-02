@@ -11,7 +11,7 @@ import InvestToken from "./components/invest-token-section/invest-current-token-
 import ConvertSectionHistory from "./components/convert-section-history/ConvertSectionHistory";
 import ScrollToTop from "./components/custom-components/ScrollToTop";
 import WalletHistory from "./components/wallet-history-section/WalletHistory";
-import RecentInvestsHistory from "./components/recent-invests-history/HistoryParent/RecentInvestsHistory";
+import RecentInvestsHistory from "./components/recent-invests-history/history-parent/RecentInvestsHistory";
 
 import type { TokenInfo } from "./types/tokenInfo";
 import type { InvestItem } from "./types/props";
