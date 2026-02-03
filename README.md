@@ -86,13 +86,13 @@ The project includes:
 - Profile Page
 - Help & Support Page
 
-![alt text](image.png)
+![img-1](example-1.png)
 
-![alt text](image-1.png)
+![img-2](example-2.png)
 
-![alt text](image-2.png)
+![img-3](example-3.png)
 
-![alt text](image-5.png)
+![img-4](example-4.png)
 
 ---
 
