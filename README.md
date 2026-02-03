@@ -92,7 +92,7 @@ The project includes:
 
 ![img-3](example-3.png)
 
-![img-4](example-4.png)
+![img-4](example-6.png)
 
 ---
 
