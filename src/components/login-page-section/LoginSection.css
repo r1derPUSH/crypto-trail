@@ -593,3 +593,9 @@ input {
     font-size: 1rem;
   }
 }
+
+@media (max-width: 600px) {
+  .password-eye-btn {
+    right: 1rem; /* або 0.5rem — підбери як треба */
+  }
+}
