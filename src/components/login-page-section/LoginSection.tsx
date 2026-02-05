@@ -141,7 +141,7 @@ function LoginSection({
         <div className="login-container">
           <div className="login-header">
             <img className="passlock-img" src={passlockImg} alt="Login" />
-            <span>Login</span>
+            <span>Sign Up</span>
           </div>
 
           <div className="login-fields">
